@@ -1,0 +1,58 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "~react-toolbox/lib/button/mixins";
+@import "./config";
+
+.bottomsheet {
+  position: fixed;
+  right: $bottomsheet-horizontal-offset;
+  left: $bottomsheet-horizontal-offset;
+  z-index: $z-index-higher;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $bottomsheet-vertical-offset $bottomsheet-horizontal-offset;
+  margin: 0 auto;
+  margin-top: $bottomsheet-vertical-offset;
+  color: $bottomsheet-color;
+  background-color: $bottomsheet-background-color;
+  border-radius: $bottomsheet-border-radius;
+  transition: transform $animation-duration $animation-curve-default $animation-duration;
+  &.accept .button {
+    color: $bottomsheet-color-accept;
+  }
+  &.warning .button {
+    color: $bottomsheet-color-warning;
+  }
+  &.cancel .button {
+    color: $bottomsheet-color-cancel;
+  }
+  &:not(.active) {
+    transform: translateY(100%);
+  }
+  &.active {
+    transform: translateY(0%);
+  }
+
+  &__item {
+    display: flex;
+    flex: 1 auto;
+  }
+}
+
+.icon {
+  margin-right: $bottomsheet-vertical-offset;
+}
+
+.label {
+  flex-grow: 1;
+  font-size: $font-size-small;
+}
+
+.button {
+  min-width: inherit;
+  margin-top: - $bottomsheet-vertical-offset / 2;
+  margin-right: - $bottomsheet-horizontal-offset / 2;
+  margin-bottom: - $bottomsheet-vertical-offset / 2;
+  margin-left: $bottomsheet-button-offset;
+}

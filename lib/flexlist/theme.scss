@@ -1,0 +1,25 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "~react-toolbox/lib/button/mixins";
+@import "config";
+
+.flexlist {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: $flexlist-vertical-padding 0;
+  white-space: nowrap;
+  list-style: none;
+  &.right {
+    justify-content: flex-end;
+  }
+  &.space-between {
+    justify-content: space-between;
+  }
+  &.space-around {
+    justify-content: space-around;
+  }
+  &.center {
+    justify-content: center;
+  }
+}
