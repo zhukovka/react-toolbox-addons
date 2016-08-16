@@ -67,7 +67,6 @@
     "phantomjs-polyfill": "0.0.2",
     "phantomjs-prebuilt": "^2.1.7",
     "postcss-loader": "^0.9.1",
-    "react": "^15.2.0",
     "react-addons-css-transition-group": "^15.2.0",
     "react-addons-test-utils": "^15.0.2",
     "react-docgen": "^2.8.2",
