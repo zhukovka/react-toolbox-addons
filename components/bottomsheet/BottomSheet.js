@@ -4,7 +4,6 @@ import {themr} from 'react-css-themr';
 import {BOTTOMSHEET} from '../identifiers.js';
 import InjectOverlay from 'react-toolbox/lib/overlay/Overlay.js';
 import InjectIconButton from 'react-toolbox/lib/button/IconButton.js';
-
 const factory = (Overlay, IconButton) => {
     class BottomSheet extends Component {
         static propTypes = {
@@ -16,6 +15,7 @@ const factory = (Overlay, IconButton) => {
                 PropTypes.element
             ]),
             style: PropTypes.object,
+            textColor: PropTypes.string,
             theme: PropTypes.shape({
                 accept: PropTypes.string,
                 active: PropTypes.string,
@@ -77,7 +77,7 @@ const factory = (Overlay, IconButton) => {
         }
 
         render () {
-            const {icon, theme, children} = this.props;
+            const {icon, theme, children, textColor} = this.props;
             const {active, bottom} = this.state;
             const className = classnames(theme.bottomsheet, {
                 [theme.active]: active
@@ -87,7 +87,7 @@ const factory = (Overlay, IconButton) => {
                     <div data-react-toolbox='bottomsheet' className={className} style={{bottom}}
                          onMouseDown={(e)=>this.onMouseDown(e, icon)} onMouseMove={(e)=>this.onMouseMove(e)}
                          onMouseUp={()=>this.stopDragging()}>
-                        <div className={theme.bottomsheet__item}>
+                        <div className={theme.bottomsheet__item} style={{color: textColor}}>
                             {children}
                         </div>
                         {icon ? <IconButton icon={icon} inverse onClick={()=>this.hideBottomsheet()}/> : null}

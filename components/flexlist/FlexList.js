@@ -12,8 +12,10 @@ const factory = (ListItem) => {
             className: PropTypes.string,
             ripple: PropTypes.bool,
             selectable: PropTypes.bool,
+            inverse: PropTypes.bool,
             theme: PropTypes.shape({
-                flexlist: PropTypes.string
+                flexlist: PropTypes.string,
+                inverse: PropTypes.string
             })
         };
 
@@ -25,22 +27,25 @@ const factory = (ListItem) => {
 
         renderItems () {
             return React.Children.map(this.props.children, (item) => {
+                let clone;
                 if (item.type === ListItem) {
-                    return React.cloneElement(item, {
+                    clone = React.cloneElement(item, {
                         ripple: this.props.ripple,
-                        selectable: this.props.selectable
+                        selectable: this.props.selectable,
+                        theme: this.props.theme
                     });
                 } else {
-                    return React.cloneElement(item);
+                    clone = React.cloneElement(item, {theme: this.props.theme});
                 }
+                return clone;
             });
         }
 
         render () {
-            const {theme, align} = this.props;
+            const {theme, align, className, inverse} = this.props;
             return (
                 <ul data-react-toolbox='flexlist'
-                    className={classnames([theme.flexlist, theme[align]], this.props.className)}>
+                    className={classnames([theme.flexlist, theme[align]], {[theme.inverse]: inverse}, className)}>
                     {this.renderItems()}
                 </ul>
             );
