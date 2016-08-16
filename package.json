@@ -1,14 +1,14 @@
 {
   "name": "react-toolbox-addons",
-  "version": "1.0.0",
   "description": "",
+  "homepage": "https://github.com/zhukovka/react-toolbox-addons#readme",
+  "version": "1.0.1",
   "main": "./lib",
+  "author": "",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhukovka/react-toolbox-addons.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/zhukovka/react-toolbox-addons/issues"
   },
@@ -17,10 +17,9 @@
     "material design",
     "react",
     "react-component",
-    "toolkit",
-    "react-toolbox"
+    "react-toolbox",
+    "toolkit"
   ],
-  "homepage": "https://github.com/zhukovka/react-toolbox-addons#readme",
   "dependencies": {
     "classnames": "^2.2.5",
     "core-js": "^2.4.0",
@@ -100,5 +99,6 @@
     "test": "cross-env NODE_ENV=test karma start",
     "test:watch": "cross-env NODE_ENV=test karma start --no-single-run",
     "tsd": "cpx './components/**/*.d.ts' ./lib"
-  }
+  },
+  "license": "ISC"
 }
