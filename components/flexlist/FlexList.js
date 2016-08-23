@@ -10,13 +10,11 @@ const factory = (ListItem) => {
             align: PropTypes.oneOf(['right', 'space-between', 'space-around', 'center']),
             children: PropTypes.node,
             className: PropTypes.string,
+            flexlist: PropTypes.string,
+            inverse: PropTypes.bool,
             ripple: PropTypes.bool,
             selectable: PropTypes.bool,
-            inverse: PropTypes.bool,
-            theme: PropTypes.shape({
-                flexlist: PropTypes.string,
-                inverse: PropTypes.string
-            })
+            theme: PropTypes.shape({})
         };
 
         static defaultProps = {
