@@ -38,12 +38,12 @@ RTColumn.propTypes = {
     align: PropTypes.string,
     children: PropTypes.array,
     className: PropTypes.string,
-    large: PropTypes.string,
-    medium: PropTypes.string,
+    large: PropTypes.number,
+    medium: PropTypes.number,
     offset: PropTypes.string,
     order: PropTypes.string,
     shrink: PropTypes.string,
-    small: PropTypes.string,
+    small: PropTypes.number,
     theme: PropTypes.object
 };
 export default RTColumn;
