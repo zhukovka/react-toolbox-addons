@@ -11,8 +11,8 @@ const factory = (Overlay, IconButton) => {
             children: PropTypes.node,
             className: PropTypes.string,
             icon: PropTypes.oneOfType([
-                PropTypes.string,
-                PropTypes.element
+                PropTypes.element,
+                PropTypes.string
             ]),
             style: PropTypes.object,
             textColor: PropTypes.string,
