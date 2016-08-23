@@ -10,6 +10,7 @@ const CardActionsRight = (props) => (
     </CardActions>
 );
 CardActionsRight.propTypes = {
-    children: PropTypes.object
+    children: PropTypes.array
 };
+export default CardActionsRight;
 export {CardActionsRight as CardActionsRight};
