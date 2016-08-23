@@ -23,3 +23,14 @@
     justify-content: center;
   }
 }
+
+.inverse {
+  .itemText {
+    &:not(.primary) {
+      color: $palette-grey-100;
+    }
+    &.primary {
+      color: $palette-grey-50;
+    }
+  }
+}
