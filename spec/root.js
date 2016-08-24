@@ -9,17 +9,20 @@ import {Row, Col} from '../components/grid/index';
 import {CardActions} from 'react-toolbox/lib/card';
 
 import {DropZone} from '../components/drop-zone';
+import {UploadButton} from '../components/upload-button';
 
 function onChangeFunc(e){
     console.log(e);
 }
 const Root = () => (
     <div className={style.app}>
+        <UploadButton handlerOnChange={onChangeFunc} icon="photo_camera" className="custom" preview>
+        </UploadButton>
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
         <DropZone handlerOnChange={onChangeFunc}>
-            TEST
+            Text
         </DropZone>
         <BottomSheet />
         <CardActions>
