@@ -1,4 +1,4 @@
-import React, {Component,PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
 import {DROP_ZONE} from '../identifiers';
 import {UploadButton} from '../upload-button';
@@ -13,26 +13,29 @@ class RTDropZone extends Component {
         super(props);
         this.state = {
             isDragActive: false,
-            imageUrl : '',
-            progress : 0
+            imageUrl: '',
+            progress: 0
         };
     }
+
     static propTypes = {
-        children : PropTypes.any,
-        className : PropTypes.string,
-        theme : PropTypes.object,
-        handlerOnChange : PropTypes.func,
-        activeClass : PropTypes.string,
-        defaultClass : PropTypes.string
+        children: PropTypes.any,
+        className: PropTypes.string,
+        theme: PropTypes.object,
+        handlerOnChange: PropTypes.func,
+        activeClass: PropTypes.string,
+        defaultClass: PropTypes.string
     };
     static defaultProps = {
-        defaultClass : DROP_ZONE
+        defaultClass: DROP_ZONE
     };
+
     onDragLeave(e) {
         this.setState({
             isDragActive: false
         });
     }
+
     onDragOver(e) {
         e.preventDefault();
         e.dataTransfer.dropEffect = 'copy';
@@ -40,50 +43,45 @@ class RTDropZone extends Component {
             isDragActive: true
         });
     }
-    onChangeHandler(e){
+
+    onChangeHandler(e) {
         e.preventDefault();
         let file, reader;
         reader = new FileReader();
-        if(e.dataTransfer){
+        if (e.dataTransfer) {
             file = e.dataTransfer.files[0];
-        }else {
+        } else {
             file = e.target.files[0];
         }
 
         reader.onprogress = (event) => {
             if (event.lengthComputable) {
-                let max = event.total;
-                let value = event.loaded;
-                console.log(max , value);
-                if(max == value){
-                    this.setState({
-                        progress : 100,
-                        imageUrl : reader.result,
-                        isDragActive : false,
-                    })
-                }
+                let total = event.total;
+                let loaded = event.loaded;
+                this.setState({
+                    progress: (loaded / total) * 100,
+                })
             }
         };
         reader.onloadend = () => {
-            setTimeout(()=>{
-                this.setState({
-                    progress : 0
-                })
-            },500)
-
+            this.setState({
+                progress: 0,
+                imageUrl: reader.result,
+                isDragActive: false
+            })
         };
         reader.readAsDataURL(file);
     }
 
-    renderContent(){
-        let { progress, imageUrl } = this.state;
-        if(!progress){
+    renderContent() {
+        let {progress, imageUrl} = this.state;
+        if (!progress) {
             return (
                 <UploadButton icon="photo_camera"
                               imageUrl={imageUrl}
                               handlerOnChange={this.onChangeHandler.bind(this)}/>
             )
-        }else {
+        } else {
             return (
                 <div style={{padding: '10.8rem'}}>
                     <ProgressBar value={progress} mode='determinate'/>
@@ -93,12 +91,12 @@ class RTDropZone extends Component {
     }
 
     render() {
-        let { theme, className, activeClass, defaultClass } = this.props;
-        let { isDragActive } = this.state;
-        let classes = classnames(theme[defaultClass],{
-            [theme[CSS_DROP_ZONE_ACTIVE]] : isDragActive,
-            [activeClass] : activeClass && isDragActive
-        },className);
+        let {theme, className, activeClass, defaultClass} = this.props;
+        let {isDragActive} = this.state;
+        let classes = classnames(theme[defaultClass], {
+            [theme[CSS_DROP_ZONE_ACTIVE]]: isDragActive,
+            [activeClass]: activeClass && isDragActive
+        }, className);
 
         return (
             <div className={classes}
