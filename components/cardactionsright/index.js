@@ -4,6 +4,7 @@
 import React, {PropTypes} from 'react';
 import {CardActions} from 'react-toolbox/lib/card';
 import theme from './theme.scss';
+
 const CardActionsRight = (props) => (
     <CardActions {...props} theme={theme}>
         {props.children}
