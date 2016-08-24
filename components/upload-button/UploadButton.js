@@ -32,16 +32,9 @@ class RTUploadButton extends Component {
   handleOnClick(e){
     ReactDOM.findDOMNode(this.refs.fileInput).click();
   }
-
   handleOnChange(e){
-    let { preview } = this.props;
-    if( preview ){
-      this.showPreview(e);
-    }
-    else {
       this.props.handlerOnChange(e);
       this.refs.fileInput.value = "";
-    }
   }
 
   handleMouseOver(bool){
@@ -49,23 +42,9 @@ class RTUploadButton extends Component {
       buttonHover : bool
     })
   }
-
-  showPreview(e){
-    let file = e.target.files[0];
-    let reader = new FileReader();
-    reader.onloadend = () => {
-      this.setState({
-        imageUrl : reader.result
-      },()=>{
-        this.props.handlerOnChange(e);
-        this.refs.fileInput.value = "";
-      })
-    };
-    reader.readAsDataURL(file);
-  }
   renderIcon(icon){
-    let { theme } = this.props;
-    let { imageUrl, buttonHover } = this.state;
+    let { theme,imageUrl } = this.props;
+    let { buttonHover } = this.state;
     if(icon && !imageUrl && !buttonHover){
       return (
           <FontIcon className={theme[CSS_UPLOAD_BUTTON_ICON]}>{icon}</FontIcon>
@@ -78,8 +57,8 @@ class RTUploadButton extends Component {
     }
   }
   render() {
-    let { theme, icon, children, defaultClass, className } = this.props;
-    let { buttonHover, imageUrl } = this.state;
+    let { theme, icon, children, defaultClass, className,imageUrl } = this.props;
+    let { buttonHover } = this.state;
     let classes = classnames(theme[defaultClass], className);
     let buttonClasses = classnames({
       [theme[CSS_UPLOAD_BUTTON_HOVER]] : buttonHover,

@@ -16,13 +16,10 @@ function onChangeFunc(e){
 }
 const Root = () => (
     <div className={style.app}>
-        <UploadButton handlerOnChange={onChangeFunc} icon="photo_camera" className="custom" preview>
-        </UploadButton>
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
         <DropZone handlerOnChange={onChangeFunc}>
-            Text
         </DropZone>
         <BottomSheet />
         <CardActions>
