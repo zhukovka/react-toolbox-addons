@@ -1,34 +1,41 @@
 # Grid
 
-A [dialog](https://www.google.com/design/spec/components/pickers.html#pickers-date-pickers) date  picker is used to select a single date. The selected day is indicated by a filled circle. The current day is indicated by a different color and type weight.
+Grid layout base on foundation grid flex system
 
-<!-- example -->
-```jsx
+If you want to provide a theme via context, the component key is `RTAutocomplete`.
 
 ## Properties
 
-| Name            | Type            | Default       | Description |
+| Name                | Type                   | Default         | Description|
 |:-----|:-----|:-----|:-----|
-| `active`        | `Boolean`       | `false`       | Allows to control if the picker should be shown from outside. Beware you should update the prop when the Dialog is closed. |
-| `autoOk`        | `Boolean`       | `false`       | Automatically selects a date upon clicking on a day. |
-| `className`     | `String`        |               | This class will be placed at the top of the `DatePickerDialog` component so you can provide custom styles.|
-| `inputClassName`| `String`        |               | This class will be applied to `Input` component of `DatePicker`. |
-| `inputFormat`   | `Function`      |               | Function to format the date displayed on the input. |
-| `label`         | `String`        |               | The text string to use for the floating label element in the input component.|
-| `locale`        | `String` or `Object` | `'en'`     | Set the locale for the date picker dialog ('en','es','af','ar','be','bg','bn','bo','br','bs','ca','gl','eu','pt','it',fr'). Object is supported too (see example above). |
-| `maxDate`       | `Date`          |               | Date object with the maximum selectable date. |
-| `minDate`       | `Date`          |               | Date object with the minimum selectable date. |
-| `onChange`      | `Function`      |               | Callback called when the picker value is changed.|
-| `onEscKeyDown`  | `Function`      |               | Callback called when the ESC key is pressed with the overlay active. |
-| `onOverlayClick`| `Function`      |               | Callback to be invoked when the dialog overlay is clicked.|
-| `readonly`      | `Boolean`       |               | The input element will be readonly and look like disabled.|
-| `sundayFirstDayOfWeek` | `Boolean`| `false`       | Set week's first day to Sunday. Default week's first day is Monday ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Week_dates)). |
-| `value`         | `Date`          |               | Date object with the currently selected date. |
+| `small`       | `String`                 |            |  |
+| `className`         | `String`               | `''`            | Sets a class to style of the Component.|
+| `direction`         | `String`               |  `auto`         | Determines the opening direction. It can be `auto`, `top` or `bottom`.|
+| `disabled`          | `Bool`                 |  `false`        | If true, component will be disabled.|
+| `error`             | `String`               |                 | Sets the error string for the internal input element.|
+| `label`             | `String`               |                 | The text string to use for the floating label element.|
+| `multiple`          | `Bool`                 | `true`          | If true, component can hold multiple values.|
+| `onChange`          | `Function`             |                 | Callback function that is fired when the components's value changes.|
+| `source`            | `Object` or `Array`    |                 | Object of key/values or array representing all items suggested. |
+| `selectedPosition`  | `String`               |  `above`        | Determines if the selected list is shown above or below input. It can be `above` or `below`. |
+| `showSuggestionsWhenValueIsSet` | `Bool`     | `false`         | If true, the list of suggestions will not be filtered when a value is selected, until the query is modified. |
+| `suggestionMatch`   | `String`               | `start`         | Determines how suggestions are supplied. It can be `start` (query matches the start of a suggestion), `anywhere` (query matches anywhere inside the suggestion), or `word` (query matches the start of a word in the suggestion). |
+| `value`             | `String` or `Array`    |                 | Value or array of values currently selected component.|
+
+Additional properties will be passed to the Input Component so you can use `hint`, `name` ... etc.
 
 ## Theme
 
 | Name     | Description|
 |:---------|:-----------|
-| `small` | small column .|
-| `medium` | medium column.|
-| `large` | large column.|
+| `active` | Used for a suggestion when it's active.|
+| `autocomplete`  | Used for the root element.|
+| `focus`   | Used when the input is focused.|
+| `input`   | Used to style the `Input` component.|
+| `label`   | Used for the label.|
+| `suggestion`   | Used to style each suggestion.|
+| `suggestions`   | Used to style the suggestions container.|
+| `up`   | Used for the suggestions when it's opening to the top.|
+| `value`   | Classname used for a single value.|
+| `values`   | Classname used for the values container.|
+
