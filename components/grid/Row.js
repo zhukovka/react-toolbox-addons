@@ -6,16 +6,16 @@ import {
     CSS_ROW_COLLAPSE,
     CSS_ROW_EXPANDED
 } from './constants';
-import {joinWithHyphen} from './Column.js';
+import {joinWithHyphen,classMaps} from './Column.js';
 
-const RTRow = ({className, children, theme, align, expanded, collapse}) => {
+const RTRow = ({className, children, theme, align, expanded, collapse, up}) => {
 
     const classes = classnames({
         [theme[CSS_ROW_CLASS]]: true,
         [theme[joinWithHyphen(CSS_ROW_ALIGN, align)]]: align,
-        [theme[CSS_ROW_EXPANDED]]: expanded,
-        [theme[CSS_ROW_COLLAPSE]]: collapse
-    }, className);
+        [theme[CSS_ROW_COLLAPSE]]: collapse,
+        [theme[CSS_ROW_EXPANDED]] : expanded
+    }, classMaps(up, theme), className);
 
     return (
         <div className={classes}>

@@ -3,15 +3,15 @@ import _theme from './theme.scss';
 import RTRow from './Row';
 import RTColumn from './Column';
 import {
-  RT_COLUMN,
-  RT_ROW
-} from './constants';
+  COLUMN,
+  ROW
+} from '../identifiers.js';
 
 
 const applyTheme = (Component, id)=>themr(id, _theme)(Component);
 
-const Col = applyTheme(RTColumn, RT_COLUMN);
-const Row = applyTheme(RTRow, RT_ROW);
+const Col = applyTheme(RTColumn, COLUMN);
+const Row = applyTheme(RTRow, ROW);
 
 
 export {Row, Col};
