@@ -4,23 +4,23 @@ Grid layout base on foundation grid flex system
 
 If you want to provide a theme via context, the component key is `RTAutocomplete`.
 
-## Properties
+## Row properties
+| Name                | Type                   | Default         | Description|
+|:-----|:-----|:-----|:-----|
+| `align`       | `String`                 |            | Vertical alignment are top, middle, bottom, and stretch.|
+| `align`       | `String`                 |            | Horizontal alignment are right, center, justify, and spaced.|
+
+## Column properties
 
 | Name                | Type                   | Default         | Description|
 |:-----|:-----|:-----|:-----|
-| `small`       | `String`                 |            |  |
+| `small`       | `Number`                 |            | Sets column width , for small screen size. |
+| `medium`       | `Number`                 |            | Sets column width , for medium screen size. |
+| `large`       | `Number`                 |            | Sets column width , for large screen size. |
+| `align`       | `String`                 |    'align-left'        | Columns can be aligned the same way you would align text in a paragraph. |
+| `shrink`       | `Boolean`                 |            | Column will only take up the horizontal space its contents need. |
+| `offset`       | `String`                 |            | Set for current column offset ( small-offset-3 ). |
 | `className`         | `String`               | `''`            | Sets a class to style of the Component.|
-| `direction`         | `String`               |  `auto`         | Determines the opening direction. It can be `auto`, `top` or `bottom`.|
-| `disabled`          | `Bool`                 |  `false`        | If true, component will be disabled.|
-| `error`             | `String`               |                 | Sets the error string for the internal input element.|
-| `label`             | `String`               |                 | The text string to use for the floating label element.|
-| `multiple`          | `Bool`                 | `true`          | If true, component can hold multiple values.|
-| `onChange`          | `Function`             |                 | Callback function that is fired when the components's value changes.|
-| `source`            | `Object` or `Array`    |                 | Object of key/values or array representing all items suggested. |
-| `selectedPosition`  | `String`               |  `above`        | Determines if the selected list is shown above or below input. It can be `above` or `below`. |
-| `showSuggestionsWhenValueIsSet` | `Bool`     | `false`         | If true, the list of suggestions will not be filtered when a value is selected, until the query is modified. |
-| `suggestionMatch`   | `String`               | `start`         | Determines how suggestions are supplied. It can be `start` (query matches the start of a suggestion), `anywhere` (query matches anywhere inside the suggestion), or `word` (query matches the start of a word in the suggestion). |
-| `value`             | `String` or `Array`    |                 | Value or array of values currently selected component.|
 
 Additional properties will be passed to the Input Component so you can use `hint`, `name` ... etc.
 
@@ -28,14 +28,12 @@ Additional properties will be passed to the Input Component so you can use `hint
 
 | Name     | Description|
 |:---------|:-----------|
-| `active` | Used for a suggestion when it's active.|
-| `autocomplete`  | Used for the root element.|
-| `focus`   | Used when the input is focused.|
-| `input`   | Used to style the `Input` component.|
-| `label`   | Used for the label.|
-| `suggestion`   | Used to style each suggestion.|
-| `suggestions`   | Used to style the suggestions container.|
-| `up`   | Used for the suggestions when it's opening to the top.|
-| `value`   | Classname used for a single value.|
-| `values`   | Classname used for the values container.|
+| `column` | Column class.|
+| `row`  | Row class.|
+| `small-{1-12} | medium-{1-12} | large-{1-12} `   | Classes for column with modifiers.|
+| `align-{right | center | justify | spaced}`   | Classes for row horizontal align.|
+| `align-{top | middle | bottom | stretch}`   | Classes for row vertical align.|
+| `{small | medium | large}-offset-{1-12}`   | Classes for row offset columns.|
+
+
 
