@@ -1,0 +1,12 @@
+
+$default-rem : 3rem;
+$active-drag-color : #ddd;
+
+
+.RTDropZone {
+  width: 100%;
+  padding : $default-rem;
+  &--active {
+    background: $active-drag-color;
+  }
+}
