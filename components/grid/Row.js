@@ -25,7 +25,7 @@ const RTRow = ({className, children, theme, align, expanded, collapse}) => {
 };
 RTRow.propTypes = {
     align: PropTypes.string,
-    children: PropTypes.array,
+    children: React.PropTypes.any,
     className: PropTypes.string,
     collapse: PropTypes.bool,
     expanded: PropTypes.bool,
