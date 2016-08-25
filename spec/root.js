@@ -12,15 +12,26 @@ import {CardActions} from 'react-toolbox/lib/card';
 import ButtonGroup from '../components/buttongroup/ButtonGroup';
 import {NavigationChips} from '../components/navigation-chips';
 import CardTitlePrimary from '../components/card-addons/CardTitlePrimary';
+<<<<<<< HEAD
 import {StatusComponent} from '../components/status-component';
 
 
+=======
+import Checkmark from '../components/checkmark/Checkmark';
+
+function upload (file, result, e) {
+    console.log(file);
+    console.log(e);
+}
+const _avatar = 'https://dl.dropboxusercontent.com/u/53778939/User%20avatar.png';
+>>>>>>> 1e7d7ae816cff80732998b0175b6fe6a580ed823
 const Root = () => (
     <div className={style.app}>
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
         <CardTitlePrimary>
+<<<<<<< HEAD
                 KUKURUKU
             <StatusComponent status="idle"/>
             <StatusComponent status="warning"/>
@@ -28,6 +39,14 @@ const Root = () => (
             <StatusComponent status="ready"/>
         </CardTitlePrimary>
         <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']} currentIndex={2}/>
+=======
+            KUKURUKU
+        </CardTitlePrimary>
+
+        <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']}
+                         currentIndex={2}/>
+
+>>>>>>> 1e7d7ae816cff80732998b0175b6fe6a580ed823
 
         <BottomSheet />
         <h3>CardActions</h3>
@@ -66,7 +85,9 @@ const Root = () => (
 
         <DropdownPlus/>
 
-
+        <section>
+            <Checkmark/>
+        </section>
     </div>
 );
 
