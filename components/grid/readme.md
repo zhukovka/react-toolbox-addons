@@ -15,8 +15,8 @@ If no sizing class is added to the column, it will simply expand to fill the lef
 | Name                | Type                   | Default         | Description|
 |:-----|:-----|:-----|:-----|
 
-| `align *horizontal*`     | `String`                 |            | Vertical alignment, available options are : top, middle, bottom, stretch. Example: (align={'align-bottom'}).|
-| `align *vertical* `      | `String`                 |            | Horizontal alignment, available options ara right, center, justify, and spaced. Example: (align={'align-spaced'}).|
+| `align`     | `String`                 |            | Vertical alignment, available options are : top, middle, bottom, stretch. Example: (align={'align-bottom'}).|
+| `align`      | `String`                 |            | Horizontal alignment, available options ara right, center, justify, and spaced. Example: (align={'align-spaced'}).|
 | `up`       | `String`                 |            | To define column widths at the row-level, instead of the individual column level, you can add **up** property. Example : (up='small-up-1')|
 | `expanded`       | `Boolean`                 |            | Set width of Row to equal 100% |
 
