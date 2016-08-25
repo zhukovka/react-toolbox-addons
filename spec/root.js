@@ -8,10 +8,10 @@ import CardActionsRight from '../components/cardactionsright/index';
 import {Row, Col} from '../components/grid/index';
 import {CardActions} from 'react-toolbox/lib/card';
 
-import {DropZone} from '../components/drop-zone';
+import {Upload} from '../components/upload-zone';
 import {UploadButton} from '../components/upload-button';
 
-function onChangeFunc(file, result, e){
+function upload (file, result, e){
     console.log(file);
     console.log(e);
 }
@@ -20,8 +20,8 @@ const Root = () => (
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
-        <DropZone handlerOnChange={onChangeFunc}>
-        </DropZone>
+        <Upload onUpload={upload}>
+        </Upload>
         <BottomSheet />
         <CardActions>
             <Button label="Action default 1" />

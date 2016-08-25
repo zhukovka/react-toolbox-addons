@@ -1,11 +1,11 @@
 import __ReactToolbox from "../index.d.ts";
 
-interface DropZoneTheme {
+interface UploadTheme {
     dropZone : string;
     'dropZone--active' : string
 }
 
-interface DropZoneProps extends __ReactToolbox.Props {
+interface UploadProps extends __ReactToolbox.Props {
     /**
      * Children to pass through the component.
      */
@@ -13,10 +13,10 @@ interface DropZoneProps extends __ReactToolbox.Props {
     /**
      * Classnames object defining the component style.
      */
-    theme?: DropZoneTheme;
+    theme?: UploadTheme;
     activeClass : String;
     className : String;
 
 }
 
-export class DropZone extends __React.Component<DropZoneProps, {}> { }
+export class Upload extends __React.Component<DropZoneProps, {}> { }

@@ -13,57 +13,59 @@ import {
 } from './constants';
 
 class RTUploadButton extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      imageUrl : props.imageUrl || '',
-      buttonHover : false
-    }
-  }
   static propTypes = {
-    children : PropTypes.any,
-    handlerOnChange : PropTypes.func.isRequired,
-    className : PropTypes.string,
-    defaultClass : PropTypes.string
+    children: PropTypes.any,
+    className: PropTypes.string,
+    defaultClass: PropTypes.string,
+    onUpload: PropTypes.func.isRequired,
+    icon: PropTypes.string,
+    imageUrl: PropTypes.string,
+    theme: PropTypes.object
   };
   static defaultProps = {
-    defaultClass : CSS_UPLOAD_BUTTON_SECTION
+    defaultClass: CSS_UPLOAD_BUTTON_SECTION
   };
-  handleOnClick(e){
+  constructor (props){
+    super(props);
+    this.state = {
+      imageUrl: props.imageUrl || '',
+      buttonHover: false
+    };
+  }
+  handleOnClick (){
     ReactDOM.findDOMNode(this.refs.fileInput).click();
   }
-  handleOnChange(e){
-      this.props.handlerOnChange(e);
-      this.refs.fileInput.value = "";
+  handleOnChange (e){
+      this.props.onUpload(e);
+      this.refs.fileInput.value = '';
   }
 
-  handleMouseOver(bool){
+  handleMouseOver (bool){
     this.setState({
-      buttonHover : bool
-    })
+      buttonHover: bool
+    });
   }
-  renderIcon(icon){
-    let { theme,imageUrl } = this.props;
-    let { buttonHover } = this.state;
-    if(icon && !imageUrl  && !buttonHover){
+  renderIcon (icon){
+    const { theme, imageUrl } = this.props;
+    const { buttonHover } = this.state;
+    if (icon && !imageUrl && !buttonHover){
       return (
           <FontIcon className={theme[CSS_UPLOAD_BUTTON_ICON]}>{icon}</FontIcon>
-      )
-    }
-    else if (icon && buttonHover){
+      );
+    } else if (icon && buttonHover){
       return (
           <FontIcon className={theme[CSS_UPLOAD_BUTTON_ICON_WHITE]}>{icon}</FontIcon>
-      )
+      );
     }
 
   }
-  render() {
-    let { theme, icon, children, defaultClass, className,imageUrl } = this.props;
-    let { buttonHover } = this.state;
+  render () {
+    const { theme, icon, children, defaultClass, className, imageUrl } = this.props;
+    const { buttonHover } = this.state;
     let classes = classnames(theme[defaultClass], className);
     let buttonClasses = classnames({
-      [theme[CSS_UPLOAD_BUTTON_HOVER]] : buttonHover,
-      [theme[CSS_UPLOAD_BUTTON_BUTTON]] : !buttonHover
+      [theme[CSS_UPLOAD_BUTTON_HOVER]]: buttonHover,
+      [theme[CSS_UPLOAD_BUTTON_BUTTON]]: !buttonHover
     });
     return (
     <div className={classes}>
@@ -72,8 +74,8 @@ class RTUploadButton extends Component {
               onMouseEnter={this.handleMouseOver.bind(this, true)}
               onMouseLeave={this.handleMouseOver.bind(this, false)}
               style={{
-                backgroundImage : `url(${imageUrl})`,
-                backgroundSize : 'cover'
+                backgroundImage: `url(${imageUrl})`,
+                backgroundSize: 'cover'
               }}
              >
         {this.renderIcon(icon)}
@@ -84,7 +86,7 @@ class RTUploadButton extends Component {
              onChange={this.handleOnChange.bind(this)}
              style={{display: 'none'}}/>
     </div>
-    )
+    );
   }
 }
 
