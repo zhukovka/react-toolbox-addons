@@ -45,7 +45,7 @@ class RTUploadButton extends Component {
   renderIcon(icon){
     let { theme,imageUrl } = this.props;
     let { buttonHover } = this.state;
-    if(icon && !imageUrl && !buttonHover){
+    if(icon && !imageUrl  && !buttonHover){
       return (
           <FontIcon className={theme[CSS_UPLOAD_BUTTON_ICON]}>{icon}</FontIcon>
       )
@@ -55,6 +55,7 @@ class RTUploadButton extends Component {
           <FontIcon className={theme[CSS_UPLOAD_BUTTON_ICON_WHITE]}>{icon}</FontIcon>
       )
     }
+
   }
   render() {
     let { theme, icon, children, defaultClass, className,imageUrl } = this.props;

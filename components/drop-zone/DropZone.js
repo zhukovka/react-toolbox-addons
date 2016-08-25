@@ -93,6 +93,8 @@ class RTDropZone extends Component {
                 progress : 0,
                 imageUrl: reader.result,
                 isDragActive: false
+            },()=>{
+                this.props.handlerOnChange(file, reader.result, e);
             })
         };
 

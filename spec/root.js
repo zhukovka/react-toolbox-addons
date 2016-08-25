@@ -11,7 +11,8 @@ import {CardActions} from 'react-toolbox/lib/card';
 import {DropZone} from '../components/drop-zone';
 import {UploadButton} from '../components/upload-button';
 
-function onChangeFunc(e){
+function onChangeFunc(file, result, e){
+    console.log(file);
     console.log(e);
 }
 const Root = () => (
