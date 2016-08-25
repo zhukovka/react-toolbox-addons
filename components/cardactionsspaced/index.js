@@ -4,14 +4,13 @@
 import React, {PropTypes} from 'react';
 import {CardActions} from 'react-toolbox/lib/card';
 import theme from './theme.scss';
-
-const CardActionsRight = (props) => (
+const CardActionsSpaced = (props) => (
     <CardActions {...props} theme={theme}>
         {props.children}
     </CardActions>
 );
-CardActionsRight.propTypes = {
-    children: PropTypes.array
+CardActionsSpaced.propTypes = {
+    children: PropTypes.any
 };
-export default CardActionsRight;
-export {CardActionsRight as CardActionsRight};
+export default CardActionsSpaced;
+export {CardActionsSpaced as CardActionsSpaced};

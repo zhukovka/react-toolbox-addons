@@ -16,8 +16,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('*', function (req, res) {
+app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, './spec/index.html'));
+});
+app.get('/favicon.ico', function (req, res) {
+  res.sendFile(path.join(__dirname, './favicon.ico'));
 });
 
 app.listen(9080, '0.0.0.0', function (err) {

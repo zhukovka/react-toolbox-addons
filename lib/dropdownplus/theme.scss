@@ -1,0 +1,8 @@
+@import "./config";
+@import "~react-toolbox/lib/dropdown/theme.scss";
+
+.add-another {
+  border-top: 1px solid $dropdown-value-hover-background;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
