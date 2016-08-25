@@ -173,6 +173,7 @@
   // Column
   .column {
     @include flex-grid-column;
+    box-sizing: border-box;
   }
 
   // Column row

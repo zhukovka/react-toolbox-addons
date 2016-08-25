@@ -10,7 +10,7 @@ const CardActionsSpaced = (props) => (
     </CardActions>
 );
 CardActionsSpaced.propTypes = {
-    children: PropTypes.array
+    children: PropTypes.any
 };
 export default CardActionsSpaced;
 export {CardActionsSpaced as CardActionsSpaced};
