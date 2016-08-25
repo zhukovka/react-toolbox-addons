@@ -4,8 +4,8 @@ Draw progress with chips , and line before and after each cheap, except last chi
 ## Properties
 | Name            | Type            | Default       | Description |
 |:-----|:-----|:-----|:-----|
-|   'currentIndex' | 'Number' | 0  | |Set index for display active chip, all chips before will be with icon DONE|
-|   'headers' | 'Array' |   | | Header's items will be displayed in chips |
+|   'currentIndex' | 'Number' | 0  | |  'Set index for display active chip, all chips before will be with icon *DONE*'|
+|   'headers' | 'Array' |   | | 'Header's items will be displayed in chips' |
 
 ## Theme
 | Class            | Description |
