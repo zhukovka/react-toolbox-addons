@@ -7,16 +7,32 @@ import {Button} from 'react-toolbox/lib/button';
 import CardActionsRight from '../components/cardactionsright/index';
 import {Row, Col} from '../components/grid/index';
 import {CardActions} from 'react-toolbox/lib/card';
+import Input from 'react-toolbox/lib/input';
 
 const Root = () => (
     <div className={style.app}>
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
+
         <BottomSheet />
+        <Row expanded align={'align-middle'}>
+            <Col shrink>
+                <Button label="Action default 1" />
+
+            </Col>
+            <Col align={'align-right'}>
+                <Button label="Action default 1" />
+            </Col>
+            <Col>
+                <Button label="Action 2" />
+
+            </Col>
+        </Row>
         <CardActions>
-            <Button label="Action default 1" />
-            <Button label="Action 2" />
+
+
+
         </CardActions>
         <CardActionsRight>
             <Button label="Action right1" />
