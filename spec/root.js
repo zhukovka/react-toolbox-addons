@@ -14,11 +14,13 @@ function upload (file, result, e){
     console.log(file);
     console.log(e);
 }
+const _avatar = 'https://dl.dropboxusercontent.com/u/53778939/User%20avatar.png';
 const Root = () => (
     <div className={style.app}>
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
+
         <NavigationChips headers={['some new text and' ,'some new text', 'some new text', 'some new', 'some new']} currentIndex={2}/>
         <Upload onUpload={upload}>
         </Upload>
