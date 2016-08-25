@@ -16,6 +16,8 @@ import Checkmark from '../components/checkmark/Checkmark';
 import ChipTransparent from '../components/chips/ChipTransparent';
 import Avatar from 'react-toolbox/lib/avatar';
 import StepsList from './components/stepslist';
+import {StatusComponent} from '../components/status-component';
+import Checkmark from '../components/Checkmark/Checkmark';
 
 const Root = () => (
     <div className={style.app}>
@@ -23,11 +25,13 @@ const Root = () => (
             <small>Spec {VERSION}</small>
         </h1>
         <CardTitlePrimary>
-            KUKURUKU
+                KUKURUKU
+            <StatusComponent status="idle"/>
+            <StatusComponent status="warning"/>
+            <StatusComponent status="error"/>
+            <StatusComponent status="ready"/>
         </CardTitlePrimary>
-
-        <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']}
-                         currentIndex={2}/>
+        <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']} currentIndex={2} />
 
         <section>
             <h5>StepsList</h5>

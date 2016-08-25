@@ -42,7 +42,7 @@ RTColumn.propTypes = {
     medium: PropTypes.number,
     offset: PropTypes.string,
     order: PropTypes.string,
-    shrink: PropTypes.string,
+    shrink: PropTypes.bool,
     small: PropTypes.number,
     theme: PropTypes.object
 };

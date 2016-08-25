@@ -1,0 +1,11 @@
+
+.RTBoxHeader {
+  background: $button-primary-color;
+  position: relative;
+
+  &--buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

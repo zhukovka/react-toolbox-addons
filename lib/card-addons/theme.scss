@@ -1,0 +1,8 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "~react-toolbox/lib/button/mixins";
+@import "config";
+.cardTitle {
+  background: $color-primary;
+  color : $color-white;
+}

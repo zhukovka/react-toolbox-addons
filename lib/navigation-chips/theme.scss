@@ -1,0 +1,44 @@
+$chip-avatar-background : rgba(0, 0, 0, 0.12);
+$chip-avatar-background-darken : rgba(0, 0, 0, 0.35);
+$chip-active : #ff3535;
+$transparent-background : transparent;
+$default-REM : 1.8rem;
+
+%flex {
+  display : flex;
+}
+
+.RTNavigationChips {
+  &--header {
+    @extend %flex;
+    flex-direction: row;
+  }
+  &--chip {
+    width: 100%;
+    background: $transparent-background;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin-left: $default-REM/2;
+    &:first-child {
+      margin-left: 0;
+    }
+    &--line::after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      margin-left: $default-REM/2;
+      height: 2px;
+      background: $chip-avatar-background;
+      vertical-align: middle;
+    }
+  }
+  &--avatar {
+    display: inline-block !important;
+    background: $chip-avatar-background-darken;
+    font-size: $default-REM;
+    &--active {
+      background: $chip-active;
+    }
+  }
+}
