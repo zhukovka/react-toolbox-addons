@@ -7,9 +7,7 @@ import {Button} from 'react-toolbox/lib/button';
 import CardActionsRight from '../components/cardactionsright/index';
 import {Row, Col} from '../components/grid/index';
 import {CardActions} from 'react-toolbox/lib/card';
-
 import {Upload} from '../components/upload-zone';
-import {UploadButton} from '../components/upload-button';
 
 function upload (file, result, e){
     console.log(file);

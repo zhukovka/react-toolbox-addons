@@ -56,7 +56,7 @@ class RTUpload extends Component {
                     console.log('File is not readable');
                     break;
                 case evt.target.error.ABORT_ERR:
-                    break; // 
+                    break; //
                 default:
                     console.log('An error occurred reading this file.');
             }
