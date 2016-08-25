@@ -12,9 +12,11 @@ import {CardActions} from 'react-toolbox/lib/card';
 import ButtonGroup from '../components/buttongroup/ButtonGroup';
 import {NavigationChips} from '../components/navigation-chips';
 import CardTitlePrimary from '../components/card-addons/CardTitlePrimary';
+import Checkmark from '../components/checkmark/Checkmark';
+import ChipTransparent from '../components/chips/ChipTransparent';
+import Avatar from 'react-toolbox/lib/avatar';
+import StepsList from './components/stepslist';
 import {StatusComponent} from '../components/status-component';
-import Checkmark from '../components/Checkmark/Checkmark';
-
 
 const Root = () => (
     <div className={style.app}>
@@ -30,6 +32,10 @@ const Root = () => (
         </CardTitlePrimary>
         <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']} currentIndex={2} />
 
+        <section>
+            <h5>StepsList</h5>
+            <StepsList/>
+        </section>
 
         <BottomSheet />
         <h3>CardActions</h3>
@@ -70,6 +76,19 @@ const Root = () => (
 
         <section>
             <Checkmark/>
+        </section>
+
+        <section>
+            <h5>ChipTransparent</h5>
+            <ChipTransparent>
+                <Avatar title="A"/><span>Initial chip</span>
+            </ChipTransparent>
+            <ChipTransparent>
+                <Checkmark/><span>Done chip</span>
+            </ChipTransparent>
+            <ChipTransparent active>
+                <Avatar title="A"/><span>Active chip</span>
+            </ChipTransparent>
         </section>
     </div>
 );
