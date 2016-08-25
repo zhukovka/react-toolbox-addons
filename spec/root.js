@@ -10,14 +10,11 @@ import CardActionsSpaced from '../components/cardactionsspaced/index';
 import {Row, Col} from '../components/grid/index';
 import {CardActions} from 'react-toolbox/lib/card';
 import ButtonGroup from '../components/buttongroup/ButtonGroup';
-import {Upload} from '../components/upload-zone';
 import {NavigationChips} from '../components/navigation-chips';
 import CardTitlePrimary from '../components/card-addons/CardTitlePrimary';
-function upload (file, result, e){
-    console.log(file);
-    console.log(e);
-}
-const _avatar = 'https://dl.dropboxusercontent.com/u/53778939/User%20avatar.png';
+import {StatusComponent} from '../components/status-component';
+
+
 const Root = () => (
     <div className={style.app}>
         <h1>React Toolbox Addons
@@ -25,8 +22,12 @@ const Root = () => (
         </h1>
         <CardTitlePrimary>
                 KUKURUKU
+            <StatusComponent status="idle"/>
+            <StatusComponent status="warning"/>
+            <StatusComponent status="error"/>
+            <StatusComponent status="ready"/>
         </CardTitlePrimary>
-        <NavigationChips headers={['some new text and' ,'some new text', 'some new text', 'some new', 'some new']} currentIndex={2}/>
+        <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']} currentIndex={2}/>
 
         <BottomSheet />
         <h3>CardActions</h3>

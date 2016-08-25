@@ -1,6 +1,5 @@
 import React, {PropTypes, Component} from 'react';
-import {Card, CardTitle} from 'react-toolbox/lib/card';
-import Avatar from 'react-toolbox/lib/avatar';
+import {CardTitle} from 'react-toolbox/lib/card';
 import Button from 'react-toolbox/lib/button';
 
 class RTBoxHeader extends Component{

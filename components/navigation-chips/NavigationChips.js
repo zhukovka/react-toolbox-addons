@@ -38,7 +38,7 @@ class RTNavigationChips extends Component {
             <Row expanded>
                 {
                     headers.map((header, index)=>(
-                        <Col key={index} shrink={(headers.length === index + 1) && 'true'}>
+                        <Col key={index} shrink={(headers.length === index + 1)}>
                             {this.renderNavigationChip({header, index})}
                         </Col>
                     ))
