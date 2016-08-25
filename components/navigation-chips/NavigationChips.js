@@ -20,8 +20,8 @@ class RTNavigationChips extends Component {
     renderNavigationChip (chip = {}) {
         const {theme, currentIndex, headers} = this.props;
         const _chipIndex = chip.index + 1;
-        const getAvatarClass = (_chipIndex <= currentIndex) ? theme[CSS_HEADER_CHIP_AVATAR] + ' ' + theme[CSS_HEADER_CHIP_AVATAR_ACTIVE] : theme[CSS_HEADER_CHIP_AVATAR];
-        const getAvatarIcon = (_chipIndex) < currentIndex ? ICON_DONE : '';
+        const getAvatarClass = (_chipIndex <= currentIndex || 0) ? theme[CSS_HEADER_CHIP_AVATAR] + ' ' + theme[CSS_HEADER_CHIP_AVATAR_ACTIVE] : theme[CSS_HEADER_CHIP_AVATAR];
+        const getAvatarIcon = (_chipIndex) < currentIndex || 0 ? ICON_DONE : '';
         const getLineClass = (_chipIndex) !== headers.length && theme[CSS_HEADER_CHIP_LINE];
         return (
             <Chip key={chip.index} className={theme[CSS_HEADER_CHIP]}>

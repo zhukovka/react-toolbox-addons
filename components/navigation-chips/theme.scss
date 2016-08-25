@@ -12,12 +12,10 @@ $default-REM : 1.8rem;
   &--header {
     @extend %flex;
     flex-direction: row;
-    //justify-content: space-between;
   }
   &--chip {
     width: 100%;
     background: $transparent-background;
-    //width: calc(100% / 5);
     display: inline-block;
     position: relative;
     vertical-align: middle;

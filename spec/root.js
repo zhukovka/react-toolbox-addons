@@ -21,7 +21,7 @@ const Root = () => (
             <small>Spec {VERSION}</small>
         </h1>
 
-        <NavigationChips headers={['one' ,'two' ,'three','four','five']} currentIndex={4}/>
+        <NavigationChips headers={['one' ,'two', 'three']} currentIndex={2}/>
         <Upload onUpload={upload}>
         </Upload>
         <BottomSheet />
