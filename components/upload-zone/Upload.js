@@ -2,37 +2,35 @@ import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
 import {DROP_ZONE} from '../identifiers';
 import {UploadButton} from '../upload-button';
-import {UploadArea} from './UploadArea';
 import ProgressBar from 'react-toolbox/lib/progress_bar';
 import {
     CSS_DROP_ZONE_ACTIVE
 } from './constants';
 
 
-class RTDropZone extends Component {
+class RTUpload extends Component {
+    static propTypes = {
+        activeClass: PropTypes.string,
+        children: PropTypes.any,
+        className: PropTypes.string,
+        defaultClass: PropTypes.string,
+        onUpload: PropTypes.func,
+        theme: PropTypes.object
+
+
+    };
+    static defaultProps = {
+        defaultClass: DROP_ZONE
+    };
     constructor (props) {
         super(props);
-        this._progress = 0;
         this.state = {
             isDragActive: false,
             imageUrl: '',
             progress: 0
         };
     }
-
-    static propTypes = {
-        children: PropTypes.any,
-        className: PropTypes.string,
-        theme: PropTypes.object,
-        handlerOnChange: PropTypes.func,
-        activeClass: PropTypes.string,
-        defaultClass: PropTypes.string
-    };
-    static defaultProps = {
-        defaultClass: DROP_ZONE
-    };
-
-    onDragLeave (e) {
+    onDragLeave () {
         this.setState({
             isDragActive: false
         });
@@ -46,56 +44,56 @@ class RTDropZone extends Component {
         });
     }
 
-    onChangeHandler (e) {
-        let reader, file, errorHandler, updateProgress;
+    onUpload (e) {
+        let file;
         e.preventDefault();
-        errorHandler = (evt)=> {
-            switch (evt.target.error.code) {
+        const errorHandler = (evt)=>{
+            switch (evt.target.error.code){
                 case evt.target.error.NOT_FOUND_ERR:
-                    alert('File Not Found!');
+                    console.log('File Not Found!');
                     break;
                 case evt.target.error.NOT_READABLE_ERR:
-                    alert('File is not readable');
+                    console.log('File is not readable');
                     break;
                 case evt.target.error.ABORT_ERR:
                     break; // noop
                 default:
-                    alert('An error occurred reading this file.');
+                    console.log('An error occurred reading this file.');
             }
         };
 
-        updateProgress = (evt) => {
+        const updateProgress = (evt) => {
             if (evt.lengthComputable) {
-                let percentLoaded = Math.round((evt.loaded / evt.total) * 100);
+                const percentLoaded = Math.round((evt.loaded / evt.total) * 100);
                 if (percentLoaded < 100) {
                     this.setState({
                         progress: percentLoaded
-                    })
+                    });
                 }
             }
         };
 
-        reader = new FileReader();
+        const reader = new FileReader();
         reader.onerror = errorHandler;
-        reader.onloadstart = ()=> {
+        reader.onloadstart = ()=>{
             this.setState({
                 progress: 1
-            })
+            });
         };
         reader.onload = () => {
             this.setState({
                 progress: 100
-            })
+            });
         };
         reader.onprogress = updateProgress;
-        reader.onloadend = (evt) => {
+        reader.onloadend = () => {
             this.setState({
                 progress: 0,
                 imageUrl: reader.result,
                 isDragActive: false
-            },()=>{
-                this.props.handlerOnChange(file, reader.result, e);
-            })
+            }, ()=>{
+                this.props.onUpload(file, reader.result, e);
+            });
         };
 
         if (e.dataTransfer) {
@@ -108,14 +106,14 @@ class RTDropZone extends Component {
     }
 
     renderContent () {
-        let {progress, imageUrl} = this.state;
+        const {progress, imageUrl} = this.state;
         if (!progress) {
             return (
-                <UploadButton icon="photo_camera"
-                              imageUrl={imageUrl}
-                              handlerOnChange={this.onChangeHandler.bind(this)}
-                />
-            )
+               <UploadButton icon="photo_camera"
+                           imageUrl={imageUrl}
+                           onUpload={this.onUpload.bind(this)}
+               />
+            );
         } else {
             return (
                 <div style={{padding: '10.8rem'}}>
@@ -126,8 +124,8 @@ class RTDropZone extends Component {
     }
 
     render () {
-        let {theme, className, activeClass, defaultClass} = this.props;
-        let {isDragActive} = this.state;
+        const {theme, className, activeClass, defaultClass} = this.props;
+        const {isDragActive} = this.state;
         let classes = classnames(theme[defaultClass], {
             [theme[CSS_DROP_ZONE_ACTIVE]]: isDragActive,
             [activeClass]: activeClass && isDragActive
@@ -137,10 +135,10 @@ class RTDropZone extends Component {
             <div className={classes}
                  onDragLeave={this.onDragLeave.bind(this)}
                  onDragOver={this.onDragOver.bind(this)}
-                 onDrop={this.onChangeHandler.bind(this)}>
+                 onDrop={this.onUpload.bind(this)}>
                 {this.renderContent()}
             </div>
-        )
+        );
     }
 }
-export {RTDropZone};
+export {RTUpload};
