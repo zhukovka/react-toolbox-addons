@@ -1,0 +1,22 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "config";
+
+.avatar {
+  background-color: $color-accent;
+  color: $color-accent-contrast;
+}
+
+.chip {
+  display: flex;
+  padding: 0;
+}
+.name{
+  padding-right: 1.6 * $unit;
+}
+.line {
+  background-color: $palette-grey-300;
+  flex: 1 auto;
+  align-self: center;
+  height: 2px;
+}
