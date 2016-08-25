@@ -6,30 +6,31 @@ Grid layout base on foundation grid flex system
 If no sizing class is added to the column, it will simply expand to fill the leftover space
 ```
 <Row>
-  <Col small={4}>4 columns</div>
-  <Col>Whatever's left!</div>
-</div>
+  <Col small={4}>4 columns</Col>
+  <Col>Whatever's left!</Col>
+</Row>
 ```
 
 ## Row properties
 | Name                | Type                   | Default         | Description|
 |:-----|:-----|:-----|:-----|
-| `align-{top | middle | bottom | stretch}`       | `String`                 |            | Vertical alignment are top, middle, bottom, and stretch (align={'align-bottom'}).|
-| `align-{right | center | justify | spaced}`       | `String`                 |            | Horizontal alignment are right, center, justify, and spaced (align={'align-spaced'}).|
-| `(small | medium | large)-up-{1-12}`       | `String`                 |            | To define column widths at the row-level, instead of the individual column level, add the class .[size]-up-[n] to a row, where [n] is the number of columns to display per row, and [size] is the breakpoint at which to apply the effect.|
+
+| `align`*horizontal*     | `String`                 |            | Vertical alignment, available options are : top, middle, bottom, stretch. Example: (align={'align-bottom'}).|
+| `align`*vertical*       | `String`                 |            | Horizontal alignment, available options ara right, center, justify, and spaced. Example: (align={'align-spaced'}).|
+| `up`       | `String`                 |            | To define column widths at the row-level, instead of the individual column level, you can add **up** property. Example : (up='small-up-1')|
+| `expanded`       | `Boolean`                 |            | Set width of Row to equal 100% |
 
 ## Column properties
+Column number indicate the number of columns you’d like to use out of the possible 12 per row.
 
 | Name                | Type                   | Default         | Description|
 |:-----|:-----|:-----|:-----|
-| `small`       | `Number`                 |            | Sets column width , for small screen size. |
-| `medium`       | `Number`                 |            | Sets column width , for medium screen size. |
-| `large`       | `Number`                 |            | Sets column width , for large screen size. |
-| `(medium | large)-expand`       | `String`                 |            | Sets column width on medium or large screen to auto calculate ( like shrink ). |
-| `align`       | `String`                 |    'align-left'        | Columns can be aligned the same way you would align text in a paragraph. |
+| `small`       | `Number`                 |            | Set number for column , for small screen size. |
+| `medium`       | `Number`                 |            | Sets number for column, for medium screen size. |
+| `large`       | `Number`                 |            | Sets number for column, for large screen size. |
 | `shrink`       | `Boolean`                 |            | Column will only take up the horizontal space its contents need. |
-| `offset`       | `String`                 |            | Set for current column offset ( small-offset-3 ). |
-| `(small | medium | large )-order-{1-6}`       | `String`                 |            | Set manual order for current column|
+| `offset`       | `String`                 |            | Set for current column offset. Example ( offset='small-offset-3 medium-offset-6' ). |
+| `order`       | `String`                 |            | Set manual ordering for column (1-6). Example : *order='small-order-1'*|
 | `className`         | `String`               | `''`            | Sets a class to style of the Component.|
 
 
