@@ -5,3 +5,4 @@ export const UPLOAD = 'RTDropZone';
 export const UPLOAD_BUTTON = 'RTUploadButton';
 export const NAVIGATIONS_CHIPS = 'RTNavigationChips';
 export const BOX_HEADER = 'RTBoxHeader';
+export const CARD_PRIMARY = 'CardPrimary';
