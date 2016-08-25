@@ -17,7 +17,6 @@ import ChipTransparent from '../components/chips/ChipTransparent';
 import Avatar from 'react-toolbox/lib/avatar';
 import StepsList from './components/stepslist';
 import {StatusComponent} from '../components/status-component';
-import Checkmark from '../components/Checkmark/Checkmark';
 
 const Root = () => (
     <div className={style.app}>
