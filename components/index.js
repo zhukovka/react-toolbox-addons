@@ -4,3 +4,5 @@ export CardActionsRight from './cardactionsright';
 export CardActionsSpaced from './cardactionsspaced';
 export DropdownPlus from './dropdownplus';
 export ButtonGroup from './buttongroup/ButtonGroup';
+export Upload from './upload-zone';
+export UploadButton from './upload-button';
