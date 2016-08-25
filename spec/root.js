@@ -9,7 +9,7 @@ import {Row, Col} from '../components/grid/index';
 import {CardActions} from 'react-toolbox/lib/card';
 
 import {Upload} from '../components/upload-zone';
-import {UploadButton} from '../components/upload-button';
+import {NavigationChips} from '../components/navigation-chips';
 
 function upload (file, result, e){
     console.log(file);
@@ -20,6 +20,8 @@ const Root = () => (
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
+
+        <NavigationChips headers={['one' ,'two' ,'three','four','five']} currentIndex={4}/>
         <Upload onUpload={upload}>
         </Upload>
         <BottomSheet />
