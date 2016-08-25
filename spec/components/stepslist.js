@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import StepsList from '../../components/stepslist/StepsList';
 
 const StepsListTest = (props) => {
