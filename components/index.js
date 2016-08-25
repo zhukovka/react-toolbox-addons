@@ -3,3 +3,4 @@ export FlexList from './flexlist';
 export CardActionsRight from './cardactionsright';
 export Upload from './upload-zone';
 export UploadButton from './upload-button';
+export NavigationChips from './navigation-chips';

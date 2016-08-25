@@ -4,7 +4,6 @@ import {Avatar} from 'react-toolbox/lib/avatar';
 import {Row, Col} from '../../lib/grid';
 
 import {
-    CSS_HEADER_CHIP_SECTION,
     CSS_HEADER_CHIP,
     CSS_HEADER_CHIP_LINE,
     CSS_HEADER_CHIP_AVATAR,
@@ -14,7 +13,7 @@ import {
 
 class RTNavigationChips extends Component {
     static propTypes = {
-        currentIndex: PropTypes.currentIndex,
+        currentIndex: PropTypes.number,
         headers: PropTypes.array.isRequired,
         theme: PropTypes.object.isRequired
     };
@@ -39,7 +38,7 @@ class RTNavigationChips extends Component {
             <Row expanded>
                 {
                     headers.map((header, index)=>(
-                        <Col shrink={headers.length === index + 1}>
+                        <Col key={index} shrink={(headers.length === index + 1) && 'true'}>
                             {this.renderNavigationChip({header, index})}
                         </Col>
                     ))

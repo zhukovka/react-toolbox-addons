@@ -36,7 +36,7 @@ const RTColumn = (props) => {
 };
 RTColumn.propTypes = {
     align: PropTypes.string,
-    children: PropTypes.array,
+    children: PropTypes.any,
     className: PropTypes.string,
     large: PropTypes.number,
     medium: PropTypes.number,
