@@ -2,6 +2,9 @@
 @import "~react-toolbox/lib/globals";
 @import "~react-toolbox/lib/button/mixins";
 @import "config";
+@import "~react-toolbox/lib/button/theme.scss";
+$default-REM : 1.8rem;
+
 .cardTitle {
   background: $color-primary;
   color : $color-white;
@@ -13,10 +16,14 @@
     right: 0;
     display: flex;
     color: inherit;
+    background: inherit;
   }
-  &--button {
-    color: inherit !important;
-    box-shadow : none;
-    background: inherit !important;
+}
+.neutral:not([disabled]) {
+ &.floating {
+    color: inherit;
+    background-color: inherit;
+   box-shadow: none;
+   margin-left: $default-REM;
   }
 }
