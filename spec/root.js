@@ -15,11 +15,29 @@ import CardTitlePrimary from '../components/card-addons/CardTitlePrimary';
 import {StatusComponent} from '../components/status-component';
 import Checkmark from '../components/Checkmark/Checkmark';
 import CardTitleButtons from '../components/card-addons/CardTitleButtons';
+import {CardTitle} from 'react-toolbox/lib/card';
 
 function checkButtonsActions(e){
     console.log(e);
 }
-
+const testButtons = [
+    {
+        icon: 'add',
+        handlerOnClick: checkButtonsActions
+    },
+    {
+        icon: 'done',
+        handlerOnClick: checkButtonsActions
+    },
+    {
+        icon: 'close',
+        handlerOnClick: checkButtonsActions
+    },
+    {
+        icon: 'photo_camera',
+        handlerOnClick: checkButtonsActions
+    }
+];
 const Root = () => (
     <div className={style.app}>
         <h1>React Toolbox Addons
@@ -31,8 +49,16 @@ const Root = () => (
             <StatusComponent status="warning"/>
             <StatusComponent status="error"/>
             <StatusComponent status="ready"/>
-            <CardTitleButtons buttons={[{icon: 'done', handlerOnClick: checkButtonsActions}, {icon: 'close', handlerOnClick: checkButtonsActions}]}/>
+            <CardTitleButtons buttons={testButtons}/>
+
         </CardTitlePrimary>
+                <CardTitle title='Default cardTitle' subtitle='def' style={{position: 'relative'}}>
+                    <CardTitleButtons buttons={testButtons}/>
+                </CardTitle>
+        <CardTitle title='Accent cardTitle' subtitle='def' style={{position: 'relative', background: 'rgb(255,64,129)', color: '#fff'}}>
+            <CardTitleButtons buttons={testButtons}/>
+        </CardTitle>
+
         <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']} currentIndex={2} />
 
 
