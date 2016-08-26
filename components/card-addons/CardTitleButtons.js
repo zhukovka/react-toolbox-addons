@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import Button from 'react-toolbox/lib/button';
-import IconButton from 'react-toolbox/lib/button';
 import {
     CSS_CARD_TITLE_BUTTONS_WRAPPER,
     CSS_CARD_TITLE_BUTTON
@@ -20,12 +19,10 @@ const CardTitleButtons = ({
 };
 
 CardTitleButtons.propTypes = {
-    buttons: PropTypes.array
-    /*buttons: PropTypes.shape({
-        actionName: PropTypes.string.isRequired,
+    buttons: PropTypes.arrayOf(PropTypes.shape({
         icon: PropTypes.string.isRequired,
         handlerOnClick: PropTypes.func.isRequired
-    }),*/
+    }))
 };
 
 
