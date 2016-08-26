@@ -7,7 +7,7 @@ import {FlexList} from '../../components/flexlist/index';
 class BottomSheetTest extends React.Component {
     state = {
         cards: false,
-        list: true
+        list: false
     };
 
     handleClick = () => {
