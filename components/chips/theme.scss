@@ -1,0 +1,24 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "config";
+.chip{
+  background: none;
+
+  > [data-react-toolbox="avatar"] {
+    width: $chip-height;
+    height: $chip-height;
+    margin-right: $chip-icon-margin-right;
+    vertical-align: middle;
+
+    > span {
+      font-size: $chip-icon-font-size;
+      line-height: $chip-height;
+    }
+  }
+
+  &.active{
+    > [data-react-toolbox="avatar"] {
+      background-color: $color-accent;
+    }
+  }
+}
