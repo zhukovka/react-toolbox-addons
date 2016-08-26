@@ -11,7 +11,7 @@ const CardMediaPlus = ({children, ...other}) => {
         );
 };
 CardMediaPlus.propTypes = {
-    props: PropTypes.object
+    children: PropTypes.any
 };
 
 export {CardMediaPlus};

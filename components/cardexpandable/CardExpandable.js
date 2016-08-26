@@ -1,8 +1,9 @@
 import React, {PropTypes, Component} from 'react';
-import { themr } from 'react-css-themr';
+import {themr} from 'react-css-themr';
 import {Card, CardTitle} from 'react-toolbox/lib/card';
 import {CardTitleButtons, CardTitlePrimary} from '../card-addons/index';
 import theme from './theme.scss';
+import {ButtonProps} from '../rtcomponentsprops';
 import {CARD_EXPANDABLE} from '../identifiers';
 
 const factory = () => {
@@ -11,7 +12,7 @@ const factory = () => {
             children: PropTypes.any,
             primary: PropTypes.bool,
             title: PropTypes.string,
-            titleButtons: PropTypes.array
+            titleButtons: PropTypes.arrayOf(ButtonProps)
         };
 
         constructor (props) {
@@ -23,14 +24,6 @@ const factory = () => {
             };
         }
 
-        render () {
-            return (
-                <Card>
-                    {this.renderCardTitle(this.props.titleButtons)}
-                    {this.renderContent()}
-                </Card>
-            );
-        }
 
         renderCardTitle (titleButtons = []) {
             const {title, primary} = this.props;
@@ -61,11 +54,20 @@ const factory = () => {
                 return (children);
             }
         }
+
+        render () {
+            return (
+                <Card>
+                    {this.renderCardTitle(this.props.titleButtons)}
+                    {this.renderContent()}
+                </Card>
+            );
+        }
     }
 
     return CardExpandable;
 };
 const CardExpandable = factory();
 export default themr(CARD_EXPANDABLE)(CardExpandable);
-export { factory as cardExpandableFactory };
-export { CardExpandable };
+export {factory as cardExpandableFactory};
+export {CardExpandable};
