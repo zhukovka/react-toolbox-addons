@@ -10,11 +10,11 @@ const CardTitleButtons = ({
     ...props
 }) => {
     return (
-        <div className={theme[CSS_CARD_TITLE_BUTTONS_WRAPPER]}>
-            {buttons.map((btn, index)=>(
-                <Button {...props} floating mini key={index} theme={theme} {...btn}/>
-            ))}
-        </div>
+            <div className={theme[CSS_CARD_TITLE_BUTTONS_WRAPPER]}>
+                {buttons.map((btn, index)=>(
+                    <Button {...props} floating mini key={index} theme={theme} {...btn}/>
+                ))}
+            </div>
     );
 };
 

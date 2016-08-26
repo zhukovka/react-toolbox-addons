@@ -37,9 +37,13 @@ const Root = () => (
             <CardTitleButtonsTest />
 
         </CardTitlePrimary>
-                <CardTitle title='Default cardTitle' subtitle='def' style={{position: 'relative'}}>
+
+            <CardTitle title="sdfsdf" subtitle="sfdfdf">
                     <CardTitleButtonsTest />
-                </CardTitle>
+            </CardTitle>
+
+
+
         <CardTitle title='Accent cardTitle' subtitle='def' style={{position: 'relative', background: 'rgb(255,64,129)', color: '#fff'}}>
             <CardTitleButtonsTest />
         </CardTitle>
