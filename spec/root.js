@@ -13,7 +13,7 @@ import ButtonGroup from '../components/buttongroup/ButtonGroup';
 import {NavigationChips} from '../components/navigation-chips';
 import CardTitlePrimary from '../components/card-addons/CardTitlePrimary';
 import Checkmark from '../components/checkmark/Checkmark';
-import ChipTransparent from '../components/chips/ChipTransparent';
+import ChipTransparent from '../components/chips';
 import Avatar from 'react-toolbox/lib/avatar';
 import StepsList from './components/stepslist';
 import {StatusComponent} from '../components/status-component';

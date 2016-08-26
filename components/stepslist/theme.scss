@@ -15,8 +15,8 @@
   padding-right: 1.6 * $unit;
 }
 .line {
+  align-self: center;
   background-color: $palette-grey-300;
   flex: 1 auto;
-  align-self: center;
   height: 2px;
 }

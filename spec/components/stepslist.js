@@ -1,5 +1,5 @@
 import React from 'react';
-import StepsList from '../../components/stepslist/StepsList';
+import StepsList from '../../components/stepslist/index';
 
 const StepsListTest = (props) => {
     const steps = [
