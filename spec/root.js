@@ -18,6 +18,7 @@ import Avatar from 'react-toolbox/lib/avatar';
 import StepsList from './components/stepslist';
 import {StatusComponent} from '../components/status-component';
 import CardTitleButtons from '../components/card-addons/CardTitleButtons';
+import CardExpandable from './components/cardexpandable';
 
 function checkButtonsActions (e) {
     console.log(e);
@@ -70,6 +71,11 @@ const Root = () => (
             <StepsList/>
         </section>
 
+        <section>
+            <h5>Card Expandable</h5>
+            <CardExpandable/>
+        </section>
+        
         <BottomSheet />
 
         <section>
@@ -136,6 +142,8 @@ const Root = () => (
                 <Avatar title="A"/><span>Active chip</span>
             </ChipTransparent>
         </section>
+
+
     </div>
 );
 

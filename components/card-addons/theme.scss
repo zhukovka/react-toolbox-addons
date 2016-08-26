@@ -3,11 +3,12 @@
 @import "~react-toolbox/lib/button/mixins";
 @import "config";
 @import "~react-toolbox/lib/button/theme.scss";
-$default-REM : 1.8rem;
+
+$default-REM: 1.8rem;
 
 .cardTitle {
   background: $color-primary;
-  color : $color-white;
+  color: $color-white;
   position: relative;
 
   &--buttonsWrapper {
@@ -19,11 +20,12 @@ $default-REM : 1.8rem;
     background: inherit;
   }
 }
+
 .neutral:not([disabled]) {
- &.floating {
+  &.floating {
     color: inherit;
     background-color: inherit;
-   box-shadow: none;
-   margin-left: $default-REM;
+    box-shadow: none;
+    margin-left: $default-REM;
   }
 }

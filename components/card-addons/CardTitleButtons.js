@@ -22,8 +22,7 @@ CardTitleButtons.propTypes = {
     buttons: PropTypes.arrayOf(PropTypes.shape({
         icon: PropTypes.string.isRequired,
         handlerOnClick: PropTypes.func.isRequired
-    })),
-    props : PropTypes.any
+    }))
 };
 
 

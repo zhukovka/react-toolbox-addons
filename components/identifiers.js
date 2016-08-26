@@ -8,5 +8,6 @@ export const UPLOAD_BUTTON = 'RTUploadButton';
 export const NAVIGATIONS_CHIPS = 'RTNavigationChips';
 export const BOX_HEADER = 'RTBoxHeader';
 export const CARD_PRIMARY = 'CardPrimary';
+export const CARD_EXPANDABLE = 'CardExpandable';
 export const TRANSPARENT_CHIP = 'TransparentChip';
 export const STEPSLIST = 'StepsList';
