@@ -8,7 +8,7 @@ import {Button} from 'react-toolbox/lib/button';
 import CardActionsRight from '../components/cardactionsright/index';
 import CardActionsSpaced from '../components/cardactionsspaced/index';
 import {Row, Col} from '../components/grid/index';
-import {CardActions, Card} from 'react-toolbox/lib/card';
+import {CardActions, Card, CardTitle} from 'react-toolbox/lib/card';
 import ButtonGroup from '../components/buttongroup/ButtonGroup';
 import {NavigationChips} from '../components/navigation-chips';
 import Checkmark from '../components/checkmark/Checkmark';
@@ -36,10 +36,7 @@ const Root = () => (
             <StatusComponent status="error"/>
             <StatusComponent status="ready"/>
             <CardTitleButtonsTest />
-
         </CardTitlePrimary>
-
-        <CardTitleButtonsTest />
 
         <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']}
                          currentIndex={2}/>
@@ -49,10 +46,7 @@ const Root = () => (
             <StepsList/>
         </section>
 
-        <section>
-            <h5>Card Expandable</h5>
-            <CardExpandable/>
-        </section>
+        <CardExpandable/>
 
         <BottomSheet />
 

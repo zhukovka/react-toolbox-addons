@@ -11,3 +11,5 @@ export CardTitlePrimary from './card-addons/CardTitlePrimary';
 export Checkmark from './checkmark/Checkmark';
 export ChipTransparent from './chips';
 export StepsList from './stepslist';
+export * from './card-addons';
+
