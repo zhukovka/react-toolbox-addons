@@ -1,8 +1,7 @@
 import React from 'react';
-import {CardTitle} from 'react-toolbox/lib/card';
 import {CardTitleButtons} from '../../components/card-addons';
 
-function checkButtonsActions(e){
+function checkButtonsActions (e) {
     console.log(e);
 }
 const testButtons = [
@@ -27,7 +26,7 @@ const testButtons = [
 const CardTitleButtonsTest = () => {
 
     return (
-            <CardTitleButtons buttons={testButtons}/>
+        <CardTitleButtons buttons={testButtons}/>
     );
 };
 export default CardTitleButtonsTest;
