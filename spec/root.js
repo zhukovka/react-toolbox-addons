@@ -75,7 +75,7 @@ const Root = () => (
             <h5>Card Expandable</h5>
             <CardExpandable/>
         </section>
-        
+
         <BottomSheet />
 
         <section>
