@@ -11,8 +11,12 @@
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
+    color: inherit;
   }
   &--button {
-
+    color: inherit !important;
+    box-shadow : none;
+    background: inherit !important;
   }
 }

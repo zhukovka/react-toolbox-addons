@@ -16,6 +16,10 @@ import {StatusComponent} from '../components/status-component';
 import Checkmark from '../components/Checkmark/Checkmark';
 import CardTitleButtons from '../components/card-addons/CardTitleButtons';
 
+function checkButtonsActions(e){
+    console.log(e);
+}
+
 const Root = () => (
     <div className={style.app}>
         <h1>React Toolbox Addons
@@ -27,7 +31,7 @@ const Root = () => (
             <StatusComponent status="warning"/>
             <StatusComponent status="error"/>
             <StatusComponent status="ready"/>
-            <CardTitleButtons buttons={[{icon: 'done', actionName: 'save', handlerOnClick: ()=>{}}]}/>
+            <CardTitleButtons buttons={[{icon: 'done', handlerOnClick: checkButtonsActions}, {icon: 'close', handlerOnClick: checkButtonsActions}]}/>
         </CardTitlePrimary>
         <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']} currentIndex={2} />
 
