@@ -17,7 +17,6 @@ import ChipTransparent from '../components/chips';
 import Avatar from 'react-toolbox/lib/avatar';
 import StepsList from './components/stepslist';
 import {StatusComponent} from '../components/status-component';
-import Checkmark from '../components/Checkmark/Checkmark';
 import CardTitleButtons from '../components/card-addons/CardTitleButtons';
 
 function checkButtonsActions(e){
