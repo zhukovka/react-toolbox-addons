@@ -2,21 +2,35 @@
 @import "~react-toolbox/lib/globals";
 @import "~react-toolbox/lib/button/mixins";
 @import "config";
+@import "~react-toolbox/lib/button/theme.scss";
+@import "~react-toolbox/lib/card/theme.scss";
+
+$default-REM: 1.8rem;
+
 .cardTitle {
   background: $color-primary;
-  color : $color-white;
+  color: $color-white;
   position: relative;
 
   &--buttonsWrapper {
     position: absolute;
     top: 0;
     right: 0;
+    bottom: 0;
+    margin: auto;
     display: flex;
     color: inherit;
+    background: inherit;
   }
-  &--button {
-    color: inherit !important;
-    box-shadow : none;
-    background: inherit !important;
+}
+.center{
+  align-items: center;
+}
+.neutral:not([disabled]) {
+  &.floating {
+    color: inherit;
+    background-color: inherit;
+    box-shadow: none;
+    margin-left: $default-REM;
   }
 }
