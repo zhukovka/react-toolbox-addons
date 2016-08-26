@@ -8,57 +8,40 @@ import {Button} from 'react-toolbox/lib/button';
 import CardActionsRight from '../components/cardactionsright/index';
 import CardActionsSpaced from '../components/cardactionsspaced/index';
 import {Row, Col} from '../components/grid/index';
-import {CardActions, CardTitle} from 'react-toolbox/lib/card';
+import {CardActions, CardTitle, Card} from 'react-toolbox/lib/card';
 import ButtonGroup from '../components/buttongroup/ButtonGroup';
 import {NavigationChips} from '../components/navigation-chips';
-import CardTitlePrimary from '../components/card-addons/CardTitlePrimary';
 import Checkmark from '../components/checkmark/Checkmark';
 import ChipTransparent from '../components/chips';
 import Avatar from 'react-toolbox/lib/avatar';
 import StepsList from './components/stepslist';
 import {StatusComponent} from '../components/status-component';
-import CardTitleButtons from '../components/card-addons/CardTitleButtons';
+import {CardTitleButtons,CardMediaPlus,CardTitlePrimary} from '../components/card-addons';
+import CardMediaPlusTest from './components/cardMediaTest';
+import CardTitleButtonsTest from './components/cardTitleButtonsTest';
 
-function checkButtonsActions(e){
-    console.log(e);
-}
-const testButtons = [
-    {
-        icon: 'add',
-        handlerOnClick: checkButtonsActions
-    },
-    {
-        icon: 'done',
-        handlerOnClick: checkButtonsActions
-    },
-    {
-        icon: 'close',
-        handlerOnClick: checkButtonsActions
-    },
-    {
-        icon: 'photo_camera',
-        handlerOnClick: checkButtonsActions
-    }
-];
 const Root = () => (
     <div className={style.app}>
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
+        <Card style={{width: '200px'}}>
+        <CardMediaPlusTest />
+        </Card>
         <CardTitlePrimary>
                 KUKURUKU
             <StatusComponent status="idle"/>
             <StatusComponent status="warning"/>
             <StatusComponent status="error"/>
             <StatusComponent status="ready"/>
-            <CardTitleButtons buttons={testButtons}/>
+            <CardTitleButtonsTest />
 
         </CardTitlePrimary>
                 <CardTitle title='Default cardTitle' subtitle='def' style={{position: 'relative'}}>
-                    <CardTitleButtons buttons={testButtons}/>
+                    <CardTitleButtonsTest />
                 </CardTitle>
         <CardTitle title='Accent cardTitle' subtitle='def' style={{position: 'relative', background: 'rgb(255,64,129)', color: '#fff'}}>
-            <CardTitleButtons buttons={testButtons}/>
+            <CardTitleButtonsTest />
         </CardTitle>
 
         <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']} currentIndex={2} />

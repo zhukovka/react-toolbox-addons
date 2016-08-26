@@ -12,19 +12,16 @@ const CardTitleButtons = ({
     return (
         <div className={theme[CSS_CARD_TITLE_BUTTONS_WRAPPER]}>
             {buttons.map((btn, index)=>(
-                <Button {...props} floating mini key={index} theme={theme} icon={btn.icon} onClick={(e)=>btn.handlerOnClick(e)}/>
+                <Button {...props} floating mini key={index} theme={theme} {...btn}/>
             ))}
         </div>
     );
 };
 
 CardTitleButtons.propTypes = {
-    buttons: PropTypes.arrayOf(PropTypes.shape({
-        icon: PropTypes.string.isRequired,
-        handlerOnClick: PropTypes.func.isRequired
-    })),
-    props : PropTypes.any
+    buttons: PropTypes.array.isRequired,
+    props: PropTypes.any
 };
 
 
-export default CardTitleButtons;
+export {CardTitleButtons};
