@@ -30,13 +30,20 @@ const Root = () => (
             <CardMediaPlusTest />
         </Card>
         <CardTitlePrimary>
-            KUKURUKU
+                KUKURUKU
             <StatusComponent status="idle"/>
             <StatusComponent status="warning"/>
             <StatusComponent status="error"/>
             <StatusComponent status="ready"/>
             <CardTitleButtonsTest />
+
         </CardTitlePrimary>
+                <CardTitle title='Default cardTitle' subtitle='def' style={{position: 'relative'}}>
+                    <CardTitleButtonsTest />
+                </CardTitle>
+        <CardTitle title='Accent cardTitle' subtitle='def' style={{position: 'relative', background: 'rgb(255,64,129)', color: '#fff'}}>
+            <CardTitleButtonsTest />
+        </CardTitle>
 
         <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']}
                          currentIndex={2}/>
