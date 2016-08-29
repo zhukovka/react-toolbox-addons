@@ -24,12 +24,15 @@ import CardExpandable from './components/cardexpandable';
 import {StreamListTest} from './components/StreamPanelTest';
 import {TestStreamBoxes} from './components/TestStreamBoxes';
 
+import {TestStream} from './components/TestStream';
+
 const Root = () => (
     <div className={style.app}>
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
-        <TestStreamBoxes />
+        <TestStream />
+        {/*<TestStreamBoxes />
         <Card style={{width: '200px'}}>
             <CardMediaPlusTest />
         </Card>
@@ -124,7 +127,7 @@ const Root = () => (
             <ChipTransparent active>
                 <Avatar title="A"/><span>Active chip</span>
             </ChipTransparent>
-        </section>
+        </section>*/}
     </div>
 );
 
