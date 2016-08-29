@@ -22,6 +22,7 @@ import CardTitleButtonsTest from './components/cardTitleButtonsTest';
 import CardExpandable from './components/cardexpandable';
 import Layout from './components/layout';
 import DisabledInput from '../components/disabledinput';
+import {RedHeading} from '../components/headings';
 
 const Root = () => (
     <div className={style.app}>
@@ -61,6 +62,13 @@ const Root = () => (
         <BottomSheet />
 
         <section>
+            <h5>Headings</h5>
+            <div>
+                <RedHeading>RedHeading</RedHeading>
+            </div>
+        </section>
+
+        <section>
             <h5>DisabledInput</h5>
             <DisabledInput label="test" value="123"/>
         </section>
@@ -77,7 +85,8 @@ const Root = () => (
             <CardActionsRight>
                 <Button label="Action right1"/>
                 <Button label="Action 2"/>
-            </CardActionsRight></section>
+            </CardActionsRight>
+        </section>
 
         <section>
 

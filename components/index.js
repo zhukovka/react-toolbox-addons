@@ -15,3 +15,4 @@ export CardExpandable from './cardexpandable';
 export NavDrawerPlus from './nawdrawerplus';
 export SidebarPlus from './sidebarplus';
 export VideoPanel from './videopanel';
+export * from './headings';

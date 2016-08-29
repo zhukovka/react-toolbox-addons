@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import Input from 'react-toolbox/lib/input';
-import classnames from 'classnames';
 import {themr} from 'react-css-themr';
 import {DISABLED_INPUT} from '../identifiers.js';
 
@@ -13,8 +12,8 @@ const factory = () => {
 
     DisabledInput.propTypes = {
         label: PropTypes.string,
-        value: PropTypes.string,
-        theme: PropTypes.object
+        theme: PropTypes.object,
+        value: PropTypes.string
     };
 
     return DisabledInput;
