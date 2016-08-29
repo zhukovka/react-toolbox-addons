@@ -15,3 +15,5 @@ export const SIDEBAR_PLUS = 'NavDrawerPlus';
 export const TRANSPARENT_CHIP = 'TransparentChip';
 export const STEPSLIST = 'StepsList';
 export const VIDEOPANEL = 'VideoPanel';
+export const DISABLED_INPUT = 'DisabledInput';
+export const RED_HEADING = 'RedHeading';
