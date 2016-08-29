@@ -4,6 +4,7 @@
 @import "~react-toolbox/lib/layout/config";
 
 .sidebar.sidebarPlus {
+  height: auto;
   @include shadow-2dp();
   .sidebarContent {
     border-left: 1px solid $drawer-border-color;
