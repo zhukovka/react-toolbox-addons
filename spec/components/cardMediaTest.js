@@ -1,7 +1,6 @@
 import React from 'react';
 import {CardMediaPlus, CardTitleButtons} from '../../components/card-addons';
 import CardActionsHover from '../../components/card-addons/CardActionsHover';
-
 import {CardActionsSpaced} from '../../components/cardactionsspaced';
 import {StatusComponent} from '../../components/status-component';
 import {ButtonOutline} from '../../components/button-addons/ButtonOutline';

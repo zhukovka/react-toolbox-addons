@@ -21,6 +21,8 @@ import CardMediaPlusTest from './components/cardMediaTest';
 import CardTitleButtonsTest from './components/cardTitleButtonsTest';
 import CardExpandable from './components/cardexpandable';
 
+import {StreamListTest} from './components/StreamPanelTest';
+
 const Root = () => (
     <div className={style.app}>
         <h1>React Toolbox Addons
@@ -29,6 +31,7 @@ const Root = () => (
         <Card style={{width: '200px'}}>
             <CardMediaPlusTest />
         </Card>
+        <StreamListTest />
         <CardTitlePrimary>
                 KUKURUKU
             <StatusComponent status="idle"/>

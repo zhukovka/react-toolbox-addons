@@ -4,6 +4,7 @@ import BottomSheet from '../../components/bottomsheet';
 import {Card, CardMedia, CardTitle, CardActions} from 'react-toolbox/lib/card';
 import {ListItem, ListItemContent, ListDivider} from 'react-toolbox/lib/list';
 import {FlexList} from '../../components/flexlist/index';
+
 class BottomSheetTest extends React.Component {
     state = {
         cards: false,
