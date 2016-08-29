@@ -12,25 +12,27 @@ import {Card, CardText} from 'react-toolbox/lib/card';
 const StreamItem = ({stream, index}) => {
     const ICON_MORE = 'more_horiz';
     return (
-        <Card style={{background: 'none', color: '#fff', boxShadow: 'none'}}>
-            <CardMediaPlus image={stream.image} aspectRatio={'wide'}>
-                <CardActionsSpaced>
-                    <ButtonView label="10" onClick={(e)=> {
-                    }}/>
-                    <StatusComponent status={stream.status}/>
-                </CardActionsSpaced>
-                <CardActionsHover>
-                    <CardTitleButtons buttons={[{
-                        icon: ICON_MORE, onClick: ()=> {
-                        }
-                    }]}/>
-                    <ButtonOutline label={'view'} flat onClick={(e)=>stream.onClick(e, stream)}/>
-                </CardActionsHover>
-            </CardMediaPlus>
-            <CardText>
-                <span>{stream.streamName || 'stream ' + (index + 1)}</span>
-            </CardText>
-        </Card>
+        <div>
+            <Card>
+                <CardMediaPlus image={stream.image} aspectRatio={'wide'}>
+                    <CardActionsSpaced>
+                        <ButtonView label="10" onClick={(e)=> {
+                        }}/>
+                        <StatusComponent status={stream.status}/>
+                    </CardActionsSpaced>
+                    <CardActionsHover>
+                        <CardTitleButtons buttons={[{
+                            icon: ICON_MORE, onClick: ()=> {
+                            }
+                        }]}/>
+                        <ButtonOutline label={'view'} flat onClick={(e)=>stream.onClick(e, stream)}/>
+                    </CardActionsHover>
+                </CardMediaPlus>
+            </Card>
+        <p>
+            <span>{stream.streamName || 'stream ' + (index + 1)}</span>
+        </p>
+        </div>
 
     );
 };

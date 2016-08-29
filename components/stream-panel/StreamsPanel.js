@@ -44,26 +44,19 @@ class StreamsPanel extends Component {
 
     renderBody (streams) {
         const {activeStream} = this.props;
+        const _streams = streams.filter((st, index)=>index !== activeStream);
+        const _newStreams = [streams[activeStream]].concat(_streams);
         return (
             <Row expanded>
-                <Col small={2}>
-                    <FlexList>
-                        <ListItem>
-                            <ListItemContent >
-                                <StreamItem stream={streams[activeStream]} index={activeStream}/>
-                            </ListItemContent>
-                        </ListItem>
-                    </FlexList>
-                </Col>
+                {(_newStreams || streams).map((stream, index)=>(
+                    <Col key={index} offset={!activeStream && 2}>
+                        <StreamItem stream={stream} key={index} index={index}/>
+                    </Col>
+                ))}
                 <Col>
-                   <StreamsList streams={streams}/>
-                </Col>
-                <Col shrink>
-                    <FlexList>
-                        <StreamNewItem onClick={(e)=> {
-                            console.log('create new stream');
-                        }}/>
-                    </FlexList>
+                    <StreamNewItem onClick={(e)=> {
+                        console.log('create new stream');
+                    }}/>
                 </Col>
             </Row>
         );

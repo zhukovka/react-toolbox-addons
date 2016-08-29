@@ -37,7 +37,7 @@ class StreamListTest extends React.Component {
                 },
                 {
                     image: TEST_IMG_URL,
-                    status: 'ready',
+                    status: 'error',
                     onClick: this.handleStreamClick.bind(this)
                 },
                 {
