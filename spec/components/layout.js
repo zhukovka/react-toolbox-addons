@@ -15,7 +15,6 @@ class LayoutTest extends React.Component {
         super(props);
 
         this.state = {
-            permanentAt: 'lg',
             drawerOpen: true,
             drawerPinned: true,
             sidebarPinned: true,
@@ -25,8 +24,7 @@ class LayoutTest extends React.Component {
     }
 
     toggleDrawer = (event) => {
-        event.stopPropagation();
-        this.setState({drawerOpen: !this.state.drawerOpen});
+        this.setState({drawerOpen: !this.state.drawerOpen, drawerPinned: !this.state.drawerPinned});
     };
 
     renderTag (iframe) {
@@ -57,7 +55,7 @@ class LayoutTest extends React.Component {
                     </Card>
                     <Layout>
                         <NavDrawerPlus title="Users" active={this.state.drawerOpen} pinned={this.state.drawerPinned}
-                                       permanentAt={this.state.permanentAt} onOverlayClick={this.toggleDrawer}>
+                                       onClick={this.toggleDrawer.bind(this)}>
 
                             <List selectable ripple>
                                 <ListItem
