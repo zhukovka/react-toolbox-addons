@@ -35,3 +35,45 @@ export const ButtonProps = PropTypes.shape({
     }),
     type: PropTypes.string
 });
+
+export const NavDrawerProps = PropTypes.shape({
+    active: PropTypes.bool,
+    children: PropTypes.any,
+    className: PropTypes.string,
+    onOverlayClick: PropTypes.func,
+    permanentAt: PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl', 'xxxl']),
+    pinned: PropTypes.bool,
+    scrollY: PropTypes.bool,
+    theme: PropTypes.shape({
+        active: PropTypes.string,
+        drawerContent: PropTypes.string,
+        lgPermanent: PropTypes.string,
+        mdPermanent: PropTypes.string,
+        navDrawer: PropTypes.string,
+        pinned: PropTypes.string,
+        scrim: PropTypes.string,
+        scrollY: PropTypes.string,
+        smPermanent: PropTypes.string,
+        wide: PropTypes.string,
+        xlPermanent: PropTypes.string,
+        xxlPermanent: PropTypes.string,
+        xxxlPermanent: PropTypes.string
+    }),
+    width: PropTypes.oneOf(['normal', 'wide'])
+});
+
+export const SidebarProps = PropTypes.shape(
+    {
+        children: PropTypes.any,
+        className: PropTypes.string,
+        pinned: PropTypes.bool,
+        scrollY: PropTypes.bool,
+        theme: PropTypes.shape({
+            pinned: PropTypes.string,
+            scrollY: PropTypes.string,
+            sidebar: PropTypes.string,
+            sidebarContent: PropTypes.string
+        }),
+        width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 25, 33, 50, 66, 75, 100])
+    }
+);

@@ -20,6 +20,7 @@ import {CardTitlePrimary} from '../components/card-addons';
 import CardMediaPlusTest from './components/cardMediaTest';
 import CardTitleButtonsTest from './components/cardTitleButtonsTest';
 import CardExpandable from './components/cardexpandable';
+import Layout from './components/layout';
 
 const Root = () => (
     <div className={style.app}>
@@ -30,7 +31,7 @@ const Root = () => (
             <CardMediaPlusTest />
         </Card>
         <CardTitlePrimary>
-                KUKURUKU
+            KUKURUKU
             <StatusComponent status="idle"/>
             <StatusComponent status="warning"/>
             <StatusComponent status="error"/>
@@ -38,10 +39,11 @@ const Root = () => (
             <CardTitleButtonsTest />
 
         </CardTitlePrimary>
-                <CardTitle title='Default cardTitle' subtitle='def' style={{position: 'relative'}}>
-                    <CardTitleButtonsTest />
-                </CardTitle>
-        <CardTitle title='Accent cardTitle' subtitle='def' style={{position: 'relative', background: 'rgb(255,64,129)', color: '#fff'}}>
+        <CardTitle title='Default cardTitle' subtitle='def' style={{position: 'relative'}}>
+            <CardTitleButtonsTest />
+        </CardTitle>
+        <CardTitle title='Accent cardTitle' subtitle='def'
+                   style={{position: 'relative', background: 'rgb(255,64,129)', color: '#fff'}}>
             <CardTitleButtonsTest />
         </CardTitle>
 
@@ -120,6 +122,8 @@ const Root = () => (
                 <Avatar title="A"/><span>Active chip</span>
             </ChipTransparent>
         </section>
+
+        <Layout/>
     </div>
 );
 

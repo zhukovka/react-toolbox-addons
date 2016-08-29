@@ -1,0 +1,12 @@
+@import "./config";
+@import "../mixins";
+@import "~react-toolbox/lib/mixins";
+@import "~react-toolbox/lib/layout/config";
+
+.sidebar.sidebarPlus {
+  @include shadow-2dp();
+  .sidebarContent {
+    border-left: 1px solid $drawer-border-color;
+    justify-content: flex-start;
+  }
+}

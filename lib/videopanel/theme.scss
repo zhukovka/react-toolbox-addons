@@ -1,0 +1,14 @@
+.cardMedia {
+  .content {
+    padding: 10px;
+    align-items: center;
+  }
+
+}
+
+.cardTitle {
+  &--buttonsWrapper {
+    right: 20px;
+    top: 10px;
+  }
+}
