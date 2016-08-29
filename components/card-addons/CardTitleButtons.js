@@ -7,13 +7,12 @@ import classnames from 'classnames';
 import {
     CSS_CARD_TITLE_BUTTONS_WRAPPER
 } from './constants';
-import theme from './theme.scss';
 
 const factory = () => {
-    const CardTitleButtons = ({buttons = [], center}) => {
+    const CardTitleButtons = ({buttons = [], center, theme}) => {
         const classes = classnames({[theme.center]: center}, theme[CSS_CARD_TITLE_BUTTONS_WRAPPER]);
         return (
-            <div className={classes}>
+            <div className={classes} theme={theme}>
                 {buttons.map((btn, index)=>{
                     return <Button floating mini key={index} theme={theme} {...btn}/>;
                 })}
@@ -23,7 +22,8 @@ const factory = () => {
 
     CardTitleButtons.propTypes = {
         buttons: PropTypes.array.isRequired,
-        center: PropTypes.bool
+        center: PropTypes.bool,
+        theme: PropTypes.object
     };
     return CardTitleButtons;
 };

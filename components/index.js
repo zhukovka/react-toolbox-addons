@@ -12,3 +12,6 @@ export ChipTransparent from './chips';
 export StepsList from './stepslist';
 export * from './card-addons';
 export CardExpandable from './cardexpandable';
+export NavDrawerPlus from './nawdrawerplus';
+export SidebarPlus from './sidebarplus';
+export VideoPanel from './videopanel';
