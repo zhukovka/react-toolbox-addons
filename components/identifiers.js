@@ -1,5 +1,7 @@
 export const BOTTOMSHEET = 'RTBottomSheet';
 export const FLEXLIST = 'RTFlexList';
+export const LISTITEMACTIVE = 'RTListItemActive';
+export const LISTITEMPLUS = 'RTListItemPlus';
 export const CARDACTIONSRIGHT = 'RTCardActionsRight';
 export const CARDACTIONSSPACED = 'RTCardActionsSpaced';
 export const DROPDOWNPLUS = 'RTDropdownPlus';
