@@ -1,10 +1,23 @@
 import React from 'react';
+import {ListItem, ListItemContent, ListDivider} from 'react-toolbox/lib/list';
+import {Card, CardText,CardMedia} from 'react-toolbox/lib/card';
+import FontIcon from 'react-toolbox/lib/font_icon';
 
 const StreamNewItem = ({onClick}) => {
     return (
-        <div onClick={(e)=>onClick(e)} style={{border: '2px solid #fff', padding: '4rem 0'}}>
-            <h5>new stream</h5>
-        </div>
+        <ListItem>
+            <ListItemContent>
+                <Card onClick={(e)=>onClick(e)} style={{background: 'none', color: '#fff', boxShadow: 'none'}}>
+                    <CardMedia color="#444" aspectRatio={'wide'}>
+                        <FontIcon value={'add'}/>
+                    </CardMedia>
+                    <CardText>
+                        <p>New Hardware</p>
+                    </CardText>
+
+                </Card>
+            </ListItemContent>
+        </ListItem>
     );
 };
 

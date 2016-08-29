@@ -22,12 +22,14 @@ import CardTitleButtonsTest from './components/cardTitleButtonsTest';
 import CardExpandable from './components/cardexpandable';
 
 import {StreamListTest} from './components/StreamPanelTest';
+import {TestStreamBoxes} from './components/TestStreamBoxes';
 
 const Root = () => (
     <div className={style.app}>
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
+        <TestStreamBoxes />
         <Card style={{width: '200px'}}>
             <CardMediaPlusTest />
         </Card>

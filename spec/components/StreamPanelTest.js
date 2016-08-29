@@ -23,7 +23,7 @@ class StreamListTest extends React.Component {
                 title: 'name',
                 avatar: TEST_IMG_URL
             },
-            activeStream : 2,
+            activeStream: 2,
             streams: [
                 {
                     image: TEST_IMG_URL,
@@ -59,7 +59,9 @@ class StreamListTest extends React.Component {
         }
         return (
             <section>
-                <StreamsPanel {...testProps}/>
+                <h5>Test bottom streams</h5>
+                <Button label="toggle" onClick={()=>{this.setState({open: !this.state.open});}}/>
+                <StreamsPanel {...testProps} open={this.state.open}/>
             </section>
         );
     }

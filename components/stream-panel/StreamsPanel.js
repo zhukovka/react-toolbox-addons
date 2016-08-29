@@ -8,15 +8,19 @@ import {StreamItem} from './StreamItem';
 import {StreamNewItem} from './StreamNewItem';
 import {BottomSheet} from '../../components/bottomsheet';
 
+import {FlexList} from '../../components/flexlist/index';
+import {ListItem, ListItemContent, ListDivider} from 'react-toolbox/lib/list';
+import {ReactBox} from './StreamBox';
 
 class StreamsPanel extends Component {
-    constructor (props){
+    constructor (props) {
         super(props);
         this.state = {
             open: false
         };
     }
-    renderHeader (user){
+
+    renderHeader (user) {
         const {activeStream, streams} = this.props;
         return (
             <Row expanded align={'middle'}>
@@ -25,10 +29,12 @@ class StreamsPanel extends Component {
                 </Col>
                 <Col>
                     <CardActionsSpaced>
-                        <CardTitle {...user}/>
+                        <CardTitle {...user} style={{padding: '0'}}/>
                         <div>
-                            <span>locatins </span>
-                            <Button label="toggle" onClick={()=>{this.setState({open: !this.state.open});}}/>
+                            <span>Missions location</span>
+                            <Button label="toggle" onClick={()=> {
+                                this.setState({open: !this.state.open});
+                            }}/>
                         </div>
                     </CardActionsSpaced>
                 </Col>
@@ -36,29 +42,42 @@ class StreamsPanel extends Component {
         );
     }
 
-    renderBody (streams){
+    renderBody (streams) {
         const {activeStream} = this.props;
         return (
             <Row expanded>
                 <Col small={2}>
-                    <StreamItem stream={streams[activeStream]} index={activeStream} />
+                    <FlexList>
+                        <ListItem>
+                            <ListItemContent >
+                                <StreamItem stream={streams[activeStream]} index={activeStream}/>
+                            </ListItemContent>
+                        </ListItem>
+                    </FlexList>
                 </Col>
                 <Col>
-                    <StreamsList streams={streams}/>
+                   <StreamsList streams={streams}/>
                 </Col>
                 <Col shrink>
-                    <StreamNewItem onClick={(e)=>{console.log('create new stream');}}/>
+                    <FlexList>
+                        <StreamNewItem onClick={(e)=> {
+                            console.log('create new stream');
+                        }}/>
+                    </FlexList>
                 </Col>
             </Row>
         );
     }
+
     render () {
         const {user, streams} = this.props;
         return (
             <div style={{background: '#888', color: '#000'}}>
-                {this.renderHeader(user)}
-                <BottomSheet active={this.state.open}>
-                    {this.renderBody(streams)}
+                <BottomSheet active={this.props.open}>
+                    <Row expanded>
+                        {this.renderHeader(user)}
+                        {this.renderBody(streams)}
+                    </Row>
                 </BottomSheet>
             </div>
         );
