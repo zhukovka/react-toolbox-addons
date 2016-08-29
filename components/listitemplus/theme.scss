@@ -1,0 +1,11 @@
+@import "config";
+
+.listItem {
+  //border-left: 4px solid red;
+  &.admin {
+      border-left: 4px solid $admin-border-list-item-color;
+  }
+  &.org-admin {
+    border-left: 4px solid $org-admin-border-list-item-color;
+  }
+}
