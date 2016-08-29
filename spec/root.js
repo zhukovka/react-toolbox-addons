@@ -21,6 +21,7 @@ import CardMediaPlusTest from './components/cardMediaTest';
 import CardTitleButtonsTest from './components/cardTitleButtonsTest';
 import CardExpandable from './components/cardexpandable';
 import Layout from './components/layout';
+import DisabledInput from '../components/disabledinput';
 
 const Root = () => (
     <div className={style.app}>
@@ -59,6 +60,10 @@ const Root = () => (
 
         <BottomSheet />
 
+        <section>
+            <h5>DisabledInput</h5>
+            <DisabledInput label="test" value="123"/>
+        </section>
         <section>
             <h5>CardActions</h5>
             <CardActions>
