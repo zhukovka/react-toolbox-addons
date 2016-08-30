@@ -27,7 +27,7 @@ class EditableTitle extends Component{
     }
     render (){
         const {onHover} = this.state;
-        const {editable, defaultValue, theme} = this.props;
+        const {editable, defaultValue, theme, onBlur} = this.props;
         if (!editable){
             return (
                 <div onMouseOver={this.toggleOnHover.bind(this, true)}
@@ -39,7 +39,7 @@ class EditableTitle extends Component{
                 </div>
             );
         } else {
-            return (<Input type={INPUT_TYPE_TEXT} {...this.props} theme={theme}/>);
+            return (<Input type={INPUT_TYPE_TEXT} defaultValue={defaultValue} onBlur={onBlur} theme={theme}/>);
         }
     }
 }
