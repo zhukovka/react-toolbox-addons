@@ -36,13 +36,13 @@ const RTColumn = (props) => {
 };
 RTColumn.propTypes = {
     align: PropTypes.string,
-    children: React.PropTypes.any,
+    children: PropTypes.any,
     className: PropTypes.string,
     large: PropTypes.number,
     medium: PropTypes.number,
     offset: PropTypes.string,
     order: PropTypes.string,
-    shrink: PropTypes.string,
+    shrink: PropTypes.bool,
     small: PropTypes.number,
     theme: PropTypes.object
 };
