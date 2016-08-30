@@ -16,7 +16,7 @@ import ChipTransparent from '../components/chips';
 import Avatar from 'react-toolbox/lib/avatar';
 import StepsList from './components/stepslist';
 import {StatusComponent} from '../components/status-component';
-import {CardTitlePrimary} from '../components/card-addons';
+import {CardMediaPrimary, CardTitlePrimary} from '../components/card-addons';
 import CardMediaPlusTest from './components/cardMediaTest';
 import CardTitleButtonsTest from './components/cardTitleButtonsTest';
 import CardExpandable from './components/cardexpandable';
@@ -55,6 +55,12 @@ const Root = () => (
         <section>
             <h5>StepsList</h5>
             <StepsList/>
+        </section>
+
+        <section>
+            <h5>CardMediaPrimary</h5>
+
+            <CardMediaPrimary aspectRatio="wide"/>
         </section>
 
         <CardExpandable/>

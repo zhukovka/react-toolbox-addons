@@ -77,3 +77,22 @@ export const SidebarProps = PropTypes.shape(
         width: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 25, 33, 50, 66, 75, 100])
     }
 );
+
+export const CardMediaProps = {
+    aspectRatio: PropTypes.oneOf([ 'wide', 'square' ]),
+    children: PropTypes.any,
+    className: PropTypes.string,
+    color: PropTypes.string,
+    contentOverlay: PropTypes.bool,
+    image: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element
+    ]),
+    theme: PropTypes.shape({
+        cardMedia: PropTypes.string,
+        content: PropTypes.string,
+        contentOverlay: PropTypes.string,
+        square: PropTypes.string,
+        wide: PropTypes.string
+    })
+};
