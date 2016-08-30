@@ -15,10 +15,6 @@ const StreamCardMedia = (props) => {
                 <StatusComponent status={props.status}/>
             </CardActionsSpaced>
             <CardActionsHover >
-                <CardTitleButtons buttons={[{
-                    icon: ICON_MORE, onClick: ()=> {
-                    }
-                }]}/>
                 <ButtonOutline label={'view'} flat onClick={props.onClick}/>
             </CardActionsHover>
         </CardMediaPlus>

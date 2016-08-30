@@ -21,9 +21,6 @@ import CardMediaPlusTest from './components/cardMediaTest';
 import CardTitleButtonsTest from './components/cardTitleButtonsTest';
 import CardExpandable from './components/cardexpandable';
 
-import {StreamListTest} from './components/StreamPanelTest';
-import {TestStreamBoxes} from './components/TestStreamBoxes';
-
 import {TestStream} from './components/TestStream';
 
 const Root = () => (
@@ -32,12 +29,10 @@ const Root = () => (
             <small>Spec {VERSION}</small>
         </h1>
         <TestStream />
-        <StreamListTest />
-        {/*<TestStreamBoxes />
-        <Card style={{width: '200px'}}>
+
+        {/*<Card style={{width: '200px'}}>
             <CardMediaPlusTest />
         </Card>
-        <StreamListTest />
         <CardTitlePrimary>
                 KUKURUKU
             <StatusComponent status="idle"/>

@@ -9,51 +9,46 @@ class EditableTitle extends Component{
     constructor (props){
         super(props);
         this.state = {
-            onHover: false,
-            value: props.value
+            onHover: false
         };
     }
-    handleChange (e){
-        this.setState({
-            value: e
-        },()=>{
-            console.log(e);
-        });
-    }
+
     toggleOnHover (bool){
         this.setState({
             onHover: bool
         });
     }
-    renderIcon (onHover, editable, onEdit){
+    renderIcon (){
+        const {editable, onEdit, theme} = this.props;
+        const {onHover} = this.state;
         if (onHover && !editable){
-            return (<FontIcon value={ICON_EDIT} onClick={onEdit} style={{fontSize: '1em'}}/>);
+            return (<FontIcon value={ICON_EDIT} onClick={onEdit} className={theme['editableTitle--editIcon']} />);
         }
     }
     render (){
         const {onHover} = this.state;
-        const {editable, value, onBlur, onEdit} = this.props;
+        const {editable, defaultValue, theme} = this.props;
         if (!editable){
             return (
                 <div onMouseOver={this.toggleOnHover.bind(this, true)}
-                   onMouseLeave={this.toggleOnHover.bind(this, false)}
-                   style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}
+                     onMouseLeave={this.toggleOnHover.bind(this, false)}
+                     className={theme['editableTitle--titleWrapper']}
                 >
-                    <span>{value}</span>
-                    {this.renderIcon(onHover, editable, onEdit)}
+                    <span>{defaultValue}</span>
+                    {this.renderIcon()}
                 </div>
             );
         } else {
-            return (<Input type={INPUT_TYPE_TEXT} value={value} onBlur={onBlur} style={{padding: '0'}}/>);
+            return (<Input type={INPUT_TYPE_TEXT} {...this.props} theme={theme}/>);
         }
     }
 }
 
 EditableTitle.propTypes = {
+    defaultValue: PropTypes.string.isRequired,
     editable: PropTypes.bool.isRequired,
     onBlur: PropTypes.func.isRequired,
-    onEdit: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired
+    onEdit: PropTypes.func.isRequired
 };
 
 export {EditableTitle};

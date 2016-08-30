@@ -8,105 +8,70 @@ import {FixedBottomSheet} from '../../components/fixed-bottom-sheet/FixedBottomS
 import {Card, CardTitle, CardText} from 'react-toolbox/lib/card';
 import Avatar from 'react-toolbox/lib/avatar';
 
+//
+import {StreamPanel} from '../../components/streams';
+const TEST_IMAGE = 'http://lorempixel.com/400/200';
+const TEST_AVATAR = 'https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg';
 class TestStream extends React.Component {
-    state = {
-        expanded: false
+
+    /* onClick => DOMevent
+    *   addHardware => DOMevent
+    * */
+    addHardware (e){
+        console.log(e, 'addNewHardware!');
     }
-    renderList (){
-        const _cardProps = {
-            image: 'http://lorempixel.com/300/150',
-            status: 'ready',
-            value: 'stream 1',
-            onClick: (e)=> {
-                console.log('TEST stream ' + e);
-            }
-        };
-        const _containerStyles = {
-            display: 'flex',
-            flexWrap: 'nowrap',
-            overflowX: 'scroll',
-            flex: '11'
-        };
-        if (this.state.expanded){
-            return (
-                <Row expanded>
-                    <Col style={{flex: '1'}}>
-                        <StreamCard {..._cardProps}/>
-                    </Col>
-                    <Col style={_containerStyles}>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamNewHardware onClick={(e)=> {
-                            console.log('create new hardware!')
-                        }}/>
-                    </Col>
-                </Row>
-            );
-        }
+    viewClick (e){
+        console.log(e, 'viewClick!');
+    }
+    valueOnBlur (e){
+        console.log(e, 'valueOnBlur!');
     }
     render () {
-        const AVATAR_TEST = 'https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg';
+        const testProps = {
+            user: {
+                name: 'test User Name',
+                avatar: TEST_AVATAR
+            },
+            activeStream: 1,
+            streams: [
+                {
+                    image: TEST_IMAGE,
+                    status: 'ready',
+                    streamName: 'stream 1',
+                    onClick: ()=>{}
+                },
+                {
+                    image: TEST_IMAGE,
+                    status: 'error',
+                    streamName: 'stream 2',
+                    onClick: ()=>{}
+                },
+                {
+                    image: TEST_IMAGE,
+                    status: 'ready',
+                    streamName: 'stream 3',
+                    onClick: ()=>{}
+                },
+                {
+                    image: TEST_IMAGE,
+                    status: 'warning',
+                    streamName: 'stream 4',
+                    onClick: ()=>{}
+                },
+                {
+                    image: TEST_IMAGE,
+                    status: 'warning',
+                    streamName: 'stream 5',
+                    onClick: ()=>{}
+                }
+            ],
+            addHardware: this.addHardware.bind(this),
+            viewClick: this.viewClick.bind(this),
+            valueOnBlur: this.valueOnBlur.bind(this)
 
-        const _cardProps = {
-            image: 'http://lorempixel.com/300/150',
-            status: 'ready',
-            value: 'stream 1',
-            onClick: (e)=> {
-                console.log('TEST stream ' + e);
-            }
-        };
-        const _containerStyles = {
-            display: 'flex',
-            flexWrap: 'nowrap',
-            overflowX: 'scroll',
-            flex: '10',
-            paddingLeft: '3rem'
         };
         return (
-            <FixedBottomSheet>
-                <Row expanded align={'middle'}>
-                    <Col small={2}>
-                        <CardText style={{padding: '0'}}>
-                            Active stream #name
-                        </CardText>
-                        {/*<CardTitle subtitle="Active stream #name" style={{padding: '0',borderRight: '2px solid #ddd'}}/>*/}
-                    </Col>
-                    <Col style={{flex: '10', paddingLeft: '3.9rem'}}>
-                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                            <CardTitle title="UserName" avatar={AVATAR_TEST} style={{padding: '0'}}/>
-                            <CardText style={{padding: '0', marginRight: '8rem'}}>
-                                Missions Locations Missions Locations Missions Locations Missions Locations
-                            </CardText>
-                        </div>
-                    </Col>
-                </Row>
-                <Row expanded>
-                    <Col small={2}>
-                        <StreamCard {..._cardProps} />
-                    </Col>
-                    <Col style={_containerStyles}>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamCard {..._cardProps}/>
-                        <StreamNewHardware onClick={(e)=> {
-                            console.log('create new hardware!')
-                        }}/>
-                    </Col>
-                </Row>
-            </FixedBottomSheet>
+            <StreamPanel {...testProps}/>
 
         );
     }

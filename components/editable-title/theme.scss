@@ -1,0 +1,23 @@
+@import "~react-toolbox/lib/_colors.scss";
+$default-REM: 1.8rem;
+
+.editableTitle {
+  color: inherit;
+  &--titleWrapper{
+    display: flex;
+    justify-content: center;
+    padding: $default-REM/2 0;
+  }
+  &--editIcon{
+    margin-left: $default-REM;
+    cursor: pointer;
+    font-size: 18px;
+  }
+}
+.input {
+  padding: $default-REM/2 0;
+}
+.inputElement {
+  padding: 0;
+  color: $color-white;
+}
