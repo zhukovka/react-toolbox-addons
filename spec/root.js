@@ -11,7 +11,6 @@ import {Row, Col} from '../components/grid/index';
 import {CardActions} from 'react-toolbox/lib/card';
 import ButtonGroup from '../components/buttongroup/ButtonGroup';
 import {Upload} from '../components/upload-zone';
-import {AdminListItem} from '../components/adminlistitem';
 import {ListItemPlus} from '../components/listitemplus';
 import {List, ListItem, ListSubHeader, ListDivider, ListCheckbox} from 'react-toolbox/lib/list';
 
@@ -26,10 +25,11 @@ const Root = () => (
         <List selectable ripple>
             <h4>Mission Users List</h4>
 
-            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/image1.png' themePlus="admin" caption="ADMIN"></ListItemPlus>
-            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/image2.png' themePlus="orgAdmin" caption="Organization Admin"></ListItemPlus>
-            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/jack_sparrow.png' themePlus="missionOwner" caption="Mission Owner"></ListItemPlus>
-            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/User%20avatar.png' themePlus="participant" caption="Mission Participant"></ListItemPlus>
+            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/image1.png' group="admin" caption="ADMIN" legend="ururu" onItemClick={()=>console.log('ururu')}></ListItemPlus>
+            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/image2.png' group="orgAdmin" caption="Organization Admin"></ListItemPlus>
+            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/jack_sparrow.png' group="missionOwner" caption="Mission Owner"></ListItemPlus>
+            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/User%20avatar.png' group="participant" caption="Mission Participant"></ListItemPlus>
+            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/sonny_crocket.png' group="observer" caption="Mission Participant"></ListItemPlus>
 
         </List>
 

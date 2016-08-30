@@ -8,7 +8,8 @@ import {LISTITEMPLUS} from '../identifiers.js';
 const factory = (liItem) => {
     class ListItemPlus extends ListItem {
         static propTypes = {
-            themePlus: PropTypes.oneOf(['admin', 'orgAdmin', 'missionOwner', 'participant'])
+            onItemClick: PropTypes.func,
+            group: PropTypes.oneOf(['admin', 'orgAdmin', 'missionOwner', 'participant', 'observer'])
         };
 
         groupChildren () {
@@ -42,13 +43,13 @@ const factory = (liItem) => {
         }
 
         render () {
-            const {className, onMouseDown, to, onClick, ripple: hasRipple, theme, ...other} = this.props; //eslint-disable-line no-unused-vars
-            const _className = classnames(this.props.theme.listItem, this.props.theme[this.props.themePlus]);
+            const {className, onMouseDown, to, onItemClick, ripple: hasRipple, theme, ...other} = this.props; //eslint-disable-line no-unused-vars
+            const _className = classnames(this.props.theme.listItem, this.props.theme[this.props.group]);
 
             const children = this.groupChildren();
             const content = <ListItemLayout theme={this.props.theme} {...children} {...other}/>;
             return (
-                <li className={`${theme.listItem} ${_className}`} onClick={this.handleClick} onMouseDown={onMouseDown}>
+                <li className={`${theme.listItem} ${_className}`} onClick={onItemClick} onMouseDown={onMouseDown}>
                     {to ? <a href={this.props.to}>{content}</a> : content}
                     {children.ignored}
                 </li>

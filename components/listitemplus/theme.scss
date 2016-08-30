@@ -13,4 +13,7 @@
   &.participant {
     border-left: 4px solid $participant-list-item-border-color;
   }
+  &.observer {
+    border-left: 4px solid $observer-list-item-border-color;
+  }
 }
