@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
+import React, {PropTypes} from 'react';
 import {themr} from 'react-css-themr';
-import {List, ListItem} from 'react-toolbox/lib/list';
+import {ListItem, ListItemLayout} from 'react-toolbox/lib/list';
 import classnames from 'classnames';
 import InjectListItemPlus from 'react-toolbox/lib/list/ListItem.js';
 import {LISTITEMPLUS} from '../identifiers.js';
@@ -8,48 +8,52 @@ import {LISTITEMPLUS} from '../identifiers.js';
 const factory = (liItem) => {
     class ListItemPlus extends ListItem {
         static propTypes = {
-            admin: PropTypes.string,
-            children: PropTypes.any,
-            className: PropTypes.string,
-            disabled: PropTypes.bool,
-            onClick: PropTypes.func,
-            ripple: PropTypes.bool,
-            theme: PropTypes.shape({
-                listItem: PropTypes.string
-            }),
-            to: PropTypes.string,
-            userRole: PropTypes.oneOf(['admin', 'org-admin'])
+            themePlus: PropTypes.oneOf(['admin', 'orgAdmin', 'missionOwner', 'participant'])
         };
-        static defaultProps = {
-        className: '',
-        userRole: 'admin',
-        disabled: false,
-        ripple: false
-    };
-        // constructor (props) {
-        //     super(props);
-        // }
 
-        renderListItemPlus (className) {
-            const {theme} = this.props;
-            const _className = classnames(className, theme.listItem);
+        groupChildren () {
+            const children = {
+                leftActions: [],
+                rightActions: [],
+                ignored: []
+            };
+
+            React.Children.forEach(this.props.children, (child, i) => {
+                if (!React.isValidElement(child)) {
+                    return;
+                }
+
+                const {listItemIgnore, ...rest} = child.props;
+                const strippedChild = {...child, ...{props: rest}};
+
+                if (listItemIgnore) {
+                    children.ignored.push(strippedChild);
+                    return;
+                }
+                if (child.type === ListItemContent) {
+                    children.itemContent = strippedChild;
+                    return;
+                }
+                const bucket = children.itemContent ? 'rightActions' : 'leftActions';
+                children[bucket].push({...strippedChild, key: i});
+            });
+
+            return children;
+        }
+
+        render () {
+            const {className, onMouseDown, to, onClick, ripple: hasRipple, theme, ...other} = this.props; //eslint-disable-line no-unused-vars
+            const _className = classnames(this.props.theme.listItem, this.props.theme[this.props.themePlus]);
+
+            const children = this.groupChildren();
+            const content = <ListItemLayout theme={this.props.theme} {...children} {...other}/>;
             return (
-                // <li key="li-item-plus" className={_className}>
-                <li key="li-item-plus" className={classnames(theme.listItem)}>
-                    list item plus
+                <li className={`${theme.listItem} ${_className}`} onClick={this.handleClick} onMouseDown={onMouseDown}>
+                    {to ? <a href={this.props.to}>{content}</a> : content}
+                    {children.ignored}
                 </li>
             );
         }
-        render () {
-            const {theme, className, userRole} = this.props;
-            return (
-                <ul data-react-toolbox='list' className={theme.listItem}>
-                    {this.renderListItemPlus()}
-                </ul>
-            );
-        }
-
-
     }
     return ListItemPlus;
 };
