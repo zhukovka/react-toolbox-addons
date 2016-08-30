@@ -1,12 +1,3 @@
-export const BOTTOMSHEET = 'RTBottomSheet';
-export const FLEXLIST = 'RTFlexList';
-export const LISTITEMACTIVE = 'RTListItemActive';
-export const LISTITEMPLUS = 'RTListItemPlus';
-export const CARDACTIONSRIGHT = 'RTCardActionsRight';
-export const CARDACTIONSSPACED = 'RTCardActionsSpaced';
-export const DROPDOWNPLUS = 'RTDropdownPlus';
-export const UPLOAD = 'RTDropZone';
-export const UPLOAD_BUTTON = 'RTUploadButton';
 export const BOTTOMSHEET = 'BottomSheet';
 export const FLEXLIST = 'FlexList';
 export const CARDACTIONSRIGHT = 'CardActionsRight';
@@ -26,3 +17,4 @@ export const STEPSLIST = 'StepsList';
 export const VIDEOPANEL = 'VideoPanel';
 export const DISABLED_INPUT = 'DisabledInput';
 export const RED_HEADING = 'RedHeading';
+export const LISTITEMPLUS = 'ListItemPlus';
