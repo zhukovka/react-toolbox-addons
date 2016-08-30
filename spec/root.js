@@ -32,6 +32,7 @@ const Root = () => (
             <small>Spec {VERSION}</small>
         </h1>
         <TestStream />
+        <StreamListTest />
         {/*<TestStreamBoxes />
         <Card style={{width: '200px'}}>
             <CardMediaPlusTest />
