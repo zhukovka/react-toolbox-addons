@@ -4,9 +4,9 @@ import {themr} from 'react-css-themr';
 import {DISABLED_INPUT} from '../identifiers.js';
 
 const factory = () => {
-    const DisabledInput = ({label, value, theme})=> {
+    const DisabledInput = ({label, value, theme, ...other})=> {
         return (
-            <Input type='text' label={label} name={label} value={value} disabled theme={theme}/>
+            <Input {...other} type='text' label={label} name={label} value={value} disabled theme={theme}/>
         );
     };
 

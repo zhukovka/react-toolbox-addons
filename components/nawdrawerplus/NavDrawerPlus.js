@@ -4,11 +4,11 @@ import classnames from 'classnames';
 import {CardTitleButtons} from '../card-addons/index';
 import {NAVDRAWER_PLUS} from '../identifiers';
 import {NavDrawer, AppBar} from 'react-toolbox';
+import {ButtonProps} from '../rtcomponentsprops';
 
 const factory = () => {
-    const NavDrawerPlus = ({title, children, theme, className, onClick, active, pinned})=> {
-
-        const btns = [{icon: 'close', onClick: (e)=>onClick(e)}];
+    const NavDrawerPlus = ({title, children, theme, className, onClick, active, pinned, buttons})=> {
+        const btns = [...(buttons || []), {icon: 'close', onClick: (e)=>onClick(e)}];
         const classes = classnames(className, theme.navDrawerPlus);
         return (
             <NavDrawer active={active} pinned={pinned} theme={theme} className={classes}>
@@ -24,6 +24,7 @@ const factory = () => {
     };
     NavDrawerPlus.propTypes = {
         active: PropTypes.bool,
+        buttons: PropTypes.arrayOf(ButtonProps),
         children: PropTypes.any,
         className: PropTypes.string,
         onClick: PropTypes.func,
