@@ -28,21 +28,6 @@ import {List, ListItem, ListSubHeader, ListDivider, ListCheckbox} from 'react-to
 
 const Root = () => (
     <div className={style.app}>
-        <List selectable ripple>
-            <h4>Mission Users List</h4>
-
-            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/image1.png' group="admin" caption="ADMIN" legend="ururu" onItemClick={()=>console.log('ururu')}></ListItemPlus>
-            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/image2.png' group="orgAdmin" caption="Organization Admin"></ListItemPlus>
-            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/jack_sparrow.png' group="missionOwner" caption="Mission Owner"></ListItemPlus>
-            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/User%20avatar.png' group="participant" caption="Mission Participant"></ListItemPlus>
-            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/sonny_crocket.png' group="observer" caption="Mission Participant"></ListItemPlus>
-
-        </List>
-
-        <List>
-
-        </List>
-
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
@@ -73,6 +58,15 @@ const Root = () => (
             <h5>StepsList</h5>
             <StepsList/>
         </section>
+
+        <List selectable ripple>
+            <h4>Mission Users List</h4>
+            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/image1.png' group="admin" caption="ADMIN" legend="ururu" onItemClick={()=>console.log('ururu')}></ListItemPlus>
+            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/image2.png' group="orgAdmin" caption="Organization Admin"></ListItemPlus>
+            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/jack_sparrow.png' group="missionOwner" caption="Mission Owner"></ListItemPlus>
+            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/User%20avatar.png' group="participant" caption="Mission Participant"></ListItemPlus>
+            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/sonny_crocket.png' group="observer" caption="Mission Participant"></ListItemPlus>
+        </List>
 
         <CardExpandable/>
 
