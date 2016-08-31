@@ -18,7 +18,7 @@ const StreamCard = ({theme, streamName, onChange, ...other})=> {
             </div>
         </div>
     );
-}
+};
 
 StreamCard.propTypes = {
     onChange: PropTypes.func,

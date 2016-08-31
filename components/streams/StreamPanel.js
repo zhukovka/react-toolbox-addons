@@ -7,6 +7,7 @@ import {CSS_SCROLL_CONTAINER, CSS_NO_PADDING, CSS_OFFSET_RIGHT, DEFAULT_AVATAR} 
 import {CardActionsSpaced} from '../../components/cardactionsspaced';
 import {CardTitleButtons} from '../../components/card-addons';
 import {BottomSheetPlus} from '../../components/bottomsheetplus';
+import classnames from 'classnames';
 
 class StreamPanel extends Component {
     constructor (props) {
@@ -16,18 +17,6 @@ class StreamPanel extends Component {
             editable: false,
             active: true
         };
-    }
-
-    updateStreamName (stream, newName) {
-        const {valueOnBlur} = this.props;
-        const findIndex = this.state.streams.indexOf(stream);
-        this.setState({
-            streams: Object.assign([], this.state.streams, {
-                [findIndex]: Object.assign({}, this.state.streams[findIndex], {streamName: newName})
-            })
-        }, ()=> {
-            valueOnBlur(newName);
-        });
     }
 
     renderTopPanel () {
@@ -44,7 +33,7 @@ class StreamPanel extends Component {
 
                     </CardText>
                 </Col>
-                <Col small={10}>
+                <Col small={10} className={theme['streamPanel--borderLeft']}>
                     <CardActionsSpaced className={theme[CSS_NO_PADDING]}>
                         <CardTitle title={name}
                                    avatar={avatar || DEFAULT_AVATAR}
@@ -64,6 +53,7 @@ class StreamPanel extends Component {
     renderBottomPanel () {
         const {theme, activeStream, onAdd} = this.props;
         const {streams} = this.state;
+        const containerClass = classnames(theme[CSS_SCROLL_CONTAINER], theme['streamPanel--borderLeft']);
         return (
             <Row expanded>
                 <Col small={2}>
@@ -71,7 +61,7 @@ class StreamPanel extends Component {
                         theme={theme}
                     />
                 </Col>
-                <Col small={10} className={theme[CSS_SCROLL_CONTAINER]}>
+                <Col small={10} className={containerClass}>
                     {streams.map((stream, index)=>(
                         <StreamCard key={index} {...stream}
                                     theme={theme}/>
@@ -86,7 +76,8 @@ class StreamPanel extends Component {
 
         return (
             <div>
-                <BottomSheetPlus active={this.state.active} iconClick={()=>this.setState({active:!this.state.active})}>
+                <BottomSheetPlus active={this.state.active}
+                                 iconClick={()=>this.setState({active: !this.state.active})}>
                     <div>
                         {this.renderTopPanel()}
                     </div>

@@ -68,8 +68,7 @@ const Root = () => (
         </section>
 
         <CardExpandable/>
-      <CardExpandable/>
-
+        <CardExpandable/>
 
 
         <section>
@@ -115,7 +114,9 @@ const Root = () => (
             <h5>Grid</h5>
             <Row expanded align={'middle'}>
                 <Col small={2}>
-                    <Button label='ololosha' flat onClick={()=> {console.log('kuu');}}/>
+                    <Button label='ololosha' flat onClick={()=> {
+                        console.log('kuu');
+                    }}/>
                 </Col>
                 <Col small={4} offset={'small-offset-6'} align={'stretch'}>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam cumque explicabo ipsam, magni
@@ -129,7 +130,6 @@ const Root = () => (
 
         </section>
 
-        <DropdownPlus/>
 
         <section>
             <Checkmark/>
@@ -148,7 +148,6 @@ const Root = () => (
             </ChipTransparent>
         </section>
 
-        <Layout/>
     </div>
 );
 

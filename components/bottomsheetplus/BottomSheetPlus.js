@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import {themr} from 'react-css-themr';
 import {BOTTOMSHEET} from '../identifiers.js';

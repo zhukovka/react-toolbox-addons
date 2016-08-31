@@ -22,7 +22,7 @@ class CardMediaPlus extends React.Component {
         }
     }
     render (){
-        const {children,theme, ...other} = this.props;
+        const {children, theme, ...other} = this.props;
         return (
             <CardMedia {...other} onMouseOver={this.toggleHover.bind(this, true)} onMouseLeave={this.toggleHover.bind(this, false)}>
                 <div className={theme['cardMediaPlus--wrapper']} >

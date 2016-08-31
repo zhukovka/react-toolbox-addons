@@ -16,6 +16,7 @@ $default-REM: 1.8rem;
     height: auto;
     box-sizing: border-box;
     padding: 0 $default-REM / 2;
+    overflow: hidden;
   }
 
   &--noPadding {
@@ -28,6 +29,9 @@ $default-REM: 1.8rem;
     padding: $default-REM / 2;
     font-size: inherit;
     line-height: inherit;
+  }
+  &--borderLeft {
+    border-left: 3px solid $color-white;
   }
 }
 // THEME

@@ -14,3 +14,4 @@ const _CardMediaPrimary = themr('media', theme)(CardMediaPrimary);
 export {ThemedCardTitleButtons as CardTitleButtons};
 export {_CardTitlePrimary as CardTitlePrimary};
 export {_CardMediaPlus as CardMediaPlus};
+export {_CardMediaPrimary as CardMediaPrimary};
