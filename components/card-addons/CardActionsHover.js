@@ -1,22 +1,17 @@
 import React, {PropTypes} from 'react';
 
-const CardActionsHover = ({hovered, children}) => {
+const CardActionsHover = ({children}) => {
     const style = {color: '#fff', height: '100%', display: 'flex', 'alignItems': 'center', backgroundColor: 'none'};
-    if (hovered) {
-        return (
-            <div style={{height: '100%', backgroundColor: 'rgba(0,0,0,.5)'}}>
-                <div style={style}>
-                    {children}
-                </div>
+    return (
+        <div style={{height: '100%', backgroundColor: 'rgba(0,0,0,.5)'}}>
+            <div style={style}>
+                {children}
             </div>
-        );
-    } else {
-        return null;
-    }
+        </div>
+    );
 };
 CardActionsHover.propTypes = {
-    children: PropTypes.any,
-    hovered: PropTypes.bool
+    children: PropTypes.any
 };
 
 export default CardActionsHover;

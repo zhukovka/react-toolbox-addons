@@ -1,4 +1,5 @@
 export const BOTTOMSHEET = 'BottomSheet';
+export const BOTTOMSHEET_PLUS = 'BottomSheetPlus';
 export const FLEXLIST = 'FlexList';
 export const CARDACTIONSRIGHT = 'CardActionsRight';
 export const CARDACTIONSSPACED = 'CardActionsSpaced';

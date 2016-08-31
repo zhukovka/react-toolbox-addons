@@ -24,11 +24,15 @@ import Layout from './components/layout';
 import DisabledInput from '../components/disabledinput';
 import {RedHeading} from '../components/headings';
 
+import {TestStream} from './components/TestStream';
+
 const Root = () => (
     <div className={style.app}>
+        <TestStream />
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
+
         <Card style={{width: '200px'}}>
             <CardMediaPlusTest />
         </Card>
@@ -64,8 +68,9 @@ const Root = () => (
         </section>
 
         <CardExpandable/>
+      <CardExpandable/>
 
-        <BottomSheet />
+
 
         <section>
             <h5>Headings</h5>
