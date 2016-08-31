@@ -11,8 +11,8 @@ $default-REM: 1.8rem;
   &--scrollItem {
     flex: 0 0 auto;
     width: auto;
-    max-width: 180px;
-    min-width: 180px;
+    max-width: 160px;
+    min-width: 160px;
     height: auto;
     box-sizing: border-box;
     padding: 0 $default-REM / 2;
@@ -49,6 +49,9 @@ $default-REM: 1.8rem;
   padding: 0;
   &:last-child {
     padding-bottom: 0;
+  }
+  + .cardText {
+    padding-top: 0;
   }
 }
 .cardText {
