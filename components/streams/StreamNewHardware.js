@@ -1,11 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Card, CardMedia} from 'react-toolbox/lib/card';
 import FontIcon from 'react-toolbox/lib/font_icon';
-import {
-    ICON_ADD,
-    ADD_NEW_HARDWARE,
-    CSS_SCROLL_ITEM
-} from './constants';
+import {ICON_ADD, ADD_NEW_HARDWARE, CSS_SCROLL_ITEM} from './constants';
 
 
 const StreamNewHardware = (props) => {
