@@ -17,6 +17,7 @@ import {CardActionsSpaced} from '../../components/cardactionsspaced';
 import {BottomSheet} from '../../components/bottomsheet';
 import {CardTitleButtons} from '../../components/card-addons';
 import FontIcon from 'react-toolbox/lib/font_icon';
+import {BottomSheetPlus} from '../../components/bottomsheetplus';
 
 class StreamPanel extends Component {
     constructor (props){
@@ -93,16 +94,13 @@ class StreamPanel extends Component {
 
         return (
                 <div>
-
-
-                    <BottomSheet active={this.state.active} theme={this.props.theme}>
+                    <BottomSheetPlus active={true} icon="add">
                         <div>
                             {this.renderTopPanel()}
                             {this.renderBottomPanel()}
-                            </div>
-                    </BottomSheet>
+                        </div>
+                    </BottomSheetPlus>
                 </div>
-
         );
     }
 }

@@ -25,7 +25,6 @@ const factory = (Overlay, IconButton) => {
                     </div>
                 </div>);
         }
-
         renderVisibleContent () {
             const {icon} = this.props;
             return (

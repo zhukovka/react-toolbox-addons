@@ -25,10 +25,10 @@ import {TestStream} from './components/TestStream';
 
 const Root = () => (
     <div className={style.app}>
+        <TestStream />
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
-        <TestStream />
 
         <Card style={{width: '200px'}}>
             <CardMediaPlusTest />
@@ -58,9 +58,9 @@ const Root = () => (
             <StepsList/>
         </section>
 
-        <CardExpandable/>
+      <CardExpandable/>
 
-        <BottomSheet />
+       {/* <BottomSheet />*/}
 
         <section>
             <h5>CardActions</h5>

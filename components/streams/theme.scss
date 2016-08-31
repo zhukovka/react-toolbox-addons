@@ -54,7 +54,7 @@ $default-REM: 1.8rem;
 }
 .bottomsheet {
   &:not(.active) {
-    transform: translateY(75%);
+    transform: translateY(73%);
   }
   &.active {
     transform: translateY(0%);
