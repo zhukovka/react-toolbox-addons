@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+ import React, {PropTypes} from 'react';
 import Input from 'react-toolbox/lib/input';
 import {themr} from 'react-css-themr';
 import {DISABLED_INPUT} from '../identifiers.js';
