@@ -3,6 +3,8 @@ import {Row, Col} from '../../components/grid';
 import {Card, CardText, CardTitle} from 'react-toolbox/lib/card';
 import {StreamCard} from '../../components/streams/StreamCard';
 import {FixedBottomSheet} from '../../components/fixed-bottom-sheet/FixedBottomSheet';
+import Buttom from 'react-toolbox/lib/button';
+
 import {StreamNewHardware} from '../../components/streams/StreamNewHardware';
 
 import {
@@ -12,13 +14,17 @@ import {
     DEFAULT_AVATAR
 } from './constants';
 import {CardActionsSpaced} from '../../components/cardactionsspaced';
+import {BottomSheet} from '../../components/bottomsheet';
+import {CardTitleButtons} from '../../components/card-addons';
+import FontIcon from 'react-toolbox/lib/font_icon';
 
 class StreamPanel extends Component {
     constructor (props){
         super(props);
         this.state = {
             streams: props.streams,
-            editable: false
+            editable: false,
+            active: false
         };
     }
     updateStreamName (stream, newName){
@@ -35,6 +41,8 @@ class StreamPanel extends Component {
     renderTopPanel () {
         const {user, theme} = this.props;
         const {name, avatar} = user;
+        const ICON_EXPAND = 'expand_more';
+        const ICON_LESS = 'expand_less';
         return (
             <Row expanded align={'middle'}>
                 <Col small={2}>
@@ -51,6 +59,7 @@ class StreamPanel extends Component {
                         <CardText theme={theme} className={theme[CSS_OFFSET_RIGHT]}>
                             Missions Locations Missions Locations Missions Locations Missions Locations
                         </CardText>
+                        <CardTitleButtons buttons={[{icon: (this.state.active ? ICON_EXPAND : ICON_LESS ), onClick: ()=>this.setState({active: !this.state.active})}]}/>
                     </CardActionsSpaced>
                 </Col>
             </Row>
@@ -83,14 +92,23 @@ class StreamPanel extends Component {
     render (){
 
         return (
-            <FixedBottomSheet>
-                {this.renderTopPanel()}
-                {this.renderBottomPanel()}
-            </FixedBottomSheet>
+                <div>
+
+
+                    <BottomSheet active={this.state.active} theme={this.props.theme}>
+                        <div>
+                            {this.renderTopPanel()}
+                            {this.renderBottomPanel()}
+                            </div>
+                    </BottomSheet>
+                </div>
+
         );
     }
 }
-
+/*
+* {this.renderBottomPanel()}
+* */
 StreamPanel.propTypes = {
     activeStream: PropTypes.number,
     addHardware: PropTypes.func,

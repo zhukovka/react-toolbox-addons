@@ -6,7 +6,7 @@ $default-REM: 1.8rem;
   &--scrollContainer {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
   &--scrollItem {
     flex: 0 0 auto;
@@ -50,5 +50,13 @@ $default-REM: 1.8rem;
   &--transparent {
     background: transparent;
     border: 2px solid $color-white;
+  }
+}
+.bottomsheet {
+  &:not(.active) {
+    transform: translateY(75%);
+  }
+  &.active {
+    transform: translateY(0%);
   }
 }

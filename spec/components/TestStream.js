@@ -12,11 +12,11 @@ import Avatar from 'react-toolbox/lib/avatar';
 import {StreamPanel} from '../../components/streams';
 const TEST_IMAGE = 'http://lorempixel.com/400/200';
 const TEST_AVATAR = 'https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg';
+
+
+
 class TestStream extends React.Component {
 
-    /* onClick => DOMevent
-    *   addHardware => DOMevent
-    * */
     addHardware (e){
         console.log(e, 'addNewHardware!');
     }

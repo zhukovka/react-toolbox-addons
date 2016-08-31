@@ -39,9 +39,7 @@ class FixedBottomSheet extends Component{
                 </div>
                 {this.state.expanded && children[1]}
                 <CardTitleButtons buttons={[{icon: (this.state.expanded ? ICON_EXPAND : ICON_LESS ), onClick: ()=>this.setState({expanded: !this.state.expanded})}]}/>
-               {/* <div className={theme['fixedBottomSheet--expandButton']}>
-                    <Button icon={ICON_EXPAND} floating onClick={()=>this.setState({expanded: !this.state.expanded})}/>
-                </div>*/}
+
             </div>
         );
     }
