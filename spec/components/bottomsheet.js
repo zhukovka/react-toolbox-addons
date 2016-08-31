@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, IconButton} from 'react-toolbox/lib/button';
 import BottomSheet from '../../components/bottomsheet';
+import BottomSheetPlus from '../../components/bottomsheetplus';
 import {Card, CardMedia, CardTitle, CardActions} from 'react-toolbox/lib/card';
 import {ListItem, ListItemContent, ListDivider} from 'react-toolbox/lib/list';
 import {FlexList} from '../../components/flexlist/index';
@@ -8,7 +9,8 @@ import {FlexList} from '../../components/flexlist/index';
 class BottomSheetTest extends React.Component {
     state = {
         cards: false,
-        list: false
+        list: false,
+        streams: true
     };
 
     handleClick = () => {
@@ -86,6 +88,59 @@ class BottomSheetTest extends React.Component {
                         <ListItem caption='Remove this publication' leftIcon='delete'/>
                     </FlexList>
                 </BottomSheet>
+
+                <BottomSheetPlus active={this.state.streams}>
+                    <FlexList align="space-around">
+                        <ListItem>
+                            <ListItemContent>
+                                <Card style={{width: '140px'}}>
+                                    <CardMedia
+                                        contentOverlay
+                                        aspectRatio="square"
+                                        image="https://placeimg.com/280/280/people">
+                                        <CardActions style={{justifyContent: 'center'}}>
+                                            <IconButton inverse icon="fast_rewind" />
+                                            <IconButton inverse icon="play_arrow" />
+                                            <IconButton inverse icon="fast_forward" />
+                                        </CardActions>
+                                    </CardMedia>
+                                </Card>
+                            </ListItemContent>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemContent>
+                                <Card style={{width: '140px'}}>
+                                    <CardMedia
+                                        contentOverlay
+                                        aspectRatio="square"
+                                        image="https://placeimg.com/280/280/people">
+                                        <CardActions style={{justifyContent: 'center'}}>
+                                            <IconButton inverse icon="fast_rewind" />
+                                            <IconButton inverse icon="play_arrow" />
+                                            <IconButton inverse icon="fast_forward" />
+                                        </CardActions>
+                                    </CardMedia>
+                                </Card>
+                            </ListItemContent>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemContent>
+                                <Card style={{width: '140px'}}>
+                                    <CardMedia
+                                        contentOverlay
+                                        aspectRatio="square"
+                                        image="https://placeimg.com/280/280/people">
+                                        <CardActions style={{justifyContent: 'center'}}>
+                                            <IconButton inverse icon="fast_rewind" />
+                                            <IconButton inverse icon="play_arrow" />
+                                            <IconButton inverse icon="fast_forward" />
+                                        </CardActions>
+                                    </CardMedia>
+                                </Card>
+                            </ListItemContent>
+                        </ListItem>
+                    </FlexList>
+                </BottomSheetPlus>
             </section>
         );
     }
