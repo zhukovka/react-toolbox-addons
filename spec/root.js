@@ -30,11 +30,11 @@ const Root = () => (
         </h1>
         <TestStream />
 
-        {/*<Card style={{width: '200px'}}>
+        <Card style={{width: '200px'}}>
             <CardMediaPlusTest />
         </Card>
         <CardTitlePrimary>
-                KUKURUKU
+            KUKURUKU
             <StatusComponent status="idle"/>
             <StatusComponent status="warning"/>
             <StatusComponent status="error"/>
@@ -42,10 +42,11 @@ const Root = () => (
             <CardTitleButtonsTest />
 
         </CardTitlePrimary>
-                <CardTitle title='Default cardTitle' subtitle='def' style={{position: 'relative'}}>
-                    <CardTitleButtonsTest />
-                </CardTitle>
-        <CardTitle title='Accent cardTitle' subtitle='def' style={{position: 'relative', background: 'rgb(255,64,129)', color: '#fff'}}>
+        <CardTitle title='Default cardTitle' subtitle='def' style={{position: 'relative'}}>
+            <CardTitleButtonsTest />
+        </CardTitle>
+        <CardTitle title='Accent cardTitle' subtitle='def'
+                   style={{position: 'relative', background: 'rgb(255,64,129)', color: '#fff'}}>
             <CardTitleButtonsTest />
         </CardTitle>
 
@@ -123,7 +124,7 @@ const Root = () => (
             <ChipTransparent active>
                 <Avatar title="A"/><span>Active chip</span>
             </ChipTransparent>
-        </section>*/}
+        </section>
     </div>
 );
 

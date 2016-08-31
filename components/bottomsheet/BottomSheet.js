@@ -76,22 +76,27 @@ const factory = (Overlay, IconButton) => {
             }
         }
 
-        render () {
-            const {icon, theme, children, textColor} = this.props;
+        renderContent () {
+            const {icon, theme, children, textColor, className} = this.props;
             const {active, bottom} = this.state;
-            const className = classnames(theme.bottomsheet, {
+            const _className = classnames(theme.bottomsheet, {
                 [theme.active]: active
-            }, this.props.className);
+            }, className);
+            return (
+                <div data-react-toolbox='bottomsheet' className={_className} style={{bottom}}
+                     onMouseDown={(e)=>this.onMouseDown(e, icon)} onMouseMove={(e)=>this.onMouseMove(e)}
+                     onMouseUp={()=>this.stopDragging()}>
+                    <div className={theme.bottomsheet__item} style={{color: textColor}}>
+                        {children}
+                    </div>
+                    {icon ? <IconButton icon={icon} inverse onClick={()=>this.hideBottomsheet()}/> : null}
+                </div>);
+        }
+
+        render () {
             return (
                 <Overlay invisible onMouseLeave={()=>this.stopDragging()}>
-                    <div data-react-toolbox='bottomsheet' className={className} style={{bottom}}
-                         onMouseDown={(e)=>this.onMouseDown(e, icon)} onMouseMove={(e)=>this.onMouseMove(e)}
-                         onMouseUp={()=>this.stopDragging()}>
-                        <div className={theme.bottomsheet__item} style={{color: textColor}}>
-                            {children}
-                        </div>
-                        {icon ? <IconButton icon={icon} inverse onClick={()=>this.hideBottomsheet()}/> : null}
-                    </div>
+                    {this.renderContent()}
                 </Overlay>
             );
         }
