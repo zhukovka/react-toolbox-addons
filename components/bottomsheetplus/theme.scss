@@ -8,6 +8,7 @@
   @extend .bottomsheet;
   flex-direction: column;
   bottom: 0;
+  padding-bottom: 0;
   &.accept .button {
     color: $bottomsheet-color-accept;
   }
@@ -18,9 +19,6 @@
     color: $bottomsheet-color-cancel;
   }
   &:not(.active) {
-    transform: translateY(100%);
-  }
-  &.active {
     transform: translateY(0%);
   }
 
@@ -28,6 +26,20 @@
     display: flex;
     flex: 1 auto;
     width: 100%;
+    transition: max-height $animation-duration $animation-curve-default $animation-duration;
+    &:not(.active) {
+      max-height: 0;
+    }
+    &.active {
+      max-height: 1500px;
+    }
+  }
+  &__children {
+    padding-bottom: $bottomsheet-vertical-offset;
+  }
+  &__header{
+    width: 100%;
+    padding-bottom: $unit;
   }
 }
 

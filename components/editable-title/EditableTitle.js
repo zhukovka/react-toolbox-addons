@@ -5,42 +5,62 @@ import Input from 'react-toolbox/lib/input';
 const ICON_EDIT = 'edit';
 const INPUT_TYPE_TEXT = 'text';
 
-class EditableTitle extends Component{
-    constructor (props){
+class EditableTitle extends Component {
+    constructor (props) {
         super(props);
         this.state = {
-            onHover: false
+            onHover: false,
+            editable: this.props.editable
         };
     }
 
-    toggleOnHover (bool){
+    blur (e) {
+        this.setState({
+            editable: false
+        });
+        this.props.onBlur(e);
+    }
+
+    toggleOnHover (bool) {
         this.setState({
             onHover: bool
         });
     }
-    renderIcon (){
-        const {editable, onEdit, theme} = this.props;
+
+    iconClick (e) {
+        const input = e.currentTarget.parentElement.querySelector('input');
+        this.setState({
+            editable: true
+        }, ()=> {
+            if (input) {
+                input.focus();
+            }
+        });
+    }
+
+    renderIcon () {
+        const {editable, theme} = this.props;
         const {onHover} = this.state;
-        if (onHover && !editable){
-            return (<FontIcon value={ICON_EDIT} onClick={onEdit} className={theme['editableTitle--editIcon']} />);
+        if (onHover && !editable) {
+            return (
+                <FontIcon value={ICON_EDIT} onClick={this.iconClick.bind(this)}
+                          className={theme['editableTitle--editIcon']}/>);
         }
     }
-    render (){
-        const {onHover} = this.state;
-        const {editable, defaultValue, theme, onBlur} = this.props;
-        if (!editable){
-            return (
-                <div onMouseOver={this.toggleOnHover.bind(this, true)}
-                     onMouseLeave={this.toggleOnHover.bind(this, false)}
-                     className={theme['editableTitle--titleWrapper']}
-                >
-                    <span>{defaultValue}</span>
-                    {this.renderIcon()}
-                </div>
-            );
-        } else {
-            return (<Input type={INPUT_TYPE_TEXT} defaultValue={defaultValue} onBlur={onBlur} theme={theme}/>);
-        }
+
+    render () {
+        const {defaultValue, theme} = this.props;
+        const {editable} = this.state;
+        return (
+            <div onMouseOver={this.toggleOnHover.bind(this, true)}
+                 onMouseLeave={this.toggleOnHover.bind(this, false)}
+                 className={theme['editableTitle--titleWrapper']}>
+                <Input type={INPUT_TYPE_TEXT} defaultValue={defaultValue} disabled={!editable}
+                       onBlur={this.blur.bind(this)}
+                       theme={theme}/>
+                {this.renderIcon()}
+            </div>
+        );
     }
 }
 
@@ -48,7 +68,7 @@ EditableTitle.propTypes = {
     defaultValue: PropTypes.string.isRequired,
     editable: PropTypes.bool.isRequired,
     onBlur: PropTypes.func.isRequired,
-    onEdit: PropTypes.func.isRequired
+    theme: PropTypes.object
 };
 
 export {EditableTitle};
