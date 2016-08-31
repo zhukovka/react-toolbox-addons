@@ -65,7 +65,7 @@ const Root = () => (
             <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/image2.png' group="orgAdmin" caption="Organization Admin"></ListItemPlus>
             <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/jack_sparrow.png' group="missionOwner" caption="Mission Owner"></ListItemPlus>
             <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/User%20avatar.png' group="participant" caption="Mission Participant"></ListItemPlus>
-            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/sonny_crocket.png' group="observer" caption="Mission Participant"></ListItemPlus>
+            <ListItemPlus avatar='https://dl.dropboxusercontent.com/u/53778939/sonny_crocket.png' group="observer" caption="Mission Observer"></ListItemPlus>
         </List>
 
         <CardExpandable/>
