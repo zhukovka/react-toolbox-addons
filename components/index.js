@@ -17,3 +17,4 @@ export SidebarPlus from './sidebarplus';
 export VideoPanel from './videopanel';
 export * from './headings';
 export * from './grid';
+export StreamPanel from './streams/StreamPanel';
