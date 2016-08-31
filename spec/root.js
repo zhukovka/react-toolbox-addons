@@ -26,13 +26,15 @@ import {RedHeading} from '../components/headings';
 
 import {TestStream} from './components/TestStream';
 
+import TestSlider from './components/TestSlider';
+
 const Root = () => (
     <div className={style.app}>
+        <TestSlider/>
         <TestStream />
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
-
         <Card style={{width: '200px'}}>
             <CardMediaPlusTest />
         </Card>

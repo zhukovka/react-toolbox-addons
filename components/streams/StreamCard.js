@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {StreamCardMedia} from './StreamCardMedia';
-import {EditableTitle} from '../../components/editable-title';
+import {EditableTitle} from '../editable-title';
 import {CSS_SCROLL_ITEM} from './constants';
 
 

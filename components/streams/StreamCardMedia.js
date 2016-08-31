@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
-import {CardMediaPlus} from '../../components/card-addons';
-import CardActionsHover from '../../components/card-addons/CardActionsHover';
-import {CardActionsSpaced} from '../../components/cardactionsspaced';
-import {StatusComponent} from '../../components/status-component';
-import {ButtonOutline} from '../../components/button-addons/ButtonOutline';
-import {ButtonView} from '../../components/button-addons/ButtonView';
+import {CardMediaPlus} from '../card-addons';
+import CardActionsHover from '../card-addons/CardActionsHover';
+import {CardActionsSpaced} from '../cardactionsspaced';
+import {StatusComponent} from '../status-component';
+import {ButtonOutline} from '../button-addons/ButtonOutline';
+import {ButtonView} from '../button-addons/ButtonView';
 
 const StreamCardMedia = (props) => {
     return (
