@@ -5,17 +5,21 @@ $default-REM: 1.8rem;
   color: inherit;
   &--titleWrapper{
     display: flex;
-    justify-content: center;
+    align-items: center;
     padding: $default-REM/2 0;
   }
   &--editIcon{
-    margin-left: $default-REM;
     cursor: pointer;
-    font-size: 18px;
+    font-size: inherit;
+    padding: $default-REM/2 0;
   }
 }
 .input {
   padding: $default-REM/2 0;
+  color: $color-white;
+}
+.disabled > .inputElement {
+  color: $color-white;
 }
 .inputElement {
   padding: 0;

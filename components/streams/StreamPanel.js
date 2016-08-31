@@ -33,13 +33,15 @@ class StreamPanel extends Component {
     renderTopPanel () {
         const {user, theme} = this.props;
         const {name, avatar} = user;
-        const ICON_EXPAND = 'expand_more';
-        const ICON_LESS = 'expand_less';
+        const ICON_EXPAND = 'arrow_drop_down';
+        const ICON_LESS = 'arrow_drop_up';
         return (
             <Row expanded align={'middle'}>
                 <Col small={2}>
                     <CardText theme={theme}>
-                        Active stream #name
+                        <span className="material-icons">cast_connected</span>
+                        <span>Active stream #name</span>
+
                     </CardText>
                 </Col>
                 <Col small={10}>

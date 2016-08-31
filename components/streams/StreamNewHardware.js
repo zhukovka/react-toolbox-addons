@@ -13,7 +13,7 @@ const StreamNewHardware = (props) => {
     return (
         <div className={theme[CSS_SCROLL_ITEM]}>
             <Card onClick={onClick} theme={theme} className={theme['card--transparent']}>
-                <CardMedia aspectRatio={'wide'}>
+                <CardMedia aspectRatio={'wide'} theme={theme}>
                     <FontIcon value={ICON_ADD}/>
                 </CardMedia>
             </Card>

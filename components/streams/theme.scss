@@ -31,6 +31,15 @@ $default-REM: 1.8rem;
   }
 }
 // THEME
+.cardMedia {
+  &.wide{
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
 .cardTitle {
   &.small{
     padding: 0;
@@ -41,11 +50,13 @@ $default-REM: 1.8rem;
   &:last-child {
     padding-bottom: 0;
   }
-  + .cardText {
-    padding-top: 0;
-  }
 }
-
+.cardText {
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .card {
   &--transparent {
     background: transparent;

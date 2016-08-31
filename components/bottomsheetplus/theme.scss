@@ -9,6 +9,7 @@
   flex-direction: column;
   bottom: 0;
   padding-bottom: 0;
+  overflow: hidden;
   &.accept .button {
     color: $bottomsheet-color-accept;
   }

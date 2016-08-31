@@ -39,8 +39,8 @@ class EditableTitle extends Component {
     }
 
     renderIcon () {
-        const {editable, theme} = this.props;
-        const {onHover} = this.state;
+        const {theme} = this.props;
+        const {onHover, editable} = this.state;
         if (onHover && !editable) {
             return (
                 <FontIcon value={ICON_EDIT} onClick={this.iconClick.bind(this)}

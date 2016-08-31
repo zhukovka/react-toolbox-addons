@@ -11,3 +11,8 @@
     width: 100%;
   }
 }
+.button {
+  &.flat {
+    color: $color-white;
+  }
+}

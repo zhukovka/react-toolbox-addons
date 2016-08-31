@@ -33,3 +33,10 @@ $default-REM: 1.8rem;
     margin-left: $default-REM;
   }
 }
+.cardMediaPlus {
+  &--wrapper {
+    height: 100%;
+    color: #fff;
+    background: rgba(0,0,0,.35);
+  }
+}

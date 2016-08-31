@@ -22,18 +22,20 @@ class CardMediaPlus extends React.Component {
         }
     }
     render (){
-        const {children, ...other} = this.props;
+        const {children,theme, ...other} = this.props;
         return (
             <CardMedia {...other} onMouseOver={this.toggleHover.bind(this, true)} onMouseLeave={this.toggleHover.bind(this, false)}>
-                <div className="test" style={{height: '100%'}} >
+                <div className={theme['cardMediaPlus--wrapper']} >
                     {this.renderChildrens(children)}
                 </div>
             </CardMedia>
         );
     }
-};
+}
+
 CardMediaPlus.propTypes = {
-    children: PropTypes.any
+    children: PropTypes.any,
+    theme: PropTypes.object
 };
 
 export {CardMediaPlus};
