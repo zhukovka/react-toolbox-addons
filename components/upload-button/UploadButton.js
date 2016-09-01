@@ -12,7 +12,7 @@ import {
     CSS_UPLOAD_BUTTON_ICON_WHITE
 } from './constants';
 
-class RTUploadButton extends Component {
+class UploadButton extends Component {
     static propTypes = {
         children: PropTypes.any,
         className: PropTypes.string,
@@ -80,7 +80,9 @@ class RTUploadButton extends Component {
                         onMouseLeave={this.handleMouseOver.bind(this, false)}
                         style={{
                 backgroundImage: `url(${imageUrl})`,
-                backgroundSize: 'cover'
+                backgroundSize: 'contain',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center'
               }}
                 >
                     {this.renderIcon(icon)}
@@ -89,10 +91,11 @@ class RTUploadButton extends Component {
                 <input ref='fileInput'
                        type='file'
                        onChange={this.handleOnChange.bind(this)}
-                       style={{display: 'none'}}/>
+                       style={{display: 'none'}} />
             </div>
         );
     }
 }
 
-export {RTUploadButton};
+export {UploadButton};
+export default UploadButton;

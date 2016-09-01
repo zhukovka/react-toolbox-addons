@@ -25,12 +25,12 @@ import DisabledInput from '../components/disabledinput';
 import {RedHeading} from '../components/headings';
 
 import {TestStream} from './components/TestStream';
-
-import TestSlider from './components/TestSlider';
-
+import TestAvatar from './components/TestAvatar';
+import TestUpload from './components/TestUpload';
 const Root = () => (
     <div className={style.app}>
-        <TestSlider/>
+        <TestUpload />
+        <TestAvatar />
         <TestStream />
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>

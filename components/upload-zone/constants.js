@@ -1,1 +1,1 @@
-export const CSS_DROP_ZONE_ACTIVE = 'RTDropZone--active';
+export const CSS_UPLOAD_ACTIVE = 'upload--active';

@@ -12,3 +12,4 @@ const CardMediaPrimary = ({children, theme, ...other}) => {
 CardMediaPrimary.propTypes = CardMediaProps;
 
 export {CardMediaPrimary};
+export default CardMediaPrimary;

@@ -1,14 +1,14 @@
 import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
-import {DROP_ZONE} from '../identifiers';
+import {UPLOAD} from '../identifiers';
 import {UploadButton} from '../upload-button';
 import ProgressBar from 'react-toolbox/lib/progress_bar';
 import {
-    CSS_DROP_ZONE_ACTIVE
+    CSS_UPLOAD_ACTIVE
 } from './constants';
 
 
-class RTUpload extends Component {
+class Upload extends Component {
     static propTypes = {
         activeClass: PropTypes.string,
         children: PropTypes.any,
@@ -16,11 +16,9 @@ class RTUpload extends Component {
         defaultClass: PropTypes.string,
         onUpload: PropTypes.func,
         theme: PropTypes.object
-
-
     };
     static defaultProps = {
-        defaultClass: DROP_ZONE
+        defaultClass: UPLOAD
     };
     constructor (props) {
         super(props);
@@ -127,7 +125,7 @@ class RTUpload extends Component {
         const {theme, className, activeClass, defaultClass} = this.props;
         const {isDragActive} = this.state;
         let classes = classnames(theme[defaultClass], {
-            [theme[CSS_DROP_ZONE_ACTIVE]]: isDragActive,
+            [theme[CSS_UPLOAD_ACTIVE]]: isDragActive,
             [activeClass]: activeClass && isDragActive
         }, className);
 
@@ -141,4 +139,5 @@ class RTUpload extends Component {
         );
     }
 }
-export {RTUpload};
+export {Upload};
+export default Upload;

@@ -39,7 +39,7 @@ class StreamPanel extends Component {
                                    avatar={avatar || DEFAULT_AVATAR}
                                    theme={theme}
                         />
-                        <CardText theme={theme} className={theme[CSS_OFFSET_RIGHT]}>
+                        <CardText the me={theme} className={theme[CSS_OFFSET_RIGHT]}>
                             Missions Locations Missions Locations Missions Locations Missions Locations
                         </CardText>
                         <CardTitleButtons

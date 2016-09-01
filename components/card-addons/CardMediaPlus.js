@@ -39,3 +39,4 @@ CardMediaPlus.propTypes = {
 };
 
 export {CardMediaPlus};
+export default CardMediaPlus;

@@ -48,7 +48,15 @@ $default-REM: 1.8rem;
   &.small{
     padding: 0;
   }
+  [data-react-toolbox="avatar"] {
+    & > img {
+      height: 100%;
+    }
+  }
 }
+
+
+
 .cardTitle, .cardText {
   padding: 0;
   &:last-child {
