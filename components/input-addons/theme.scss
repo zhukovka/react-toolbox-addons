@@ -7,7 +7,7 @@
   & > .inputElement {
     color: white;
     border-bottom-style: dashed;
-    border-bottom-color: $input-text-bottom-border-color;
+    border-bottom-color: $input-white-text-bottom-border-color;
   }
   &.disabled > .inputElement{
     color: transparentize(white, 0.1);

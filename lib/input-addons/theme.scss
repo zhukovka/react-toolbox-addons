@@ -1,5 +1,6 @@
 @import '~react-toolbox/lib/colors';
 @import '~react-toolbox/lib/globals';
+@import '~react-toolbox/lib/input/config';
 @import 'config';
 
 .white {
@@ -18,3 +19,14 @@
   font-size: $input-large-font-size;
 }
 
+.disabled > .inputElement {
+  border: none;
+  color: $color-text;
+  &:focus:not([disabled]):not([readonly]), &.filled, &[type="date"], &[type="time"] {
+    ~ .label:not(.fixed) {
+      bottom: 0;
+      font-size: $input-field-font-size;
+      top: initial;
+    }
+  }
+}
