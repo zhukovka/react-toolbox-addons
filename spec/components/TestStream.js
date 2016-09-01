@@ -92,6 +92,6 @@ class TestStream extends React.Component {
 
         );
     }
-};
+}
 
 export {TestStream};
