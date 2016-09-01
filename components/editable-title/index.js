@@ -7,3 +7,4 @@ import {
 
 const _EditableTitle = themr(CSS_EDITABLE_TITLE, theme)(EditableTitle);
 export {_EditableTitle as EditableTitle};
+export default _EditableTitle;

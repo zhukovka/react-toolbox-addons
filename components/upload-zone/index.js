@@ -5,3 +5,4 @@ import {UPLOAD} from '../identifiers.js';
 
 const _RTUpload = themr(UPLOAD, theme)(RTUpload);
 export {_RTUpload as Upload};
+export default _RTUpload;

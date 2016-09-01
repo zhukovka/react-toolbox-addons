@@ -5,3 +5,4 @@ import {UPLOAD_BUTTON} from '../identifiers.js';
 
 const _RTUploadButton = themr(UPLOAD_BUTTON, theme)(RTUploadButton);
 export {_RTUploadButton as UploadButton};
+export default _RTUploadButton;
