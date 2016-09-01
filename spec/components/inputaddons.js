@@ -21,7 +21,10 @@ const InputAddonsTest = (props) => {
             </CardTitlePrimary>
 
             <h5>StyledInput disabled</h5>
+
             <StyledInput disabled value="Kukuruku" label="name"/>
+
+            <StyledInput value="Kukuruku" label="name"/>
 
             <h5>Styled Dropdown</h5>
 

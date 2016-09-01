@@ -18,10 +18,10 @@ class TestAvatar extends React.Component {
     }
     render () {
         return (
-            <EditableAvatar image={this.state.image}
-                            editable
-                            onUpload={this.onUpload.bind(this)}
-            />
+                <EditableAvatar image={this.state.image}
+                                editable
+                                onUpload={this.onUpload.bind(this)}
+                />
         );
     }
 }

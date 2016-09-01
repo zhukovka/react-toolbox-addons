@@ -4,7 +4,7 @@
 @import '~react-toolbox/lib/dropdown/theme';
 @import 'config';
 
-.white {
+.styled_input.white {
   & > .inputElement {
     color: white;
     border-bottom-style: dashed;
@@ -16,11 +16,11 @@
   }
 }
 
-.large > .inputElement {
+.styled_input.large > .inputElement {
   font-size: $input-large-font-size;
 }
 
-.disabled > .inputElement {
+.styled_input.disabled > .inputElement {
   border: none;
   color: $color-text;
   &:focus:not([disabled]):not([readonly]), &.filled, &[type="date"], &[type="time"] {
