@@ -8,11 +8,14 @@ const TestTabBar = () => {
     return (
         <CardTitlePrimary>
             <CardTitle title="TEST tabBar" />
+            <CardTitle title="TEST tabBar" />
             <TabBar>
-                <TabItem active>one</TabItem>
+                <TabItem active>{'some text'.toUpperCase()}</TabItem>
                 <TabItem >two</TabItem>
                 <TabItem active>three</TabItem>
                 <TabItem>four</TabItem>
+                <TabItem>long ...........</TabItem>
+                <TabItem>long ...........</TabItem>
                 <TabItem>long ...........</TabItem>
             </TabBar>
             <CardTitleButtons buttons={[{icon: 'add', onClick: ()=>{}},{icon: 'edit', onClick: ()=>{}}]}/>

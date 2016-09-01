@@ -10,11 +10,11 @@ class TabBar extends Component {
         super(props);
     }
     render () {
-        const {theme, className} = this.props;
+        const {theme, className,  children} = this.props;
         const classes = classnames(theme[TAB_BAR], className);
         return (
             <FlexList className={classes}>
-                {this.props.children}
+                {children}
             </FlexList>
         );
     }

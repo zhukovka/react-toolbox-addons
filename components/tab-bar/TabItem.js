@@ -11,9 +11,7 @@ const TabItem = ({children, theme, active, className}) => {
         [theme[TAB_ITEM_ACTIVE]]: active
     }, className);
   return (
-      <ListItem data-react-toolbox='tabItem' className={classes}>
-          <span>{children}</span>
-      </ListItem>
+          <span className={classes}>{children}</span>
   );
 };
 
