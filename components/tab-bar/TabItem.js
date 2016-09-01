@@ -1,16 +1,23 @@
 import React, {PropTypes} from 'react';
-import Button from 'react-toolbox/lib/button';
+import classnames from 'classnames';
+import {
+    TAB_ITEM,
+    TAB_ITEM_ACTIVE
+} from './constants.js';
 
-const TabItem = ({children}) => {
+const TabItem = ({children, theme, active, className}) => {
+    const classes = classnames(theme[TAB_ITEM], {
+        [theme[TAB_ITEM_ACTIVE]]: active
+    }, className);
   return (
-      <Button flat>
-          {children}
-      </Button>
+          <span className={classes}>{children}</span>
   );
 };
 
 TabItem.propTypes = {
+    active: PropTypes.bool,
     children: PropTypes.any,
+    className: PropTypes.string,
     theme: PropTypes.object
 };
 

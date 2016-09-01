@@ -1,10 +1,32 @@
-
-.flexlist {
-  padding: 0;
-}
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/_globals";
+$default-REM: 1.8rem;
+$--light-red: #fe4350;
+$--apple-green: #7ed321;
+$--squash: #f5a623;
+$--warm-grey: #757575;
 .tabBar {
-  color: rgba(255,255,255,.75);
+  display: flex;
+  padding: 0;
+  color: rgba($color-background,.5);
+  list-style: none;
+  margin-bottom: -1.4rem;
+  margin-left: -1.4rem;
+  margin-right: 1.4rem;
 }
 .tabItem {
+  padding: $default-REM/2 $default-REM $default-REM/4;
+  margin: 0;
+  list-style-position: outside;
   color: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  & > span {
+    color: inherit;
+  }
+  &--active {
+    color: $color-background;
+    border-bottom: 4px solid $--squash;
+  }
 }

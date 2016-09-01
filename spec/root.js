@@ -25,6 +25,9 @@ import InputAddonsTest from './components/inputaddons';
 
 const Root = () => (
     <div className={style.app}>
+        <TestAvatar />
+        <TestUpload/>
+        <TestTabBar />
         <TestStream />
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
