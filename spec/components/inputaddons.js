@@ -7,10 +7,15 @@ const InputAddonsTest = (props) => {
         <section>
             <h5>Input Addons</h5>
             <StyledInput large value="Kukuruku"/>
+
+            <h5>StyledInput white+disabled+lage</h5>
             <CardTitlePrimary>
                 <StyledInput disabled large white value="Kukuruku0"/>
                 <StyledInput large white value="Kukuruku1"/>
             </CardTitlePrimary>
+
+            <h5>StyledInput disabled</h5>
+            <StyledInput disabled value="Kukuruku" label="name"/>
         </section>
     );
 };
