@@ -4,7 +4,6 @@ import {
     TAB_ITEM,
     TAB_ITEM_ACTIVE
 } from './constants.js';
-import {ListItem} from 'react-toolbox/lib/list';
 
 const TabItem = ({children, theme, active, className}) => {
     const classes = classnames(theme[TAB_ITEM], {

@@ -1,4 +1,4 @@
-import React, {PropTypes,Component} from 'react';
+import React, {PropTypes, Component} from 'react';
 import {FlexList} from '../flexlist';
 import {
     TAB_BAR
@@ -10,7 +10,7 @@ class TabBar extends Component {
         super(props);
     }
     render () {
-        const {theme, className,  children} = this.props;
+        const {theme, className, children} = this.props;
         const classes = classnames(theme[TAB_BAR], className);
         return (
             <FlexList className={classes}>
