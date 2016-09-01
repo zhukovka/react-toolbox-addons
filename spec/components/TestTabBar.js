@@ -18,7 +18,7 @@ const TestTabBar = () => {
                 <TabItem>long ...........</TabItem>
                 <TabItem>long ...........</TabItem>
             </TabBar>
-            <CardTitleButtons buttons={[{icon: 'add', onClick: ()=>{}},{icon: 'edit', onClick: ()=>{}}]}/>
+            <CardTitleButtons buttons={[{icon: 'add', onClick: ()=>{}}, {icon: 'edit', onClick: ()=>{}}]}/>
         </CardTitlePrimary>
     );
 };
