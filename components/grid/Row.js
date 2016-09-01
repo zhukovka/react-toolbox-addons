@@ -8,7 +8,7 @@ import {
 } from './constants';
 import {joinWithHyphen} from './Column.js';
 
-const RTRow = ({className, children, theme, align, expanded, collapse}) => {
+const Row = ({className, children, theme, align, expanded, collapse}) => {
 
     const classes = classnames({
         [theme[CSS_ROW_CLASS]]: true,
@@ -23,7 +23,7 @@ const RTRow = ({className, children, theme, align, expanded, collapse}) => {
         </div>
     );
 };
-RTRow.propTypes = {
+Row.propTypes = {
     align: PropTypes.string,
     children: React.PropTypes.any,
     className: PropTypes.string,
@@ -31,4 +31,4 @@ RTRow.propTypes = {
     expanded: PropTypes.bool,
     theme: PropTypes.object
 };
-export default RTRow;
+export {Row};

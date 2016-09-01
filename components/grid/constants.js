@@ -1,6 +1,6 @@
 // indentifiers
-export const RT_COLUMN = 'column';
-export const RT_ROW = 'row';
+export const COLUMN = 'column';
+export const ROW = 'row';
 // rows
 export const CSS_ROW_CLASS = 'row';
 export const CSS_ROW_COLLAPSE = 'collapse';

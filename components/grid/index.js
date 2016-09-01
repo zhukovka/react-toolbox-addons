@@ -1,18 +1,15 @@
 import {themr} from 'react-css-themr';
 import _theme from './theme.scss';
-import RTRow from './Row';
-import RTColumn from './Column';
+import {Row} from './Row';
+import {Column} from './Column';
 import {
-  RT_COLUMN,
-  RT_ROW
+  COLUMN,
+  ROW
 } from './constants';
 
+const _Col = themr(COLUMN, _theme)(Column);
+const _Row = themr(ROW, _theme)(Row);
 
-const applyTheme = (Component, id)=>themr(id, _theme)(Component);
-
-const Col = applyTheme(RTColumn, RT_COLUMN);
-const Row = applyTheme(RTRow, RT_ROW);
-
-
-export {Row, Col};
+export {_Col as Col};
+export {_Row as Row};
 

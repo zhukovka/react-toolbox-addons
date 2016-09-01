@@ -6,18 +6,20 @@ const TEST_IMAGE_FOR_AVATAR = 'https://placeimg.com/80/80/animals';
 
 class TestAvatar extends React.Component {
     state = {
-        image: TEST_IMAGE_FOR_AVATAR,
+        image: TEST_IMAGE_FOR_AVATAR
     };
 
-    onUpload (result){
+    onUpload (file, result, e){
         this.setState({
             image: result
+        }, ()=>{
+            console.log(file, e);
         });
     }
     render () {
         return (
             <EditableAvatar image={this.state.image}
-                            editable={true}
+                            editable
                             onUpload={this.onUpload.bind(this)}
             />
         );

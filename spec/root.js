@@ -27,8 +27,12 @@ import {RedHeading} from '../components/headings';
 import {TestStream} from './components/TestStream';
 import TestAvatar from './components/TestAvatar';
 import TestUpload from './components/TestUpload';
+import TestTabBar from './components/TestTabBar';
+
+
 const Root = () => (
     <div className={style.app}>
+        <TestTabBar />
         <TestUpload />
         <TestAvatar />
         <TestStream />

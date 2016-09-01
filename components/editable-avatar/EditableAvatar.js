@@ -32,7 +32,7 @@ class EditableAvatar extends Component {
         const reader = new FileReader();
         reader.onerror = errorHandler;
         reader.onloadend = () => {
-            this.props.onUpload(reader.result);
+            this.props.onUpload(file, reader.result, e);
         };
 
         if (e.dataTransfer) {

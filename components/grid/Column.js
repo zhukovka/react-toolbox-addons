@@ -17,7 +17,7 @@ export function joinWithHyphen (...args) {
 export function classMaps (names, theme) {
     return (names || '').split(' ').map(str=>theme[str]);
 }
-const RTColumn = (props) => {
+const Column = (props) => {
     const {className, theme, children, offset, align, small, medium, large, order, shrink, ...other} = props;
     const classes = classnames(theme.card, {
         [theme[CSS_COLUMN_CLASS]]: true, // default
@@ -34,7 +34,7 @@ const RTColumn = (props) => {
         </div>
     );
 };
-RTColumn.propTypes = {
+Column.propTypes = {
     align: PropTypes.string,
     children: PropTypes.any,
     className: PropTypes.string,
@@ -46,4 +46,4 @@ RTColumn.propTypes = {
     small: PropTypes.number,
     theme: PropTypes.object
 };
-export default RTColumn;
+export {Column};

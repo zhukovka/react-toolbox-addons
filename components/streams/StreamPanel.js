@@ -39,11 +39,14 @@ class StreamPanel extends Component {
                                    avatar={avatar || DEFAULT_AVATAR}
                                    theme={theme}
                         />
-                        <CardText the me={theme} className={theme[CSS_OFFSET_RIGHT]}>
+                        <CardText theme={theme} className={theme[CSS_OFFSET_RIGHT]}>
                             Missions Locations Missions Locations Missions Locations Missions Locations
                         </CardText>
                         <CardTitleButtons
-                            buttons={[{icon: (this.state.active ? ICON_EXPAND : ICON_LESS), onClick: ()=>this.setState({active: !this.state.active})}]}/>
+                            buttons={[{
+                                icon: (this.state.active ? ICON_EXPAND : ICON_LESS),
+                                onClick: ()=>this.setState({active: !this.state.active})
+                            }]}/>
                     </CardActionsSpaced>
                 </Col>
             </Row>
@@ -58,7 +61,7 @@ class StreamPanel extends Component {
             <Row expanded>
                 <Col small={2}>
                     <StreamCard {...streams[activeStream]}
-                        theme={theme}
+                                theme={theme}
                     />
                 </Col>
                 <Col small={10} className={containerClass}>
@@ -75,23 +78,18 @@ class StreamPanel extends Component {
     render () {
 
         return (
-            <div>
-                <BottomSheetPlus active={this.state.active}
-                                 iconClick={()=>this.setState({active: !this.state.active})}>
-                    <div>
-                        {this.renderTopPanel()}
-                    </div>
-                    <div>
-                        {this.renderBottomPanel()}
-                    </div>
-                </BottomSheetPlus>
-            </div>
+            <BottomSheetPlus active={this.state.active}
+                             iconClick={()=>this.setState({active: !this.state.active})}>
+                <div>
+                    {this.renderTopPanel()}
+                </div>
+                <div>
+                    {this.renderBottomPanel()}
+                </div>
+            </BottomSheetPlus>
         );
     }
 }
-/*
- * {this.renderBottomPanel()}
- * */
 StreamPanel.propTypes = {
     activeStream: PropTypes.number,
     onAdd: PropTypes.func,
