@@ -1,8 +1,6 @@
 /* global VERSION */
 import 'react-toolbox/lib/commons.scss';
 import React from 'react';
-import BottomSheet from './components/bottomsheet';
-import DropdownPlus from './components/dropdownplus';
 import style from './style';
 import {Button} from 'react-toolbox/lib/button';
 import CardActionsRight from '../components/cardactionsright/index';
@@ -20,25 +18,21 @@ import {CardMediaPrimary, CardTitlePrimary} from '../components/card-addons';
 import CardMediaPlusTest from './components/cardMediaTest';
 import CardTitleButtonsTest from './components/cardTitleButtonsTest';
 import CardExpandable from './components/cardexpandable';
-import Layout from './components/layout';
 import DisabledInput from '../components/disabledinput';
 import {RedHeading} from '../components/headings';
-
 import {TestStream} from './components/TestStream';
 import TestAvatar from './components/TestAvatar';
 import TestUpload from './components/TestUpload';
 import TestTabBar from './components/TestTabBar';
-
+import InputAddonsTest from './components/inputaddons';
 
 const Root = () => (
     <div className={style.app}>
-        <TestTabBar />
-        <TestUpload />
-        <TestAvatar />
         <TestStream />
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
+        <InputAddonsTest/>
         <Card style={{width: '200px'}}>
             <CardMediaPlusTest />
         </Card>

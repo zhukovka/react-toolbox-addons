@@ -26,3 +26,4 @@ StreamCardMedia.propTypes = {
 };
 
 export {StreamCardMedia};
+export default StreamCardMedia;

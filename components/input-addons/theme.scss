@@ -1,0 +1,32 @@
+@import '~react-toolbox/lib/colors';
+@import '~react-toolbox/lib/globals';
+@import '~react-toolbox/lib/input/config';
+@import 'config';
+
+.white {
+  & > .inputElement {
+    color: white;
+    border-bottom-style: dashed;
+    border-bottom-color: $input-white-text-bottom-border-color;
+  }
+  &.disabled > .inputElement{
+    color: transparentize(white, 0.1);
+    border-bottom: none;
+  }
+}
+
+.large > .inputElement {
+  font-size: $input-large-font-size;
+}
+
+.disabled > .inputElement {
+  border: none;
+  color: $color-text;
+  &:focus:not([disabled]):not([readonly]), &.filled, &[type="date"], &[type="time"] {
+    ~ .label:not(.fixed) {
+      bottom: 0;
+      font-size: $input-field-font-size;
+      top: initial;
+    }
+  }
+}

@@ -79,7 +79,7 @@ export const SidebarProps = PropTypes.shape(
 );
 
 export const CardMediaProps = {
-    aspectRatio: PropTypes.oneOf([ 'wide', 'square' ]),
+    aspectRatio: PropTypes.oneOf(['wide', 'square']),
     children: PropTypes.any,
     className: PropTypes.string,
     color: PropTypes.string,
@@ -95,4 +95,42 @@ export const CardMediaProps = {
         square: PropTypes.string,
         wide: PropTypes.string
     })
+};
+
+export const InputProps = {
+    children: PropTypes.any,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    error: PropTypes.string,
+    floating: PropTypes.bool,
+    hint: PropTypes.string,
+    icon: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element
+    ]),
+    label: PropTypes.string,
+    maxLength: PropTypes.number,
+    multiline: PropTypes.bool,
+    name: PropTypes.string,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onFocus: PropTypes.func,
+    onKeyPress: PropTypes.func,
+    required: PropTypes.bool,
+    theme: PropTypes.shape({
+        bar: PropTypes.string,
+        counter: PropTypes.string,
+        disabled: PropTypes.string,
+        error: PropTypes.string,
+        errored: PropTypes.string,
+        hidden: PropTypes.string,
+        hint: PropTypes.string,
+        icon: PropTypes.string,
+        input: PropTypes.string,
+        inputElement: PropTypes.string,
+        required: PropTypes.string,
+        withIcon: PropTypes.string
+    }),
+    type: PropTypes.string,
+    value: PropTypes.any
 };

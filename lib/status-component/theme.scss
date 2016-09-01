@@ -5,8 +5,8 @@ $--warm-grey: #757575;
 $default-REM : 1.8rem;
 
 .statusComponent{
-  width: $default-REM;
-  height: $default-REM;
+  width: $default-REM/2;
+  height: $default-REM/2;
   border-radius: 50%;
   display: inline-block;
   margin:$default-REM / 4;

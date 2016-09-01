@@ -16,7 +16,6 @@ $default-REM: 1.8rem;
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
     margin: auto;
     display: flex;
     color: inherit;
@@ -35,5 +34,12 @@ $default-REM: 1.8rem;
     background-color: inherit;
     box-shadow: none;
     margin-left: $default-REM;
+  }
+}
+.cardMediaPlus {
+  &--wrapper {
+    height: 100%;
+    color: #fff;
+    background: rgba(0,0,0,.35);
   }
 }

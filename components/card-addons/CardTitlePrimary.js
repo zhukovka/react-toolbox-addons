@@ -9,4 +9,4 @@ const CardTitlePrimary = (props) => {
 };
 
 export {CardTitlePrimary};
-
+export default CardTitlePrimary;

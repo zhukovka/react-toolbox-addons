@@ -1,12 +1,12 @@
 import React, {PropTypes, Component} from 'react';
-import {Row, Col} from '../../components/grid';
+import {Row, Col} from '../grid';
 import {CardText, CardTitle} from 'react-toolbox/lib/card';
-import {StreamCard} from '../../components/streams/StreamCard';
-import {StreamNewHardware} from '../../components/streams/StreamNewHardware';
+import {StreamCard} from '../streams/StreamCard';
+import {StreamNewHardware} from '../streams/StreamNewHardware';
 import {CSS_SCROLL_CONTAINER, CSS_NO_PADDING, CSS_OFFSET_RIGHT, DEFAULT_AVATAR} from './constants';
-import {CardActionsSpaced} from '../../components/cardactionsspaced';
-import {CardTitleButtons} from '../../components/card-addons';
-import {BottomSheetPlus} from '../../components/bottomsheetplus';
+import {CardActionsSpaced} from '../cardactionsspaced';
+import {CardTitleButtons} from '../card-addons';
+import {BottomSheetPlus} from '../bottomsheetplus';
 import classnames from 'classnames';
 
 class StreamPanel extends Component {
@@ -100,3 +100,5 @@ StreamPanel.propTypes = {
     viewClick: PropTypes.func
 };
 export {StreamPanel};
+
+export default StreamPanel;
