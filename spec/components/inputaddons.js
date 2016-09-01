@@ -1,6 +1,12 @@
 import React from 'react';
-import {StyledInput} from '../../components/input-addons/';
+import {StyledInput, StyledDropdown} from '../../components/input-addons/';
 import CardTitlePrimary from '../../components/card-addons/CardTitlePrimary';
+const countries = [
+    { value: 'EN-gb', label: 'England' },
+    { value: 'ES-es', label: 'Spain'},
+    { value: 'TH-th', label: 'Thailand' },
+    { value: 'EN-en', label: 'USA'}
+];
 
 const InputAddonsTest = (props) => {
     return (
@@ -16,6 +22,22 @@ const InputAddonsTest = (props) => {
 
             <h5>StyledInput disabled</h5>
             <StyledInput disabled value="Kukuruku" label="name"/>
+
+            <h5>Styled Dropdown</h5>
+
+            <StyledDropdown auto
+                            label="test"
+                            onChange={(val)=>console.log(val)}
+                            source={countries}
+                            value='EN-gb'/>
+
+            <StyledDropdown auto
+                            label="test"
+                            disabled
+                            onChange={(val)=>console.log(val)}
+                            source={countries}
+                            value='EN-gb'/>
+
         </section>
     );
 };

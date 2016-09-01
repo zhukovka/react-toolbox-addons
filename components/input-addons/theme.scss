@@ -1,6 +1,7 @@
 @import '~react-toolbox/lib/colors';
 @import '~react-toolbox/lib/globals';
 @import '~react-toolbox/lib/input/config';
+@import '~react-toolbox/lib/dropdown/theme';
 @import 'config';
 
 .white {
@@ -9,7 +10,7 @@
     border-bottom-style: dashed;
     border-bottom-color: $input-white-text-bottom-border-color;
   }
-  &.disabled > .inputElement{
+  &.disabled > .inputElement {
     color: transparentize(white, 0.1);
     border-bottom: none;
   }
@@ -30,3 +31,23 @@
     }
   }
 }
+
+.dropdown.dropdown_styled {
+  &.disabled {
+    .value {
+      &:after {
+        content: none;
+      }
+      input {
+        color: $color-text;
+        border-bottom: none;
+      }
+      label {
+        bottom: 0;
+        font-size: $input-field-font-size;
+        top: initial;
+      }
+    }
+  }
+}
+
