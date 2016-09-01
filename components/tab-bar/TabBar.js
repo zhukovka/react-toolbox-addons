@@ -1,14 +1,19 @@
 import React, {PropTypes, Component} from 'react';
 import {FlexList} from '../flexlist';
+import {
+    TAB_BAR
+} from './constants';
+import classnames from 'classnames';
 
 class TabBar extends Component {
     constructor (props){
         super(props);
     }
     render () {
-        const {children} = this.props;
+        const {theme, className, children} = this.props;
+        const classes = classnames(theme[TAB_BAR], className);
         return (
-            <FlexList>
+            <FlexList className={classes}>
                 {children}
             </FlexList>
         );
@@ -16,7 +21,9 @@ class TabBar extends Component {
 }
 
 TabBar.propTypes = {
-    children: PropTypes.any
+    children: PropTypes.any,
+    className: PropTypes.string,
+    theme: PropTypes.object
 };
 
 export {TabBar};
