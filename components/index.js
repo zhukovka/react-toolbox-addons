@@ -12,6 +12,7 @@ export Checkmark from './checkmark/Checkmark';
 export ChipTransparent from './chips';
 export DropdownPlus from './dropdownplus';
 export EditableTitle from './editable-title';
+export EditableAvatar from './editable-avatar';
 export FlexList from './flexlist';
 export NavDrawerPlus from './nawdrawerplus';
 export NavigationChips from './navigation-chips';
