@@ -19,4 +19,4 @@ interface UploadProps extends __ReactToolbox.Props {
 
 }
 
-export class Upload extends __React.Component<DropZoneProps, {}> { }
+export class Upload extends __React.Component<UploadProps, {}> { }

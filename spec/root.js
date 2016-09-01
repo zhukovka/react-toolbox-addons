@@ -21,9 +21,6 @@ import CardExpandable from './components/cardexpandable';
 import DisabledInput from '../components/disabledinput';
 import {RedHeading} from '../components/headings';
 import {TestStream} from './components/TestStream';
-import TestAvatar from './components/TestAvatar';
-import TestUpload from './components/TestUpload';
-import TestTabBar from './components/TestTabBar';
 import InputAddonsTest from './components/inputaddons';
 
 const Root = () => (
@@ -47,6 +44,7 @@ const Root = () => (
             <CardTitleButtonsTest />
 
         </CardTitlePrimary>
+
         <CardTitle title='Default cardTitle' subtitle='def' style={{position: 'relative'}}>
             <CardTitleButtonsTest />
         </CardTitle>

@@ -25,7 +25,6 @@ class TestAvatar extends React.Component {
         );
     }
 }
-;
 
 export default TestAvatar;
 
