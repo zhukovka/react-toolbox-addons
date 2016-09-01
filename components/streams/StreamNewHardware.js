@@ -24,3 +24,4 @@ StreamNewHardware.propTypes = {
 };
 
 export {StreamNewHardware};
+export default StreamNewHardware;
