@@ -3,7 +3,7 @@
 @import 'config';
 
 .white {
-  &.inputElement {
+  & > .inputElement {
     color: white;
     border-bottom-style: dashed;
     border-bottom-color: $input-text-bottom-border-color;
