@@ -2,16 +2,17 @@
 @import '~react-toolbox/lib/globals';
 @import 'config';
 
-.white {
-  .inputElement {
-    color: white;
-    border-bottom-style: dashed;
-    border-bottom-color: $input-text-bottom-border-color;
-  }
+.white > .inputElement {
+  color: white;
+  border-bottom-style: dashed;
+  border-bottom-color: $input-text-bottom-border-color;
 }
 
-.large {
-  .inputElement {
-    font-size: $input-large-font-size;
-  }
+.large > .inputElement {
+  font-size: $input-large-font-size;
+}
+
+.disabled > .inputElement {
+  border: none;
+  color: $color-text;
 }
