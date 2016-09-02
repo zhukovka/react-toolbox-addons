@@ -1,6 +1,7 @@
 export const BOTTOMSHEET = 'BottomSheet';
 export const BOTTOMSHEET_PLUS = 'BottomSheetPlus';
 export const BOX_HEADER = 'BoxHeader';
+export const BUTTON_GROUP = 'ButtonGroup';
 export const CARD_EXPANDABLE = 'CardExpandable';
 export const CARD_PRIMARY = 'CardPrimary';
 export const CARDACTIONSRIGHT = 'CardActionsRight';

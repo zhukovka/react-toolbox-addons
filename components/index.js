@@ -4,7 +4,7 @@ export * from './headings';
 export * from './input-addons';
 export * from './streams';
 export BottomSheet from './bottomsheet';
-export ButtonGroup from './buttongroup/ButtonGroup';
+export ButtonGroup from './buttongroup';
 export CardActionsRight from './cardactionsright';
 export CardActionsSpaced from './cardactionsspaced';
 export CardExpandable from './cardexpandable';
