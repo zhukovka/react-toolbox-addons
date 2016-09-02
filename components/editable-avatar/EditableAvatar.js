@@ -1,11 +1,10 @@
 import React, {PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 import Avatar from 'react-toolbox/lib/avatar';
-import FontIcon from 'react-toolbox/lib/font_icon';
 import {
     ICON_PHOTO_CAMERA,
-    EDITABLE_AVATAR_PHOTO_CAMERA
 } from './constants';
+import AvatarOverlay from '../avatar-overlay';
 
 class EditableAvatar extends Component {
     handleOnChange (e) {
@@ -47,18 +46,14 @@ class EditableAvatar extends Component {
         const {editable, theme, image, className} = this.props;
         if (editable) {
             return (
-                <Avatar image={image} theme={theme} className={className}>
-                    <FontIcon value={ICON_PHOTO_CAMERA}
-                              className={theme[EDITABLE_AVATAR_PHOTO_CAMERA]}
-                              onClick={()=> {
-                                  ReactDOM.findDOMNode(this.refs.fileInput).click();
-                              }}
-                    />
+                <AvatarOverlay image={image} icon={ICON_PHOTO_CAMERA} onClick={()=> {
+                    ReactDOM.findDOMNode(this.refs.fileInput).click();
+                }}>
                     <input ref='fileInput'
                            type='file'
                            onChange={this.handleOnChange.bind(this)}
                            style={{display: 'none'}}/>
-                </Avatar>
+                </AvatarOverlay>
             );
         } else {
             return (

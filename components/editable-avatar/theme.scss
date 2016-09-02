@@ -1,32 +1,8 @@
 
 .avatar {
-  position: relative;
-  cursor: pointer;
-  width: 8rem;
-  height: 8rem;
 
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 11;
-    background: rgba(0,0,0,.25);
-  }
-  &--photo_camera {
-    position: absolute;
-    z-index: 99;
-    top: 35%;
-    left: 35%;
-    font-size: 2.8rem;
-  }
   & > img {
     height: 100%;
   }
 }
-.image {
-  position: absolute;
-  z-index: 10;
-}
+
