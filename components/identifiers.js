@@ -18,3 +18,4 @@ export const VIDEOPANEL = 'VideoPanel';
 export const DISABLED_INPUT = 'DisabledInput';
 export const RED_HEADING = 'RedHeading';
 export const LISTITEMPLUS = 'ListItemPlus';
+export const VERTICALDIVIDER = 'VerticalDivider';

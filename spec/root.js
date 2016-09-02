@@ -25,6 +25,7 @@ import DisabledInput from '../components/disabledinput';
 import {RedHeading} from '../components/headings';
 import {ListItemPlus} from '../components/listitemplus';
 import {List, ListItem, ListSubHeader, ListDivider, ListCheckbox} from 'react-toolbox/lib/list';
+import VerticalDivider from '../components/verticaldivider';
 
 const Root = () => (
     <div className={style.app}>
@@ -53,7 +54,6 @@ const Root = () => (
 
         <NavigationChips headers={['some new text and', 'some new text', 'some new text', 'some new', 'some new']}
                          currentIndex={2}/>
-
         <section>
             <h5>StepsList</h5>
             <StepsList/>
