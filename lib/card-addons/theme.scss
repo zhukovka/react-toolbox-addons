@@ -22,12 +22,20 @@ $default-REM: 1.8rem;
     background: inherit;
   }
 }
-.cardMedia{
+
+.cardMedia {
   background-color: $color-primary;
+  &.overflow {
+    .content {
+      overflow: visible;
+    }
+  }
 }
-.center{
+
+.center {
   align-items: center;
 }
+
 .neutral:not([disabled]) {
   &.floating {
     color: inherit;
@@ -36,10 +44,11 @@ $default-REM: 1.8rem;
     margin-left: $default-REM;
   }
 }
+
 .cardMediaPlus {
   &--wrapper {
     height: 100%;
-    color: #fff;
-    background: rgba(0,0,0,.35);
+    color: $color-white;
+    background: transparentize($color-black, .65);
   }
 }

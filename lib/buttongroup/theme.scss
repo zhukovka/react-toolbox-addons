@@ -1,0 +1,14 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/_globals";
+
+.buttonGroup {
+  display: flex;
+
+  &.white {
+    color: $color-white;
+    [data-react-toolbox="button"] {
+      color: inherit;
+    }
+  }
+}
+
