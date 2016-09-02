@@ -3,7 +3,6 @@ import {List, ListItem, ListSubHeader} from 'react-toolbox/lib/list';
 import {IconMenu, MenuItem, MenuDivider} from 'react-toolbox/lib/menu';
 import {IconButton} from 'react-toolbox/lib/button';
 import AvatarOverlay from '../../components/avatar-overlay';
-import Checkmark from '../../components/checkmark/Checkmark';
 class MenuListTest extends Component {
     state = {
         checkbox: false,

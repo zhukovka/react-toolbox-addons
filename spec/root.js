@@ -31,7 +31,7 @@ import TestAvatarOverlay from './components/TestAvatarOverlay';
 
 const Root = () => (
     <div className={style.app}>
-
+        <TestAvatar />
         <TestUpload/>
         <TestTabBar />
         <TestStream />
@@ -55,7 +55,7 @@ const Root = () => (
         </Card>
         <CardTitlePrimary>
             KUKURUKU
-            <TestAvatar />
+
             <StatusComponent status="idle"/>
             <StatusComponent status="warning"/>
             <StatusComponent status="error"/>

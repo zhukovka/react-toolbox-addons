@@ -1,7 +1,7 @@
 import React from 'react';
 import EditableAvatar from '../../components/editable-avatar';
 
-const TEST_IMAGE_FOR_AVATAR = 'https://placeimg.com/80/80/animals';
+const TEST_IMAGE_FOR_AVATAR = 'https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg';
 
 
 class TestAvatar extends React.Component {
