@@ -3,6 +3,10 @@ import {themr} from 'react-css-themr';
 import {CardMedia} from 'react-toolbox/lib/card';
 import classnames from 'classnames';
 import {BANNER} from '../identifiers';
+
+/**
+ * Banner props extend CardMedia props
+ */
 const Banner = ({children, className, theme, primary, accent, opacity, ...other}) => {
     const classes = classnames(theme.banner, {
         [theme.primary]: primary,
@@ -18,6 +22,10 @@ const Banner = ({children, className, theme, primary, accent, opacity, ...other}
     );
 };
 Banner.propTypes = {
+    /**
+     * add for item to have accent background color
+     * Boolean accent
+     */
     accent: PropTypes.bool,
     aspectRatio: PropTypes.oneOf(['wide', 'square']),
     children: PropTypes.any,
@@ -28,7 +36,15 @@ Banner.propTypes = {
         PropTypes.string,
         PropTypes.element
     ]),
+    /**
+     * integer from 0 to 10 to set opacity to the background
+     * Integer opacity
+     */
     opacity: PropTypes.number,
+    /**
+     * add for item to have primary background color
+     * Boolean primary
+     */
     primary: PropTypes.bool,
     theme: PropTypes.shape({
         cardMedia: PropTypes.string,
