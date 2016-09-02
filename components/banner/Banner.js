@@ -1,16 +1,24 @@
 import React, {PropTypes} from 'react';
+import {themr} from 'react-css-themr';
 import {CardMedia} from 'react-toolbox/lib/card';
 import classnames from 'classnames';
+import {BANNER} from '../identifiers';
+const Banner = ({children, className, theme, primary, accent, opacity, ...other}) => {
+    const classes = classnames(theme.banner, {
+        [theme.primary]: primary,
+        [theme.accent]: accent,
+        [theme[`opacity-${opacity}`]]: opacity
+    }, className);
 
-const CardMediaPrimary = ({children, className, theme, overflow, ...other}) => {
-    const classes = classnames({[theme.overflow]: overflow}, className);
     return (
-        <CardMedia {...other} theme={theme} className={classes}>
+        <CardMedia {...other} className={classes} theme={theme}>
             {children}
         </CardMedia>
+
     );
 };
-CardMediaPrimary.propTypes = {
+Banner.propTypes = {
+    accent: PropTypes.bool,
     aspectRatio: PropTypes.oneOf(['wide', 'square']),
     children: PropTypes.any,
     className: PropTypes.string,
@@ -20,7 +28,8 @@ CardMediaPrimary.propTypes = {
         PropTypes.string,
         PropTypes.element
     ]),
-    overflow: PropTypes.bool,
+    opacity: PropTypes.number,
+    primary: PropTypes.bool,
     theme: PropTypes.shape({
         cardMedia: PropTypes.string,
         content: PropTypes.string,
@@ -30,5 +39,7 @@ CardMediaPrimary.propTypes = {
     })
 };
 
-export {CardMediaPrimary};
-export default CardMediaPrimary;
+const factory = () => Banner;
+export default themr(BANNER)(Banner);
+export {factory as bannerFactory};
+export {Banner};

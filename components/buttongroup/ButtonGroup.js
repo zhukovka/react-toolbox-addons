@@ -1,14 +1,31 @@
 import React, {PropTypes} from 'react';
+import {themr} from 'react-css-themr';
+import classnames from 'classnames';
+import {BUTTON_GROUP} from '../identifiers';
 
-const ButtonGroup = ({children})=> {
+const ButtonGroup = ({children, className, white, theme})=> {
+    const classes = classnames(theme.buttonGroup, {
+        [theme.white]: white
+    }, className);
     return (
-        <div>
+        <div className={classes}>
             {children}
         </div>
     );
 };
 ButtonGroup.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
+    className: PropTypes.string,
+    theme: PropTypes.shape({
+        buttonGroup: PropTypes.string,
+        white: PropTypes.string
+    }),
+    white: PropTypes.bool
 };
 
-export default ButtonGroup;
+
+const factory = () => ButtonGroup;
+export default themr(BUTTON_GROUP)(ButtonGroup);
+export {factory as buttonGroupFactory};
+export {ButtonGroup};
+
