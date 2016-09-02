@@ -7,9 +7,11 @@ import ButtonGroup from '../../components/buttongroup/';
 import {IconMenu, MenuItem, MenuDivider } from 'react-toolbox/lib/menu';
 import {CardTitle} from 'react-toolbox/lib/card';
 import {Button, IconButton} from 'react-toolbox/lib/button';
+import Banner from '../../components/banner';
+
 const TestTabBar = () => {
     return (
-        <CardMediaPrimary overflow>
+        <Banner accent opacity={5}>
             <CardActionsSpaced>
 
             <TabBar>
@@ -32,7 +34,7 @@ const TestTabBar = () => {
                 </IconMenu>
             </ButtonGroup>
             </CardActionsSpaced>
-        </CardMediaPrimary>
+        </Banner>
     );
 };
 

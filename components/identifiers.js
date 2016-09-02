@@ -21,3 +21,4 @@ export const TRANSPARENT_CHIP = 'TransparentChip';
 export const UPLOAD = 'DropZone';
 export const UPLOAD_BUTTON = 'UploadButton';
 export const VIDEOPANEL = 'VideoPanel';
+export const BANNER = 'Banner';
