@@ -23,3 +23,4 @@ export const UPLOAD = 'DropZone';
 export const UPLOAD_BUTTON = 'UploadButton';
 export const VIDEOPANEL = 'VideoPanel';
 export const BANNER = 'Banner';
+export const AVATAR_OVERLAY = 'AvatarOverlay';

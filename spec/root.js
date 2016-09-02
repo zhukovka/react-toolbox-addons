@@ -27,17 +27,22 @@ import TestUpload from './components/TestUpload';
 import TestTabBar from './components/TestTabBar';
 import DialogLayout from './components/DialogLayoutTest';
 import MenuListTest from './components/menulist';
+import TestAvatarOverlay from './components/TestAvatarOverlay';
 
 const Root = () => (
     <div className={style.app}>
-        <TestAvatar />
+
         <TestUpload/>
         <TestTabBar />
         <TestStream />
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
-
+        <Row>
+            <Col small={2}>
+                <TestAvatarOverlay />
+            </Col>
+        </Row>
         <section>
             <h5>MenuListTest</h5>
             <MenuListTest/>
@@ -50,6 +55,7 @@ const Root = () => (
         </Card>
         <CardTitlePrimary>
             KUKURUKU
+            <TestAvatar />
             <StatusComponent status="idle"/>
             <StatusComponent status="warning"/>
             <StatusComponent status="error"/>
