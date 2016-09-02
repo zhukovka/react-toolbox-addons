@@ -6,7 +6,7 @@ import {STYLED_INPUT} from '../identifiers.js';
 
 
 const StyledInput = ({theme, className, large, white, ...other})=> {
-    const classes = classnames({[theme.large]: large, [theme.white]: white}, className);
+    const classes = classnames({[theme.large]: large, [theme.white]: white}, theme.styled_input, className);
     return (
         <Input theme={theme} className={classes} {...other} />
     );

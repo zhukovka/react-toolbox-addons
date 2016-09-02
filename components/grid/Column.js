@@ -19,8 +19,7 @@ export function classMaps (names, theme) {
 }
 const Column = (props) => {
     const {className, theme, children, offset, align, small, medium, large, order, shrink, ...other} = props;
-    const classes = classnames(theme.card, {
-        [theme[CSS_COLUMN_CLASS]]: true, // default
+    const classes = classnames(theme.card, theme[CSS_COLUMN_CLASS], {
         [theme[joinWithHyphen(CSS_SMALL, small)]]: small,
         [theme[joinWithHyphen(CSS_MEDIUM, medium)]]: medium,
         [theme[joinWithHyphen(CSS_LARGE, large)]]: large,

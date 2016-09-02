@@ -24,7 +24,7 @@ const Row = ({className, children, theme, align, expanded, collapse}) => {
     );
 };
 Row.propTypes = {
-    align: PropTypes.string,
+    align: PropTypes.oneOf(['right', 'center', 'justify', 'spaced', 'top', 'middle', 'bottom']),
     children: React.PropTypes.any,
     className: PropTypes.string,
     collapse: PropTypes.bool,

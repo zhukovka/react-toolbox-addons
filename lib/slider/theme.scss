@@ -1,0 +1,17 @@
+.slider {
+  &--container {
+    overflow: hidden;
+  }
+  &--itemsContainer {
+    display: flex;
+  }
+  &--item {
+    flex: 0 0 auto;
+  }
+  &--next {
+
+  }
+  &--back {
+
+  }
+}

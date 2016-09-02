@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {CardMedia} from 'react-toolbox/lib/card';
 import classnames from 'classnames';
 
-const CardMediaPrimary = ({children, className, theme, overflow, ...other}) => {
+const Banner = ({children, className, theme, overflow, ...other}) => {
     const classes = classnames({[theme.overflow]: overflow}, className);
     return (
         <CardMedia {...other} theme={theme} className={classes}>
@@ -10,7 +10,7 @@ const CardMediaPrimary = ({children, className, theme, overflow, ...other}) => {
         </CardMedia>
     );
 };
-CardMediaPrimary.propTypes = {
+Banner.propTypes = {
     aspectRatio: PropTypes.oneOf(['wide', 'square']),
     children: PropTypes.any,
     className: PropTypes.string,
@@ -30,5 +30,5 @@ CardMediaPrimary.propTypes = {
     })
 };
 
-export {CardMediaPrimary};
-export default CardMediaPrimary;
+export {Banner};
+export default Banner;

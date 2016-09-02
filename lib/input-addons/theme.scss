@@ -1,25 +1,26 @@
 @import '~react-toolbox/lib/colors';
 @import '~react-toolbox/lib/globals';
 @import '~react-toolbox/lib/input/config';
+@import '~react-toolbox/lib/dropdown/theme';
 @import 'config';
 
-.white {
+.styled_input.white {
   & > .inputElement {
     color: white;
     border-bottom-style: dashed;
-    border-bottom-color: $input-text-bottom-border-color;
+    border-bottom-color: $input-white-text-bottom-border-color;
   }
-  &.disabled > .inputElement{
+  &.disabled > .inputElement {
     color: transparentize(white, 0.1);
     border-bottom: none;
   }
 }
 
-.large > .inputElement {
+.styled_input.large > .inputElement {
   font-size: $input-large-font-size;
 }
 
-.disabled > .inputElement {
+.styled_input.disabled > .inputElement {
   border: none;
   color: $color-text;
   &:focus:not([disabled]):not([readonly]), &.filled, &[type="date"], &[type="time"] {
@@ -30,3 +31,23 @@
     }
   }
 }
+
+.dropdown.dropdown_styled {
+  &.disabled {
+    .value {
+      &:after {
+        content: none;
+      }
+      input {
+        color: $color-text;
+        border-bottom: none;
+      }
+      label {
+        bottom: 0;
+        font-size: $input-field-font-size;
+        top: initial;
+      }
+    }
+  }
+}
+
