@@ -1,25 +1,18 @@
 import React, {PropTypes} from 'react';
+import {themr} from 'react-css-themr';
 import {CardMedia} from 'react-toolbox/lib/card';
 import classnames from 'classnames';
-import {
-    BANNER_PRIMARY,
-    BANNER_ACCENT
-} from './constants';
 import {BANNER} from '../identifiers';
-
 const Banner = ({children, className, theme, primary, accent, opacity, ...other}) => {
-    const classes = classnames({
-        [theme[BANNER]]: true,
-        [theme[BANNER_PRIMARY]]: primary,
-        [theme[BANNER_ACCENT]]: accent
+    const classes = classnames(theme.banner, {
+        [theme.primary]: primary,
+        [theme.accent]: accent,
+        [theme[`opacity-${opacity}`]]: opacity
     }, className);
-    const _opacity = {
-        opacity: opacity ? ('.' + opacity) : 1
-    };
+
     return (
-        <CardMedia {...other} theme={theme}>
+        <CardMedia {...other} className={classes} theme={theme}>
             {children}
-            <div className={classes} style={_opacity}></div>
         </CardMedia>
 
     );
@@ -46,4 +39,7 @@ Banner.propTypes = {
     })
 };
 
+const factory = () => Banner;
+export default themr(BANNER)(Banner);
+export {factory as bannerFactory};
 export {Banner};

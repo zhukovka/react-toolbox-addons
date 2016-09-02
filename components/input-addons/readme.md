@@ -1,5 +1,9 @@
 ## StyledDropdown `<StyledDropdown/>`
 
+```
+StyledDropdown 
+```
+
 ### Properties
 ```
 allowBlank  bool
@@ -8,7 +12,9 @@ allowBlank  bool
 auto  bool
              
 
- /** Additional class(es) for custom styling.  */
+/**
+ * Additional class(es) for custom styling.  
+ */
 <string> className
 
 disabled  bool
@@ -52,10 +58,14 @@ value  union(string,number)
 
 ### Properties
 ```
- /** Children to pass through the component.  */
+/**
+ * Children to pass through the component.  
+ */
 <any> children
 
- /** Additional class(es) for custom styling.  */
+/**
+ * Additional class(es) for custom styling.  
+ */
 <string> className
 
 disabled  bool

@@ -1,12 +1,9 @@
 import React from 'react';
 import {TabBar, TabItem} from '../../components/tab-bar';
-import {CardTitlePrimary, CardMediaPrimary} from '../../components/card-addons';
-import {CardTitleButtons} from '../../components/card-addons';
 import CardActionsSpaced from '../../components/cardactionsspaced';
 import ButtonGroup from '../../components/buttongroup/';
-import {IconMenu, MenuItem, MenuDivider } from 'react-toolbox/lib/menu';
-import {CardTitle} from 'react-toolbox/lib/card';
-import {Button, IconButton} from 'react-toolbox/lib/button';
+import {IconMenu, MenuItem, MenuDivider} from 'react-toolbox/lib/menu';
+import {IconButton} from 'react-toolbox/lib/button';
 import Banner from '../../components/banner';
 import AvatarOverlay from '../../components/avatar-overlay';
 
@@ -17,6 +14,7 @@ const TestTabBar = () => {
     return (
         <Banner accent opacity={5}>
             <AvatarOverlay icon="done" image={TEST_IMAGE} />
+
             <CardActionsSpaced>
 
             <TabBar>

@@ -6,9 +6,16 @@ import {
 import classnames from 'classnames';
 
 class TabBar extends Component {
-    constructor (props){
+    static propTypes = {
+        children: PropTypes.any,
+        className: PropTypes.string,
+        theme: PropTypes.object
+    };
+
+    constructor (props) {
         super(props);
     }
+
     render () {
         const {theme, className, children} = this.props;
         const classes = classnames(theme[TAB_BAR], className);
@@ -20,11 +27,4 @@ class TabBar extends Component {
     }
 }
 
-TabBar.propTypes = {
-    children: PropTypes.any,
-    className: PropTypes.string,
-    theme: PropTypes.object
-};
-
-export {TabBar};
 export default TabBar;

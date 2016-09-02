@@ -16,11 +16,11 @@ const ButtonGroup = ({children, className, white, theme})=> {
 ButtonGroup.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    white: PropTypes.bool,
     theme: PropTypes.shape({
         buttonGroup: PropTypes.string,
         white: PropTypes.string
-    })
+    }),
+    white: PropTypes.bool
 };
 
 

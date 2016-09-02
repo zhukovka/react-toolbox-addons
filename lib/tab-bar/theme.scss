@@ -1,22 +1,15 @@
 @import "~react-toolbox/lib/colors";
 @import "~react-toolbox/lib/_globals";
-$default-REM: 1.8rem;
-$--light-red: #fe4350;
-$--apple-green: #7ed321;
-$--squash: #f5a623;
-$--warm-grey: #757575;
+
 .tabBar {
   display: flex;
   padding: 0;
-  color: rgba($color-background,.5);
+  color: rgba($color-background, .5);
   list-style: none;
-  margin-bottom: -1.4rem;
-  margin-left: -1.4rem;
-  margin-right: 1.4rem;
 }
+
 .tabItem {
-  padding: $default-REM/2 $default-REM $default-REM/4;
-  margin: 0;
+  padding: $unit*1.8;
   list-style-position: outside;
   color: inherit;
   box-sizing: border-box;
@@ -27,6 +20,6 @@ $--warm-grey: #757575;
   }
   &--active {
     color: $color-background;
-    border-bottom: 4px solid $--squash;
+    border-bottom: 4px solid $color-accent;
   }
 }

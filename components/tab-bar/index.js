@@ -1,5 +1,5 @@
-import {TabBar} from './TabBar';
-import {TabItem} from './TabItem';
+import TabBar from './TabBar';
+import TabItem from './TabItem';
 import {themr} from 'react-css-themr';
 import theme from './theme.scss';
 import {

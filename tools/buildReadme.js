@@ -43,7 +43,7 @@ new Promise((resolve, reject) => {
 }).then(fulfillments => {
     let _fulfillments = {};
     for (const componentName in fulfillments) {
-        if (componentName != "index") {
+        if (componentName != "index" && componentName != "constants") {
             _fulfillments[componentName] = ParseComponent(fulfillments[componentName]);
         }
     }
