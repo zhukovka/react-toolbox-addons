@@ -31,8 +31,9 @@ function makeScss (name) {
     return `.${name.toLowerCase()}{}`;
 }
 function addIdentifier (data, name) {
-    return `${data}
-    export const ${name.toUpperCase()} = '${name}';`
+    let identifiers = `${data}
+    export const ${name.toUpperCase()} = '${name}';`;
+    return identifiers.split('\n').sort().join('\n');
 }
 new Promise((resolve, reject) => {
     Fs.mkdir(componentPath, (err) => {

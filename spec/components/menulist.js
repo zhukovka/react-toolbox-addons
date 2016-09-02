@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {List, ListItem, ListSubHeader, ListDivider, ListCheckbox} from 'react-toolbox/lib/list';
+import {List, ListItem, ListSubHeader} from 'react-toolbox/lib/list';
 import {IconMenu, MenuItem, MenuDivider} from 'react-toolbox/lib/menu';
 import {IconButton} from 'react-toolbox/lib/button';
 

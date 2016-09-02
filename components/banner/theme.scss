@@ -2,27 +2,27 @@
 @import "~react-toolbox/lib/globals";
 
 
-.Banner {
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  background: $color-primary;
-  &--primary {
+.banner {
+  &.primary {
     background: $color-primary;
   }
-  &--accent {
+  &.accent {
     background: $color-accent;
+  }
+}
+
+@for $i from 0 through 9{
+  .primary.opacity-#{$i}{
+    background: transparentize($color-primary, 1-($i*0.1));
+  }
+  .accent.opacity-#{$i}{
+    background: transparentize($color-primary, 1-($i*0.1));
   }
 }
 
 .cardMedia {
   & .content {
     overflow: visible;
-    & > div:first-child {
-      position: relative;
-      z-index: 5;
-    }
+
   }
 }
