@@ -28,13 +28,13 @@ const users = {
             twitter: '@soyjavi',
             birthdate: new Date(1980, 3, 11),
             cats: 1,
-            dogs: <Button icon='add' floating mini/>
+            dogs: <IconButton icon='add'/>
         },
         {
             name: 'Javi Velasco',
             twitter: '@javivelasco',
             birthdate: new Date(1987, 1, 1),
-            dogs: <Button icon='add' floating mini/>,
+            dogs: <IconButton icon='add'/>,
             active: true
         }
     ],
@@ -44,13 +44,13 @@ const users = {
             twitter: '@soyjavi',
             birthdate: new Date(1980, 3, 11),
             cats: 1,
-            dogs: <Button icon='add' floating mini/>
+            dogs: <IconButton icon='add'/>
         },
         {
             name: 'Vasia Velasco',
             twitter: '@javivelasco',
             birthdate: new Date(1987, 1, 1),
-            dogs: <Button icon='add' floating mini/>,
+            dogs: <IconButton icon='add'/>,
             active: true
         }
     ],
@@ -60,13 +60,13 @@ const users = {
             twitter: '@soyjavi',
             birthdate: new Date(1980, 3, 11),
             cats: 1,
-            dogs: <Button icon='add' floating mini/>
+            dogs: <IconButton icon='add'/>
         },
         {
             name: 'Petia Velasco',
             twitter: '@javivelasco',
             birthdate: new Date(1987, 1, 1),
-            dogs: <Button icon='add' floating mini/>,
+            dogs: <IconButton icon='add'/>,
             active: true
         }
     ],
@@ -76,19 +76,19 @@ const users = {
             twitter: '@soyjavi',
             birthdate: new Date(1980, 3, 11),
             cats: 1,
-            dogs: <Button icon='add' floating mini/>
+            dogs: <IconButton icon='add'/>
         },
         {
             name: 'Ololosha Velasco',
             twitter: '@javivelasco',
             birthdate: new Date(1987, 1, 1),
-            dogs: <Button icon='add' floating mini/>,
+            dogs: <IconButton icon='add'/>,
             active: true
         }
     ]
 };
 class MissionListTest extends Component {
-    state = {source: users, active: 'one'};
+    state = {source: users, active: 'one', selected: [], filterMode: false};
 
     tabsitems = ['one', 'two', 'three', 'four'];
 
@@ -99,32 +99,65 @@ class MissionListTest extends Component {
         }, this);
     }
 
+    handleChange = (row, key, value) => {
+        const source = this.state.source[this.state.active];
+        source[row][key] = value;
+        this.setState({source});
+    };
+
+    handleSelect = (selected) => {
+        this.setState({selected});
+    };
+
+    renderButtons () {
+        return (<ButtonGroup white>
+            <IconButton icon='filter_list' onClick={()=>this.setState({filterMode: true})}/>
+            <IconMenu icon='more_vert' position='topRight' menuRipple>
+                <MenuItem value='download' icon='get_app' caption='Download'/>
+                <MenuItem value='help' icon='favorite' caption='Favorite'/>
+                <MenuItem value='settings' icon='open_in_browser' caption='Open in app'/>
+                <MenuDivider />
+                <MenuItem value='signout' icon='delete' caption='Delete' disabled/>
+            </IconMenu>
+        </ButtonGroup>);
+    }
+
+    renderBanner () {
+        let bannerProps = {primary: true};
+        let tabs, buttons;
+        if (this.state.selected.length) {
+            bannerProps = {accent: true, opacity: 2};
+            tabs = <TabItem primary>{this.state.selected.length} item selected</TabItem>;
+            buttons = <Button label='REMOVE' accent onClick={()=>this.setState({selected: []})}/>;
+        } else {
+            tabs = this.renderTabs();
+            buttons = this.renderButtons();
+        }
+
+        return (
+            <Banner {...bannerProps}>
+                <CardActionsSpaced>
+                    <TabBar>
+                        {tabs}
+                    </TabBar>
+                    {buttons}
+                </CardActionsSpaced>
+            </Banner>);
+    }
+
     render () {
         return (
-            <div>
+            <div style={{padding: 20}}>
                 MissionListTest
                 <Card style={{overflow: 'visible'}}>
-                    <Banner primary>
-                        <CardActionsSpaced>
-                            <TabBar>
-                                {this.renderTabs()}
-                            </TabBar>
-                            <ButtonGroup white>
-                                <IconButton icon='filter_list'/>
-                                <IconMenu icon='more_vert' position='topRight' menuRipple>
-                                    <MenuItem value='download' icon='get_app' caption='Download'/>
-                                    <MenuItem value='help' icon='favorite' caption='Favorite'/>
-                                    <MenuItem value='settings' icon='open_in_browser' caption='Open in app'/>
-                                    <MenuDivider />
-                                    <MenuItem value='signout' icon='delete' caption='Delete' disabled/>
-                                </IconMenu>
-                            </ButtonGroup>
-                        </CardActionsSpaced>
-                    </Banner>
+                    {this.renderBanner()}
                     <Table
                         model={UserModel}
-                        selectable={false}
-                        onSelect={()=>console.log('kuku')}
+                        onChange={this.handleChange}
+                        onSelect={this.handleSelect}
+                        selectable
+                        multiSelectable
+                        selected={this.state.selected}
                         source={this.state.source[this.state.active]}
                     />
                 </Card>

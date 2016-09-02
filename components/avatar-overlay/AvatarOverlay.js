@@ -21,4 +21,4 @@ AvatarOverlay.propTypes = {
     onClick: PropTypes.func,
     theme: PropTypes.object
 };
-export {AvatarOverlay};
+export default AvatarOverlay;

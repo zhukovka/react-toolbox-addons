@@ -4,6 +4,7 @@ export * from './headings';
 export * from './input-addons';
 export * from './streams';
 export * from './tab-bar';
+export AvatarOverlay from './avatar-overlay';
 export Banner from './banner';
 export BottomSheet from './bottomsheet';
 export ButtonGroup from './buttongroup';

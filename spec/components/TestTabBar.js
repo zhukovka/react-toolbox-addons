@@ -19,9 +19,9 @@ const TestTabBar = () => {
 
             <TabBar>
                 <TabItem active>{'some text'.toUpperCase()}</TabItem>
-                <TabItem >two</TabItem>
+                <TabItem accent>two</TabItem>
                 <TabItem active>three</TabItem>
-                <TabItem>four</TabItem>
+                <TabItem primary>four</TabItem>
                 <TabItem>long ...........</TabItem>
                 <TabItem>long ...........</TabItem>
                 <TabItem>long ...........</TabItem>
