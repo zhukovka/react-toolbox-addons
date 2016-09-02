@@ -5,9 +5,8 @@ import classnames from 'classnames';
 import {STYLED_DROPDOWN} from '../identifiers.js';
 
 /**
- * StyledDropdown
+ * StyledDropdown props extend Dropdown props
  */
-
 const StyledDropdown = ({theme, className, ...other})=> {
     const classes = classnames(theme.dropdown_styled, className);
     return (
@@ -16,18 +15,7 @@ const StyledDropdown = ({theme, className, ...other})=> {
 };
 
 StyledDropdown.propTypes = {
-    allowBlank: PropTypes.bool,
-    auto: PropTypes.bool,
     className: PropTypes.string,
-    disabled: PropTypes.bool,
-    error: PropTypes.string,
-    label: PropTypes.string,
-    name: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    source: PropTypes.array.isRequired,
-    template: PropTypes.func,
     theme: PropTypes.shape({
         active: PropTypes.string,
         disabled: PropTypes.string,
@@ -41,11 +29,7 @@ StyledDropdown.propTypes = {
         up: PropTypes.string,
         value: PropTypes.string,
         values: PropTypes.string
-    }),
-    value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-    ])
+    })
 };
 
 const factory = ()=>StyledDropdown;

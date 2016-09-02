@@ -11,7 +11,7 @@ import {Button, IconButton} from 'react-toolbox/lib/button';
 import {IconMenu, MenuItem, MenuDivider} from 'react-toolbox/lib/menu';
 import Table from 'react-toolbox/lib/table';
 import FontIcon from 'react-toolbox/lib/font_icon';
-
+import {StyledInput} from 'react-toolbox-addons/lib/input-addons';
 const UserModel = {
     name: {type: String},
     twitter: {type: String},
@@ -129,6 +129,12 @@ class MissionListTest extends Component {
             bannerProps = {accent: true, opacity: 2};
             tabs = <TabItem primary>{this.state.selected.length} item selected</TabItem>;
             buttons = <Button label='REMOVE' accent onClick={()=>this.setState({selected: []})}/>;
+        } else if (this.state.filterMode) {
+            tabs = (<ButtonGroup white><IconButton icon='search'/><StyledInput white
+                                                                               placeholder='search'
+                                                                               type='text'/></ButtonGroup>);
+            buttons = (<ButtonGroup white><IconButton icon='clear'
+                                                      onClick={()=>this.setState({filterMode: false})}/></ButtonGroup>);
         } else {
             tabs = this.renderTabs();
             buttons = this.renderButtons();
