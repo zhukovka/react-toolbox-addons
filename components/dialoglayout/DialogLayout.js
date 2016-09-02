@@ -32,5 +32,4 @@ DialogLayout.propTypes = {
     type: PropTypes.string
 };
 
-export {DialogLayout};
 export default DialogLayout;
