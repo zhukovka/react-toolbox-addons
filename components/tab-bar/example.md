@@ -7,35 +7,84 @@ import Banner from 'react-toolbox-addons/lib/banner';
 import CardActionsSpaced from 'react-toolbox-addons/lib/cardactionsspaced';
 import {TabBar, TabItem} from 'react-toolbox-addons/lib/tab-bar';
 import ButtonGroup from 'react-toolbox-addons/lib/buttongroup';
-import {IconButton} from 'react-toolbox/lib/button';
+import {Button, IconButton} from 'react-toolbox/lib/button';
 import {IconMenu, MenuItem, MenuDivider} from 'react-toolbox/lib/menu';
 import Table from 'react-toolbox/lib/table';
+import FontIcon from 'react-toolbox/lib/font_icon';
 
 const UserModel = {
     name: {type: String},
     twitter: {type: String},
     birthdate: {type: Date},
     cats: {type: Number},
-    dogs: {type: Number},
+    dogs: {type: FontIcon},
     active: {type: Boolean}
 };
 
 const users = {
     one: [
-        {name: 'Javi Jimenez', twitter: '@soyjavi', birthdate: new Date(1980, 3, 11), cats: 1},
-        {name: 'Javi Velasco', twitter: '@javivelasco', birthdate: new Date(1987, 1, 1), dogs: 1, active: true}
+        {
+            name: 'Javi Jimenez',
+            twitter: '@soyjavi',
+            birthdate: new Date(1980, 3, 11),
+            cats: 1,
+            dogs: <Button icon='add' floating mini/>
+        },
+        {
+            name: 'Javi Velasco',
+            twitter: '@javivelasco',
+            birthdate: new Date(1987, 1, 1),
+            dogs: <Button icon='add' floating mini/>,
+            active: true
+        }
     ],
     two: [
-        {name: 'Vasia Jimenez', twitter: '@soyjavi', birthdate: new Date(1980, 3, 11), cats: 1},
-        {name: 'Vasia Velasco', twitter: '@javivelasco', birthdate: new Date(1987, 1, 1), dogs: 1, active: true}
+        {
+            name: 'Vasia Jimenez',
+            twitter: '@soyjavi',
+            birthdate: new Date(1980, 3, 11),
+            cats: 1,
+            dogs: <Button icon='add' floating mini/>
+        },
+        {
+            name: 'Vasia Velasco',
+            twitter: '@javivelasco',
+            birthdate: new Date(1987, 1, 1),
+            dogs: <Button icon='add' floating mini/>,
+            active: true
+        }
     ],
     three: [
-        {name: 'Petia Jimenez', twitter: '@soyjavi', birthdate: new Date(1980, 3, 11), cats: 1},
-        {name: 'Petia Velasco', twitter: '@javivelasco', birthdate: new Date(1987, 1, 1), dogs: 1, active: true}
+        {
+            name: 'Petia Jimenez',
+            twitter: '@soyjavi',
+            birthdate: new Date(1980, 3, 11),
+            cats: 1,
+            dogs: <Button icon='add' floating mini/>
+        },
+        {
+            name: 'Petia Velasco',
+            twitter: '@javivelasco',
+            birthdate: new Date(1987, 1, 1),
+            dogs: <Button icon='add' floating mini/>,
+            active: true
+        }
     ],
     four: [
-        {name: 'Ololosha Jimenez', twitter: '@soyjavi', birthdate: new Date(1980, 3, 11), cats: 1},
-        {name: 'Ololosha Velasco', twitter: '@javivelasco', birthdate: new Date(1987, 1, 1), dogs: 1, active: true}
+        {
+            name: 'Ololosha Jimenez',
+            twitter: '@soyjavi',
+            birthdate: new Date(1980, 3, 11),
+            cats: 1,
+            dogs: <Button icon='add' floating mini/>
+        },
+        {
+            name: 'Ololosha Velasco',
+            twitter: '@javivelasco',
+            birthdate: new Date(1987, 1, 1),
+            dogs: <Button icon='add' floating mini/>,
+            active: true
+        }
     ]
 };
 class MissionListTest extends Component {
@@ -74,13 +123,13 @@ class MissionListTest extends Component {
                     </Banner>
                     <Table
                         model={UserModel}
+                        selectable={false}
+                        onSelect={()=>console.log('kuku')}
                         source={this.state.source[this.state.active]}
                     />
                 </Card>
             </div>
         );
     }
-
-
 }
 ```
