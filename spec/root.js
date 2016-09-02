@@ -25,6 +25,7 @@ import InputAddonsTest from './components/inputaddons';
 import TestAvatar from './components/TestAvatar';
 import TestUpload from './components/TestUpload';
 import TestTabBar from './components/TestTabBar';
+import DialogLayout from './components/DialogLayoutTest';
 
 const Root = () => (
     <div className={style.app}>
@@ -153,7 +154,7 @@ const Root = () => (
                 <Avatar title="A"/><span>Active chip</span>
             </ChipTransparent>
         </section>
-
+        <DialogLayout />
     </div>
 );
 

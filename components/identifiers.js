@@ -7,6 +7,7 @@ export const CARD_PRIMARY = 'CardPrimary';
 export const CARDACTIONSRIGHT = 'CardActionsRight';
 export const CARDACTIONSSPACED = 'CardActionsSpaced';
 export const CARDTITLEBUTTONS = 'CardTitleButtons';
+export const DIALOG_LAYOUT = 'DialogLayout';
 export const DISABLED_INPUT = 'DisabledInput';
 export const STYLED_DROPDOWN = 'StyledDropdown';
 export const STYLED_INPUT = 'StyledInput';
