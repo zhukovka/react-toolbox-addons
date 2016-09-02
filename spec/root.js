@@ -25,6 +25,7 @@ import InputAddonsTest from './components/inputaddons';
 import TestAvatar from './components/TestAvatar';
 import TestUpload from './components/TestUpload';
 import TestTabBar from './components/TestTabBar';
+import MenuListTest from './components/menulist';
 
 const Root = () => (
     <div className={style.app}>
@@ -35,6 +36,11 @@ const Root = () => (
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
+
+        <section>
+            <h5>MenuListTest</h5>
+            <MenuListTest/>
+        </section>
 
         <InputAddonsTest/>
 
