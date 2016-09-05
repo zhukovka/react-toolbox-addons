@@ -26,3 +26,4 @@ export StreamsBottomSheet from './streams';
 export Upload from './upload-zone';
 export UploadButton from './upload-button';
 export VideoPanel from './videopanel';
+export ShadowBox from './shadow-box';
