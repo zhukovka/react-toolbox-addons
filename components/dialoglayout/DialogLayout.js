@@ -1,25 +1,42 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Children} from 'react';
 import Dialog from 'react-toolbox/lib/dialog';
 import classnames from 'classnames';
+import {Row, Col} from '../grid';
+import VerticalDivider from '../verticaldivider';
 
-const DialogLayout = ({children, className, theme, ...other}) => {
-    const classes = classnames(className);
+const DialogLayout = ({children, className, theme, primary, ...other}) => {
+    const classes = classnames(theme.dialogLayout, {
+        [theme.primary]: primary
+    }, className);
+
+    const renderPanels = ()=> {
+        const colSize = 12 / children.length | 0;
+        const panels = [];
+        Children.forEach(children, (child, index)=> {
+            panels.push(<Col key={'col-' + index} small={colSize} medium={colSize} large={colSize}>
+                {child}
+            </Col>);
+            panels.push(<VerticalDivider key={'div-' + index}/>);
+        });
+        return panels;
+    };
+
     return (
-        <Dialog {...other} theme={theme} className={classes}>
-            {children}
+        <Dialog {...other} type="medium" theme={theme} className={classes}>
+            <Row expanded collapse>
+                {renderPanels()}
+            </Row>
         </Dialog>
     );
 };
 DialogLayout.propTypes = {
-    actions: PropTypes.array,
-    active: PropTypes.bool,
     children: PropTypes.node,
     className: PropTypes.string,
-    onEscKeyDown: PropTypes.func,
-    onOverlayClick: PropTypes.func,
-    onOverlayMouseDown: PropTypes.func,
-    onOverlayMouseMove: PropTypes.func,
-    onOverlayMouseUp: PropTypes.func,
+    /**
+     * Add to make dialog header background color primary
+     * Boolean primary
+     */
+    primary: PropTypes.bool,
     theme: PropTypes.shape({
         active: PropTypes.string,
         body: PropTypes.string,
@@ -27,9 +44,7 @@ DialogLayout.propTypes = {
         dialog: PropTypes.string,
         navigation: PropTypes.string,
         title: PropTypes.string
-    }),
-    title: PropTypes.string,
-    type: PropTypes.string
+    })
 };
 
 export default DialogLayout;

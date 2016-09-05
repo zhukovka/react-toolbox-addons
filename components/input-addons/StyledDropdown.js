@@ -7,15 +7,35 @@ import {STYLED_DROPDOWN} from '../identifiers.js';
 /**
  * StyledDropdown props extend Dropdown props
  */
-const StyledDropdown = ({theme, className, ...other})=> {
-    const classes = classnames(theme.dropdown_styled, className);
+const StyledDropdown = ({theme, className, primary, collapse, align, ...other})=> {
+    const classes = classnames(theme.dropdown_styled, {
+        [theme.primary]: primary,
+        [theme.collapse]: collapse,
+        [theme[align]]: align
+    }, className);
     return (
         <Dropdown className={classes} {...other} theme={theme}/>
     );
 };
 
 StyledDropdown.propTypes = {
+    /**
+     * set to align text of selected item
+     * one of ['right', 'center']
+     * String align
+     */
+    align: PropTypes.oneOf(['right', 'center']),
     className: PropTypes.string,
+    /**
+     * set to remove top and bottom padding
+     * Boolean collapse
+     */
+    collapse: PropTypes.bool,
+    /**
+     * set color of selected item text to primary
+     * Boolean primary
+     */
+    primary: PropTypes.bool,
     theme: PropTypes.shape({
         active: PropTypes.string,
         disabled: PropTypes.string,

@@ -1,0 +1,29 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "../mixins";
+
+.dialogLayout {
+  width: 70vw;
+  .body {
+    padding: 0;
+    overflow: hidden;
+  }
+  .title {
+    padding: 2.4 * $unit;
+    margin: 0;
+  }
+
+  &.primary {
+    .title {
+      @include primary-bg;
+    }
+  }
+  .navigation{
+    border-top: 1px solid $color-divider;
+  }
+}
+
+.dialogPanel{
+  height: 70vh;
+  overflow: auto;
+}

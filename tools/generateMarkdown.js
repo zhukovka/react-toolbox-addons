@@ -24,7 +24,7 @@ function generatePropType (type) {
 }
 function generateJdoc (description, required, defaultValue) {
     let descr = description.split(/\n/);
-    let comment = descr.slice(0, -1).join('\n*');
+    let comment = descr.slice(0, -1).join('\n * ');
 
     return (`/**\n * ${comment} ${required} ${defaultValue}\n */\n${descr.pop()}\n`);
 }
@@ -63,7 +63,7 @@ function generateMarkdown (name, reactAPI) {
     const markdownString = generateTitle(name) + '\n'
         + (reactAPI.description ? generateDesciption(reactAPI.description) + '\n' : '\n')
         + generateProps(reactAPI.props);
-
+    console.log('complete');
     return markdownString;
 }
 

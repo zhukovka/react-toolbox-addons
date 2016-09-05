@@ -49,5 +49,39 @@
       }
     }
   }
+  &.primary {
+    .value {
+      &:after {
+        border-top-color: $color-primary;
+      }
+      input {
+        color: $color-primary;
+        border-bottom: none;
+      }
+    }
+  }
+  &.right{
+    .value {
+      input {
+        padding-right: $unit * 2.5;
+        text-align: right;
+      }
+    }
+  }
+  &.center{
+    .value {
+      input {
+        text-align: center;
+      }
+    }
+  }
+  &.collapse{
+    .value {
+      input {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
 }
 
