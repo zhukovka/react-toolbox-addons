@@ -1,0 +1,12 @@
+.verticalDivider {
+  position: relative;
+  &:after {
+    position: absolute;
+    width: 1px;
+    background: rgb(238, 238, 238);
+    content: '';
+    top: 0;
+    bottom: 0;
+    height: 100%;
+  }
+}

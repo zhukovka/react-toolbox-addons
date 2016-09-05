@@ -4,6 +4,10 @@ import classnames from 'classnames';
 import {Row, Col} from '../grid';
 import VerticalDivider from '../verticaldivider';
 
+/**
+ * DialogLayout props extend Dialog props
+ * example https://github.com/zhukovka/react-toolbox-addons/blob/master/components/dialoglayout/example.md
+ */
 const DialogLayout = ({children, className, theme, primary, ...other}) => {
     const classes = classnames(theme.dialogLayout, {
         [theme.primary]: primary

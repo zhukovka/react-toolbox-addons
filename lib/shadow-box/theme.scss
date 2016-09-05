@@ -1,0 +1,6 @@
+@import "~react-toolbox/lib/_colors";
+@import "~react-toolbox/lib/_globals";
+
+.shadowBox {
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, $shadow-key-umbra-opacity);
+}

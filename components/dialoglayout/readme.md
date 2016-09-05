@@ -1,5 +1,10 @@
 ## DialogLayout `<DialogLayout/>`
 
+```
+DialogLayout props extend Dialog props
+example https://github.com/zhukovka/react-toolbox-addons/blob/master/components/dialoglayout/example.md 
+```
+
 ### Properties
 ```
 /**
