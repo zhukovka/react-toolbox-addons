@@ -5,5 +5,5 @@ import {UPLOAD} from '../identifiers.js';
 
 const _Upload = themr(UPLOAD, theme)(Upload);
 export {_Upload as Upload};
-export default Upload;
+export default _Upload;
 
