@@ -25,4 +25,5 @@ export const UPLOAD = 'DropZone';
 export const UPLOAD_BUTTON = 'UploadButton';
 export const VIDEOPANEL = 'VideoPanel';
 export const STATUSAVATAR = 'StatusAvatar';
+export const SHADOW_BOX = 'shadowBox';
 
