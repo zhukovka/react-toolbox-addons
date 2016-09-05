@@ -28,11 +28,14 @@ import TestTabBar from './components/TestTabBar';
 import DialogLayout from './components/DialogLayoutTest';
 import MenuListTest from './components/menulist';
 import TestAvatarOverlay from './components/TestAvatarOverlay';
+import TestStatusAvatar from './components/TestStatusAvatar';
+import TestShadowBox from './components/TestShadowBox.js';
 import {StyledInput} from '../components/input-addons';
 
 const Root = () => (
     <div className={style.app}>
-
+        <TestShadowBox />
+        <TestStatusAvatar />
         <TestUpload/>
         <TestTabBar />
         <TestStream />

@@ -17,7 +17,9 @@ export const INPUTGROUP = 'InputGroup';
 export const NAVDRAWER_PLUS = 'NavDrawerPlus';
 export const NAVIGATIONS_CHIPS = 'NavigationChips';
 export const RED_HEADING = 'RedHeading';
+export const SHADOW_BOX = 'shadowBox';
 export const SIDEBAR_PLUS = 'NavDrawerPlus';
+export const STATUSAVATAR = 'StatusAvatar';
 export const STEPSLIST = 'StepsList';
 export const STYLED_DROPDOWN = 'StyledDropdown';
 export const STYLED_INPUT = 'StyledInput';
@@ -26,3 +28,4 @@ export const UPLOAD = 'DropZone';
 export const UPLOAD_BUTTON = 'UploadButton';
 export const VERTICALDIVIDER = 'VerticalDivider';
 export const VIDEOPANEL = 'VideoPanel';
+
