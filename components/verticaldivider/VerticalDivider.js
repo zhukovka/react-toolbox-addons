@@ -4,13 +4,13 @@ import {VERTICALDIVIDER} from '../identifiers';
 import theme from './theme.scss';
 
 const factory = () => {
-    const VerticalPalochka = () => {
+    const VerticalDivider = () => {
         return (
             <div className={theme.verticalDivider}></div>
         );
     };
-    return VerticalPalochka;
-}
+    return VerticalDivider;
+};
 
 const VerticalDivider = factory();
 export default themr(VERTICALDIVIDER)(VerticalDivider);

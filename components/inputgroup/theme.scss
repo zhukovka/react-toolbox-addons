@@ -1,0 +1,18 @@
+@import '~react-toolbox/lib/colors';
+@import '~react-toolbox/lib/globals';
+@import '~react-toolbox/lib/mixins';
+
+.inputgroup {
+  display: flex;
+  align-items: center;
+  & > [data-react-toolbox="input"] {
+    padding: ($unit * 0.5) 0;
+    flex: 1 auto;
+    input {
+      border: none;
+    }
+  }
+  &.shadow {
+    @include shadow-2dp;
+  }
+}
