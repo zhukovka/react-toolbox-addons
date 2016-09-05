@@ -4,7 +4,6 @@
 .tabBar {
   display: flex;
   padding: 0;
-  color: rgba($color-background, .5);
   list-style: none;
 }
 
@@ -15,11 +14,21 @@
   box-sizing: border-box;
   cursor: pointer;
   text-align: center;
+  color: rgba($color-white, .5);
   & > span {
     color: inherit;
   }
-  &--active {
+  &.active {
     color: $color-background;
     border-bottom: 4px solid $color-accent;
+  }
+  &.primary{
+    color: $color-primary;
+  }
+  &.accent{
+    color: $color-accent;
+    &.active {
+      border-bottom-color: $color-primary;
+    }
   }
 }

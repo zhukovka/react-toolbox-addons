@@ -2,7 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 import Avatar from 'react-toolbox/lib/avatar';
 import {
-    ICON_PHOTO_CAMERA,
+    ICON_PHOTO_CAMERA
 } from './constants';
 import AvatarOverlay from '../avatar-overlay';
 
@@ -11,11 +11,12 @@ class EditableAvatar extends Component {
         this.onUpload(e);
         this.refs.fileInput.value = '';
     }
+
     onUpload (e) {
         let file;
         e.preventDefault();
-        const errorHandler = (evt)=>{
-            switch (evt.target.error.code){
+        const errorHandler = (evt)=> {
+            switch (evt.target.error.code) {
                 case evt.target.error.NOT_FOUND_ERR:
                     console.log('File Not Found!');
                     break;

@@ -2,12 +2,12 @@
 import 'react-toolbox/lib/commons.scss';
 import React from 'react';
 import style from './style';
-import {Button} from 'react-toolbox/lib/button';
+import {Button, IconButton} from 'react-toolbox/lib/button';
 import CardActionsRight from '../components/cardactionsright/index';
 import CardActionsSpaced from '../components/cardactionsspaced/index';
 import {Row, Col} from '../components/grid/index';
 import {CardActions, Card, CardTitle} from 'react-toolbox/lib/card';
-import ButtonGroup from '../components/buttongroup/ButtonGroup';
+import ButtonGroup from '../components/buttongroup';
 import {NavigationChips} from '../components/navigation-chips';
 import Checkmark from '../components/checkmark/Checkmark';
 import ChipTransparent from '../components/chips';
@@ -30,6 +30,7 @@ import MenuListTest from './components/menulist';
 import TestAvatarOverlay from './components/TestAvatarOverlay';
 import TestStatusAvatar from './components/TestStatusAvatar';
 import TestShadowBox from './components/TestShadowBox.js';
+import {StyledInput} from '../components/input-addons';
 
 const Root = () => (
     <div className={style.app}>
@@ -38,6 +39,10 @@ const Root = () => (
         <TestUpload/>
         <TestTabBar />
         <TestStream />
+        <section>
+            <h5>Button Group</h5>
+            <ButtonGroup><IconButton icon='search'/><StyledInput type='text'/></ButtonGroup>
+        </section>
         <h1>React Toolbox Addons
             <small>Spec {VERSION}</small>
         </h1>
@@ -58,7 +63,7 @@ const Root = () => (
         </Card>
         <CardTitlePrimary>
             KUKURUKU
-
+            <TestAvatar />
             <StatusComponent status="idle"/>
             <StatusComponent status="warning"/>
             <StatusComponent status="error"/>

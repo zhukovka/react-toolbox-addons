@@ -3,6 +3,9 @@ import {themr} from 'react-css-themr';
 import classnames from 'classnames';
 import {BUTTON_GROUP} from '../identifiers';
 
+/**
+ * ButtonGroup - wrapper for buttons or inputs with buttons
+ */
 const ButtonGroup = ({children, className, white, theme})=> {
     const classes = classnames(theme.buttonGroup, {
         [theme.white]: white
@@ -20,6 +23,10 @@ ButtonGroup.propTypes = {
         buttonGroup: PropTypes.string,
         white: PropTypes.string
     }),
+    /**
+     * sets color of containing buttons to white
+     * Boolean white
+     */
     white: PropTypes.bool
 };
 

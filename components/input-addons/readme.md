@@ -1,53 +1,17 @@
 ## StyledDropdown `<StyledDropdown/>`
 
 ```
-StyledDropdown 
+StyledDropdown props extend Dropdown props 
 ```
 
 ### Properties
 ```
-allowBlank  bool
-             
-
-auto  bool
-             
-
 /**
  * Additional class(es) for custom styling.  
  */
-<string> className
-
-disabled  bool
-             
-
-error  string
-             
-
-label  string
-             
-
-name  string
-             
-
-onBlur  func
-             
-
-onChange  func
-             
-
-onFocus  func
-             
-
-source (required) array
-             
-
-template  func
-             
+String className
 
 theme  shape[object Object]
-             
-
-value  union(string,number)
              
 ```
 
@@ -56,74 +20,34 @@ value  union(string,number)
 
 ## StyledInput `<StyledInput/>`
 
+```
+StyledInput props extend Input props 
+```
+
 ### Properties
 ```
 /**
  * Children to pass through the component.  
  */
-<any> children
+Object children
 
 /**
  * Additional class(es) for custom styling.  
  */
-<string> className
+String className
 
-disabled  bool
+/**
+ * sets text size to large  
+ */
+Boolean large
+
+theme  object
              
 
-error  string
-             
-
-floating  bool
-             
-
-hint  string
-             
-
-icon  union(string,element)
-             
-
-label  string
-             
-
-large  bool
-             
-
-maxLength  number
-             
-
-multiline  bool
-             
-
-name  string
-             
-
-onBlur  func
-             
-
-onChange  func
-             
-
-onFocus  func
-             
-
-onKeyPress  func
-             
-
-required  bool
-             
-
-theme  shape[object Object]
-             
-
-type  string
-             
-
-value  any
-             
-
-white  bool
-             
+/**
+ * sets text color to white  
+ */
+Boolean white
 ```
 
 
