@@ -11,7 +11,7 @@ const TestShadowBox = () => {
             <TestUpload />
             <Input value='test'/>
         </ShadowBox>
-    )
+    );
 };
 
 export default TestShadowBox;
