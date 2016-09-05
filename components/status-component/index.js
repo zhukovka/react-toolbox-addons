@@ -5,3 +5,4 @@ import {CSS_CLASS_STATUS_COMPONENT} from './constants';
 
 const _StatusComponent = themr(CSS_CLASS_STATUS_COMPONENT, theme)(StatusComponent);
 export {_StatusComponent as StatusComponent};
+export default _StatusComponent;

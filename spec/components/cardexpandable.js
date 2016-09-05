@@ -1,6 +1,9 @@
 import React from 'react';
 import CardExpandable from '../../components/cardexpandable/';
 import {List, ListItem, ListSubHeader, ListDivider, ListCheckbox} from 'react-toolbox/lib/list';
+import TestStatusAvatar from './TestStatusAvatar';
+
+const _testStatusAvatar = (<TestStatusAvatar />);
 
 const CardExpandableTest = (props) => {
     const buttons = [{icon: 'add'}, {icon: 'done'}];
@@ -11,11 +14,10 @@ const CardExpandableTest = (props) => {
                 <List selectable ripple>
                     <ListSubHeader caption='Explore characters'/>
                     <ListItem
-                        avatar='https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg'
                         caption='Dr. Manhattan'
                         legend="Jonathan 'Jon' Osterman"
                         rightIcon='star'
-                    />
+                    >{_testStatusAvatar}</ListItem>
                     <ListItem
                         avatar='https://dl.dropboxusercontent.com/u/2247264/assets/o.jpg'
                         caption='Ozymandias'

@@ -9,6 +9,7 @@ import {
     SLIDER_CONTROLS
 } from './constants';
 
+import {Row,Col} from '../../components/grid';
 
 class Slider extends Component {
     static createOrderArray (tar, len){
@@ -35,7 +36,8 @@ class Slider extends Component {
     constructor (props){
         super(props);
         this.state = {
-          order: 1
+          order: 1,
+            current: props.count
         };
     }
     renderChildren (){
@@ -59,7 +61,7 @@ class Slider extends Component {
     }
 
     handleControls (type){
-        const {order} = this.state;
+        /*const {order} = this.state;
         const {children} = this.props;
         const childrenLength = children.length;
         let newOrder;
@@ -70,23 +72,64 @@ class Slider extends Component {
         }
         this.setState({
             order: newOrder
+        });*/
+        let _current;
+        if (type === SLIDER_BUTTON_NEXT){
+            _current = this.state.current + this.props.count;
+        } else if (type === SLIDER_BUTTON_PREV){
+            _current = this.state.current - this.props.count;
+        }
+        this.setState({
+            current: _current
         });
     }
 
+    countItems (){
+        const {children, count} = this.props;
+        const {current} = this.state;
+        return children.filter((item, index)=>{
+            let _index = index + 1;
+            if ((current - count) < (_index) && (_index) <= current){
+                return item;
+            }
+        });
+    }
+    renderControlPrev (onclick){
+        const {count,theme} = this.props;
+        const {current} = this.state;
+        if (current !== count){
+            return (<button className={theme[SLIDER_BUTTON_PREV]}
+                    onClick={onclick}
+            >{SLIDER_BUTTON_PREV}</button>);
+        }
+    }
+    renderControlNext (onclick){
+        const {children, theme} = this.props;
+        const {current} = this.state;
+        if (current < children.length){
+            return (<button className={theme[SLIDER_BUTTON_NEXT]}
+                            onClick={onclick}
+            >{SLIDER_BUTTON_NEXT}</button>);
+        }
+    }
     render (){
         const {theme} = this.props;
+        const _array = this.countItems();
         return (
             <div className={theme[SLIDER_CONTAINER]}>
-                <div className={theme[SLIDER_ITEMS_CONTAINER]}>
-                    {this.renderChildren()}
-                </div>
+                    <Row>
+                    {_array.map((el, index)=>(
+                        <Col key={index} >
+                            <div>
+                            {el}
+                            <p>{index}</p>
+                            </div>
+                        </Col>
+                        ))}
+                    </Row>
                 <div className={theme[SLIDER_CONTROLS]}>
-                    <button className={theme[SLIDER_BUTTON_PREV]}
-                            onClick={this.handleControls.bind(this, SLIDER_BUTTON_PREV)}
-                    >{SLIDER_BUTTON_PREV}</button>
-                    <button className={theme[SLIDER_BUTTON_NEXT]}
-                            onClick={this.handleControls.bind(this, SLIDER_BUTTON_NEXT)}
-                    >{SLIDER_BUTTON_NEXT}</button>
+                    {this.renderControlPrev(this.handleControls.bind(this, SLIDER_BUTTON_PREV))}
+                    {this.renderControlNext(this.handleControls.bind(this, SLIDER_BUTTON_NEXT))}
                 </div>
             </div>
         );

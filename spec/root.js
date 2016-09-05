@@ -28,10 +28,11 @@ import TestTabBar from './components/TestTabBar';
 import DialogLayout from './components/DialogLayoutTest';
 import MenuListTest from './components/menulist';
 import TestAvatarOverlay from './components/TestAvatarOverlay';
+import TestStatusAvatar from './components/TestStatusAvatar';
 
 const Root = () => (
     <div className={style.app}>
-        <TestAvatar />
+        <TestStatusAvatar />
         <TestUpload/>
         <TestTabBar />
         <TestStream />

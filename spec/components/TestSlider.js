@@ -4,7 +4,15 @@ import CardMediaPlusTest from './cardMediaTest';
 
 const TestSlider = () => {
     return (
-      <Slider>
+      <Slider count={6}>
+          <CardMediaPlusTest />
+          <CardMediaPlusTest />
+          <CardMediaPlusTest />
+          <CardMediaPlusTest />
+          <CardMediaPlusTest />
+          <CardMediaPlusTest />
+          <CardMediaPlusTest />
+          <CardMediaPlusTest />
           <CardMediaPlusTest />
           <CardMediaPlusTest />
           <CardMediaPlusTest />
