@@ -1,0 +1,19 @@
+@import "config";
+
+.listItem {
+  &.admin {
+    border-left: 4px solid $admin-list-item-border-color;
+  }
+  &.orgAdmin {
+    border-left: 4px solid $org-admin-list-item-border-color;
+  }
+  &.missionOwner {
+    border-left: 4px solid $mission-owner-list-item-border-color;
+  }
+  &.participant {
+    border-left: 4px solid $participant-list-item-border-color;
+  }
+  &.observer {
+    border-left: 4px solid $observer-list-item-border-color;
+  }
+}

@@ -28,6 +28,7 @@ class DialLayoutTest extends React.Component {
                     onEscKeyDown={this.handleToggle}
                     onOverlayClick={this.handleToggle}
                     title='My awesome dialog'
+                    primary
                 >
                     <p>Here you can add arbitrary content. Components like Pickers are using dialogs now.</p>
                 </DialogLayout>

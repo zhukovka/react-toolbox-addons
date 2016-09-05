@@ -2,8 +2,10 @@ import React, {PropTypes} from 'react';
 import Dialog from 'react-toolbox/lib/dialog';
 import classnames from 'classnames';
 
-const DialogLayout = ({children, className, theme, ...other}) => {
-    const classes = classnames(className);
+const DialogLayout = ({children, className, theme, primary, ...other}) => {
+    const classes = classnames(theme.dialogLayout, {
+        [theme.primary]: primary
+    },className);
     return (
         <Dialog {...other} theme={theme} className={classes}>
             {children}
@@ -20,6 +22,7 @@ DialogLayout.propTypes = {
     onOverlayMouseDown: PropTypes.func,
     onOverlayMouseMove: PropTypes.func,
     onOverlayMouseUp: PropTypes.func,
+    primary: PropTypes.bool,
     theme: PropTypes.shape({
         active: PropTypes.string,
         body: PropTypes.string,
