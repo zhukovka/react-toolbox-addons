@@ -6,7 +6,7 @@ import {CSS_SCROLL_ITEM} from './constants';
 
 const StreamCard = ({theme, streamName, onChange, ...other})=> {
     return (
-        <div className={theme[CSS_SCROLL_ITEM]}>
+        <div style={{maxWidth: '140px', minWidth: '100px', margin: '0 auto'}}>
             <div>
                 <StreamCardMedia {...other}/>
             </div>

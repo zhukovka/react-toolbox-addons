@@ -60,6 +60,13 @@ class StreamPanel extends Component {
         const {theme, activeStream, onAdd} = this.props;
         const {streams} = this.state;
         const containerClass = classnames(theme[CSS_SCROLL_CONTAINER], theme['streamPanel--borderLeft']);
+        const _streams = () => {
+            const _test = streams.map((stream, index)=>(
+            <StreamCard key={index} {...stream}
+                        theme={theme}/>
+        )).concat(<StreamNewHardware theme={theme} onClick={onAdd}/>);
+            return _test;
+        };
         return (
             <Row expanded>
                 <Col small={2}>
@@ -67,12 +74,11 @@ class StreamPanel extends Component {
                         theme={theme}
                         />
                 </Col>
-                <Col small={10} className={containerClass}>
-                    {streams.map((stream, index)=>(
-                        <StreamCard key={index} {...stream}
-                                    theme={theme}/>
-                    ))}
-                    <StreamNewHardware theme={theme} onClick={onAdd}/>
+                <Col small={10} style={{padding: '0'}}>
+                    <SliderComponent>
+                        {_streams()}
+                    </SliderComponent>
+
                 </Col>
             </Row>
         );

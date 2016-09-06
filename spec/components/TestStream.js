@@ -80,6 +80,61 @@ class TestStream extends React.Component {
                     onChange: (e)=> {
                         console.log(e.target.value);
                     }
+                },
+                {
+                    image: TEST_IMAGE,
+                    status: 'warning',
+                    streamName: 'stream 5',
+                    onClick: ()=> {
+                        console.log('stream 5');
+                    },
+                    onChange: (e)=> {
+                        console.log(e.target.value);
+                    }
+                },
+                {
+                    image: TEST_IMAGE,
+                    status: 'warning',
+                    streamName: 'stream 5',
+                    onClick: ()=> {
+                        console.log('stream 5');
+                    },
+                    onChange: (e)=> {
+                        console.log(e.target.value);
+                    }
+                },
+                {
+                    image: TEST_IMAGE,
+                    status: 'warning',
+                    streamName: 'stream 5',
+                    onClick: ()=> {
+                        console.log('stream 5');
+                    },
+                    onChange: (e)=> {
+                        console.log(e.target.value);
+                    }
+                },
+                {
+                    image: TEST_IMAGE,
+                    status: 'warning',
+                    streamName: 'stream 5',
+                    onClick: ()=> {
+                        console.log('stream 5');
+                    },
+                    onChange: (e)=> {
+                        console.log(e.target.value);
+                    }
+                },
+                {
+                    image: TEST_IMAGE,
+                    status: 'warning',
+                    streamName: 'stream 5',
+                    onClick: ()=> {
+                        console.log('stream 5');
+                    },
+                    onChange: (e)=> {
+                        console.log(e.target.value);
+                    }
                 }
             ],
             onAdd: this.addHardware.bind(this),

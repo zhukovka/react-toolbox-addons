@@ -14,6 +14,8 @@ import {
     SIZE_LG
 } from './contants.js';
 import Button from 'react-toolbox/lib/button';
+import FontIcon from 'react-toolbox/lib/font_icon';
+import classnames from 'classnames';
 
 class SliderComponent extends Component {
 
@@ -29,17 +31,17 @@ class SliderComponent extends Component {
         } else if (offsetWidth < SIZE_SM && offsetWidth > SIZE_XS) {
             return 3;
         } else if (offsetWidth < SIZE_MD && offsetWidth > SIZE_SM){
-            return 4;
+            return 5;
         } else if (offsetWidth < SIZE_LG && offsetWidth > SIZE_MD) {
-            return 6;
+            return 7;
         } else {
-            return 8;
+            return 9;
         }
     }
     handleResize (e) {
         const _container = ReactDOM.findDOMNode(this.refs.sliderContainer);
         if (_container){
-            const _width = _container.offsetWidth;
+            const _width = _container.offsetWidth - 20;
             this.setState({
                 containerWidth: _width,
                 showSlides: SliderComponent.calculateBreakpoint(_width)
@@ -53,7 +55,7 @@ class SliderComponent extends Component {
         window.addEventListener('resize', this.handleResize.bind(this));
         const _container = ReactDOM.findDOMNode(this.refs.sliderContainer);
         if (_container){
-            const _width = _container.offsetWidth;
+            const _width = _container.offsetWidth - 20;
             this.setState({
                 containerWidth: _width,
                 showSlides: SliderComponent.calculateBreakpoint(_width)
@@ -117,7 +119,7 @@ class SliderComponent extends Component {
         const _itemsLength = children.length;
         if ((_step < Math.floor(_itemsLength / showSlides))){
             return (
-                <Button icon={ICON_RIGHT} onClick={this.onNext.bind(this)} className={theme[CONTROL_NEXT]}/>
+                <FontIcon value={ICON_RIGHT} onClick={this.onNext.bind(this)} className={theme[CONTROL_NEXT]}/>
             );
         }
     }
@@ -126,7 +128,7 @@ class SliderComponent extends Component {
         const {_step} = this.state;
         if (_step > 0){
             return (
-                <Button icon={ICON_LEFT} onClick={this.onPrev.bind(this)} className={theme[CONTROL_PREV]}/>
+                <FontIcon value={ICON_LEFT} onClick={this.onPrev.bind(this)} className={theme[CONTROL_PREV]}/>
             );
         }
     }
@@ -138,13 +140,14 @@ class SliderComponent extends Component {
             const {containerWidth, showSlides} = this.state;
             const _width = Math.floor(containerWidth / showSlides);
             return {
-                width: `${_width - 20}px`,
-                margin: '0 10px'
+                width: `${_width - 20}px`
             };
         };
-
+        const sliderContainerCSSClasses = classnames(theme[SLIDER_CONTAINER], {
+           [theme['slider-borderLeft']]: this.state._step === 0
+        });
         return (
-            <div className={theme[SLIDER_CONTAINER]} ref='sliderContainer'>
+            <div className={sliderContainerCSSClasses} ref='sliderContainer'>
 
                 <div className={theme[SLIDER_INNER_CONTAINER]}>
                     {_items.map((el, index)=>(
