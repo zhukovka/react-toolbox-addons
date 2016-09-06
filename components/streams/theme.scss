@@ -29,6 +29,9 @@ $default-REM: 1.8rem;
     padding: $default-REM;
     font-size: inherit;
     line-height: inherit;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   &--borderLeft {
     border-left: 3px solid $color-white;

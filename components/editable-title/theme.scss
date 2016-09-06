@@ -20,6 +20,9 @@ $default-REM: 1.8rem;
 }
 .disabled > .inputElement {
   color: $color-white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .inputElement {
   padding: 0;

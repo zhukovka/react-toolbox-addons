@@ -140,7 +140,8 @@ class SliderComponent extends Component {
             const {containerWidth, showSlides} = this.state;
             const _width = Math.floor(containerWidth / showSlides);
             return {
-                width: `${_width - 20}px`
+                width: `${_width - 20}px`,
+                margin: '0 10px'
             };
         };
         const sliderContainerCSSClasses = classnames(theme[SLIDER_CONTAINER], {
