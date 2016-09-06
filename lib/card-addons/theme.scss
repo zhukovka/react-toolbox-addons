@@ -6,7 +6,15 @@
 @import "~react-toolbox/lib/card/theme.scss";
 
 $default-REM: 1.8rem;
-
+.cardTitle.cardTitleStyled{
+  position: relative;
+  &.primary{
+    background: $color-primary;
+  }
+  &.accent{
+    background: $color-accent;
+  }
+}
 .cardTitle {
   background: $color-primary;
   color: $color-white;
