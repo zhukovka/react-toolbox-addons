@@ -10,12 +10,13 @@ $default-REM: 1.8rem;
   position: relative;
   &.primary{
     background: $color-primary;
+    color: $color-white;
   }
   &.accent{
     background: $color-accent;
   }
 }
-.cardTitle {
+.cardTitlePrimary.cardTitle {
   background: $color-primary;
   color: $color-white;
   position: relative;
