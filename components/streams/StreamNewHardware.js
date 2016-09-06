@@ -7,7 +7,7 @@ import {ICON_ADD, ADD_NEW_HARDWARE, CSS_SCROLL_ITEM} from './constants';
 const StreamNewHardware = (props) => {
     const {theme, onClick} = props;
     return (
-        <div style={{boxSizing: 'border-box'}}>
+        <div className={theme[CSS_SCROLL_ITEM]} style={{boxSizing: 'border-box'}}>
             <Card onClick={onClick} theme={theme} className={theme['card--transparent']}>
                 <CardMedia aspectRatio={'wide'} theme={theme}>
                     <FontIcon value={ICON_ADD}/>

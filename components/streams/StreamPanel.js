@@ -59,7 +59,6 @@ class StreamPanel extends Component {
     renderBottomPanel () {
         const {theme, activeStream, onAdd} = this.props;
         const {streams} = this.state;
-        const containerClass = classnames(theme[CSS_SCROLL_CONTAINER], theme['streamPanel--borderLeft']);
         const _streams = () => {
             const _test = streams.map((stream, index)=>(
             <StreamCard key={index} {...stream}
@@ -72,6 +71,7 @@ class StreamPanel extends Component {
                 <Col small={4} medium={3} large={2}>
                     <StreamCard {...streams[activeStream]}
                         theme={theme}
+                        active
                         />
                 </Col>
                 <Col small={8} medium={9} large={10} style={{padding: '0'}}>

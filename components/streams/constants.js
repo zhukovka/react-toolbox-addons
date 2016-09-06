@@ -10,6 +10,7 @@ export const ADD_NEW_HARDWARE = 'Add Hardware';
 export const CSS_STREAM_PANEL = 'streamPanel';
 export const CSS_SCROLL_CONTAINER = 'streamPanel--scrollContainer';
 export const CSS_SCROLL_ITEM = 'streamPanel--scrollItem';
+export const CSS_SCROLL_ITEM_ACTIVE = 'streamPanel--scrollItemActive';
 export const CSS_NO_PADDING = 'streamPanel--noPadding';
 export const CSS_OFFSET_RIGHT = 'streamPanel--offsetRight';
 

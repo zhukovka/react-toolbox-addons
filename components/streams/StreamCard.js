@@ -1,13 +1,19 @@
 import React, {PropTypes} from 'react';
 import {StreamCardMedia} from './StreamCardMedia';
 import {EditableTitle} from '../editable-title';
-import {CSS_SCROLL_ITEM} from './constants';
+import {
+    CSS_SCROLL_ITEM,
+    CSS_SCROLL_ITEM_ACTIVE
+} from './constants';
+import classnames from 'classnames';
 
-
-const StreamCard = ({theme, streamName, onChange, ...other})=> {
+const StreamCard = ({theme, active, streamName, onChange, ...other})=> {
+    const activeClass = classnames({
+        [theme[CSS_SCROLL_ITEM_ACTIVE]]: active && streamName
+    });
     return (
-        <div style={{maxWidth: '140px', minWidth: '100px', margin: '0 auto'}}>
-            <div>
+        <div className={theme[CSS_SCROLL_ITEM]}>
+            <div className={activeClass}>
                 <StreamCardMedia {...other}/>
             </div>
             <div>
@@ -21,6 +27,7 @@ const StreamCard = ({theme, streamName, onChange, ...other})=> {
 };
 
 StreamCard.propTypes = {
+    active: PropTypes.bool,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     streamName: PropTypes.string,
