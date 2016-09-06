@@ -41,7 +41,7 @@ class SliderComponent extends Component {
     handleResize (e) {
         const _container = ReactDOM.findDOMNode(this.refs.sliderContainer);
         if (_container){
-            const _width = _container.offsetWidth - 20;
+            const _width = _container.offsetWidth;
             this.setState({
                 containerWidth: _width,
                 showSlides: SliderComponent.calculateBreakpoint(_width)
@@ -55,7 +55,7 @@ class SliderComponent extends Component {
         window.addEventListener('resize', this.handleResize.bind(this));
         const _container = ReactDOM.findDOMNode(this.refs.sliderContainer);
         if (_container){
-            const _width = _container.offsetWidth - 20;
+            const _width = _container.offsetWidth;
             this.setState({
                 containerWidth: _width,
                 showSlides: SliderComponent.calculateBreakpoint(_width)

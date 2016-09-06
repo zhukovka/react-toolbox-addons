@@ -29,14 +29,14 @@ class StreamPanel extends Component {
         const ICON_LESS = 'arrow_drop_up';
         return (
             <Row expanded align={'middle'}>
-                <Col small={2}>
+                <Col small={4} medium={3} large={2}>
                     <CardText theme={theme}>
                         <span className="material-icons">cast_connected</span>
                         <span>Active stream #name</span>
 
                     </CardText>
                 </Col>
-                <Col small={10} className={theme['streamPanel--borderLeft']}>
+                <Col small={8} medium={9} large={10} className={theme['streamPanel--borderLeft']}>
                     <CardActionsSpaced className={theme[CSS_NO_PADDING]}>
                         <CardTitle title={name}
                                    avatar={avatar || DEFAULT_AVATAR}
@@ -69,12 +69,12 @@ class StreamPanel extends Component {
         };
         return (
             <Row expanded>
-                <Col small={2}>
+                <Col small={4} medium={3} large={2}>
                     <StreamCard {...streams[activeStream]}
                         theme={theme}
                         />
                 </Col>
-                <Col small={10} style={{padding: '0'}}>
+                <Col small={8} medium={9} large={10} style={{padding: '0'}}>
                     <SliderComponent>
                         {_streams()}
                     </SliderComponent>
