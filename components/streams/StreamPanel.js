@@ -9,6 +9,9 @@ import {CardTitleButtons} from '../card-addons';
 import {BottomSheetPlus} from '../bottomsheetplus';
 import classnames from 'classnames';
 
+// test with carousel
+import SliderComponent from '../slider-component';
+
 class StreamPanel extends Component {
     constructor (props) {
         super(props);
@@ -38,7 +41,7 @@ class StreamPanel extends Component {
                         <CardTitle title={name}
                                    avatar={avatar || DEFAULT_AVATAR}
                                    theme={theme}
-                        />
+                            />
                         <CardText theme={theme} className={theme[CSS_OFFSET_RIGHT]}>
                             Missions Locations Missions Locations Missions Locations Missions Locations
                         </CardText>
@@ -61,8 +64,8 @@ class StreamPanel extends Component {
             <Row expanded>
                 <Col small={2}>
                     <StreamCard {...streams[activeStream]}
-                                theme={theme}
-                    />
+                        theme={theme}
+                        />
                 </Col>
                 <Col small={10} className={containerClass}>
                     {streams.map((stream, index)=>(

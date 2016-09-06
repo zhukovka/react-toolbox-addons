@@ -1,0 +1,42 @@
+
+%item-float {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+
+.slider {
+
+  &-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &-innerContainer {
+    //position: absolute;
+    //clear: both;
+
+  }
+
+  &-item {
+    @extend %item-float;
+  }
+
+  //&-controls {
+  //  position: absolute;
+  //  top: 50%;
+  //}
+  &-prev {
+    position: absolute;
+    top: 50%;
+    left : 0;
+
+  }
+  &-next {
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+
+}

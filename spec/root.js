@@ -31,9 +31,11 @@ import TestAvatarOverlay from './components/TestAvatarOverlay';
 import TestStatusAvatar from './components/TestStatusAvatar';
 import TestShadowBox from './components/TestShadowBox.js';
 import {StyledInput} from '../components/input-addons';
+import TestSliderComponent from './components/TestSliderComponent.js';
 
 const Root = () => (
     <div className={style.app}>
+        <TestSliderComponent />
         <TestShadowBox />
         <TestStatusAvatar />
         <TestUpload/>
