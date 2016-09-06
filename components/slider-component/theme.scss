@@ -1,3 +1,4 @@
+@import "~react-toolbox/lib/_colors.scss";
 
 %item-float {
   float: left;
@@ -12,18 +13,12 @@
     width: 100%;
     overflow: hidden;
     padding: 0 10px;
-    //margin-left: -0.9375rem;
-    //margin-right: -0.9375rem;
     box-sizing: border-box;
   }
   &-borderLeft {
-    border-left: 3px solid white;
+    border-left: 3px solid $color-white;
   }
   &-innerContainer {
-    //margin-left: -0.9375rem;
-    //margin-right: -0.9375rem;
-    //position: absolute;
-    //clear: both;
     display: flex;
     justify-content: flex-start;
 
@@ -33,15 +28,11 @@
     @extend %item-float;
   }
 
-  //&-controls {
-  //  position: absolute;
-  //  top: 50%;
-  //}
   &-prev {
     position: absolute;
     top: 25%;
     left : -6px;
-    color: white;
+    color: $color-white;
     cursor: pointer;
 
   }
@@ -49,7 +40,7 @@
     position: absolute;
     top: 25%;
     right: -6px;
-    color: white;
+    color: $color-white;
     cursor: pointer;
   }
 
