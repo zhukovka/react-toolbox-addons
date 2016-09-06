@@ -25,6 +25,9 @@
   &.primary{
     color: $color-primary;
   }
+  &.neutral{
+    color: $color-black;
+  }
   &.accent{
     color: $color-accent;
     &.active {
