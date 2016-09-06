@@ -13,18 +13,10 @@ import {
     SIZE_MD,
     SIZE_LG
 } from './contants.js';
-import Button from 'react-toolbox/lib/button';
 import FontIcon from 'react-toolbox/lib/font_icon';
 import classnames from 'classnames';
 
 class SliderComponent extends Component {
-
-    constructor (props) {
-        super(props);
-        this.state = {
-            _step: 0
-        };
-    }
     static calculateBreakpoint (offsetWidth){
         if (offsetWidth < SIZE_XS) {
             return 2;
@@ -38,17 +30,11 @@ class SliderComponent extends Component {
             return 9;
         }
     }
-    handleResize (e) {
-        const _container = ReactDOM.findDOMNode(this.refs.sliderContainer);
-        if (_container){
-            const _width = _container.offsetWidth;
-            this.setState({
-                containerWidth: _width,
-                showSlides: SliderComponent.calculateBreakpoint(_width)
-            }, ()=>{
-                console.log(_container.offsetWidth);
-            });
-        }
+    constructor (props) {
+        super(props);
+        this.state = {
+            _step: 0
+        };
     }
 
     componentDidMount () {
@@ -68,9 +54,22 @@ class SliderComponent extends Component {
     componentWillUnmount () {
         window.removeEventListener('resize', this.handleResize.bind(this));
     }
+
+    handleResize (e) {
+        const _container = ReactDOM.findDOMNode(this.refs.sliderContainer);
+        if (_container){
+            const _width = _container.offsetWidth;
+            this.setState({
+                containerWidth: _width,
+                showSlides: SliderComponent.calculateBreakpoint(_width)
+            }, ()=>{
+                console.log(_container.offsetWidth);
+            });
+        }
+    }
+
     _getItems (index){
         const {children} = this.props;
-        //const _array = this.items;
         const _showSlides = this.state.showSlides;
         let newArray = [];
         for (let i = (index * _showSlides), len = children.length; i < len && newArray.length < _showSlides; i++){

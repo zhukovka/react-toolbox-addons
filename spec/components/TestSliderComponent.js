@@ -7,7 +7,6 @@ import {Row, Col} from '../../components/grid';
 const TestSliderComponent = () => {
     return (
         <Row expanded>
-            <Col small={2}></Col>
             <Col small={10}>
                 <SliderComponent>
                     <CardMediaPlusTest />

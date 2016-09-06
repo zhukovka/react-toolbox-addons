@@ -3,11 +3,10 @@ import {Row, Col} from '../grid';
 import {CardText, CardTitle} from 'react-toolbox/lib/card';
 import {StreamCard} from '../streams/StreamCard';
 import {StreamNewHardware} from '../streams/StreamNewHardware';
-import {CSS_SCROLL_CONTAINER, CSS_NO_PADDING, CSS_OFFSET_RIGHT, DEFAULT_AVATAR} from './constants';
+import {CSS_NO_PADDING, CSS_OFFSET_RIGHT, DEFAULT_AVATAR} from './constants';
 import {CardActionsSpaced} from '../cardactionsspaced';
 import {CardTitleButtons} from '../card-addons';
 import {BottomSheetPlus} from '../bottomsheetplus';
-import classnames from 'classnames';
 
 // test with carousel
 import SliderComponent from '../slider-component';
