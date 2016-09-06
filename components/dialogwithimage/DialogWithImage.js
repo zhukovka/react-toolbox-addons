@@ -1,0 +1,82 @@
+import React, {PropTypes} from 'react';
+import Dialog from 'react-toolbox/lib/dialog';
+import {Button} from 'react-toolbox/lib/button';
+import {Card, CardMedia, CardTitle, CardText, CardActions} from 'react-toolbox/lib/card';
+import Input from 'react-toolbox/lib/input';
+import {themr} from 'react-css-themr';
+import {DIALOGWITHIMAGE} from '../identifiers';
+import theme from './theme.scss';
+
+const factory = (props) => {
+    class DialogWithImage extends Dialog {
+
+        static propTypes = {
+            actions: PropTypes.array,
+            active: PropTypes.bool,
+            children: PropTypes.node,
+            className: PropTypes.string,
+            onEscKeyDown: PropTypes.func,
+            onOverlayClick: PropTypes.func,
+            onOverlayMouseDown: PropTypes.func,
+            onOverlayMouseMove: PropTypes.func,
+            onOverlayMouseUp: PropTypes.func,
+            theme: PropTypes.shape({
+                active: PropTypes.string,
+                body: PropTypes.string,
+                button: PropTypes.string,
+                dialog: PropTypes.string,
+                navigation: PropTypes.string,
+                title: PropTypes.string
+            }),
+            title: PropTypes.string,
+            type: PropTypes.string,
+            captureImage: PropTypes.string
+        };
+
+        static defaultProps = {
+            actions: [],
+            active: false,
+            type: 'normal'
+        };
+
+        state = {
+            active: false
+        };
+
+        handleToggle = () => {
+            this.setState({active: !this.state.active});
+        }
+
+        actions = [
+            {primary: true, label: 'Forgot password?', onClick: this.handleToggle},
+            {primary: true, raised: true, label: 'Log In', onClick: this.handleToggle}
+        ];
+
+        render () {
+
+            return (
+                <div>
+                    <Button label='Show dialog' onClick={this.handleToggle}/>
+                    <Dialog type='small'
+                            actions={this.actions}
+                            active={this.state.active}
+                            onEscKeyDown={this.handleToggle}
+                            onOverlayClick={this.handleToggle}
+                            theme={theme}>
+                        <h4>Log In</h4>
+                        <div>
+                            <img src={this.props.imageCapture}/></div>
+                        <Input type='email' label='Email'></Input>
+                        <Input type='password' label='Password'></Input>
+                    </Dialog>
+                </div>
+            );
+        }
+    }
+    return DialogWithImage;
+}
+
+const DialogwithImage = factory();
+export default themr(DIALOGWITHIMAGE)(DialogwithImage);
+export {factory as dialogImageFactory};
+export {DialogwithImage};

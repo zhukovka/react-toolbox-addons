@@ -1,0 +1,13 @@
+.dialog {
+  position: relative;
+  .body {
+    :nth-child(2) {
+      width: 130px;
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+

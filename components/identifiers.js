@@ -10,6 +10,7 @@ export const CARDACTIONSRIGHT = 'CardActionsRight';
 export const CARDACTIONSSPACED = 'CardActionsSpaced';
 export const CARDTITLEBUTTONS = 'CardTitleButtons';
 export const DIALOG_LAYOUT = 'DialogLayout';
+export const DIALOGWITHIMAGE = 'DialogWithImage';
 export const DISABLED_INPUT = 'DisabledInput';
 export const DROPDOWNPLUS = 'DropdownPlus';
 export const FLEXLIST = 'FlexList';
@@ -28,4 +29,3 @@ export const UPLOAD = 'UploadZone';
 export const UPLOAD_BUTTON = 'UploadButton';
 export const VERTICALDIVIDER = 'VerticalDivider';
 export const VIDEOPANEL = 'VideoPanel';
-

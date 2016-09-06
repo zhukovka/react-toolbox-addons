@@ -31,6 +31,7 @@ import TestAvatarOverlay from './components/TestAvatarOverlay';
 import TestStatusAvatar from './components/TestStatusAvatar';
 import TestShadowBox from './components/TestShadowBox.js';
 import {StyledInput} from '../components/input-addons';
+import DialogWithImage from '../components/dialogwithimage';
 
 const Root = () => (
     <div className={style.app}>
@@ -115,6 +116,10 @@ const Root = () => (
                 <Button label="Action default 1"/>
                 <Button label="Action 2"/>
             </CardActions>
+        </section>
+        <section>
+            <h5>Dialog with image</h5>
+            <DialogWithImage imageCapture="http://qa.live4.io/s/1751/live4/img/logo.svg"/>
         </section>
 
         <section>
