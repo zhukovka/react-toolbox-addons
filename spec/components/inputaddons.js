@@ -2,10 +2,10 @@ import React from 'react';
 import {StyledInput, StyledDropdown} from '../../components/input-addons/';
 import CardTitlePrimary from '../../components/card-addons/CardTitlePrimary';
 const countries = [
-    { value: 'EN-gb', label: 'England' },
-    { value: 'ES-es', label: 'Spain'},
-    { value: 'TH-th', label: 'Thailand' },
-    { value: 'EN-en', label: 'USA'}
+    {value: 'EN-gb', label: 'England'},
+    {value: 'ES-es', label: 'Spain'},
+    {value: 'TH-th', label: 'Thailand'},
+    {value: 'EN-en', label: 'USA'}
 ];
 
 const InputAddonsTest = (props) => {
@@ -25,6 +25,10 @@ const InputAddonsTest = (props) => {
             <StyledInput disabled value="Kukuruku" label="name"/>
 
             <StyledInput value="Kukuruku" label="name"/>
+
+            <h5>StyledInput empty</h5>
+
+            <StyledInput disabled value="" label="Empty"/>
 
             <h5>Styled Dropdown</h5>
 
