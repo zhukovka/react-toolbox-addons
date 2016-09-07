@@ -26,6 +26,10 @@ const InputAddonsTest = (props) => {
 
             <StyledInput value="Kukuruku" label="name"/>
 
+            <h5>Styled input icons</h5>
+            <StyledInput value="Kukuruku" label="name" icon="room"/>
+            <StyledInput value="Kukuruku" label="name" icon="room" rightIcon/>
+
             <h5>StyledInput empty</h5>
 
             <StyledInput disabled value="" label="Empty"/>

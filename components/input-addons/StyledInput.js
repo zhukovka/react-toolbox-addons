@@ -7,8 +7,12 @@ import {STYLED_INPUT} from '../identifiers.js';
 /**
  * StyledInput props extend Input props
  */
-const StyledInput = ({theme, className, large, white, ...other})=> {
-    const classes = classnames({[theme.large]: large, [theme.white]: white}, theme.styled_input, className);
+const StyledInput = ({theme, className, large, white, rightIcon, ...other})=> {
+    const classes = classnames({
+        [theme.large]: large,
+        [theme.white]: white,
+        [theme.rightIcon]: rightIcon
+    }, theme.styled_input, className);
     return (
         <Input theme={theme} className={classes} {...other} />
     );
@@ -22,6 +26,11 @@ StyledInput.propTypes = {
      * Boolean large
      */
     large: PropTypes.bool,
+    /**
+     * sets input icon position to the right
+     * Boolean rightIcon
+     */
+    rightIcon: PropTypes.bool,
     theme: PropTypes.object,
     /**
      * sets text color to white
