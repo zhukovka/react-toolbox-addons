@@ -11,7 +11,11 @@ const factory = (Overlay) => {
             [theme.active]: props.active
         });
         const _logoStyle = {
-            background: `${props.bgColor} url(${props.logo}) no-repeat 10% 50%`
+            background: props.bgColor,
+            backgroundImage: `url(${props.logo})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '100px auto',
+            backgroundPosition: '10%'
         };
         return (
             <Overlay theme={theme}

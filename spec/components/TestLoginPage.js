@@ -3,7 +3,7 @@ import LoginPage from '../../components/login-page';
 import Input from 'react-toolbox/lib/input';
 import Button from 'react-toolbox/lib/button';
 import Dialog from 'react-toolbox/lib/dialog';
-const LIVE_4 = 'https://raw.githubusercontent.com/mytcat/react-toolbox/dev/static/img/Live4_logo_grey.png';
+const LIVE_4 = 'http://qa.live4.io/s/1751/live4/img/logo.svg';
 
 class TestLoginPage extends React.Component {
 
