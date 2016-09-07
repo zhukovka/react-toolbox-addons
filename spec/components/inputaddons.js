@@ -1,6 +1,9 @@
 import React from 'react';
 import {StyledInput, StyledDropdown} from '../../components/input-addons/';
 import CardTitlePrimary from '../../components/card-addons/CardTitlePrimary';
+import InputGroup from '../../components/inputgroup';
+import DatePicker from 'react-toolbox/lib/date_picker';
+import FontIcon from 'react-toolbox/lib/font_icon';
 const countries = [
     {value: 'EN-gb', label: 'England'},
     {value: 'ES-es', label: 'Spain'},
@@ -49,6 +52,17 @@ const InputAddonsTest = (props) => {
                             source={countries}
                             value='EN-gb'/>
 
+            <h5>Input group</h5>
+            <InputGroup>
+                <DatePicker label='Birthdate' sundayFirstDayOfWeek value={new Date(2015, 10, 16)}/>
+                <FontIcon value='favorite'/>
+            </InputGroup>
+            
+            <h5>Input group right icon</h5>
+            <InputGroup rightIcon>
+                <DatePicker label='Birthdate' sundayFirstDayOfWeek value={new Date(2015, 10, 16)}/>
+                <FontIcon value='favorite'/>
+            </InputGroup>
         </section>
     );
 };

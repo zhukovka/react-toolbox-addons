@@ -16,6 +16,15 @@
   }
 }
 
+.styled_input.rightIcon{
+  [data-react-toolbox="font-icon"]{
+    right: 0;
+    left: initial;
+  }
+  &.input{
+    margin-left: 0;
+  }
+}
 .styled_input.large > .inputElement {
   font-size: $input-large-font-size;
 }
