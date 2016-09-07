@@ -30,15 +30,9 @@ const factory = (props) => {
             }),
             title: PropTypes.string,
             type: PropTypes.string,
-            captureImage: PropTypes.string
+            captureImage: PropTypes.string,
+            background: PropTypes.string
         };
-
-        static defaultProps = {
-            actions: [],
-            active: false,
-            type: 'normal'
-        };
-
         state = {
             active: false
         };
@@ -47,27 +41,22 @@ const factory = (props) => {
             this.setState({active: !this.state.active});
         }
 
-        actions = [
-            {primary: true, label: 'Forgot password?', onClick: this.handleToggle},
-            {primary: true, raised: true, label: 'Log In', onClick: this.handleToggle}
-        ];
-
         render () {
-
+            const {children} = this.props;
             return (
                 <div>
                     <Button label='Show dialog' onClick={this.handleToggle}/>
-                    <Dialog type='small'
+                    <Dialog type={this.props.type}
                             actions={this.actions}
                             active={this.state.active}
                             onEscKeyDown={this.handleToggle}
                             onOverlayClick={this.handleToggle}
-                            theme={theme}>
-                        <h4>Log In</h4>
-                        <div>
-                            <img src={this.props.imageCapture}/></div>
-                        <Input type='email' label='Email'></Input>
-                        <Input type='password' label='Password'></Input>
+                            theme={theme}
+                    >
+                        {children}
+                        <div className={theme['imageCapture']} style={{background: this.props.background}}>
+                            <img src={this.props.imageCapture}/>
+                        </div>
                     </Dialog>
                 </div>
             );

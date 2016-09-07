@@ -1,39 +1,46 @@
 /* global VERSION */
 import 'react-toolbox/lib/commons.scss';
-import React from 'react';
-import style from './style';
-import {Button, IconButton} from 'react-toolbox/lib/button';
+import Avatar from 'react-toolbox/lib/avatar';
+import ButtonGroup from '../components/buttongroup';
 import CardActionsRight from '../components/cardactionsright/index';
 import CardActionsSpaced from '../components/cardactionsspaced/index';
-import {Row, Col} from '../components/grid/index';
-import {CardActions, Card, CardTitle} from 'react-toolbox/lib/card';
-import ButtonGroup from '../components/buttongroup';
-import {NavigationChips} from '../components/navigation-chips';
-import Checkmark from '../components/checkmark/Checkmark';
-import ChipTransparent from '../components/chips';
-import Avatar from 'react-toolbox/lib/avatar';
-import StepsList from './components/stepslist';
-import {StatusComponent} from '../components/status-component';
-import {CardMediaPrimary, CardTitlePrimary} from '../components/card-addons';
+import CardExpandable from './components/cardexpandable';
 import CardMediaPlusTest from './components/cardMediaTest';
 import CardTitleButtonsTest from './components/cardTitleButtonsTest';
-import CardExpandable from './components/cardexpandable';
-import DisabledInput from '../components/disabledinput';
-import {RedHeading} from '../components/headings';
-import {TestStream} from './components/TestStream';
-import InputAddonsTest from './components/inputaddons';
-import TestAvatar from './components/TestAvatar';
-import TestUpload from './components/TestUpload';
-import TestTabBar from './components/TestTabBar';
+import Checkmark from '../components/checkmark/Checkmark';
+import ChipTransparent from '../components/chips';
 import DialogLayout from './components/DialogLayoutTest';
-import MenuListTest from './components/menulist';
-import TestAvatarOverlay from './components/TestAvatarOverlay';
-import TestStatusAvatar from './components/TestStatusAvatar';
-import TestShadowBox from './components/TestShadowBox.js';
-import {StyledInput} from '../components/input-addons';
 import DialogWithImage from '../components/dialogwithimage';
+import DisabledInput from '../components/disabledinput';
+import Input from 'react-toolbox/lib/input';
+import InputAddonsTest from './components/inputaddons';
+import MenuListTest from './components/menulist';
+import React from 'react';
+import StepsList from './components/stepslist';
+import style from './style';
+import TestAvatar from './components/TestAvatar';
+import TestAvatarOverlay from './components/TestAvatarOverlay';
+import TestShadowBox from './components/TestShadowBox.js';
+import TestStatusAvatar from './components/TestStatusAvatar';
+import TestTabBar from './components/TestTabBar';
+import TestUpload from './components/TestUpload';
+import {Button, IconButton} from 'react-toolbox/lib/button';
+import {CardActions, Card, CardTitle} from 'react-toolbox/lib/card';
+import {CardMediaPrimary, CardTitlePrimary} from '../components/card-addons';
+import {NavigationChips} from '../components/navigation-chips';
+import {RedHeading} from '../components/headings';
+import {Row, Col} from '../components/grid/index';
+import {StatusComponent} from '../components/status-component';
+import {StyledInput} from '../components/input-addons';
+import {TestStream} from './components/TestStream';
+
+const actions = [
+    {label: 'Cancel'},
+    {label: 'Save'}
+];
 
 const Root = () => (
+
     <div className={style.app}>
         <TestShadowBox />
         <TestStatusAvatar />
@@ -119,7 +126,17 @@ const Root = () => (
         </section>
         <section>
             <h5>Dialog with image</h5>
-            <DialogWithImage imageCapture="http://qa.live4.io/s/1751/live4/img/logo.svg"/>
+            <DialogWithImage imageCapture="http://qa.live4.io/s/1751/live4/img/logo.svg"
+                             background="#4e4e4e"
+                             type="small"
+            >
+                <Input type="email" label="Email"/>
+                <Input type="password" label="Password"/>
+                <CardActionsSpaced>
+                    <Button label="forgot password?" flat primary></Button>
+                    <Button label="log in" primary raised></Button>
+                </CardActionsSpaced>
+            </DialogWithImage>
         </section>
 
         <section>
