@@ -14,6 +14,7 @@ export CardActionsSpaced from './cardactionsspaced';
 export CardExpandable from './cardexpandable';
 export Checkmark from './checkmark/Checkmark';
 export ChipTransparent from './chips';
+export DialogwithImage from './dialogwithimage';
 export DropdownPlus from './dropdownplus';
 export EditableAvatar from './editable-avatar';
 export EditableTitle from './editable-title';

@@ -34,11 +34,6 @@ import {StatusComponent} from '../components/status-component';
 import {StyledInput} from '../components/input-addons';
 import {TestStream} from './components/TestStream';
 
-const actions = [
-    {label: 'Cancel'},
-    {label: 'Save'}
-];
-
 const Root = () => (
 
     <div className={style.app}>
@@ -133,8 +128,8 @@ const Root = () => (
                 <Input type="email" label="Email"/>
                 <Input type="password" label="Password"/>
                 <CardActionsSpaced>
-                    <Button label="forgot password?" flat primary></Button>
-                    <Button label="log in" primary raised></Button>
+                    <Button label="forgot password?" flat primary/>
+                    <Button label="log in" primary raised/>
                 </CardActionsSpaced>
             </DialogWithImage>
         </section>

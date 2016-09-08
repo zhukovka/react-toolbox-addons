@@ -1,18 +1,18 @@
 import React, {PropTypes} from 'react';
 import Dialog from 'react-toolbox/lib/dialog';
 import {Button} from 'react-toolbox/lib/button';
-import {Card, CardMedia, CardTitle, CardText, CardActions} from 'react-toolbox/lib/card';
-import Input from 'react-toolbox/lib/input';
 import {themr} from 'react-css-themr';
 import {DIALOGWITHIMAGE} from '../identifiers';
 import theme from './theme.scss';
 
-const factory = (props) => {
+const factory = () => {
     class DialogWithImage extends Dialog {
 
         static propTypes = {
             actions: PropTypes.array,
             active: PropTypes.bool,
+            background: PropTypes.string,
+            captureImage: PropTypes.string,
             children: PropTypes.node,
             className: PropTypes.string,
             onEscKeyDown: PropTypes.func,
@@ -29,9 +29,7 @@ const factory = (props) => {
                 title: PropTypes.string
             }),
             title: PropTypes.string,
-            type: PropTypes.string,
-            captureImage: PropTypes.string,
-            background: PropTypes.string
+            type: PropTypes.string
         };
         state = {
             active: false
@@ -39,7 +37,7 @@ const factory = (props) => {
 
         handleToggle = () => {
             this.setState({active: !this.state.active});
-        }
+        };
 
         render () {
             const {children} = this.props;
@@ -54,7 +52,7 @@ const factory = (props) => {
                             theme={theme}
                     >
                         {children}
-                        <div className={theme['imageCapture']} style={{background: this.props.background}}>
+                        <div className={theme.imageCapture} style={{background: this.props.background}}>
                             <img src={this.props.imageCapture}/>
                         </div>
                     </Dialog>
@@ -63,7 +61,7 @@ const factory = (props) => {
         }
     }
     return DialogWithImage;
-}
+};
 
 const DialogwithImage = factory();
 export default themr(DIALOGWITHIMAGE)(DialogwithImage);
