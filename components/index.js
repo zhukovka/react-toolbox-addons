@@ -26,6 +26,7 @@ export ShadowBox from './shadow-box';
 export SidebarPlus from './sidebarplus';
 export StepsList from './stepslist';
 export StreamsBottomSheet from './streams';
+export StyledAvatar from './styledavatar';
 export Upload from './upload-zone';
 export UploadButton from './upload-button';
 export VideoPanel from './videopanel';

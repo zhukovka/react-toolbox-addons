@@ -33,6 +33,7 @@ import {Row, Col} from '../components/grid/index';
 import {StatusComponent} from '../components/status-component';
 import {StyledInput} from '../components/input-addons';
 import {TestStream} from './components/TestStream';
+import StyledAvatar from './components/styledavatars';
 
 const Root = () => (
 
@@ -54,6 +55,7 @@ const Root = () => (
                 <TestAvatarOverlay />
             </Col>
         </Row>
+        <StyledAvatar/>
         <section>
             <h5>MenuListTest</h5>
             <MenuListTest/>
