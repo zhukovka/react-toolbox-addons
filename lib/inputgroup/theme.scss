@@ -1,6 +1,7 @@
 @import '~react-toolbox/lib/colors';
 @import '~react-toolbox/lib/globals';
 @import '~react-toolbox/lib/mixins';
+@import '~react-toolbox/lib/input/config';
 
 .inputgroup {
   display: flex;
@@ -16,5 +17,13 @@
       }
     }
     @include shadow-2dp;
+  }
+  &.rightIcon {
+    [data-react-toolbox="font-icon"] {
+      color: $input-text-label-color;
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
   }
 }

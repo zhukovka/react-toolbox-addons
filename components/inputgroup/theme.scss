@@ -19,11 +19,11 @@
     @include shadow-2dp;
   }
   &.rightIcon {
-    & > [data-react-toolbox="input"] ~ [data-react-toolbox="font-icon"],
-    & > [data-react-toolbox="time-picker"] ~ [data-react-toolbox="font-icon"],
-    & > [data-react-toolbox="date-picker"] ~ [data-react-toolbox="font-icon"] {
-      transform: translateX(-100%);
+    [data-react-toolbox="font-icon"] {
       color: $input-text-label-color;
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
     }
   }
 }

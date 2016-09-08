@@ -57,9 +57,11 @@ const InputAddonsTest = (props) => {
                 <DatePicker label='Birthdate' sundayFirstDayOfWeek value={new Date(2015, 10, 16)}/>
                 <FontIcon value='favorite'/>
             </InputGroup>
-            
+
             <h5>Input group right icon</h5>
             <InputGroup rightIcon>
+                <DatePicker label='Birthdate' sundayFirstDayOfWeek value={new Date(2015, 10, 16)}/>
+                <FontIcon value='favorite'/>
                 <DatePicker label='Birthdate' sundayFirstDayOfWeek value={new Date(2015, 10, 16)}/>
                 <FontIcon value='favorite'/>
             </InputGroup>
