@@ -1,12 +1,14 @@
 /* global VERSION */
 import 'react-toolbox/lib/commons.scss';
 import Avatar from 'react-toolbox/lib/avatar';
+import AvatarCheckbox from '../components/avatarcheckbox';
 import ButtonGroup from '../components/buttongroup';
 import CardActionsRight from '../components/cardactionsright/index';
 import CardActionsSpaced from '../components/cardactionsspaced/index';
 import CardExpandable from './components/cardexpandable';
 import CardMediaPlusTest from './components/cardMediaTest';
 import CardTitleButtonsTest from './components/cardTitleButtonsTest';
+import Checkbox from 'react-toolbox/lib/checkbox';
 import Checkmark from '../components/checkmark/Checkmark';
 import ChipTransparent from '../components/chips';
 import DialogLayout from './components/DialogLayoutTest';
@@ -34,10 +36,7 @@ import {StatusComponent} from '../components/status-component';
 import {StyledInput} from '../components/input-addons';
 import {TestStream} from './components/TestStream';
 
-const actions = [
-    {label: 'Cancel'},
-    {label: 'Save'}
-];
+
 
 const Root = () => (
 
@@ -123,6 +122,10 @@ const Root = () => (
                 <Button label="Action default 1"/>
                 <Button label="Action 2"/>
             </CardActions>
+        </section>
+        <section>
+            <h5>Avatar checked/uncheked</h5>
+            <AvatarCheckbox avatar="https://dl.dropboxusercontent.com/u/53778939/jack_sparrow.png" />
         </section>
         <section>
             <h5>Dialog with image</h5>
