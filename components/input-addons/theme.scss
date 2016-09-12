@@ -16,6 +16,15 @@
   }
 }
 
+.styled_input.rightIcon{
+  [data-react-toolbox="font-icon"]{
+    right: 0;
+    left: initial;
+  }
+  &.input{
+    margin-left: 0;
+  }
+}
 .styled_input.large > .inputElement {
   font-size: $input-large-font-size;
 }
@@ -23,7 +32,7 @@
 .styled_input.disabled > .inputElement {
   border: none;
   color: $color-text;
-  &:focus:not([disabled]):not([readonly]), &.filled, &[type="date"], &[type="time"] {
+  &:focus:not([disabled]):not([readonly]), &:not(.filled), &.filled, &[type="date"], &[type="time"] {
     ~ .label:not(.fixed) {
       bottom: 0;
       font-size: $input-field-font-size;
@@ -60,7 +69,7 @@
       }
     }
   }
-  &.right{
+  &.right {
     .value {
       input {
         padding-right: $unit * 2.5;
@@ -68,14 +77,14 @@
       }
     }
   }
-  &.center{
+  &.center {
     .value {
       input {
         text-align: center;
       }
     }
   }
-  &.collapse{
+  &.collapse {
     .value {
       input {
         padding-top: 0;

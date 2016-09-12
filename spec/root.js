@@ -33,6 +33,7 @@ import {StyledInput} from '../components/input-addons';
 import {TestStream} from './components/TestStream';
 import TestAvatarCheckbox from './components/TestAvatarCheckbox';
 import TestDialogWithImage from './components/TestDialogWithImage';
+import StyledAvatar from './components/styledavatars';
 
 const Root = () => (
 
@@ -54,6 +55,7 @@ const Root = () => (
                 <TestAvatarOverlay />
             </Col>
         </Row>
+        <StyledAvatar/>
         <section>
             <h5>MenuListTest</h5>
             <MenuListTest/>

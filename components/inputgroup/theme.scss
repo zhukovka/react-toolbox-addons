@@ -1,18 +1,29 @@
 @import '~react-toolbox/lib/colors';
 @import '~react-toolbox/lib/globals';
 @import '~react-toolbox/lib/mixins';
+@import '~react-toolbox/lib/input/config';
 
 .inputgroup {
   display: flex;
   align-items: center;
-  & > [data-react-toolbox="input"] {
+  & > [data-react-toolbox="input"], & > [data-react-toolbox="time-picker"], & > [data-react-toolbox="date-picker"] {
     padding: ($unit * 0.5) 0;
     flex: 1 auto;
-    input {
-      border: none;
-    }
   }
   &.shadow {
+    & > [data-react-toolbox="input"], & > [data-react-toolbox="time-picker"], & > [data-react-toolbox="date-picker"] {
+      input {
+        border: none;
+      }
+    }
     @include shadow-2dp;
+  }
+  &.rightIcon {
+    [data-react-toolbox="font-icon"] {
+      color: $input-text-label-color;
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
   }
 }

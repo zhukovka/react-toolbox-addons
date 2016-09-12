@@ -27,5 +27,4 @@ StreamCard.propTypes = {
     theme: PropTypes.object
 };
 
-export {StreamCard};
 export default StreamCard;

@@ -25,6 +25,7 @@ export const STATUSAVATAR = 'StatusAvatar';
 export const STEPSLIST = 'StepsList';
 export const STYLED_DROPDOWN = 'StyledDropdown';
 export const STYLED_INPUT = 'StyledInput';
+export const STYLEDAVATAR = 'StyledAvatar';
 export const TRANSPARENT_CHIP = 'TransparentChip';
 export const UPLOAD = 'UploadZone';
 export const UPLOAD_BUTTON = 'UploadButton';

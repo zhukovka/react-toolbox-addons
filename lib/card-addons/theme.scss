@@ -6,21 +6,32 @@
 @import "~react-toolbox/lib/card/theme.scss";
 
 $default-REM: 1.8rem;
+.cardTitle.cardTitleStyled {
+  position: relative;
+  &.primary {
+    background: $color-primary;
+    color: $color-white;
+  }
+  &.accent {
+    background: $color-accent;
+  }
+}
 
-.cardTitle {
+.cardTitlePrimary.cardTitle {
   background: $color-primary;
   color: $color-white;
   position: relative;
 
-  &--buttonsWrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: auto;
-    display: flex;
-    color: inherit;
-    background: inherit;
-  }
+}
+
+.cardTitle--buttonsWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  color: inherit;
+  background: inherit;
 }
 
 .cardMedia {
