@@ -25,5 +25,4 @@ StreamCardMedia.propTypes = {
     status: PropTypes.string
 };
 
-export {StreamCardMedia};
 export default StreamCardMedia;

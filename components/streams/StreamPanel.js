@@ -61,7 +61,7 @@ class StreamPanel extends Component {
             <Row expanded>
                 <Col small={2}>
                     <StreamCard {...streams[activeStream]}
-                                theme={theme}
+                        theme={theme}
                     />
                 </Col>
                 <Col small={10} className={containerClass}>
@@ -91,14 +91,56 @@ class StreamPanel extends Component {
     }
 }
 StreamPanel.propTypes = {
+    /**
+     * set index of the active stream
+     * int activeStream
+     */
     activeStream: PropTypes.number,
+    /**
+     * on add stream event listener
+     * Callback1<DOMEvent> onAdd
+     */
     onAdd: PropTypes.func,
-    streams: PropTypes.array,
+    /**
+     * array of streams
+     * Array streams
+     */
+    streams: PropTypes.arrayOf(PropTypes.shape({
+        /**
+         * String image
+         */
+        image: PropTypes.string,
+        /**
+         * String status
+         */
+        status: PropTypes.string,
+        /**
+         * String streamName
+         */
+        streamName: PropTypes.string,
+        /**
+         * on view button click callback
+         * Callback1<DOMEvent> onClick
+         */
+        onClick: PropTypes.func,
+        /**
+         * on stream name change callback
+         * Callback1<DOMEvent> onChange
+         */
+        onChange: PropTypes.func
+    })),
     theme: PropTypes.object,
-    user: PropTypes.object,
-    valueOnBlur: PropTypes.func,
-    viewClick: PropTypes.func
+    user: PropTypes.shape({
+        /**
+         * String name
+         */
+        name: PropTypes.string,
+        /**
+         * url of user avatar
+         * String avatar
+         */
+        avatar: PropTypes.string
+    })
 };
-export {StreamPanel};
 
 export default StreamPanel;

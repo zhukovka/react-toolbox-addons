@@ -2,12 +2,6 @@
 @import "~react-toolbox/lib/globals";
 
 .styledavatar.avatar {
-  img{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
   [data-react-toolbox="font-icon"]{
     width: 100%;
   }

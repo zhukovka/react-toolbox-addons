@@ -20,6 +20,7 @@ const StyledAvatarTest = (props) => {
             <StyledAvatar image="https://placeimg.com/80/80/animals"></StyledAvatar>
             <StyledAvatar image="https://placeimg.com/80/40/animals"></StyledAvatar>
             <StyledAvatar><img src="https://placeimg.com/80/40/animals"/></StyledAvatar>
+            <h5>Styled Avatars background</h5>
 
 
             <h5>Styled Avatars in List</h5>
