@@ -8,7 +8,13 @@ const factory = () => {
     class DialogWithImage extends Dialog {
 
         static propTypes = {
+            /**
+             * Sets color for background rectangle.
+             */
             background: PropTypes.string,
+            /**
+             * Path to image capture.
+             */
             imageCapture: PropTypes.string
         };
 
