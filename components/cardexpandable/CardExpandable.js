@@ -9,9 +9,24 @@ import {CARD_EXPANDABLE} from '../identifiers';
 const factory = () => {
     class CardExpandable extends Component {
         static propTypes = {
+            /**
+             * Children to pass through the component.
+             */
             children: PropTypes.any,
+
+            /**
+             * Additional styling.
+             */
             primary: PropTypes.bool,
+
+            /**
+             * Sets card title.
+             */
             title: PropTypes.string,
+
+            /**
+             * Sets card buttons title.
+             */
             titleButtons: PropTypes.arrayOf(ButtonProps)
         };
 
