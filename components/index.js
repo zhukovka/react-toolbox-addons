@@ -8,6 +8,7 @@ export * from './tab-bar';
 export AvatarOverlay from './avatar-overlay';
 export Banner from './banner';
 export BottomSheet from './bottomsheet';
+export BottomSheetPlus from './bottomsheetplus';
 export ButtonGroup from './buttongroup';
 export CardActionsRight from './cardactionsright';
 export CardActionsSpaced from './cardactionsspaced';

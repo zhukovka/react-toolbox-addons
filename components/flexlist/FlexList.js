@@ -14,13 +14,15 @@ const factory = (ListItem) => {
             inverse: PropTypes.bool,
             ripple: PropTypes.bool,
             selectable: PropTypes.bool,
-            theme: PropTypes.shape({})
+            theme: PropTypes.shape({}),
+            wrap: PropTypes.bool
         };
 
         static defaultProps = {
             className: '',
             ripple: false,
-            selectable: false
+            selectable: false,
+            wrap: true
         };
 
         renderItems () {
@@ -40,10 +42,14 @@ const factory = (ListItem) => {
         }
 
         render () {
-            const {theme, align, className, inverse} = this.props;
+            const {theme, align, className, inverse, wrap} = this.props;
+            const classes = classnames([theme.flexlist, theme[align]], {
+                [theme.inverse]: inverse,
+                [theme.wrap]: wrap
+            }, className);
             return (
                 <ul data-react-toolbox='flexlist'
-                    className={classnames([theme.flexlist, theme[align]], {[theme.inverse]: inverse}, className)}>
+                    className={classes}>
                     {this.renderItems()}
                 </ul>
             );
