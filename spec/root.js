@@ -1,20 +1,16 @@
 /* global VERSION */
 import 'react-toolbox/lib/commons.scss';
 import Avatar from 'react-toolbox/lib/avatar';
-import AvatarCheckbox from '../components/avatarcheckbox';
 import ButtonGroup from '../components/buttongroup';
 import CardActionsRight from '../components/cardactionsright/index';
 import CardActionsSpaced from '../components/cardactionsspaced/index';
 import CardExpandable from './components/cardexpandable';
 import CardMediaPlusTest from './components/cardMediaTest';
 import CardTitleButtonsTest from './components/cardTitleButtonsTest';
-import Checkbox from 'react-toolbox/lib/checkbox';
 import Checkmark from '../components/checkmark/Checkmark';
 import ChipTransparent from '../components/chips';
 import DialogLayout from './components/DialogLayoutTest';
-import DialogWithImage from '../components/dialogwithimage';
 import DisabledInput from '../components/disabledinput';
-import Input from 'react-toolbox/lib/input';
 import InputAddonsTest from './components/inputaddons';
 import MenuListTest from './components/menulist';
 import React from 'react';
@@ -35,8 +31,8 @@ import {Row, Col} from '../components/grid/index';
 import {StatusComponent} from '../components/status-component';
 import {StyledInput} from '../components/input-addons';
 import {TestStream} from './components/TestStream';
-
-
+import TestAvatarCheckbox from './components/TestAvatarCheckbox';
+import TestDialogWithImage from './components/TestDialogWithImage';
 
 const Root = () => (
 
@@ -123,24 +119,8 @@ const Root = () => (
                 <Button label="Action 2"/>
             </CardActions>
         </section>
-        <section>
-            <h5>Avatar checked/uncheked</h5>
-            <AvatarCheckbox avatar="https://dl.dropboxusercontent.com/u/53778939/jack_sparrow.png" />
-        </section>
-        <section>
-            <h5>Dialog with image</h5>
-            <DialogWithImage imageCapture="http://qa.live4.io/s/1751/live4/img/logo.svg"
-                             background="#4e4e4e"
-                             type="small"
-            >
-                <Input type="email" label="Email"/>
-                <Input type="password" label="Password"/>
-                <CardActionsSpaced>
-                    <Button label="forgot password?" flat primary></Button>
-                    <Button label="log in" primary raised></Button>
-                </CardActionsSpaced>
-            </DialogWithImage>
-        </section>
+        <TestAvatarCheckbox/>
+        <TestDialogWithImage/>
 
         <section>
             <h5>CardActionsSpaced</h5>
