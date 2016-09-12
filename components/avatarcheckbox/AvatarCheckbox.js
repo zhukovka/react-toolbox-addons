@@ -8,6 +8,9 @@ const factory = () => {
     class AvatarCheckbox extends Checkbox {
 
         static propTypes = {
+            /**
+             * Path to avatar image.
+             */
             avatar: PropTypes.string
         };
 
