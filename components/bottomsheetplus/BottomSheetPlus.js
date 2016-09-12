@@ -6,7 +6,7 @@ import InjectOverlay from 'react-toolbox/lib/overlay/Overlay.js';
 import InjectIconButton from 'react-toolbox/lib/button/IconButton.js';
 import {BottomSheet} from '../bottomsheet/BottomSheet';
 
-const factory = (Overlay, IconButton) => {
+const factory = (Overlay) => {
     class BottomSheetPlus extends BottomSheet {
         constructor (props) {
             super(props);
