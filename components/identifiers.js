@@ -1,4 +1,5 @@
 export const AVATAR_OVERLAY = 'AvatarOverlay';
+export const AVATARCHECKBOX = 'AvatarCheckbox';
 export const BANNER = 'Banner';
 export const BOTTOMSHEET = 'BottomSheet';
 export const BOTTOMSHEET_PLUS = 'BottomSheetPlus';

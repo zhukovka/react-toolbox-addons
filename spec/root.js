@@ -10,9 +10,7 @@ import CardTitleButtonsTest from './components/cardTitleButtonsTest';
 import Checkmark from '../components/checkmark/Checkmark';
 import ChipTransparent from '../components/chips';
 import DialogLayout from './components/DialogLayoutTest';
-import DialogWithImage from '../components/dialogwithimage';
 import DisabledInput from '../components/disabledinput';
-import Input from 'react-toolbox/lib/input';
 import InputAddonsTest from './components/inputaddons';
 import MenuListTest from './components/menulist';
 import React from 'react';
@@ -33,6 +31,8 @@ import {Row, Col} from '../components/grid/index';
 import {StatusComponent} from '../components/status-component';
 import {StyledInput} from '../components/input-addons';
 import {TestStream} from './components/TestStream';
+import TestAvatarCheckbox from './components/TestAvatarCheckbox';
+import TestDialogWithImage from './components/TestDialogWithImage';
 import StyledAvatar from './components/styledavatars';
 
 const Root = () => (
@@ -121,20 +121,8 @@ const Root = () => (
                 <Button label="Action 2"/>
             </CardActions>
         </section>
-        <section>
-            <h5>Dialog with image</h5>
-            <DialogWithImage imageCapture="http://qa.live4.io/s/1751/live4/img/logo.svg"
-                             background="#4e4e4e"
-                             type="small"
-            >
-                <Input type="email" label="Email"/>
-                <Input type="password" label="Password"/>
-                <CardActionsSpaced>
-                    <Button label="forgot password?" flat primary/>
-                    <Button label="log in" primary raised/>
-                </CardActionsSpaced>
-            </DialogWithImage>
-        </section>
+        <TestAvatarCheckbox/>
+        <TestDialogWithImage/>
 
         <section>
             <h5>CardActionsSpaced</h5>
