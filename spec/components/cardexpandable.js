@@ -4,6 +4,7 @@ import {List, ListSubHeader, ListCheckbox} from 'react-toolbox/lib/list';
 import MessageItem from '../../components/messageitem';
 import InputGroup from '../../components/inputgroup';
 import Input from 'react-toolbox/lib/input';
+
 const CardExpandableTest = (props) => {
     const buttons = [{icon: 'add'}, {icon: 'done'}];
     return (
@@ -53,7 +54,7 @@ const CardExpandableTest = (props) => {
                         me/>
                 </List>
                 <InputGroup>
-                    <Input type='text' label='Name' name='name' value=""/>
+                    <Input type='text' label='Name' multiline/>
                 </InputGroup>
             </CardExpandable>
 
