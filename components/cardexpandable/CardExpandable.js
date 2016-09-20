@@ -28,17 +28,15 @@ const factory = () => {
         constructor (props) {
             super(props);
             this.state = {expanded: true};
-            this.expandBtn = {
-                //(<ExpandIcon isOpen={this.state.expanded}/>)
-                icon: (<ExpandIcon isOpen={this.state.expanded}/>),
-                onClick: (e)=>this.toggleExpanded(this)
-            };
         }
-
 
         renderCardTitle (titleButtons = []) {
             const {title, primary} = this.props;
-            const buttons = <CardTitleButtons center buttons={[...titleButtons, this.expandBtn]}/>;
+            const expandButton = {
+                icon: (<ExpandIcon isOpen={this.state.expanded}/>),
+                onClick: (e)=>this.toggleExpanded(this)
+            };
+            const buttons = <CardTitleButtons center buttons={[...titleButtons, expandButton]}/>;
             const titleprops = {title, theme, className: theme.cardexpandable_title};
             if (primary) {
                 return (

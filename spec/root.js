@@ -35,7 +35,6 @@ import TestDialogWithImage from './components/TestDialogWithImage';
 import StyledAvatar from './components/styledavatars';
 import BottomSheetTest from './components/bottomsheet';
 import HoverableContent from './components/HoverableContent';
-import TestExpandIcon from './components/TestExpandIcon.js';
 
 const Root = () => (
 
