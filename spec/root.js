@@ -34,10 +34,12 @@ import {TestStream} from './components/TestStream';
 import TestAvatarCheckbox from './components/TestAvatarCheckbox';
 import TestDialogWithImage from './components/TestDialogWithImage';
 import StyledAvatar from './components/styledavatars';
+import TestExpandIcon from './components/TestExpandIcon.js';
 
 const Root = () => (
 
     <div className={style.app}>
+        <TestExpandIcon />
         <TestShadowBox />
         <TestStatusAvatar />
         <TestUpload/>

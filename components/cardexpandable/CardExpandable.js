@@ -5,6 +5,7 @@ import {CardTitleButtons, CardTitlePrimary} from '../card-addons/index';
 import theme from './theme.scss';
 import {ButtonProps} from '../rtcomponentsprops';
 import {CARD_EXPANDABLE} from '../identifiers';
+import ExpandIcon from './ExpandIcon.js';
 
 const factory = () => {
     class CardExpandable extends Component {
@@ -17,10 +18,11 @@ const factory = () => {
 
         constructor (props) {
             super(props);
-            this.state = {expanded: true};
+            this.state = {expanded: false};
             this.expandBtn = {
-                icon: 'close',
-                onClick: () => this.toggleExpanded()
+                //(<ExpandIcon isOpen={this.state.expanded}/>)
+                icon: (<ExpandIcon isOpen={this.state.expanded}/>),
+                onClick: (e)=>this.toggleExpanded(this)
             };
         }
 
@@ -44,7 +46,7 @@ const factory = () => {
         }
 
         toggleExpanded () {
-            this.setState({expanded: !this.state.expanded});
+            this.setState({expanded: !this.state.expanded}, ()=>{console.log(this.state.expanded)});
         }
 
 
