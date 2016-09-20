@@ -6,6 +6,7 @@ import theme from './theme.scss';
 import {ButtonProps} from '../rtcomponentsprops';
 import {CARD_EXPANDABLE} from '../identifiers';
 import classnames from 'classnames';
+import ExpandIcon from './ExpandIcon.js';
 
 const factory = () => {
     class CardExpandable extends Component {
@@ -28,8 +29,9 @@ const factory = () => {
             super(props);
             this.state = {expanded: true};
             this.expandBtn = {
-                icon: 'close',
-                onClick: () => this.toggleExpanded()
+                //(<ExpandIcon isOpen={this.state.expanded}/>)
+                icon: (<ExpandIcon isOpen={this.state.expanded}/>),
+                onClick: (e)=>this.toggleExpanded(this)
             };
         }
 

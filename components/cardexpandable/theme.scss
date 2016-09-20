@@ -42,3 +42,10 @@
     }
   }
 }
+.iconWrapper{
+  display: flex;
+  flex-direction: column;
+}
+.iconClose {
+  transform: rotate(90deg);
+}
