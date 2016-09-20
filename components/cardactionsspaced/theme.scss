@@ -1,4 +1,30 @@
+@import "config";
 .cardActions {
   justify-content: space-between;
   padding: 0;
+  &.center{
+    justify-content: center;
+  }
+  &.end{
+    justify-content: flex-end;
+  }
+  &.start{
+    justify-content: flex-start;
+  }
+  &.align-center{
+    align-items: center;
+  }
+  &.align-end{
+    align-items: flex-end;
+  }
+  &.align-start{
+    align-items: flex-start;
+  }
+  &.space-around{
+    justify-content: space-around;
+  }
+  &.fullheight{
+    height: 100%;
+  }
+
 }

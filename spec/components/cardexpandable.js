@@ -1,33 +1,60 @@
 import React from 'react';
 import CardExpandable from '../../components/cardexpandable/';
-import {List, ListItem, ListSubHeader, ListDivider, ListCheckbox} from 'react-toolbox/lib/list';
-import TestStatusAvatar from './TestStatusAvatar';
-
-const _testStatusAvatar = (<TestStatusAvatar />);
-
+import {List, ListSubHeader, ListCheckbox} from 'react-toolbox/lib/list';
+import MessageItem from '../../components/messageitem';
+import InputGroup from '../../components/inputgroup';
+import Input from 'react-toolbox/lib/input';
 const CardExpandableTest = (props) => {
     const buttons = [{icon: 'add'}, {icon: 'done'}];
     return (
         <section>
+
             <h5>Card Expandable Primary</h5>
-            <CardExpandable primary title="Test Expandable card" titleButtons={buttons}>
+            <CardExpandable primary absolute title="Test Expandable card" titleButtons={buttons}>
                 <List selectable ripple>
                     <ListSubHeader caption='Explore characters'/>
-                    <ListItem
+                    <MessageItem
+                        avatar='https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg'
                         caption='Dr. Manhattan'
-                        legend="Jonathan 'Jon' Osterman"
-                        rightIcon='star'
-                    >{_testStatusAvatar}</ListItem>
-                    <ListItem
-                        avatar='https://dl.dropboxusercontent.com/u/2247264/assets/o.jpg'
-                        caption='Ozymandias'
-                        legend='Adrian Veidt'
-                        rightIcon='star'
-                    />
-                    <ListDivider />
-                    <ListItem caption='Contact the publisher' leftIcon='send'/>
-                    <ListItem caption='Remove this publication' leftIcon='delete'/>
+                        legend="Jonathan 'Jon' Osterman Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid consectetur, delectus dignissimos
+            dolores, et harum illo inventore laboriosam laudantium minima neque nihil officiis perspiciatis quae
+            quisquam, voluptate voluptatibus. Itaque."/>
+                    <MessageItem
+                        legend='Ololosha'
+                        time="today"
+                        me/>
+                    <MessageItem
+                        legend='Ololosha'
+                        time="today"
+                        me/>
+                    <MessageItem
+                        legend='Ololosha'
+                        time="today"
+                        me/>
+                    <MessageItem
+                        legend='Ololosha'
+                        time="today"
+                        me/>
+                    <MessageItem
+                        legend='Ololosha'
+                        time="today"
+                        me/>
+                    <MessageItem
+                        legend='Ololosha'
+                        time="today"
+                        me/>
+                    <MessageItem
+                        legend='Ololosha'
+                        time="today"
+                        me/>
+                    <MessageItem
+                        legend='Ololosha'
+                        time="today"
+                        me/>
                 </List>
+                <InputGroup>
+                    <Input type='text' label='Name' name='name' value=""/>
+                </InputGroup>
             </CardExpandable>
 
             <h5>Card Expandable</h5>

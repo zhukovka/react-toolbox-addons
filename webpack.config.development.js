@@ -42,6 +42,10 @@ module.exports = {
         ]
     },
     postcss: [autoprefixer],
+    sassLoader: {
+        data: '@import "config_colors.scss";',
+        includePaths: [path.resolve(__dirname, './spec')]
+    },
     plugins: [
         new ExtractTextPlugin('spec.css', {allChunks: true}),
         new webpack.HotModuleReplacementPlugin(),

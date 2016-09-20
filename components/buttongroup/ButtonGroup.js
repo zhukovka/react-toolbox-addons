@@ -6,10 +6,10 @@ import {BUTTON_GROUP} from '../identifiers';
 /**
  * ButtonGroup - wrapper for buttons or inputs with buttons
  */
-const ButtonGroup = ({children, className, white, theme})=> {
+const ButtonGroup = ({children, className, white, theme, align})=> {
     const classes = classnames(theme.buttonGroup, {
         [theme.white]: white
-    }, className);
+    }, theme[align], className);
     return (
         <div className={classes}>
             {children}
@@ -17,6 +17,7 @@ const ButtonGroup = ({children, className, white, theme})=> {
     );
 };
 ButtonGroup.propTypes = {
+    align: PropTypes.oneOf(['center', 'start', 'end']),
     children: PropTypes.node,
     className: PropTypes.string,
     theme: PropTypes.shape({

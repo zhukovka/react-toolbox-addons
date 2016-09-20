@@ -9,10 +9,10 @@ import {
 } from './constants';
 
 const factory = () => {
-    const CardTitleButtons = ({buttons = [], center, theme}) => {
-        const classes = classnames({[theme.center]: center}, theme[CSS_CARD_TITLE_BUTTONS_WRAPPER]);
+    const CardTitleButtons = ({buttons = [], center, theme, className}) => {
+        const classes = classnames({[theme.center]: center}, theme[CSS_CARD_TITLE_BUTTONS_WRAPPER], className);
         return (
-            <div className={classes}>
+            <div className={classes} theme={theme}>
                 {buttons.map((btn, index)=>{
                     return <Button floating mini key={index} theme={theme} {...btn}/>;
                 })}
@@ -23,6 +23,7 @@ const factory = () => {
     CardTitleButtons.propTypes = {
         buttons: PropTypes.array.isRequired,
         center: PropTypes.bool,
+        className: PropTypes.string,
         theme: PropTypes.object
     };
     return CardTitleButtons;

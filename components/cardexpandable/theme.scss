@@ -1,6 +1,44 @@
 @import "~react-toolbox/lib/colors";
 @import "~react-toolbox/lib/globals";
+@import "~react-toolbox/lib/layout/config";
+@import "../config";
 
-.cardTitle{
-  position: relative;
+.collapse {
+  display: none;
+}
+
+.absolute {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: $navigation-drawer-mobile-width;
+  max-width: $navigation-drawer-max-mobile-width;
+  @media screen and (min-width: $layout-breakpoint-xs) {
+    width: $navigation-drawer-desktop-width;
+    max-width: $navigation-drawer-desktop-width;
+  }
+  z-index: 300;
+  .content {
+    overflow: auto;
+    max-height: 30vh;
+    &::-webkit-scrollbar {
+      background-color: inherit;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $scrollbar-thumb-color;
+    }
+  }
+  [data-react-toolbox="inputgroup"] {
+    background-color: $input-group-bg;
+    input, textarea{
+      padding: $card-inputgroup-padding;
+      font-size: $card-inputgroup-font-size;
+    }
+  }
+  .cardexpandable_title.cardTitle {
+    position: relative;
+    .title {
+      font-size: $title-size;
+    }
+  }
 }

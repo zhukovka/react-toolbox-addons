@@ -12,5 +12,14 @@
       color: inherit;
     }
   }
+  &.center{
+    align-items: center;
+  }
+  &.end{
+    align-items: flex-end;
+  }
+  &.start{
+    align-items: flex-start;
+  }
 }
 

@@ -8,13 +8,16 @@ const factory = (ListItem) => {
     class FlexList extends Component {
         static propTypes = {
             align: PropTypes.oneOf(['right', 'space-between', 'space-around', 'center']),
+            auto: PropTypes.bool,
             children: PropTypes.node,
             className: PropTypes.string,
             flexlist: PropTypes.string,
             inverse: PropTypes.bool,
             ripple: PropTypes.bool,
             selectable: PropTypes.bool,
+            small: PropTypes.bool,
             theme: PropTypes.shape({}),
+            width: PropTypes.string,
             wrap: PropTypes.bool
         };
 
@@ -26,30 +29,37 @@ const factory = (ListItem) => {
         };
 
         renderItems () {
-            return React.Children.map(this.props.children, (item) => {
+            const {children, theme, ripple, selectable, width} = this.props;
+            return React.Children.map(children, (item) => {
                 let clone;
                 if (item.type === ListItem) {
                     clone = React.cloneElement(item, {
-                        ripple: this.props.ripple,
-                        selectable: this.props.selectable,
-                        theme: this.props.theme
+                        ripple,
+                        selectable,
+                        theme
                     });
                 } else {
-                    clone = React.cloneElement(item, {theme: this.props.theme});
+                    clone = React.cloneElement(item, {
+                        className: classnames({[theme.flexlist_item]: width}),
+                        style: {width}
+                    });
                 }
                 return clone;
             });
         }
 
         render () {
-            const {theme, align, className, inverse, wrap} = this.props;
+            const {children, theme, ripple, selectable, width, align, auto, className, small, inverse, wrap, ...other} = this.props; //eslint-disable-line no-unused-vars
             const classes = classnames([theme.flexlist, theme[align]], {
                 [theme.inverse]: inverse,
-                [theme.wrap]: wrap
+                [theme.wrap]: wrap,
+                [theme.auto]: auto,
+                [theme.small]: small
             }, className);
             return (
                 <ul data-react-toolbox='flexlist'
-                    className={classes}>
+                    className={classes}
+                    {...other}>
                     {this.renderItems()}
                 </ul>
             );

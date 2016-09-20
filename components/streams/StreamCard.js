@@ -28,3 +28,4 @@ StreamCard.propTypes = {
 };
 
 export default StreamCard;
+export {StreamCard};

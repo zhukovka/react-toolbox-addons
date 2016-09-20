@@ -21,17 +21,20 @@ $default-REM: 1.8rem;
   background: $color-primary;
   color: $color-white;
   position: relative;
-
 }
 
 .cardTitle--buttonsWrapper {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 9;
   margin: auto;
   display: flex;
-  color: inherit;
+  color: $card-title_btns_color;
   background: inherit;
+  [data-react-toolbox="font-icon"]{
+    font-size: $card-title_btns_size;
+  }
 }
 
 .cardMedia {

@@ -6,10 +6,10 @@ import {CardTitleButtons} from '../card-addons';
 import {ButtonProps} from '../rtcomponentsprops';
 
 const factory = () => {
-    const VideoPanel = ({buttons, children, theme})=> {
+    const VideoPanel = ({buttons, children, theme, ...other})=> {
         return (
-            <CardMedia theme={theme} aspectRatio="wide">
-                <CardTitleButtons buttons={buttons} theme={theme}/>
+            <CardMedia theme={theme} {...other}>
+                <CardTitleButtons buttons={buttons} className={theme.video_btns} theme={theme}/>
                 {children}
             </CardMedia>
         );

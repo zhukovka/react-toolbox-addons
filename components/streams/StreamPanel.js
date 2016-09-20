@@ -20,8 +20,7 @@ class StreamPanel extends Component {
     }
 
     renderTopPanel () {
-        const {user, theme, activeStream} = this.props;
-        const {streams} = this.state;
+        const {user, theme} = this.props;
         const {name, avatar} = user;
         const ICON_EXPAND = 'arrow_drop_down';
         const ICON_LESS = 'arrow_drop_up';
@@ -40,9 +39,7 @@ class StreamPanel extends Component {
                                    avatar={avatar || DEFAULT_AVATAR}
                                    theme={theme}
                         />
-                        <CardText theme={theme} className={theme[CSS_OFFSET_RIGHT]}>
-                            {streams[activeStream].location}
-                        </CardText>
+                        <CardText theme={theme} className={theme[CSS_OFFSET_RIGHT]}/>
                         <CardTitleButtons
                             buttons={[{
                                 icon: (this.state.active ? ICON_EXPAND : ICON_LESS),
@@ -67,7 +64,7 @@ class StreamPanel extends Component {
                 </Col>
                 <Col small={10} className={containerClass}>
                     {streams.map((stream, index)=>(
-                        <StreamCard key={'stream' + index} {...stream}
+                        <StreamCard key={index} {...stream}
                                     theme={theme}/>
                     ))}
                     <StreamNewHardware theme={theme} onClick={onAdd}/>
