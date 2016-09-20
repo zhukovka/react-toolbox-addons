@@ -7,7 +7,7 @@ import Input from 'react-toolbox/lib/input';
 import {Button} from 'react-toolbox/lib/button';
 
 class CardExpandableTest extends Component {
-    state = {hidden: false};
+    state = {hidden: false, value: ''};
 
     render () {
 
@@ -61,7 +61,9 @@ class CardExpandableTest extends Component {
                             me/>
                     </List>
                     <InputGroup>
-                        <Input type='text' label='Name' name='name' value="" multiline/>
+                        <Input type='text' label='Name' name='name' value={this.state.value} multiline
+                                onChange={(newValue)=>{this.setState({value: newValue});}}
+                            />
                     </InputGroup>
                 </CardExpandable>
             </section>
