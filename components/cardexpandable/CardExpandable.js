@@ -19,15 +19,15 @@ const factory = () => {
             titleButtons: PropTypes.arrayOf(ButtonProps)
         };
 
+        constructor (props) {
+            super(props);
+            this.state = {expanded: true};
+        }
+
         scrollDown (content) {
             if (content && this.props.absolute) {
                 content.scrollTop = content.scrollHeight;
             }
-        }
-
-        constructor (props) {
-            super(props);
-            this.state = {expanded: true};
         }
 
         renderCardTitle (titleButtons = []) {
