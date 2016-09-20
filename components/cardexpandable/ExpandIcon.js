@@ -8,8 +8,8 @@ const ARROW_DOWN = 'keyboard_arrow_down';
 const ExpandIcon = ({isOpen}) => {
     return (
         <FontIcon className={theme.iconWrapper}>
-            <span className='material-icons'>{isOpen ? ARROW_DOWN : ARROW_UP}</span>
-            <span className='material-icons'>{isOpen ? ARROW_UP : ARROW_DOWN}</span>
+            <span className='material-icons' style={{lineHeight: '.7'}}>{isOpen ? ARROW_DOWN : ARROW_UP}</span>
+            <span className='material-icons' style={{lineHeight: '.7'}}>{isOpen ? ARROW_UP : ARROW_DOWN}</span>
         </FontIcon>
     );
 };
