@@ -41,7 +41,7 @@ const Root = () => (
     <div className={style.app}>
         <HoverableContent/>
         <BottomSheetTest/>
-     
+        <CardExpandable/>
         <TestShadowBox />
         <TestStatusAvatar />
         <TestUpload/>
@@ -101,9 +101,6 @@ const Root = () => (
 
             <CardMediaPrimary aspectRatio="wide"/>
         </section>
-
-        <CardExpandable/>
-        <CardExpandable/>
 
 
         <section>

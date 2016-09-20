@@ -26,3 +26,11 @@
     font-size: $title-size;
   }
 }
+
+@mixin transformAnimation(){
+  transition-delay: 0s;
+  transition-timing-function: $animation-curve-default;
+  transition-duration: $animation-duration;
+  transition-property: transform;
+  transform-style: preserve-3d;
+}
