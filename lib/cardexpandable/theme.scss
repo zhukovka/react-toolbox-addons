@@ -2,9 +2,14 @@
 @import "~react-toolbox/lib/globals";
 @import "~react-toolbox/lib/layout/config";
 @import "../config";
+@import "../mixins";
 
 .collapse {
   display: none;
+}
+
+.cardExpandable {
+  @include transformAnimation();
 }
 
 .absolute {
@@ -30,7 +35,7 @@
   }
   [data-react-toolbox="inputgroup"] {
     background-color: $input-group-bg;
-    input, textarea{
+    input, textarea {
       padding: $card-inputgroup-padding;
       font-size: $card-inputgroup-font-size;
     }
@@ -41,4 +46,17 @@
       font-size: $title-size;
     }
   }
+}
+
+.hidden {
+  transform: translateX(-100%);
+}
+
+.iconWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.iconClose {
+  transform: rotate(90deg);
 }
