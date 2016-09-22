@@ -1,9 +1,13 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "../config";
+@import "../mixins";
+
 .navDrawer.navDrawerPlus {
   .appBar {
-    position: relative;
+    @include panel-bar();
   }
   .drawerContent {
     justify-content: flex-start;
   }
-
 }

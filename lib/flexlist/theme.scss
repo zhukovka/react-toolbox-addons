@@ -21,9 +21,29 @@
   &.center {
     justify-content: center;
   }
-  &.wrap{
+  &.wrap {
     flex-wrap: wrap;
   }
+  &.auto {
+    li:last-child {
+      flex: 1 auto;
+    }
+  }
+  &:not(.wrap){
+    li{
+      overflow: auto;
+    }
+  }
+  &.small {
+    &, [data-react-toolbox="font-icon"], input {
+      font-size: $unit * 1.2;
+    }
+  }
+
+}
+
+.flexlist_item {
+  padding: 10px;
 }
 
 .inverse {

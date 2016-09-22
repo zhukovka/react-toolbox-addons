@@ -89,7 +89,6 @@ class TestStream extends React.Component {
         };
         return (
             <StreamPanel {...testProps}/>
-
         );
     }
 }

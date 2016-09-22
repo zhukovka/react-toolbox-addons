@@ -3,7 +3,7 @@ import 'react-toolbox/lib/commons.scss';
 import Avatar from 'react-toolbox/lib/avatar';
 import ButtonGroup from '../components/buttongroup';
 import CardActionsRight from '../components/cardactionsright/index';
-import CardActionsSpaced from '../components/cardactionsspaced/index';
+import CardActionsSpaced from '../components/cardactionsspaced/CardActionsSpaced';
 import CardExpandable from './components/cardexpandable';
 import CardMediaPlusTest from './components/cardMediaTest';
 import CardTitleButtonsTest from './components/cardTitleButtonsTest';
@@ -30,19 +30,22 @@ import {RedHeading} from '../components/headings';
 import {Row, Col} from '../components/grid/index';
 import {StatusComponent} from '../components/status-component';
 import {StyledInput} from '../components/input-addons';
-import {TestStream} from './components/TestStream';
 import TestAvatarCheckbox from './components/TestAvatarCheckbox';
 import TestDialogWithImage from './components/TestDialogWithImage';
 import StyledAvatar from './components/styledavatars';
+import BottomSheetTest from './components/bottomsheet';
+import HoverableContent from './components/HoverableContent';
 
 const Root = () => (
 
     <div className={style.app}>
+        <HoverableContent/>
+        <BottomSheetTest/>
+        <CardExpandable/>
         <TestShadowBox />
         <TestStatusAvatar />
         <TestUpload/>
         <TestTabBar />
-        <TestStream />
         <section>
             <h5>Button Group</h5>
             <ButtonGroup><IconButton icon='search'/><StyledInput type='text'/></ButtonGroup>
@@ -98,9 +101,6 @@ const Root = () => (
 
             <CardMediaPrimary aspectRatio="wide"/>
         </section>
-
-        <CardExpandable/>
-        <CardExpandable/>
 
 
         <section>

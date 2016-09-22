@@ -1,14 +1,22 @@
+@import "../config";
+
 .cardMedia {
   .content {
     padding: 10px;
     align-items: center;
   }
 
-}
+  .cardTitle {
+    &--buttonsWrapper {
+      right: $video-panel-btns-right;
+      top: $video-panel-btns-top;
 
-.cardTitle {
-  &--buttonsWrapper {
-    right: 20px;
-    top: 10px;
+      &.video_btns {
+        [data-react-toolbox="button"] {
+          background-color: $video-panel-btns-bg;
+        }
+      }
+    }
   }
 }
+

@@ -1,9 +1,15 @@
 @import "./config";
 @import "../mixins";
+@import "../config";
 @import "~react-toolbox/lib/mixins";
 @import "~react-toolbox/lib/layout/config";
+@import "~react-toolbox/lib/button/mixins";
+@import "~react-toolbox/lib/button/config";
 
 .sidebar.sidebarPlus {
+  .appBar {
+    @include panel-bar();
+  }
   height: auto;
   @include shadow-2dp();
   .sidebarContent {

@@ -1,0 +1,6 @@
+@import '~react-toolbox/lib/colors';
+@import '~react-toolbox/lib/globals';
+@import '~react-toolbox/lib/mixins';
+@import '~react-toolbox/lib/input/config';
+$inputgroup-input-padding: ($unit * 0.5) 0 !default;
+$inputgroup-input-font-size: $input-field-font-size !default;

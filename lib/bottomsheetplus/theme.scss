@@ -6,10 +6,15 @@
 
 .bottomsheet_plus {
   @extend .bottomsheet;
+  right: 0;
+  left: 0;
   flex-direction: column;
   bottom: 0;
   padding-bottom: 0;
   overflow: hidden;
+  [data-react-toolbox="font-icon"] {
+    color: $color-white;
+  }
   &.accept .button {
     color: $bottomsheet-color-accept;
   }
@@ -32,16 +37,25 @@
       max-height: 0;
     }
     &.active {
-      max-height: 1500px;
+      max-height: 500px;
     }
   }
   &__children {
-    padding-bottom: $bottomsheet-vertical-offset;
     width: 100%;
+    & [data-react-toolbox="flexlist"] {
+      padding: 0;
+    }
   }
-  &__header{
+  &__header {
     width: 100%;
     padding-bottom: $unit;
+    [class *= 'cardTitle'] {
+      padding: 0;
+    }
+    & [data-react-toolbox="flexlist"] {
+      padding: 0;
+    }
+
   }
 }
 

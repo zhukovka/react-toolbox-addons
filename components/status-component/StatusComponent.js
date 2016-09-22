@@ -14,7 +14,7 @@ const StatusComponent = ({
 };
 StatusComponent.propTypes = {
     className: PropTypes.string,
-    status: PropTypes.string.isRequired,
+    status: PropTypes.oneOf(['error', 'ready', 'warning', 'idle']).isRequired,
     theme: PropTypes.object
 };
 export {StatusComponent};

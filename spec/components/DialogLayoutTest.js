@@ -8,7 +8,7 @@ import {StyledDropdown} from '../../components/input-addons';
 
 class DialLayoutTest extends React.Component {
     state = {
-        active: true,
+        active: false,
         selectedIds: []
     };
 

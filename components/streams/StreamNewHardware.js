@@ -23,4 +23,5 @@ StreamNewHardware.propTypes = {
     theme: PropTypes.object
 };
 
+export {StreamNewHardware};
 export default StreamNewHardware;

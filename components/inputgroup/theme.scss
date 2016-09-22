@@ -2,13 +2,20 @@
 @import '~react-toolbox/lib/globals';
 @import '~react-toolbox/lib/mixins';
 @import '~react-toolbox/lib/input/config';
+@import 'config';
 
 .inputgroup {
   display: flex;
   align-items: center;
-  & > [data-react-toolbox="input"], & > [data-react-toolbox="time-picker"], & > [data-react-toolbox="date-picker"] {
-    padding: ($unit * 0.5) 0;
+
+  & > [data-react-toolbox="input"], & > [data-react-toolbox="textarea"], & > [data-react-toolbox="time-picker"], & > [data-react-toolbox="date-picker"] {
+    padding: $inputgroup-input-padding;
     flex: 1 auto;
+    font-size: $inputgroup-input-font-size;
+
+    textarea {
+      resize: none;
+    }
   }
   &.shadow {
     & > [data-react-toolbox="input"], & > [data-react-toolbox="time-picker"], & > [data-react-toolbox="date-picker"] {
@@ -26,4 +33,14 @@
       }
     }
   }
+  &.white {
+    color: $color-white;
+  }
+  &.primary {
+    color: $color-primary;
+  }
+  &.accent {
+    color: $color-accent;
+  }
+
 }

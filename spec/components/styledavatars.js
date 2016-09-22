@@ -13,12 +13,12 @@ const StyledAvatarTest = (props) => {
 
 
             <h5>Avatars images</h5>
-            <Avatar image="https://placeimg.com/80/80/animals"></Avatar>
-            <Avatar image="https://placeimg.com/80/40/animals"></Avatar>
+            <Avatar image="https://placeimg.com/80/80/animals"/>
+            <Avatar image="https://placeimg.com/80/40/animals"/>
             <Avatar><img src="https://placeimg.com/80/40/animals"/></Avatar>
             <h5>Styled Avatars images</h5>
-            <StyledAvatar image="https://placeimg.com/80/80/animals"></StyledAvatar>
-            <StyledAvatar image="https://placeimg.com/80/40/animals"></StyledAvatar>
+            <StyledAvatar image="https://placeimg.com/80/80/animals"/>
+            <StyledAvatar image="https://placeimg.com/80/40/animals"/>
             <StyledAvatar><img src="https://placeimg.com/80/40/animals"/></StyledAvatar>
             <h5>Styled Avatars background</h5>
 
