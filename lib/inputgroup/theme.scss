@@ -12,6 +12,10 @@
     padding: $inputgroup-input-padding;
     flex: 1 auto;
     font-size: $inputgroup-input-font-size;
+
+    textarea {
+      resize: none;
+    }
   }
   &.shadow {
     & > [data-react-toolbox="input"], & > [data-react-toolbox="time-picker"], & > [data-react-toolbox="date-picker"] {
