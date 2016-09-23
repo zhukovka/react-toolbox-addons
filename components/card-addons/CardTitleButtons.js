@@ -12,7 +12,7 @@ const factory = () => {
     const CardTitleButtons = ({buttons = [], center, theme, className}) => {
         const classes = classnames({[theme.center]: center}, theme[CSS_CARD_TITLE_BUTTONS_WRAPPER], className);
         return (
-            <div className={classes} theme={theme}>
+            <div className={classes}>
                 {buttons.map((btn, index)=>{
                     return <Button floating mini key={index} theme={theme} {...btn}/>;
                 })}
