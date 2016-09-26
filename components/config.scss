@@ -1,5 +1,7 @@
 @import "~react-toolbox/lib/colors";
 @import "~react-toolbox/lib/globals";
+$orange-yellow: #ffa000 !default;
+$aqua-blue: #06d1e7 !default;
 $input-group-bg: rgba(255,255,255,0) !default;
 $red: $palette-red-900 !default;
 $title-size: $font-size-big !default;
@@ -10,3 +12,4 @@ $video-panel-btns-top: 10px !default;
 $video-panel-btns-right: 20px !default;
 $card-inputgroup-padding: ($unit * 0.5) !default;
 $card-inputgroup-font-size: ($unit * 1.4) !default;
+$grouplistdivider-bg: rgba($color-primary, .5);

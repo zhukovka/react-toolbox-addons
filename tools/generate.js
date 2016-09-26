@@ -6,6 +6,7 @@ const Path = require('path');
 const componentName = process.argv[2];
 const componentPath = Path.join('./components', componentName.toLowerCase());
 const identifiers = './components/identifiers.js';
+const exportList = './components/index.js';
 function makeJs (name) {
     return `import React, {PropTypes} from 'react';
     import classnames from 'classnames';
@@ -31,9 +32,16 @@ function makeScss (name) {
     return `.${name.toLowerCase()}{}`;
 }
 function addIdentifier (data, name) {
-    let identifiers = `${data}
-    export const ${name.toUpperCase()} = '${name}';`;
-    return identifiers.split('\n').sort().join('\n');
+    const newExport = `export const ${name.toUpperCase()} = '${name}';`;
+    let identifiers = data.trim().split('\n');
+    identifiers.push(newExport);
+    return identifiers.sort().join('\n') + '\n';
+}
+function addExport (data, componentName) {
+    const newExport = `export ${componentName} from './${componentName.toLowerCase()}';`;
+    let exports = data.trim().split('\n');
+    exports.push(newExport);
+    return exports.sort().join('\n') + '\n';
 }
 new Promise((resolve, reject) => {
     Fs.mkdir(componentPath, (err) => {
@@ -49,6 +57,17 @@ new Promise((resolve, reject) => {
             return Promise.reject(err);
         }
         Fs.writeFile(identifiers, addIdentifier(data, componentName), ()=> {
+            if (err) return Promise.reject(err);
+            console.log('It\'s saved!');
+            Promise.resolve();
+        })
+    });
+}).then(()=> {
+    Fs.readFile(exportList, 'utf8', (err, data) => {
+        if (err) {
+            return Promise.reject(err);
+        }
+        Fs.writeFile(exportList, addExport(data, componentName), ()=> {
             if (err) return Promise.reject(err);
             console.log('It\'s saved!');
             Promise.resolve();

@@ -35,10 +35,12 @@ import TestDialogWithImage from './components/TestDialogWithImage';
 import StyledAvatar from './components/styledavatars';
 import BottomSheetTest from './components/bottomsheet';
 import HoverableContent from './components/HoverableContent';
+import GroupListItem from './components/GroupListItem';
 
 const Root = () => (
 
     <div className={style.app}>
+        <GroupListItem/>
         <HoverableContent/>
         <BottomSheetTest/>
         <CardExpandable/>
