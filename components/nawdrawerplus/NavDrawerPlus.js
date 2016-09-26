@@ -52,8 +52,8 @@ const factory = () => {
         title: PropTypes.string,
         width: PropTypes.oneOf(['normal', 'wide'])
     };
-    NavDrawerPlus.OPEN = 2;
-    NavDrawerPlus.PREVIEW = 1;
+    NavDrawerPlus.OPEN = 1;
+    NavDrawerPlus.PREVIEW = 2;
     NavDrawerPlus.CLOSED = 0;
     return NavDrawerPlus;
 };
