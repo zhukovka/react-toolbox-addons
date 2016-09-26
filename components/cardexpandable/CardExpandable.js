@@ -22,7 +22,7 @@ const factory = () => {
 
         constructor (props) {
             super(props);
-            this.state = {expanded: true};
+            this.state = {expanded: 1};
         }
 
         scrollDown (content) {
@@ -54,14 +54,14 @@ const factory = () => {
         }
 
         toggleExpanded () {
-            this.setState({expanded: !this.state.expanded});
+            this.setState({expanded: (this.state.expanded + 1) % 3});
         }
 
 
         renderContent () {
             const children = Children.toArray(this.props.children);
             return (
-                <div className={classnames({[theme.collapse]: !this.state.expanded})}>
+                <div className={classnames(theme.collapsable, {[theme.collapse]: this.state.expanded === 0})}>
                     <div className={theme.content} ref={this.scrollDown.bind(this)}>
                         {children[0]}
                     </div>
@@ -71,7 +71,11 @@ const factory = () => {
 
         render () {
             const {absolute, titleButtons, style, hidden} = this.props;
-            const classes = classnames(theme.cardExpandable, {[theme.absolute]: absolute, [theme.hidden]: hidden});
+            const classes = classnames(theme.cardExpandable, {
+                [theme.absolute]: absolute,
+                [theme.hidden]: hidden,
+                [theme.fullheight]: this.state.expanded === 2
+            });
             return (
                 <Card className={classes} style={style}>
                     {this.renderCardTitle(titleButtons)}

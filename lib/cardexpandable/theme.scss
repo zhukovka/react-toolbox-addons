@@ -23,9 +23,20 @@
     max-width: $navigation-drawer-desktop-width;
   }
   z-index: 300;
+  .collapsable{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    &.collapse {
+      display: none;
+    }
+  }
+  &.fullheight{
+    top: $fulltop;
+  }
   .content {
     overflow: auto;
-    max-height: 30vh;
+    height: 100%;
   }
   [data-react-toolbox="inputgroup"] {
     background-color: $input-group-bg;
