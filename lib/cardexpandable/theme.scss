@@ -26,12 +26,6 @@
   .content {
     overflow: auto;
     max-height: 30vh;
-    &::-webkit-scrollbar {
-      background-color: inherit;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: $scrollbar-thumb-color;
-    }
   }
   [data-react-toolbox="inputgroup"] {
     background-color: $input-group-bg;
