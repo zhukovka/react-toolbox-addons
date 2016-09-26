@@ -7,11 +7,11 @@ import {NavDrawer, AppBar} from 'react-toolbox';
 import {ButtonProps} from '../rtcomponentsprops';
 
 const factory = () => {
-    const NavDrawerPlus = ({title, children, theme, className, onClick, active, pinned, buttons})=> {
+    const NavDrawerPlus = ({title, children, theme, className, onClick, openState, pinned, buttons})=> {
         const btns = [...(buttons || []), {icon: 'close', onClick: (e)=>onClick(e)}];
-        const classes = classnames(className, theme.navDrawerPlus);
+        const classes = classnames(className, theme.navDrawerPlus, {[theme.preview]: openState === NavDrawerPlus.PREVIEW});
         return (
-            <NavDrawer active={active} pinned={pinned} theme={theme} className={classes}>
+            <NavDrawer active={openState === NavDrawerPlus.OPEN} pinned={pinned} theme={theme} className={classes}>
                 <AppBar theme={theme}>
                     <h5>
                         {title}
@@ -29,6 +29,7 @@ const factory = () => {
         className: PropTypes.string,
         onClick: PropTypes.func,
         onOverlayClick: PropTypes.func,
+        openState: PropTypes.oneOf([0, 1, 2]),
         permanentAt: PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl', 'xxxl']),
         pinned: PropTypes.bool,
         primary: PropTypes.bool,
@@ -51,6 +52,9 @@ const factory = () => {
         title: PropTypes.string,
         width: PropTypes.oneOf(['normal', 'wide'])
     };
+    NavDrawerPlus.OPEN = 2;
+    NavDrawerPlus.PREVIEW = 1;
+    NavDrawerPlus.CLOSED = 0;
     return NavDrawerPlus;
 };
 const NavDrawerPlus = factory();

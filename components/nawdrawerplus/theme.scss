@@ -10,4 +10,30 @@
   .drawerContent {
     justify-content: flex-start;
   }
+  &.preview.pinned {
+    $navigation-drawer-width: $unit * 7;
+    width: $navigation-drawer-width;
+    .appBar {
+      display: none;
+    }
+    .drawerContent {
+      width: $navigation-drawer-width;
+      max-width: $navigation-drawer-width;
+    }
+
+    // Larger than mobile width drawer
+    @media screen and (min-width: $layout-breakpoint-xs) {
+      .drawerContent {
+        width: $navigation-drawer-width;
+        max-width: $navigation-drawer-width;
+      }
+
+      &.wide {
+        .drawerContent {
+          width: $navigation-drawer-width;
+          max-width: $navigation-drawer-width;
+        }
+      }
+    }
+  }
 }

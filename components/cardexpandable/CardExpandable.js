@@ -34,7 +34,7 @@ const factory = () => {
         renderCardTitle (titleButtons = []) {
             const {title, primary} = this.props;
             const expandButton = {
-                icon: (<ExpandIcon isOpen={this.state.expanded}/>),
+                icon: (<ExpandIcon isOpen={this.state.expanded === 2}/>),
                 onClick: (e)=>this.toggleExpanded(this)
             };
             const buttons = <CardTitleButtons center buttons={[...titleButtons, expandButton]}/>;
