@@ -4,21 +4,24 @@
 @import "../mixins";
 
 .navDrawer.navDrawerPlus {
+  $navigation-drawer-width: $unit * 7;
   .appBar {
     @include panel-bar();
   }
   .drawerContent {
     justify-content: flex-start;
   }
-  &.preview.pinned {
-    $navigation-drawer-width: $unit * 7;
-    width: $navigation-drawer-width;
-    .appBar {
-      display: none;
-    }
+
+  &.preview.pinned, &:not(.active) {
     .drawerContent {
       width: $navigation-drawer-width;
       max-width: $navigation-drawer-width;
+    }
+  }
+  &.preview.pinned {
+    width: $navigation-drawer-width;
+    .appBar {
+      display: none;
     }
 
     // Larger than mobile width drawer
