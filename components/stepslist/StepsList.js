@@ -17,8 +17,8 @@ const factory = (ChipTransparent) => {
             return (
                 <Col key={index} shrink={last && true}>
                     <ChipTransparent active={step.active} className={classes}>
-                        {step.done ? <Checkmark/> : <Avatar title={index + ''}/>}<span
-                        className={theme.name}>{index} {step.name}</span><span className={theme.line}></span>
+                        {step.done ? <Checkmark/> : <Avatar title={(index + 1) + ''}/>}<span
+                        className={theme.name}>{step.name}</span><span className={theme.line}></span>
                     </ChipTransparent>
                 </Col>
             );

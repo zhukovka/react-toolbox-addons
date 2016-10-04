@@ -12,7 +12,7 @@ const StyledDropdown = ({theme, className, primary, collapse, align, ...other})=
         [theme.primary]: primary,
         [theme.collapse]: collapse,
         [theme[align]]: align
-    }, className);
+        }, className);
     return (
         <Dropdown className={classes} {...other} theme={theme}/>
     );

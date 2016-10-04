@@ -1,0 +1,16 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "../config";
+
+$owner: $orange-yellow !default;
+$participant: $aqua-blue !default;
+$unknown: $palette-blue-grey-600 !default;
+$pilot: $palette-red-700 !default;
+$observer: $palette-purple-800 !default;
+$groups: (
+        owner: $owner,
+        participant: $participant,
+        unknown: $unknown,
+        pilot: $pilot,
+        observer: $observer
+);

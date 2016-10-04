@@ -23,15 +23,24 @@
     max-width: $navigation-drawer-desktop-width;
   }
   z-index: 300;
+  .collapsable{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    &.collapse {
+      display: none;
+    }
+  }
+  &.fullheight{
+    top: $fulltop;
+    .content {
+      max-height: none;
+    }
+  }
   .content {
     overflow: auto;
+    height: 100%;
     max-height: 30vh;
-    &::-webkit-scrollbar {
-      background-color: inherit;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: $scrollbar-thumb-color;
-    }
   }
   [data-react-toolbox="inputgroup"] {
     background-color: $input-group-bg;
