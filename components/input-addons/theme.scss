@@ -41,6 +41,10 @@
   }
 }
 
+.styled_input.disabled > .error {
+  position: absolute;
+}
+
 .dropdown.dropdown_styled {
   &.disabled {
     .value {
