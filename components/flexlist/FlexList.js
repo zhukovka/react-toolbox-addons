@@ -39,9 +39,11 @@ const factory = (ListItem) => {
                         theme
                     });
                 } else {
+                    const {className, style, ...other} = item.props;
                     clone = React.cloneElement(item, {
-                        className: classnames({[theme.flexlist_item]: width}),
-                        style: {width}
+                        className: classnames({[theme.flexlist_item]: width}, className),
+                        style: {width, ...style},
+                        ...other
                     });
                 }
                 return clone;

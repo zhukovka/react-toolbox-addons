@@ -47,8 +47,8 @@ class BottomSheetTest extends React.Component {
                         </Row>
                     </div>
                     <div>
-                        <FlexList align="space-around">
-                            <li>
+                        <FlexList align="space-around" width="120">
+                            <li className="pia" style={{color: 'red'}}>
                                 <FlexList align="space-around" small>
                                     <li>
                                         <ButtonGroup align="center">

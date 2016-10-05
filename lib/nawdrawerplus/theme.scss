@@ -17,13 +17,9 @@
       width: $navigation-drawer-width;
       max-width: $navigation-drawer-width;
     }
-  }
-  &.preview.pinned {
-    width: $navigation-drawer-width;
     .appBar {
       display: none;
     }
-
     // Larger than mobile width drawer
     @media screen and (min-width: $layout-breakpoint-xs) {
       .drawerContent {
@@ -38,5 +34,8 @@
         }
       }
     }
+  }
+  &.preview.pinned {
+    width: $navigation-drawer-width;
   }
 }

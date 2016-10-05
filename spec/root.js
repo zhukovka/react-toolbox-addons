@@ -41,6 +41,7 @@ const Root = () => (
 
     <div className={style.app}>
         <LayoutTest/>
+        <DialogLayout />
         <GroupListItem/>
         <HoverableContent/>
         <BottomSheetTest/>
@@ -184,7 +185,7 @@ const Root = () => (
                 <Avatar title="A"/><span>Active chip</span>
             </ChipTransparent>
         </section>
-        <DialogLayout />
+
     </div>
 );
 
