@@ -41,8 +41,14 @@
   }
 }
 
-.styled_input.disabled > .error {
-  position: absolute;
+.styled_input.disabled.errored {
+  > .error {
+    position: absolute;
+    bottom: 2.5rem;
+  }
+  > .label {
+    bottom: -1.5rem !important;
+  }
 }
 
 .dropdown.dropdown_styled {
