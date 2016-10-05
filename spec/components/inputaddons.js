@@ -65,6 +65,8 @@ const InputAddonsTest = (props) => {
                 <DatePicker label='Birthdate' sundayFirstDayOfWeek value={new Date(2015, 10, 16)}/>
                 <FontIcon value='favorite'/>
             </InputGroup>
+            <h5>Disabled StyledInpit with error</h5>
+            <StyledInput label="Test" required="true" error="This field is required" icon="star" disabled rightIcon/>
         </section>
     );
 };
