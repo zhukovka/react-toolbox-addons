@@ -1,0 +1,22 @@
+@import "config";
+
+.iconswitcher {
+  background: $default-color;
+  border-radius: $border-radius;
+  display: inline-flex;
+  height: $icon-switcher-height;
+  width: $icon-switcher-width;
+}
+
+.icon {
+  align-items: center;
+  color: $color-white;
+  display: flex;
+  flex: 1 auto;
+  justify-content: center;
+  &.active {
+    background: $active;
+    border-radius: $border-radius-active;
+    flex: 2 auto;
+  }
+}

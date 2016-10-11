@@ -37,9 +37,11 @@ import BottomSheetTest from './components/bottomsheet';
 import HoverableContent from './components/HoverableContent';
 import GroupListItem from './components/GroupListItem';
 import LayoutTest from './components/layout';
+import IconSwitcher from './components/IconSwitcher';
 const Root = () => (
 
     <div className={style.app}>
+        <IconSwitcher/>
         <LayoutTest/>
         <DialogLayout />
         <GroupListItem/>

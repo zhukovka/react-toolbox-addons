@@ -23,6 +23,7 @@ export FlexList from './flexlist';
 export GroupListDivider from './grouplistdivider';
 export GroupListItem from './grouplistitem';
 export HoverableContent from './hoverablecontent';
+export IconSwitcher from './iconswitcher';
 export InputGroup from './inputgroup';
 export MessageItem from './messageitem';
 export NavDrawerPlus from './nawdrawerplus';
