@@ -1,11 +1,8 @@
 @import "~react-toolbox/lib/colors";
-@import "~react-toolbox/lib/globals";
-@import "~react-toolbox/lib/button/mixins";
 @import "config";
 
 .flexlist {
   display: flex;
-  width: 100%;
   padding: $flexlist-vertical-padding 0;
   white-space: nowrap;
   list-style: none;
@@ -35,15 +32,15 @@
     }
   }
   &.small {
-    &, [data-react-toolbox="font-icon"], input {
-      font-size: $unit * 1.2;
+    &, [data-react-toolbox="font-icon"], [data-react-toolbox="card"], input {
+      font-size: $flex-list-icon-font-size;
     }
   }
 
 }
 
 .flexlist_item {
-  padding: $unit * 2, $unit, $unit;
+  padding: $flex-list-item-padding;
 }
 
 .inverse {

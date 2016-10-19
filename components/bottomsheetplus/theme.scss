@@ -1,7 +1,4 @@
-@import "~react-toolbox/lib/colors";
-@import "~react-toolbox/lib/globals";
 @import '~react-toolbox/lib/mixins';
-@import "~react-toolbox/lib/button/mixins";
 @import "./config";
 @import "../bottomsheet/theme";
 
@@ -35,7 +32,7 @@
     flex: 1 auto;
     width: 100%;
     transition: max-height $animation-duration $animation-curve-default $animation-duration;
-
+    font-size: $bottomsheet-font-size;
     &:not(.active) {
       max-height: 0;
     }
@@ -52,7 +49,6 @@
   &__header {
     @include shadow-2dp;
     width: 100%;
-    padding-bottom: $unit;
     background: $bottomsheet-background-color;
     [class *= 'cardTitle'] {
       padding: 0;

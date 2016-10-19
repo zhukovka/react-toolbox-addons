@@ -1,3 +1,5 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
 $flexlist-vertical-padding: .8 * $unit !default;
 $flexlist-horizontal-padding: 1.6 * $unit !default;
 $flexlist-content-left-spacing: 7.2 * $unit !default;
@@ -16,3 +18,6 @@ $flexlist-item-right-checkbox-margin: $flexlist-item-right-icon-margin + $flexli
 $flexlist-item-avatar-height: 4 * $unit !default;
 $flexlist-item-avatar-margin: .8 * $unit !default;
 $flexlist-item-child-margin: .8 * $unit !default;
+$flex-list-font-size: $unit * 1.4 !default;
+$flex-list-icon-font-size: $unit * 1.2;
+$flex-list-item-padding: $unit * 2 $unit $unit;
