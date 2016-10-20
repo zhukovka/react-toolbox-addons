@@ -7,30 +7,17 @@ import {STYLED_DROPDOWN} from '../identifiers.js';
 /**
  * StyledDropdown props extend Dropdown props
  */
-class StyledDropdown extends Dropdown {
+const StyledDropdown = ({theme, className, primary, collapse, align, ...other})=> {
+    const classes = classnames(theme.dropdown_styled, {
+        [theme.primary]: primary,
+        [theme.collapse]: collapse,
+        [theme[align]]: align
+    }, className);
+    return (
+        <Dropdown className={classes} {...other} theme={theme}/>
+    );
+};
 
-    constructor (props) {
-        const {theme, className, primary, collapse, align} = props;
-        const classes = classnames(theme.dropdown_styled, {
-            [theme.primary]: primary,
-            [theme.collapse]: collapse,
-            [theme[align]]: align
-        }, className);
-        props.className = classes;
-        super(props);
-    }
-
-    renderValue (item, idx) {
-        const {theme} = this.props;
-        const className = item.value === this.props.value ? theme.selected : null;
-        return (
-            <li key={idx} className={className} onMouseDown={this.handleSelect.bind(this, item.value)}>
-                {this.props.template ? this.props.template(item) : item.label}
-            </li>
-        );
-    }
-}
-//
 StyledDropdown.propTypes = {
     /**
      * set to align text of selected item
