@@ -13,7 +13,7 @@ const factory = (Overlay) => {
         }
 
         renderContent () {
-            const {theme, children, className, active, onTransitionEnd, style} = this.props;
+            const {theme, children, className, active, style} = this.props;
 
             const header = Array.isArray(children) ? children[0] : null;
             const content = Array.isArray(children) ? children.slice(1) : children;
@@ -26,7 +26,7 @@ const factory = (Overlay) => {
             return (
                 <div data-react-toolbox='bottomsheetplus' className={classes} style={style}>
                     {this.renderVisibleContent(header)}
-                    <div className={_className} onTransitionEnd={onTransitionEnd}>
+                    <div className={_className}>
                         <div className={theme.bottomsheet_plus__children}>
                             {content}
                         </div>
