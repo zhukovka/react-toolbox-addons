@@ -12,7 +12,14 @@ const factory = (Overlay) => {
             super(props);
         }
 
-        renderContent () {
+        renderVisibleContent (header) {
+            const {theme} = this.props;
+            return (
+                <div className={theme.bottomsheet_plus__header}>{header}</div>
+            );
+        }
+
+        render () {
             const {theme, children, className, active, style} = this.props;
 
             const header = Array.isArray(children) ? children[0] : null;
@@ -32,21 +39,6 @@ const factory = (Overlay) => {
                         </div>
                     </div>
                 </div>);
-        }
-
-        renderVisibleContent (header) {
-            const {theme} = this.props;
-            return (
-                <div className={theme.bottomsheet_plus__header}>{header}</div>
-            );
-        }
-
-        render () {
-            return (
-                <Overlay invisible>
-                    {this.renderContent()}
-                </Overlay>
-            );
         }
 
 

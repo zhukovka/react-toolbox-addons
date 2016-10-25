@@ -5,12 +5,11 @@
 .bottomsheet_plus {
   @extend .bottomsheet;
   background: lighten($bottomsheet-background-color, 10%);
-  right: 0;
-  left: 0;
-  flex-direction: column;
-  bottom: 0;
-  padding: 0;
+  display: block;
+  margin: 0;
   overflow: hidden;
+  padding: 0;
+  position: static;
   [data-react-toolbox="font-icon"] {
     color: $color-white;
   }
@@ -30,9 +29,10 @@
   &__item {
     display: flex;
     flex: 1 auto;
-    width: 100%;
-    transition: max-height $animation-duration $animation-curve-default $animation-duration;
     font-size: $bottomsheet-font-size;
+    overflow: hidden;
+    transition: max-height $animation-duration $animation-curve-default $animation-duration;
+    width: 100%;
     &:not(.active) {
       max-height: 0;
     }
