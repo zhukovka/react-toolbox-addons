@@ -1,0 +1,94 @@
+
+.wrapper {
+  overflow: hidden;
+  padding: 0 12px;
+  position: relative;
+}
+.container {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  transform: translateX(100%);
+}
+.container.isReverse{
+  transform: translateX(-100%);
+}
+
+.item {
+  flex : 1 0 100%;
+  padding: 1rem;
+}
+.control {
+  position: absolute;
+  top: 50%;
+  font-size: 24px;
+  margin-top: -12px;
+}
+.prevControl{
+  left: -6px;
+}
+.nextControl{
+  right: -6px;
+}
+// Media
+@media only screen and (min-width: 450px) and (max-width: 639px){
+  .item {
+    flex-basis: 50%;
+  }
+  .container {
+    transform: translateX(50%);
+  }
+  .container.isReverse {
+    transform: translateX(-50%);
+  }
+}
+@media only screen and (min-width: 640px) and (max-width: 768px){
+  .item {
+    flex-basis: 33.3333%;
+  }
+  .container {
+    transform: translateX(33.3333%);
+  }
+  .container.isReverse {
+    transform: translateX(-33.3333%);
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1280px){
+  .item {
+    flex-basis: 20%;
+  }
+  .container {
+    transform: translateX(20%);
+  }
+  .container.isReverse {
+    transform: translateX(-20%);
+  }
+}
+@media only screen and (min-width: 1281px) and (max-width: 1600px){
+  .item {
+    flex-basis: 12.5%;
+  }
+  .container {
+    transform: translateX(12.9%);
+  }
+  .container.isReverse {
+    transform: translateX(-12.9%);
+  }
+}
+@media only screen and (min-width: 1601px) {
+  .item {
+    flex-basis: 8.33%;
+  }
+  .container {
+    transform: translateX(-8.33%);
+  }
+  .container.isReverse {
+    transform: translateX(8.33%);
+  }
+}
+.container.isSet{
+  transform: none;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
