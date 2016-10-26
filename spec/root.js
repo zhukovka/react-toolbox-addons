@@ -39,7 +39,6 @@ import GroupListItem from './components/GroupListItem';
 import LayoutTest from './components/layout';
 import IconSwitcher from './components/IconSwitcher';
 
-import TestFlexCarousel from './components/TestFlexCarousel.js';
 const Root = () => (
 
     <div className={style.app}>

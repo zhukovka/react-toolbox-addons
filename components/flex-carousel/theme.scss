@@ -10,8 +10,12 @@
   margin: 0;
   padding: 0;
   position: relative;
-  left: -100%;
+  transform: translateX(100%);
 }
+.container.isReverse{
+  transform: translateX(-100%);
+}
+
 .item {
   flex : 1 0 100%;
   padding: 1rem;
@@ -34,15 +38,21 @@
     flex-basis: 50%;
   }
   .container {
-    left: -50%;
+    transform: translateX(50%);
+  }
+  .container.isReverse {
+    transform: translateX(-50%);
   }
 }
 @media only screen and (min-width: 640px) and (max-width: 768px){
   .item {
-    flex-basis: 33%;
+    flex-basis: 33.3333%;
   }
   .container {
-    left: -33%;
+    transform: translateX(33.3333%);
+  }
+  .container.isReverse {
+    transform: translateX(-33.3333%);
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 1280px){
@@ -50,7 +60,10 @@
     flex-basis: 20%;
   }
   .container {
-    left: -20%;
+    transform: translateX(20%);
+  }
+  .container.isReverse {
+    transform: translateX(-20%);
   }
 }
 @media only screen and (min-width: 1281px) and (max-width: 1600px){
@@ -58,7 +71,10 @@
     flex-basis: 12.5%;
   }
   .container {
-    left: -12.9%;
+    transform: translateX(12.9%);
+  }
+  .container.isReverse {
+    transform: translateX(-12.9%);
   }
 }
 @media only screen and (min-width: 1601px) {
@@ -66,6 +82,13 @@
     flex-basis: 8.33%;
   }
   .container {
-    left: -8.33%;
+    transform: translateX(-8.33%);
   }
+  .container.isReverse {
+    transform: translateX(8.33%);
+  }
+}
+.container.isSet{
+  transform: none;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }

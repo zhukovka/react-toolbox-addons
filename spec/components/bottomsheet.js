@@ -1,13 +1,11 @@
 import React from 'react';
 import {Button, IconButton} from 'react-toolbox/lib/button';
 import BottomSheetPlus from '../../components/bottomsheetplus';
-import {Card, CardMedia, CardTitle} from 'react-toolbox/lib/card';
-import {FlexList} from '../../components/flexlist/index';
+import {CardTitle} from 'react-toolbox/lib/card';
 import {Row, Col} from '../../components/grid';
 import ButtonGroup from '../../components/buttongroup';
-import CardActionsSpaced from '../../components/cardactionsspaced/CardActionsSpaced';
 import FlexCarousel from '../../components/flex-carousel';
-
+import CardMediaPlusTest from './cardMediaTest.js';
 class BottomSheetTest extends React.Component {
     state = {
         cards: false,
@@ -47,240 +45,17 @@ class BottomSheetTest extends React.Component {
                         </Row>
                     </div>
                     <FlexCarousel>
-                        <div>
-                            <FlexList align="space-around" width="120">
-                                <li className="pia" style={{color: 'red'}}>
-                                    <FlexList align="space-around" small>
-                                        <li>
-                                            <ButtonGroup align="center">
-                                                <span>1</span>
-                                                <IconButton inverse icon="favorite"/>
-                                            </ButtonGroup>
-                                            <Card>
-                                                <CardMedia
-                                                    aspectRatio="square"
-                                                    image="https://placeimg.com/200/200/nature">
-                                                    <CardTitle>Kukuruku</CardTitle>
-                                                </CardMedia>
-                                                <CardActionsSpaced align="center" fullheight>
-                                                    <IconButton icon="thumb_down"/>
-                                                    <IconButton icon="thumb_up"/>
-                                                    <IconButton icon="turned_in_not"/>
-                                                </CardActionsSpaced>
-                                            </Card>
-                                        </li>
-                                    </FlexList>
-                                </li>
-                            </FlexList>
-                        </div>
-                        <div>
-                            <FlexList align="space-around" width="120">
-                                <li className="pia" style={{color: 'red'}}>
-                                    <FlexList align="space-around" small>
-                                        <li>
-                                            <ButtonGroup align="center">
-                                                <span>2</span>
-                                                <IconButton inverse icon="favorite"/>
-                                            </ButtonGroup>
-                                            <Card>
-                                                <CardMedia
-                                                    aspectRatio="square"
-                                                    image="https://placeimg.com/200/200/nature">
-                                                    <CardTitle>Kukuruku</CardTitle>
-                                                </CardMedia>
-                                                <CardActionsSpaced align="center" fullheight>
-                                                    <IconButton icon="thumb_down"/>
-                                                    <IconButton icon="thumb_up"/>
-                                                    <IconButton icon="turned_in_not"/>
-                                                </CardActionsSpaced>
-                                            </Card>
-                                        </li>
-                                    </FlexList>
-                                </li>
-                            </FlexList>
-                        </div>
-                        <div>
-                            <FlexList align="space-around" width="120">
-                                <li className="pia" style={{color: 'red'}}>
-                                    <FlexList align="space-around" small>
-                                        <li>
-                                            <ButtonGroup align="center">
-                                                <span>3</span>
-                                                <IconButton inverse icon="favorite"/>
-                                            </ButtonGroup>
-                                            <Card>
-                                                <CardMedia
-                                                    aspectRatio="square"
-                                                    image="https://placeimg.com/200/200/nature">
-                                                    <CardTitle>Kukuruku</CardTitle>
-                                                </CardMedia>
-                                                <CardActionsSpaced align="center" fullheight>
-                                                    <IconButton icon="thumb_down"/>
-                                                    <IconButton icon="thumb_up"/>
-                                                    <IconButton icon="turned_in_not"/>
-                                                </CardActionsSpaced>
-                                            </Card>
-                                        </li>
-                                    </FlexList>
-                                </li>
-                            </FlexList>
-                        </div>
-                        <div>
-                            <FlexList align="space-around" width="120">
-                                <li className="pia" style={{color: 'red'}}>
-                                    <FlexList align="space-around" small>
-                                        <li>
-                                            <ButtonGroup align="center">
-                                                <span>4</span>
-                                                <IconButton inverse icon="favorite"/>
-                                            </ButtonGroup>
-                                            <Card>
-                                                <CardMedia
-                                                    aspectRatio="square"
-                                                    image="https://placeimg.com/200/200/nature">
-                                                    <CardTitle>Kukuruku</CardTitle>
-                                                </CardMedia>
-                                                <CardActionsSpaced align="center" fullheight>
-                                                    <IconButton icon="thumb_down"/>
-                                                    <IconButton icon="thumb_up"/>
-                                                    <IconButton icon="turned_in_not"/>
-                                                </CardActionsSpaced>
-                                            </Card>
-                                        </li>
-                                    </FlexList>
-                                </li>
-                            </FlexList>
-                        </div>
-                        <div>
-                            <FlexList align="space-around" width="120">
-                                <li className="pia" style={{color: 'red'}}>
-                                    <FlexList align="space-around" small>
-                                        <li>
-                                            <ButtonGroup align="center">
-                                                <span>5</span>
-                                                <IconButton inverse icon="favorite"/>
-                                            </ButtonGroup>
-                                            <Card>
-                                                <CardMedia
-                                                    aspectRatio="square"
-                                                    image="https://placeimg.com/200/200/nature">
-                                                    <CardTitle>Kukuruku</CardTitle>
-                                                </CardMedia>
-                                                <CardActionsSpaced align="center" fullheight>
-                                                    <IconButton icon="thumb_down"/>
-                                                    <IconButton icon="thumb_up"/>
-                                                    <IconButton icon="turned_in_not"/>
-                                                </CardActionsSpaced>
-                                            </Card>
-                                        </li>
-                                    </FlexList>
-                                </li>
-                            </FlexList>
-                        </div>
-                        <div>
-                            <FlexList align="space-around" width="120">
-                                <li className="pia" style={{color: 'red'}}>
-                                    <FlexList align="space-around" small>
-                                        <li>
-                                            <ButtonGroup align="center">
-                                                <span>6</span>
-                                                <IconButton inverse icon="favorite"/>
-                                            </ButtonGroup>
-                                            <Card>
-                                                <CardMedia
-                                                    aspectRatio="square"
-                                                    image="https://placeimg.com/200/200/nature">
-                                                    <CardTitle>Kukuruku</CardTitle>
-                                                </CardMedia>
-                                                <CardActionsSpaced align="center" fullheight>
-                                                    <IconButton icon="thumb_down"/>
-                                                    <IconButton icon="thumb_up"/>
-                                                    <IconButton icon="turned_in_not"/>
-                                                </CardActionsSpaced>
-                                            </Card>
-                                        </li>
-                                    </FlexList>
-                                </li>
-                            </FlexList>
-                        </div>
-                        <div>
-                            <FlexList align="space-around" width="120">
-                                <li className="pia" style={{color: 'red'}}>
-                                    <FlexList align="space-around" small>
-                                        <li>
-                                            <ButtonGroup align="center">
-                                                <span>7</span>
-                                                <IconButton inverse icon="favorite"/>
-                                            </ButtonGroup>
-                                            <Card>
-                                                <CardMedia
-                                                    aspectRatio="square"
-                                                    image="https://placeimg.com/200/200/nature">
-                                                    <CardTitle>Kukuruku</CardTitle>
-                                                </CardMedia>
-                                                <CardActionsSpaced align="center" fullheight>
-                                                    <IconButton icon="thumb_down"/>
-                                                    <IconButton icon="thumb_up"/>
-                                                    <IconButton icon="turned_in_not"/>
-                                                </CardActionsSpaced>
-                                            </Card>
-                                        </li>
-                                    </FlexList>
-                                </li>
-                            </FlexList>
-                        </div>
-                        <div>
-                            <FlexList align="space-around" width="120">
-                                <li className="pia" style={{color: 'red'}}>
-                                    <FlexList align="space-around" small>
-                                        <li>
-                                            <ButtonGroup align="center">
-                                                <span>8</span>
-                                                <IconButton inverse icon="favorite"/>
-                                            </ButtonGroup>
-                                            <Card>
-                                                <CardMedia
-                                                    aspectRatio="square"
-                                                    image="https://placeimg.com/200/200/nature">
-                                                    <CardTitle>Kukuruku</CardTitle>
-                                                </CardMedia>
-                                                <CardActionsSpaced align="center" fullheight>
-                                                    <IconButton icon="thumb_down"/>
-                                                    <IconButton icon="thumb_up"/>
-                                                    <IconButton icon="turned_in_not"/>
-                                                </CardActionsSpaced>
-                                            </Card>
-                                        </li>
-                                    </FlexList>
-                                </li>
-                            </FlexList>
-                        </div>
-                        <div>
-                            <FlexList align="space-around" width="120">
-                                <li className="pia" style={{color: 'red'}}>
-                                    <FlexList align="space-around" small>
-                                        <li>
-                                            <ButtonGroup align="center">
-                                                <span>9</span>
-                                                <IconButton inverse icon="favorite"/>
-                                            </ButtonGroup>
-                                            <Card>
-                                                <CardMedia
-                                                    aspectRatio="square"
-                                                    image="https://placeimg.com/200/200/nature">
-                                                    <CardTitle>Kukuruku</CardTitle>
-                                                </CardMedia>
-                                                <CardActionsSpaced align="center" fullheight>
-                                                    <IconButton icon="thumb_down"/>
-                                                    <IconButton icon="thumb_up"/>
-                                                    <IconButton icon="turned_in_not"/>
-                                                </CardActionsSpaced>
-                                            </Card>
-                                        </li>
-                                    </FlexList>
-                                </li>
-                            </FlexList>
-                        </div>
+                        <CardMediaPlusTest/>
+                        <CardMediaPlusTest/>
+                        <CardMediaPlusTest/>
+                        <CardMediaPlusTest/>
+                        <CardMediaPlusTest/>
+                        <CardMediaPlusTest/>
+                        <CardMediaPlusTest/>
+                        <CardMediaPlusTest/>
+                        <CardMediaPlusTest/>
+                        <CardMediaPlusTest/>
+                        <CardMediaPlusTest/>
                     </FlexCarousel>
 
                 </BottomSheetPlus>
