@@ -3,7 +3,6 @@ import classnames from 'classnames';
 
 class FlexCarousel extends Component{
     static propTypes = {
-        active: PropTypes.number,
         children: PropTypes.array,
         theme: PropTypes.object
     };
