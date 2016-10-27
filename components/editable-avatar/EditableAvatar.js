@@ -71,7 +71,10 @@ class EditableAvatar extends Component {
 EditableAvatar.propTypes = {
     className: PropTypes.string,
     editable: PropTypes.bool,
-    image: PropTypes.string,
+    image: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
     onUpload: PropTypes.func,
     theme: PropTypes.object
 };

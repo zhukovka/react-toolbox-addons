@@ -19,7 +19,10 @@ const AvatarOverlay = ({theme, image, icon, className, ...other}) => {
 AvatarOverlay.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
-    image: PropTypes.string,
+    image: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
     onClick: PropTypes.func,
     theme: PropTypes.object
 };
