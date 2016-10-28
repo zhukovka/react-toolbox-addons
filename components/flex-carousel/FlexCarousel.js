@@ -18,7 +18,8 @@ class FlexCarousel extends Component{
             customButton: PropTypes.string,
             left: PropTypes.string,
             right: PropTypes.string,
-            item: PropTypes.string
+            item: PropTypes.string,
+            forTransitionWorks: PropTypes.string
         })
     };
 
@@ -46,30 +47,32 @@ class FlexCarousel extends Component{
     }
     componentDidMount (){
         window.addEventListener(WINDOW_RESIZE_EVENT, this.handleResize.bind(this));
+        if (this.calculateWidth()){
+            this.setState({
+                showControls: true
+            });
+        }
     }
     componentWillUnmount (){
         window.removeEventListener(WINDOW_RESIZE_EVENT, this.handleResize.bind(this));
     }
-    handleResize (){
+    calculateWidth (){
         const container = this.refs.flexContainer;
         const containerWidth = container.offsetWidth;
         const childrenWidth = Array.prototype.map.call(container.children, (el)=>el.offsetWidth).reduce((c, n)=>c + n);
-        if (containerWidth < childrenWidth){
-            this.setState({
-                showControls: true
-            });
-        } else {
-            this.setState({
-                showControls: false
-            });
-        }
+        return containerWidth < childrenWidth;
     }
-    isSet (){
+    handleResize (){
+        this.setState({
+            showControls: this.calculateWidth() ? true : false
+        });
+    }
+    forTransitionWorks (){
         const container = this.refs.flexContainer;
         const {theme} = this.props;
-        container.classList.remove(theme.isSet);
+        container.classList.remove(theme.forTransitionWorks);
         setTimeout(()=>{
-            container.classList.add(theme.isSet);
+            container.classList.add(theme.forTransitionWorks);
         }, 50);
     }
     next (newVal){
@@ -77,12 +80,12 @@ class FlexCarousel extends Component{
             this.setState({
                 active: newVal,
                 reverse: false
-            }, this.isSet);
+            }, this.forTransitionWorks);
         } else {
             this.setState({
                 active: 0,
                 reverse: false
-            }, this.isSet);
+            }, this.forTransitionWorks);
         }
     }
     prev (newVal){
@@ -90,12 +93,12 @@ class FlexCarousel extends Component{
             this.setState({
                 active: newVal,
                 reverse: true
-            }, this.isSet);
+            }, this.forTransitionWorks);
         } else {
             this.setState({
                 active: this.props.children.length - 1,
                 reverse: true
-            }, this.isSet);
+            }, this.forTransitionWorks);
         }
     }
 
@@ -104,9 +107,9 @@ class FlexCarousel extends Component{
             const {active} = this.state;
             const {theme} = this.props;
             const controlCls = classnames(theme.customButton, theme.right);
-            return <Button icon={BUTTON_ICON_NEXT} className={controlCls}
+            return (<Button icon={BUTTON_ICON_NEXT} className={controlCls}
                            flat
-                           onClick={(e)=>this.next(active + 1)}/>;
+                           onClick={(e)=>this.next(active + 1)}/>);
         }
     }
     renderPrevControl (){
@@ -114,9 +117,30 @@ class FlexCarousel extends Component{
             const {active} = this.state;
             const {theme} = this.props;
             const controlCls = classnames(theme.customButton, theme.left);
-            return <Button icon={BUTTON_ICON_PREV} className={controlCls}
+            return (<Button icon={BUTTON_ICON_PREV} className={controlCls}
                            flat
-                           onClick={(e)=>this.prev(active - 1)}/>;
+                           onClick={(e)=>this.prev(active - 1)}/>);
+        }
+    }
+    renderControls (){
+        if (this.state.showControls) {
+            const {active} = this.state;
+            const {theme} = this.props;
+            const controlsArray = [];
+            const prevButtonProps = {
+                icon: BUTTON_ICON_PREV,
+                className: classnames(theme.customButton, theme.left),
+                onClick: (e)=>this.prev(active - 1)
+            };
+            const nextButtonProps = {
+                icon: BUTTON_ICON_NEXT,
+                className: classnames(theme.customButton, theme.right),
+                onClick: (e)=>this.next(active + 1)
+            };
+            controlsArray.push(prevButtonProps, nextButtonProps);
+            return controlsArray.map((btnProps, index)=>(<Button key={index} flat {...btnProps}/>));
+        } else {
+            return null;
         }
     }
     renderItems (items = []){
@@ -131,14 +155,13 @@ class FlexCarousel extends Component{
         const {children, theme} = this.props;
         const cls = classnames(theme.container, {
             [theme.isReverse]: this.state.reverse
-        }, theme.isSet);
+        }, theme.forTransitionWorks);
         return (
             <div className={theme.wrapper}>
                 <ul className={cls} ref={FLEX_CONTAINER_REF}>
                     {this.renderItems(children)}
                 </ul>
-                {this.renderPrevControl()}
-                {this.renderNextControl()}
+                {this.renderControls()}
             </div>
         );
     }
