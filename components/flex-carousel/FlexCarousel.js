@@ -57,10 +57,14 @@ class FlexCarousel extends Component{
         window.removeEventListener(WINDOW_RESIZE_EVENT, this.handleResize.bind(this));
     }
     calculateWidth (){
-        const container = this.refs.flexContainer;
-        const containerWidth = container.offsetWidth;
-        const childrenWidth = Array.prototype.map.call(container.children, (el)=>el.offsetWidth).reduce((c, n)=>c + n);
-        return containerWidth < childrenWidth;
+        if (this.refs) {
+            const container = this.refs.flexContainer;
+            const containerWidth = container.offsetWidth;
+            const childrenWidth = Array.prototype.map.call(container.children, (el)=>el.offsetWidth).reduce((c, n)=>c + n);
+            return containerWidth < childrenWidth;
+        } else {
+            return false;
+        }
     }
     handleResize (){
         this.setState({
@@ -102,26 +106,6 @@ class FlexCarousel extends Component{
         }
     }
 
-    renderNextControl (){
-        if (this.state.showControls) {
-            const {active} = this.state;
-            const {theme} = this.props;
-            const controlCls = classnames(theme.customButton, theme.right);
-            return (<Button icon={BUTTON_ICON_NEXT} className={controlCls}
-                           flat
-                           onClick={(e)=>this.next(active + 1)}/>);
-        }
-    }
-    renderPrevControl (){
-        if (this.state.showControls){
-            const {active} = this.state;
-            const {theme} = this.props;
-            const controlCls = classnames(theme.customButton, theme.left);
-            return (<Button icon={BUTTON_ICON_PREV} className={controlCls}
-                           flat
-                           onClick={(e)=>this.prev(active - 1)}/>);
-        }
-    }
     renderControls (){
         if (this.state.showControls) {
             const {active} = this.state;
