@@ -96,7 +96,7 @@
     transform: translateX(8.33%);
   }
 }
-.container.isSet{
+.container.forTransitionWorks{
   transform: none;
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
