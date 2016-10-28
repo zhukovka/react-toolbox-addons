@@ -1,10 +1,25 @@
 import React, {Component, PropTypes} from 'react';
 import classnames from 'classnames';
+import Button from 'react-toolbox/lib/button';
+import {
+    WINDOW_RESIZE_EVENT,
+    FLEX_CONTAINER_REF,
+    BUTTON_ICON_NEXT,
+    BUTTON_ICON_PREV
+} from './constants.js';
 
 class FlexCarousel extends Component{
     static propTypes = {
         children: PropTypes.array,
-        theme: PropTypes.object
+        theme: PropTypes.shape({
+            wrapper: PropTypes.string,
+            container: PropTypes.string,
+            isReverse: PropTypes.string,
+            customButton: PropTypes.string,
+            left: PropTypes.string,
+            right: PropTypes.string,
+            item: PropTypes.string
+        })
     };
 
     static getOrderArray (arrLen, activeIndex){
@@ -30,12 +45,22 @@ class FlexCarousel extends Component{
         };
     }
     componentDidMount (){
+        window.addEventListener(WINDOW_RESIZE_EVENT, this.handleResize.bind(this));
+    }
+    componentWillUnmount (){
+        window.removeEventListener(WINDOW_RESIZE_EVENT, this.handleResize.bind(this));
+    }
+    handleResize (){
         const container = this.refs.flexContainer;
         const containerWidth = container.offsetWidth;
         const childrenWidth = Array.prototype.map.call(container.children, (el)=>el.offsetWidth).reduce((c, n)=>c + n);
         if (containerWidth < childrenWidth){
             this.setState({
                 showControls: true
+            });
+        } else {
+            this.setState({
+                showControls: false
             });
         }
     }
@@ -78,18 +103,20 @@ class FlexCarousel extends Component{
         if (this.state.showControls) {
             const {active} = this.state;
             const {theme} = this.props;
-            const controlCls = classnames(theme.control, theme.nextControl, 'material-icons');
-            return <i className={controlCls} onClick={(e)=>this.next(active + 1)}>
-                keyboard_arrow_right</i>;
+            const controlCls = classnames(theme.customButton, theme.right);
+            return <Button icon={BUTTON_ICON_NEXT} className={controlCls}
+                           flat
+                           onClick={(e)=>this.next(active + 1)}/>;
         }
     }
     renderPrevControl (){
         if (this.state.showControls){
             const {active} = this.state;
             const {theme} = this.props;
-            const controlCls = classnames(theme.control, theme.prevControl, 'material-icons');
-            return <i className={controlCls} onClick={(e)=>this.prev(active - 1)}>
-                keyboard_arrow_left</i>;
+            const controlCls = classnames(theme.customButton, theme.left);
+            return <Button icon={BUTTON_ICON_PREV} className={controlCls}
+                           flat
+                           onClick={(e)=>this.prev(active - 1)}/>;
         }
     }
     renderItems (items = []){
@@ -107,12 +134,11 @@ class FlexCarousel extends Component{
         }, theme.isSet);
         return (
             <div className={theme.wrapper}>
-                <ul className={cls} ref="flexContainer">
+                <ul className={cls} ref={FLEX_CONTAINER_REF}>
                     {this.renderItems(children)}
                 </ul>
                 {this.renderPrevControl()}
                 {this.renderNextControl()}
-
             </div>
         );
     }
