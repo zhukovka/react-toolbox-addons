@@ -3,6 +3,7 @@
   overflow: hidden;
   padding: 0 12px;
   position: relative;
+  flex: 1; // insure that it will get all available width
 }
 .container {
   display: flex;
