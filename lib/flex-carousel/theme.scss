@@ -17,22 +17,29 @@
   transform: translateX(-100%);
 }
 
+.customButton {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  min-width: 1rem;
+  font-size: 20px;
+  max-width: 2rem;
+  transform: translateY(-100%);
+  &.left {
+    left: 0;
+  }
+  &.right {
+    right: 0;
+  }
+}
+
 .item {
   flex : 1 0 100%;
   padding: 1rem;
+  min-width: 140px;
+  max-width: 140px;
 }
-.control {
-  position: absolute;
-  top: 50%;
-  font-size: 24px;
-  margin-top: -12px;
-}
-.prevControl{
-  left: -6px;
-}
-.nextControl{
-  right: -6px;
-}
+
 // Media
 @media only screen and (min-width: 450px) and (max-width: 639px){
   .item {
