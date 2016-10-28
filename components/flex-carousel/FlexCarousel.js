@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 import Button from 'react-toolbox/lib/button';
 import {
@@ -58,10 +59,12 @@ class FlexCarousel extends Component{
     }
     calculateWidth (){
         if (this.refs) {
-            const container = this.refs.flexContainer;
-            const containerWidth = container.offsetWidth;
-            const childrenWidth = Array.prototype.map.call(container.children, (el)=>el.offsetWidth).reduce((c, n)=>c + n);
-            return containerWidth < childrenWidth;
+            const container = ReactDOM.findDOMNode(this.refs.flexContainer);
+            if (container) {
+                const containerWidth = container.offsetWidth;
+                const childrenWidth = Array.prototype.map.call(container.children, (el)=>el.offsetWidth).reduce((c, n)=>c + n);
+                return containerWidth < childrenWidth;
+            }
         } else {
             return false;
         }
@@ -72,7 +75,7 @@ class FlexCarousel extends Component{
         });
     }
     forTransitionWorks (){
-        const container = this.refs.flexContainer;
+        const container = ReactDOM.findDOMNode(this.refs.flexContainer);
         const {theme} = this.props;
         container.classList.remove(theme.forTransitionWorks);
         setTimeout(()=>{
@@ -107,8 +110,8 @@ class FlexCarousel extends Component{
     }
 
     renderControls (){
-        if (this.state.showControls) {
-            const {active} = this.state;
+        const {active, showControls} = this.state;
+        if (showControls) {
             const {theme} = this.props;
             const controlsArray = [];
             const prevButtonProps = {
