@@ -12,6 +12,7 @@ import {
 class FlexCarousel extends Component{
     static propTypes = {
         children: PropTypes.array,
+        itemWidth: PropTypes.number,
         theme: PropTypes.shape({
             wrapper: PropTypes.string,
             container: PropTypes.string,
@@ -71,7 +72,7 @@ class FlexCarousel extends Component{
     }
     handleResize (){
         this.setState({
-            showControls: this.calculateWidth() ? true : false
+            showControls: this.calculateWidth()
         });
     }
     forTransitionWorks (){
@@ -131,11 +132,15 @@ class FlexCarousel extends Component{
         }
     }
     renderItems (items = []){
-        const {theme, children} = this.props;
+        const {theme, children, itemWidth} = this.props;
         const {active} = this.state;
+        const _itemWidth = itemWidth + 'px';
         const orderList = FlexCarousel.getOrderArray(children.length, active);
         return React.Children.map(items, (el, index)=>{
-            return (<li key={index + '_index'} className={theme.item} style={{order: orderList[index]}}>{el}</li>);
+            return (<li key={index + '_index'}
+                        className={theme.item}
+                        style={{order: orderList[index], minWidth: _itemWidth, maxWidth: _itemWidth}}>
+                {el}</li>);
         });
     }
     render (){
