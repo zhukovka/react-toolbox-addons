@@ -57,7 +57,7 @@ class BottomSheetTest extends React.Component {
                             </Col>
                         </Row>
                     </div>
-                    <FlexCarousel>
+                    <FlexCarousel itemWidth={142}>
                         <CardMediaPlus image={TEST_IMG_URL} aspectRatio={'wide'}>
                             <CardActionsSpaced>
                                 <ButtonView label="1" onClick={(e)=>{}}/>
