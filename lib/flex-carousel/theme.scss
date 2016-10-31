@@ -1,20 +1,17 @@
 
 .wrapper {
   overflow: hidden;
-  padding: 0 12px;
+  padding: 0 2rem 0 1rem;
   position: relative;
   flex: 1; // insure that it will get all available width
 }
 .container {
+  position: relative;
+  overflow: hidden;
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  position: relative;
-  transform: translateX(100%);
-}
-.container.isReverse{
-  transform: translateX(-100%);
 }
 
 .customButton {
@@ -25,76 +22,28 @@
   font-size: 20px;
   max-width: 2rem;
   transform: translateY(-100%);
+  & > span {
+    margin: 0;
+  }
   &.left {
     left: 0;
   }
   &.right {
     right: 0;
+    padding-right: 1rem;
   }
 }
 
 .item {
   flex : 1 0 100%;
+  align-self: center;
   padding: 1rem;
-  min-width: 140px;
-  max-width: 140px;
 }
-
-// Media
-@media only screen and (min-width: 450px) and (max-width: 639px){
-  .item {
-    flex-basis: 50%;
-  }
-  .container {
-    transform: translateX(50%);
-  }
-  .container.isReverse {
-    transform: translateX(-50%);
-  }
+.container {
+  transform: translateX(140px);
 }
-@media only screen and (min-width: 640px) and (max-width: 768px){
-  .item {
-    flex-basis: 33.3333%;
-  }
-  .container {
-    transform: translateX(33.3333%);
-  }
-  .container.isReverse {
-    transform: translateX(-33.3333%);
-  }
-}
-@media only screen and (min-width: 769px) and (max-width: 1280px){
-  .item {
-    flex-basis: 20%;
-  }
-  .container {
-    transform: translateX(20%);
-  }
-  .container.isReverse {
-    transform: translateX(-20%);
-  }
-}
-@media only screen and (min-width: 1281px) and (max-width: 1600px){
-  .item {
-    flex-basis: 12.5%;
-  }
-  .container {
-    transform: translateX(12.9%);
-  }
-  .container.isReverse {
-    transform: translateX(-12.9%);
-  }
-}
-@media only screen and (min-width: 1601px) {
-  .item {
-    flex-basis: 8.33%;
-  }
-  .container {
-    transform: translateX(-8.33%);
-  }
-  .container.isReverse {
-    transform: translateX(8.33%);
-  }
+.container.isReverse {
+  transform: translateX(-140px);
 }
 .container.forTransitionWorks{
   transform: none;

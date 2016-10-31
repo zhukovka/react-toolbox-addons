@@ -12,6 +12,7 @@ const factory = () => {
     class CardExpandable extends Component {
         static propTypes = {
             absolute: PropTypes.bool,
+            className: PropTypes.string,
             children: PropTypes.any,
             hidden: PropTypes.bool,
             primary: PropTypes.bool,
@@ -70,12 +71,12 @@ const factory = () => {
         }
 
         render () {
-            const {absolute, titleButtons, style, hidden} = this.props;
+            const {absolute, titleButtons, style, hidden, className} = this.props;
             const classes = classnames(theme.cardExpandable, {
                 [theme.absolute]: absolute,
                 [theme.hidden]: hidden,
                 [theme.fullheight]: this.state.expanded === 2
-            });
+            }, className);
             return (
                 <Card className={classes} style={style}>
                     {this.renderCardTitle(titleButtons)}
