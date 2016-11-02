@@ -1,0 +1,86 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "../config";
+@import "../mixins";
+
+.navDrawer.navDrawerPlus {
+  $navigation-drawer-width: $unit * 7;
+  .appBar {
+    @include panel-bar();
+  }
+  .drawerContent {
+    justify-content: flex-start;
+  }
+
+  &.preview.pinned, &:not(.active) {
+    .drawerContent {
+      width: $navigation-drawer-width;
+      max-width: $navigation-drawer-width;
+    }
+    .appBar {
+      display: none;
+    }
+    // Larger than mobile width drawer
+    @media screen and (min-width: $layout-breakpoint-xs) {
+      .drawerContent {
+        width: $navigation-drawer-width;
+        max-width: $navigation-drawer-width;
+      }
+
+      &.wide {
+        .drawerContent {
+          width: $navigation-drawer-width;
+          max-width: $navigation-drawer-width;
+        }
+      }
+    }
+  }
+  &.preview.pinned {
+    width: $navigation-drawer-width;
+  }
+}
+
+/*  AsideWrapper  */
+
+@mixin _flex{
+  display: flex;
+  flex-direction: column;
+}
+.wrapper {
+  @include _flex;
+  justify-content: flex-start;
+  /* for testing */
+  height: 640px;
+  overflow: hidden;
+  max-width: 32rem;
+}
+
+.top, .bottom {
+  @include _flex
+}
+.title {
+  background: #666;
+  color: #fff;
+  justify-content: space-around;
+}
+.columnContent {
+  overflow: auto;
+}
+.top_element {
+  order: 1;
+}
+.bottom_element {
+  order: 2;
+}
+
+// close, open, middle
+
+.close {
+  flex: 1 0 10%;
+}
+.middle {
+  flex: 1 0 50%;
+}
+.open {
+  flex: 1 0 90%;
+}
