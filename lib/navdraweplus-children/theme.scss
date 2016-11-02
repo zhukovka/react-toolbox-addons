@@ -50,27 +50,23 @@
   @include _flex;
   justify-content: flex-start;
   /* for testing */
-  height: 640px;
-  overflow: hidden;
-  max-width: 32rem;
+  height: 100%;
 }
 
-.top, .bottom {
+.top_element, .bottom_element {
   @include _flex
 }
-.title {
-  background: #666;
-  color: #fff;
-  justify-content: space-around;
-}
+
 .columnContent {
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .top_element {
   order: 1;
 }
 .bottom_element {
   order: 2;
+  justify-content: space-between;
 }
 
 // close, open, middle
