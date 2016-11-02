@@ -1,5 +1,4 @@
 import React, {PropTypes, Component} from 'react';
-import classnames from 'classnames';
 
 class ChatContent extends Component{
     constructor (props) {
