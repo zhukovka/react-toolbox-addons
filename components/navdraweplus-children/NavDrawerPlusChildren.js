@@ -115,7 +115,7 @@ class NavDrawerPlusChildren extends Component {
                 <CardTitleButtons center buttons={btns}/>
             </AppBar>);
         } else {
-            const _icon = <ExpandIcon isOpen={NavDrawerPlusChildren.eq(this.state.next, OPEN_STATUS)}/>;
+            const _icon = <ExpandIcon isOpen={!NavDrawerPlusChildren.eq(this.state.next, OPEN_STATUS)}/>;
             const _btn = [{icon: _icon, onClick: this.handleClick.bind(this)}];
             return (<AppBar theme={theme}>
                     <h5>
@@ -125,12 +125,14 @@ class NavDrawerPlusChildren extends Component {
                 </AppBar>);
         }
     }
+
     renderChildren () {
-        const {theme, children} = this.props;
+        const {theme, children, openState} = this.props;
         return React.Children.map(children, (c, i)=>{
             const topOrBottom = NavDrawerPlusChildren.eq(i, 0) ? TOP_ELEMENT : BOTTOM_ELEMENT;
-            const clsForTop = classnames(theme.top, [theme[this.state.next]]);
-            const clsForBottom = classnames(theme.bottom, theme[this.state.prev]);
+            const clsForTop = classnames(theme.top_element, [theme[this.state.next]]);
+            const clsForBottom = classnames(theme.bottom_element, theme[this.state.prev]);
+            if (!(openState === 2 && i === 1)) {
             return (
                 <div key={i + topOrBottom} className={NavDrawerPlusChildren.eq(i, 0) ? clsForTop : clsForBottom}>
                     {this.renderTitle(NavDrawerPlusChildren.eq(i, 0))}
@@ -138,6 +140,9 @@ class NavDrawerPlusChildren extends Component {
                         {c}
                     </div>
                 </div>);
+            } else {
+                return null;
+            }
         });
     }
 
