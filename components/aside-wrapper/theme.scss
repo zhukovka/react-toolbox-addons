@@ -1,8 +1,11 @@
 
 
-.wrapper {
+@mixin _flex{
   display: flex;
   flex-direction: column;
+}
+.wrapper {
+  @include _flex;
   justify-content: flex-start;
   /* for testing */
   height: 640px;
@@ -11,8 +14,7 @@
 }
 
 .top, .bottom {
-  display: flex;
-  flex-direction: column;
+  @include _flex
 }
 .title {
   background: #666;
@@ -22,10 +24,10 @@
 .columnContent {
   overflow: auto;
 }
-.top {
+.top_element {
   order: 1;
 }
-.bottom {
+.bottom_element {
   order: 2;
 }
 

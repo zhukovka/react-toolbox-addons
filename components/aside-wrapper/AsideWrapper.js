@@ -3,7 +3,9 @@ import {Button} from 'react-toolbox/lib/button';
 import {
     CLOSE_STATUS,
     OPEN_STATUS,
-    MIDDLE_STATUS
+    MIDDLE_STATUS,
+    TOP_ELEMENT,
+    BOTTOM_ELEMENT
 } from './constants.js';
 import classnames from 'classnames';
 import ExpandIcon from '../cardexpandable/ExpandIcon.js';
@@ -13,8 +15,8 @@ class AsideWrapper extends Component {
       children: PropTypes.arrayOf(PropTypes.element),
       theme: PropTypes.object
     };
-    static eq (strOne, strTwo){
-        return strOne === strTwo;
+    static eq (a, b) {
+        return a === b;
     }
     static getNextStatus (currentStatus) {
         let resultStatus = '';
@@ -66,24 +68,24 @@ class AsideWrapper extends Component {
             prev: AsideWrapper.getPreviousStatus(this.state.prev)
         });
     }
+
     renderChildren () {
         const {theme, children} = this.props;
         return React.Children.map(children, (c, i)=>{
-            const topOrBottom = i === 0 ? 'top' : 'bottom';
+            const topOrBottom = AsideWrapper.eq(i, 0) ? TOP_ELEMENT : BOTTOM_ELEMENT;
             const clsForTop = classnames(theme.top, [theme[this.state.next]]);
             const clsForBottom = classnames(theme.bottom, theme[this.state.prev]);
-            const _icon = <ExpandIcon isOpen={AsideWrapper.eq(this.state.next, OPEN_STATUS) &&
-                AsideWrapper.eq(this.state.prev, CLOSE_STATUS) ||
-                AsideWrapper.eq(this.state.next, CLOSE_STATUS) && AsideWrapper.eq(this.state.prev, OPEN_STATUS)}/>;
-            return (<div key={i + topOrBottom} className={i === 0 ? clsForTop : clsForBottom}>
-                <div className={theme.title}>
-                    <h4>{topOrBottom}</h4>
-                        <Button icon={_icon} onClick={this.handleClick.bind(this)} />
-                </div>
-                <div className={theme.columnContent}>
-                    {c}
-                </div>
-            </div>);
+            const _icon = <ExpandIcon isOpen={AsideWrapper.eq(this.state.next, OPEN_STATUS)}/>;
+            return (
+                <div key={i + topOrBottom} className={i === 0 ? clsForTop : clsForBottom}>
+                    <div className={theme.title}>
+                        <h4>{topOrBottom}</h4>
+                            <Button icon={_icon} onClick={this.handleClick.bind(this)} />
+                    </div>
+                    <div className={theme.columnContent}>
+                        {c}
+                    </div>
+                </div>);
         });
     }
 
