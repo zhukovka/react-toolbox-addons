@@ -71,29 +71,19 @@ class LayoutTest extends React.Component {
     render () {
 
         const rng = Array.from(new Array(this.state.loremIpsums), (x, i) => i);
-
         return (
             <section>
                 <h5>Layout</h5>
                 <div style={{ width: '100%', height: '60rem', margin: '1.8rem 0' }}>
                     <Layout>
-                             <NavDrawerPlus openState={this.state.openState} pinned={this.state.openState !== 0} permanentAt={this.state.permanentAt} onClick={this.toggleDrawer}>
-                             <AppBar>
-                             <h5>Drawer</h5>
-                             </AppBar>
-                             <ul style={{ listStyle: 'none', overflowY: 'auto', flex: 1, padding: '1.6rem' }}>
-                             {drawerItems}
-                             </ul>
-                             </NavDrawerPlus>
-
-                             <NavDrawerPlus openState={this.state.openState} pinned={this.state.openState !== 0} permanentAt={this.state.permanentAt} onClick={this.toggleDrawer}>
-                             <AppBar>
-                             <h5>Drawer</h5>
-                             </AppBar>
-                             <ul style={{ listStyle: 'none', overflowY: 'auto', flex: 1, padding: '1.6rem' }}>
-                             {drawerItems}
-                             </ul>
-                             </NavDrawerPlus>
+                        <NavDrawerPlus openState={this.state.openState} pinned={this.state.openState !== 0} permanentAt={this.state.permanentAt} onClick={this.toggleDrawer}>
+                            <AppBar>
+                                <h5>Drawer</h5>
+                            </AppBar>
+                            <ul style={{ listStyle: 'none', overflowY: 'auto', flex: 1, padding: '1.6rem' }}>
+                                {drawerItems}
+                            </ul>
+                        </NavDrawerPlus>
                         <Panel>
                             <AppBar>
                                 <IconButton icon='menu' inverse onClick={this.toggleDrawer}/>

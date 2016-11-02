@@ -8,13 +8,10 @@ import {Button} from 'react-toolbox/lib/button';
 
 class CardExpandableTest extends Component {
     state = {hidden: false, value: ''};
-
     render () {
-
         const buttons = [{icon: 'add'}, {icon: 'done'}];
         return (
             <section>
-
                 <h5>Card Expandable Primary</h5>
                 <Button label='Toggle' raised primary onClick={()=>this.setState({hidden: !this.state.hidden})}/>
                 <CardExpandable primary absolute hidden={this.state.hidden} title="Test Expandable card"
