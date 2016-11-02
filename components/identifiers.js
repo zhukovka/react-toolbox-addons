@@ -38,3 +38,4 @@ export const UPLOAD_BUTTON = 'UploadButton';
 export const VERTICALDIVIDER = 'VerticalDivider';
 export const VIDEOPANEL = 'VideoPanel';
 export const NAVDRAWER_PLUS_CHILDREN = 'NavDrawerPlusChildren';
+export const CHAT_CONTENT = 'ChatContent';

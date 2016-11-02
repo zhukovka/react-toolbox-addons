@@ -1,0 +1,18 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "~react-toolbox/lib/layout/config";
+@import "../config";
+@import "../mixins";
+
+.content {
+  overflow: auto;
+  height: 100%;
+  max-height: 30vh;
+}
+[data-react-toolbox="inputgroup"] {
+  background-color: $input-group-bg;
+  input, textarea {
+    padding: $card-inputgroup-padding;
+    font-size: $card-inputgroup-font-size;
+  }
+}
