@@ -40,3 +40,4 @@ export UploadButton from './upload-button';
 export VerticalDivider from './verticaldivider';
 export VideoPanel from './videopanel';
 export FlexCarousel from './flex-carousel';
+export NavDrawerPlusChildren from './navdraweplus-children';
