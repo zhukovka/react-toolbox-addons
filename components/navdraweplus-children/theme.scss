@@ -58,7 +58,8 @@
 }
 
 .columnContent {
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .top_element {
   order: 1;
