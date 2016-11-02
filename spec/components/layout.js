@@ -1,22 +1,9 @@
 import React from 'react';
 import { AppBar, Checkbox, Dropdown, IconButton, RadioGroup, RadioButton } from 'react-toolbox';
 import { Layout, Panel, Sidebar } from 'react-toolbox';
-import TestNavDrawPlusChildren from './TestNavDrawPlusChildren.js';
 import NavDrawerPlus from '../../components/nawdrawerplus';
-import NavDrawPlusChildren from '../../components/navdraweplus-children';
-import CardExpandable from '../../components/cardexpandable/';
-import {List, ListSubHeader} from 'react-toolbox/lib/list';
-import MessageItem from '../../components/messageitem';
-import InputGroup from '../../components/inputgroup';
-import Input from 'react-toolbox/lib/input';
-import GroupListItem from '../../components/grouplistitem';
-import GroupListDivider from '../../components/grouplistdivider';
-import { ListItem, ListDivider} from 'react-toolbox/lib/list';
 
 const dummyText = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.';
-
-
-
 const drawerItems = dummyText.split(/\s/).map(function (word, index) {
     return (<li key={index}>{word}</li>);
 });
@@ -90,10 +77,6 @@ class LayoutTest extends React.Component {
                 <h5>Layout</h5>
                 <div style={{ width: '100%', height: '60rem', margin: '1.8rem 0' }}>
                     <Layout>
-                        <TestNavDrawPlusChildren titleForFirstChild={'Users'} titleForSecondChild={'Chat'} openState={this.state.openState} pinned={this.state.openState !== 0} permanentAt={this.state.permanentAt} onClick={this.toggleDrawer}/>
-
-                        {
-                            /*
                              <NavDrawerPlus openState={this.state.openState} pinned={this.state.openState !== 0} permanentAt={this.state.permanentAt} onClick={this.toggleDrawer}>
                              <AppBar>
                              <h5>Drawer</h5>
@@ -111,131 +94,6 @@ class LayoutTest extends React.Component {
                              {drawerItems}
                              </ul>
                              </NavDrawerPlus>
-                             *
-                             *                         <TestNavDrawPlusChildren titleForFirstChild={'Users'} titleForSecondChild={'Chat'} openState={this.state.openState} pinned={this.state.openState !== 0} permanentAt={this.state.permanentAt} onClick={this.toggleDrawer}/>
-
-                             */
-
-
-                            /*
-                            * <NavDrawPlusChildren titleForFirstChild={'Users'} titleForSecondChild={'Chat'}
-                             openState={this.state.openState} pinned={this.state.openState !== 0}
-                             permanentAt={this.state.permanentAt} onClick={this.toggleDrawer}>
-                             <List selectable ripple>
-                             <ListSubHeader caption='GroupListItem'/>
-                             <GroupListItem
-                             avatar='https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg'
-                             caption='Dr. Manhattan'
-                             legend="Jonathan 'Jon' Osterman"
-                             rightIcon='star'
-                             group="owner"
-                             />
-                             <GroupListDivider/>
-                             <GroupListItem
-                             avatar='https://dl.dropboxusercontent.com/u/2247264/assets/o.jpg'
-                             caption='Ozymandias'
-                             legend='Adrian Veidt'
-                             rightIcon='star'
-                             group="participant"
-                             />
-                             <GroupListDivider/>
-                             <GroupListItem
-                             avatar='https://dl.dropboxusercontent.com/u/2247264/assets/r.jpg'
-                             caption='Rorschach'
-                             legend='Walter Joseph Kovacs'
-                             rightIcon='star'
-                             group="unknown"
-                             />
-                             <GroupListDivider/>
-                             <GroupListItem
-                             avatar='https://dl.dropboxusercontent.com/u/2247264/assets/r.jpg'
-                             caption='Rorschach'
-                             legend='Walter Joseph Kovacs'
-                             rightIcon='star'
-                             group="pilot"
-                             />
-                             <GroupListDivider/>
-                             <GroupListItem
-                             avatar='https://dl.dropboxusercontent.com/u/2247264/assets/r.jpg'
-                             caption='Rorschach'
-                             legend='Walter Joseph Kovacs'
-                             rightIcon='star'
-                             group="observer"
-                             />
-                             <ListDivider />
-                             <GroupListItem caption='Contact the publisher' leftIcon='send'/>
-                             <GroupListItem caption='Remove this publication' leftIcon='delete'/>
-                             <ListDivider />
-                             <ListSubHeader caption='ListItem'/>
-                             <ListItem
-                             avatar='https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg'
-                             caption='Dr. Manhattan'
-                             legend="Jonathan 'Jon' Osterman"
-                             rightIcon='star'
-                             />
-                             <ListItem
-                             avatar='https://dl.dropboxusercontent.com/u/2247264/assets/o.jpg'
-                             caption='Ozymandias'
-                             legend='Adrian Veidt'
-                             rightIcon='star'
-                             />
-                             </List>
-
-                             <CardExpandable primary title="Test Expandable card"
-                             >
-                             <List selectable ripple>
-                             <ListSubHeader caption='Explore characters'/>
-                             <MessageItem
-                             avatar='https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg'
-                             caption='Dr. Manhattan'
-                             legend="Jonathan 'Jon' Osterman Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid consectetur, delectus dignissimos
-                             dolores, et harum illo inventore laboriosam laudantium minima neque nihil officiis perspiciatis quae
-                             quisquam, voluptate voluptatibus. Itaque."/>
-                             <MessageItem
-                             legend='Ololosha'
-                             time="today"
-                             me/>
-                             <MessageItem
-                             legend='Ololosha'
-                             time="today"
-                             me/>
-                             <MessageItem
-                             legend='Ololosha'
-                             time="today"
-                             me/>
-                             <MessageItem
-                             legend='Ololosha'
-                             time="today"
-                             me/>
-                             <MessageItem
-                             legend='Ololosha'
-                             time="today"
-                             me/>
-                             <MessageItem
-                             legend='Ololosha'
-                             time="today"
-                             me/>
-                             <MessageItem
-                             legend='Ololosha'
-                             time="today"
-                             me/>
-                             <MessageItem
-                             legend='Ololosha'
-                             time="today"
-                             me/>
-                             </List>
-                             </CardExpandable>
-                             </NavDrawPlusChildren>
-                            *
-                            *
-                            *
-                            *
-                            * */
-
-                        }
-
-
-
                         <Panel>
                             <AppBar>
                                 <IconButton icon='menu' inverse onClick={this.toggleDrawer}/>
