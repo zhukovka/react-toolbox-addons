@@ -38,11 +38,12 @@ import HoverableContent from './components/HoverableContent';
 import GroupListItem from './components/GroupListItem';
 import LayoutTest from './components/layout';
 import IconSwitcher from './components/IconSwitcher';
-
+import TestChatContent from './components/TestChatContent.js';
 const Root = () => (
 
     <div className={style.app}>
-       <LayoutTest/>
+     <TestChatContent />
+     <LayoutTest/>
      <IconSwitcher/>
      <LayoutTest/>
      <DialogLayout />

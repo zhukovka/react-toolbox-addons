@@ -136,7 +136,7 @@ class NavDrawerPlusChildren extends Component {
             return (
                 <div key={i + topOrBottom} className={NavDrawerPlusChildren.eq(i, 0) ? clsForTop : clsForBottom}>
                     {this.renderTitle(NavDrawerPlusChildren.eq(i, 0))}
-                    <div className={theme.columnContent}>
+                    <div className={theme.columnContent} style={{overflow: i === 1 && 'hidden'}}>
                         {c}
                     </div>
                 </div>);

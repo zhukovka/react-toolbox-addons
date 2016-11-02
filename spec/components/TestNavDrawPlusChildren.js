@@ -1,11 +1,14 @@
 import React from 'react';
 import NavDrawerPlusChildren from '../../components/navdraweplus-children';
-import CardExpandable from '../../components/cardexpandable/';
 import {List, ListSubHeader} from 'react-toolbox/lib/list';
 import MessageItem from '../../components/messageitem';
 import GroupListItem from '../../components/grouplistitem';
 import GroupListDivider from '../../components/grouplistdivider';
 import { ListItem, ListDivider} from 'react-toolbox/lib/list';
+import InputGroup from '../../components/inputgroup';
+import Input from 'react-toolbox/lib/input';
+
+import ChatContent from '../../components/chat-content';
 
 const TestNavDrawChildren = ({...props}) => {
     return (
@@ -70,8 +73,7 @@ const TestNavDrawChildren = ({...props}) => {
                     />
             </List>
 
-            <CardExpandable primary title="Test Expandable card"
-                >
+            <ChatContent>
                 <List selectable ripple>
                     <ListSubHeader caption='Explore characters'/>
                     <MessageItem
@@ -113,7 +115,12 @@ const TestNavDrawChildren = ({...props}) => {
                         time="today"
                         me/>
                 </List>
-            </CardExpandable>
+                <InputGroup>
+                    <Input type='text' label='Name' name='name' value={""} multiline
+
+                        />
+                </InputGroup>
+            </ChatContent>
         </NavDrawerPlusChildren>
     );
 };
