@@ -63,7 +63,9 @@ class FlexCarousel extends Component{
             const container = ReactDOM.findDOMNode(this.refs.flexContainer);
             if (container) {
                 const containerWidth = container.offsetWidth;
-                const childrenWidth = Array.prototype.map.call(container.children, (el)=>el.offsetWidth).reduce((c, n)=>c + n);
+                const childrenWidth = Array.prototype.map.call(container.children, (el)=>el.offsetWidth).reduce((c, n)=>{
+                    return c + n;
+                }, 0);
                 return containerWidth < childrenWidth;
             }
         } else {
