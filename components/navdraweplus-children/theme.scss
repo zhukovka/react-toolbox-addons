@@ -61,10 +61,12 @@
   overflow: hidden;
   height: 100%;
   @include flex_end;
-
 }
 .top_element {
   order: 1;
+  & > .columnContent {
+    justify-content: flex-start;
+  }
 }
 .bottom_element {
   order: 2;
