@@ -66,6 +66,8 @@
   order: 1;
   & > .columnContent {
     justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 }
 .bottom_element {
