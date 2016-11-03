@@ -34,3 +34,9 @@
   transition-property: transform;
   transform-style: preserve-3d;
 }
+
+@mixin flex_end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}

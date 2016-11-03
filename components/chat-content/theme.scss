@@ -5,13 +5,14 @@
 @import "../mixins";
 
 .chatContent {
+  height: 100%;
+  @include flex_end;
   & .content {
     overflow: auto;
-    height: 100%;
-    max-height: 30vh;
   }
   & [data-react-toolbox="inputgroup"] {
     background-color: $input-group-bg;
+    min-height: 4rem;
     input, textarea {
       padding: $card-inputgroup-padding;
       font-size: $card-inputgroup-font-size;

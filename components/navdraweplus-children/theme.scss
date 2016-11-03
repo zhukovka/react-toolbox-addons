@@ -58,8 +58,10 @@
 }
 
 .columnContent {
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
+  height: 100%;
+  @include flex_end;
+
 }
 .top_element {
   order: 1;
@@ -72,11 +74,11 @@
 // close, open, middle
 
 .close {
-  flex: 1 0 7%;
+  flex-basis: 4rem;
 }
 .middle {
   flex: 1 0 50%;
 }
 .open {
-  flex: 1 0 93%;
+  flex: 1;
 }
