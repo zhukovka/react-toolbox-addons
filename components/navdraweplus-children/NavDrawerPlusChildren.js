@@ -104,11 +104,11 @@ class NavDrawerPlusChildren extends Component {
             prev: NavDrawerPlusChildren.getPreviousStatus(this.state.prev)
         });
     }
-    renderTitle (isFirstElement) {
+    renderTitle (isFirstElement, index) {
         const {titleForFirstChild, titleForSecondChild, buttons, onClick, theme} = this.props;
         const btns = [...(buttons || []), {icon: 'close', onClick: (e)=>onClick(e)}];
         if (isFirstElement){
-            return (<AppBar theme={theme}>
+            return (<AppBar key={'navDrawerAppBar_' + index} theme={theme}>
                 <h5>
                     {titleForFirstChild}
                 </h5>
@@ -117,7 +117,7 @@ class NavDrawerPlusChildren extends Component {
         } else {
             const _icon = <ExpandIcon isOpen={!NavDrawerPlusChildren.eq(this.state.next, OPEN_STATUS)}/>;
             const _btn = [{icon: _icon, onClick: this.handleClick.bind(this)}];
-            return (<AppBar theme={theme}>
+            return (<AppBar key={'navDrawerAppBar_' + index} theme={theme}>
                     <h5>
                         {titleForSecondChild}
                     </h5>
@@ -132,10 +132,10 @@ class NavDrawerPlusChildren extends Component {
             const topOrBottom = NavDrawerPlusChildren.eq(i, 0) ? TOP_ELEMENT : BOTTOM_ELEMENT;
             const clsForTop = classnames(theme.top_element, [theme[this.state.next]]);
             const clsForBottom = classnames(theme.bottom_element, theme[this.state.prev]);
-            if (!(openState === 2 && i === 1)) {
+            if (!((openState === 2 || openState === 0) && i === 1)) {
             return (
                 <div key={i + topOrBottom} className={NavDrawerPlusChildren.eq(i, 0) ? clsForTop : clsForBottom}>
-                    {this.renderTitle(NavDrawerPlusChildren.eq(i, 0))}
+                    {this.renderTitle(NavDrawerPlusChildren.eq(i, 0), i)}
                     <div className={theme.columnContent} style={{overflow: i === 1 && 'hidden'}}>
                         {c}
                     </div>
