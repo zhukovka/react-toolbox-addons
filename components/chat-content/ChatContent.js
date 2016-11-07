@@ -1,4 +1,5 @@
 import React, {PropTypes, Component} from 'react';
+import classnames from 'classnames';
 
 class ChatContent extends Component{
     constructor (props) {
@@ -10,9 +11,9 @@ class ChatContent extends Component{
         }
     }
     render () {
-        const {theme, children} = this.props;
+        const {theme, children, className} = this.props;
         return (
-            <div className={theme.chatContent}>
+            <div className={classnames(theme.chatContent, className)}>
                 <div className={theme.content} ref={this.scrollDown.bind(this)}>
                     {children[0]}
                 </div>
@@ -23,6 +24,7 @@ class ChatContent extends Component{
 
 ChatContent.propTypes = {
     children: PropTypes.arrayOf(PropTypes.element),
+    className: PropTypes.string,
     theme: PropTypes.object
 };
 
