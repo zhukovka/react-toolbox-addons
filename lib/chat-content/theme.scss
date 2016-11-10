@@ -13,6 +13,16 @@
   & [data-react-toolbox="inputgroup"] {
     background-color: $input-group-bg;
     min-height: 4rem;
+    display: block;
+    & input, & button {
+      float: left;
+    }
+    & input {
+      width: 90%;
+    }
+    & > button {
+      width: 10%;
+    }
     input, textarea {
       padding: $card-inputgroup-padding;
       font-size: $card-inputgroup-font-size;
