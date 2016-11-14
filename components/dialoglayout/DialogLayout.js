@@ -27,9 +27,11 @@ const DialogLayout = ({children, className, theme, primary, id, ...other}) => {
 
     return (
         <Dialog {...other} type="medium" theme={theme} className={classes}>
-            <Row expanded collapse id={id}>
-                {renderPanels()}
-            </Row>
+            <div id={id}>
+                <Row expanded collapse>
+                    {renderPanels()}
+                </Row>
+            </div>
         </Dialog>
     );
 };
