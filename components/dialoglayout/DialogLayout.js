@@ -8,7 +8,7 @@ import VerticalDivider from '../verticaldivider';
  * DialogLayout props extend Dialog props
  * example https://github.com/zhukovka/react-toolbox-addons/blob/master/components/dialoglayout/example.md
  */
-const DialogLayout = ({children, className, theme, primary, ...other}) => {
+const DialogLayout = ({children, className, theme, primary, id, ...other}) => {
     const classes = classnames(theme.dialogLayout, {
         [theme.primary]: primary
     }, className);
@@ -27,7 +27,7 @@ const DialogLayout = ({children, className, theme, primary, ...other}) => {
 
     return (
         <Dialog {...other} type="medium" theme={theme} className={classes}>
-            <Row expanded collapse>
+            <Row expanded collapse id={id}>
                 {renderPanels()}
             </Row>
         </Dialog>
@@ -36,6 +36,7 @@ const DialogLayout = ({children, className, theme, primary, ...other}) => {
 DialogLayout.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    id: PropTypes.string,
     /**
      * Add to make dialog header background color primary
      * Boolean primary

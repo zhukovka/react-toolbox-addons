@@ -12,15 +12,14 @@
   }
   & [data-react-toolbox="inputgroup"] {
     background-color: $input-group-bg;
-    min-height: 4rem;
     display: block;
-    & input, & button {
+    & [data-react-toolbox="input"], & [data-react-toolbox="button"]{
       float: left;
     }
-    & input {
+    & [data-react-toolbox="input"] {
       width: 90%;
     }
-    & > button {
+    & > [data-react-toolbox="button"] {
       width: 10%;
     }
     input, textarea {
