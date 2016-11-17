@@ -11,6 +11,7 @@ import Checkmark from '../components/checkmark/Checkmark';
 import ChipTransparent from '../components/chips';
 import DialogLayout from './components/DialogLayoutTest';
 import DisabledInput from '../components/disabledinput';
+import Footer from '../components/footer';
 import InputAddonsTest from './components/inputaddons';
 import MenuListTest from './components/menulist';
 import React from 'react';
@@ -189,6 +190,9 @@ const Root = () => (
       <ChipTransparent active>
        <Avatar title="A"/><span>Active chip</span>
       </ChipTransparent>
+     </section>
+     <section>
+        <Footer contentUrl="https://www.sonymcs.com/privacy/" contentMessage="Privacy | Terms"></Footer>
      </section>
 
     </div>

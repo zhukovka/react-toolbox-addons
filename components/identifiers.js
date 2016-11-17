@@ -15,6 +15,7 @@ export const DIALOG_LAYOUT = 'DialogLayout';
 export const DISABLED_INPUT = 'DisabledInput';
 export const DROPDOWNPLUS = 'DropdownPlus';
 export const FLEXLIST = 'FlexList';
+export const FOOTER = 'Footer';
 export const GROUPLISTDIVIDER = 'GroupListDivider';
 export const GROUPLISTITEM = 'GroupListItem';
 export const HOVERABLECONTENT = 'HoverableContent';
