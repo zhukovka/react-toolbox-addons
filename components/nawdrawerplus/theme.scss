@@ -7,6 +7,10 @@
   $navigation-drawer-width: $unit * 7;
   .appBar {
     @include panel-bar();
+    .cardTitle--buttonsWrapper {
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
   .drawerContent {
     justify-content: flex-start;
@@ -37,5 +41,12 @@
   }
   &.preview.pinned {
     width: $navigation-drawer-width;
+  }
+}
+.navDrawer.navDrawerPlus > div {
+  aside > header {
+    .appBar > div > button > span {
+      font-size: 3rem;
+    }
   }
 }

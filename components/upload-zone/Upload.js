@@ -15,7 +15,8 @@ class Upload extends Component {
         className: PropTypes.string,
         defaultClass: PropTypes.string,
         onUpload: PropTypes.func,
-        theme: PropTypes.object
+        theme: PropTypes.object,
+        imageUrl: PropTypes.string
     };
     static defaultProps = {
         defaultClass: UPLOAD
@@ -24,7 +25,7 @@ class Upload extends Component {
         super(props);
         this.state = {
             isDragActive: false,
-            imageUrl: '',
+            imageUrl: props.imageUrl,
             progress: 0
         };
     }

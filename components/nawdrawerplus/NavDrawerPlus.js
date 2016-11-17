@@ -8,7 +8,7 @@ import {ButtonProps} from '../rtcomponentsprops';
 
 const factory = () => {
     const NavDrawerPlus = ({title, children, theme, className, onClick, openState, pinned, buttons})=> {
-        const btns = [...(buttons || []), {icon: 'close', onClick: (e)=>onClick(e)}];
+        const btns = [...(buttons || []), {icon: 'unfold_less', onClick: (e)=>onClick(e)}];
         const classes = classnames(className, theme.navDrawerPlus, {[theme.preview]: openState === NavDrawerPlus.PREVIEW});
         return (
             <NavDrawer active={openState === NavDrawerPlus.OPEN} pinned={pinned} theme={theme} className={classes}>
@@ -16,7 +16,7 @@ const factory = () => {
                     <h5>
                         {title}
                     </h5>
-                    <CardTitleButtons center buttons={btns}/>
+                    <CardTitleButtons center buttons={btns} theme={theme}/>
                 </AppBar>
                 {children}
             </NavDrawer>
