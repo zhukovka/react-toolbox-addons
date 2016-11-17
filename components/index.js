@@ -20,6 +20,7 @@ export DropdownPlus from './dropdownplus';
 export EditableAvatar from './editable-avatar';
 export EditableTitle from './editable-title';
 export FlexList from './flexlist';
+export Footer from './footer';
 export GroupListDivider from './grouplistdivider';
 export GroupListItem from './grouplistitem';
 export HoverableContent from './hoverablecontent';
