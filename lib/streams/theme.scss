@@ -1,0 +1,88 @@
+@import "~react-toolbox/lib/_colors.scss";
+$default-REM: 1.8rem;
+
+.streamPanel {
+
+  &--scrollContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  &--scrollItem {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 160px;
+    min-width: 160px;
+    height: auto;
+    box-sizing: border-box;
+    padding: 0 $default-REM / 2;
+    overflow: hidden;
+  }
+
+  &--noPadding {
+    padding: 0;
+  }
+  &--offsetRight {
+    margin-right: $default-REM*3;
+  }
+  &--newHardware {
+    padding: $default-REM;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  &--borderLeft {
+    border-left: 3px solid $color-white;
+  }
+}
+// THEME
+.cardMedia {
+  &.wide{
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+.cardTitle {
+  &.small{
+    padding: 0;
+  }
+  [data-react-toolbox="avatar"] {
+    & > img {
+      height: 100%;
+    }
+  }
+}
+
+
+
+.cardTitle, .cardText {
+  padding: 0;
+  &:last-child {
+    padding-bottom: 0;
+  }
+  + .cardText {
+    padding-top: 0;
+  }
+}
+.cardText {
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card {
+  &--transparent {
+    background: transparent;
+    border: 2px solid $color-white;
+  }
+}
+.bottomsheet {
+  &:not(.active) {
+    transform: translateY(73%);
+  }
+  &.active {
+    transform: translateY(0%);
+  }
+}

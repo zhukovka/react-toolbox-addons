@@ -1,0 +1,106 @@
+@import '~react-toolbox/lib/colors';
+@import '~react-toolbox/lib/globals';
+@import '~react-toolbox/lib/input/config';
+@import '~react-toolbox/lib/dropdown/theme';
+@import 'config';
+
+.styled_input.white {
+  & > .inputElement {
+    color: white;
+    border-bottom-style: dashed;
+    border-bottom-color: $input-white-text-bottom-border-color;
+  }
+  &.disabled > .inputElement {
+    color: transparentize(white, 0.1);
+    border-bottom: none;
+  }
+}
+
+.styled_input.rightIcon{
+  [data-react-toolbox="font-icon"]{
+    right: 0;
+    left: initial;
+  }
+  &.input{
+    margin-left: 0;
+  }
+}
+.styled_input.large > .inputElement {
+  font-size: $input-large-font-size;
+}
+
+.styled_input.disabled > .inputElement {
+  border: none;
+  color: $color-text;
+  &:focus:not([disabled]):not([readonly]), &:not(.filled), &.filled, &[type="date"], &[type="time"] {
+    ~ .label:not(.fixed) {
+      bottom: 0;
+      font-size: $input-field-font-size;
+      top: initial;
+    }
+  }
+}
+
+.styled_input.disabled.errored {
+  > .error {
+    position: absolute;
+    bottom: 2.5rem;
+  }
+  > .label {
+    bottom: -1.5rem !important;
+  }
+}
+
+.dropdown.dropdown_styled {
+  &.disabled {
+    .value {
+      &:after {
+        content: none;
+      }
+      input {
+        color: $color-text;
+        border-bottom: none;
+      }
+      label {
+        bottom: 0;
+        font-size: $input-field-font-size;
+        top: initial;
+      }
+    }
+  }
+  &.primary {
+    .value {
+      &:after {
+        border-top-color: $color-primary;
+      }
+      input {
+        color: $color-primary;
+      }
+    }
+  }
+  &.right {
+    .value {
+      input {
+        padding-right: $unit * 2.5;
+        text-align: right;
+      }
+    }
+  }
+  &.center {
+    .value {
+      input {
+        text-align: center;
+      }
+    }
+  }
+  &.collapse {
+    .value {
+      input {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+  }
+}
+

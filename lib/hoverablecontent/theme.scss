@@ -1,0 +1,52 @@
+.hoverablecontent {
+  height: 100%;
+  .hoverable_item {
+    height: 100%;
+  }
+
+  &.flex{
+    .hoverable_item {
+      flex-direction: column;
+    }
+    &:hover {
+      .hoverable_item {
+        &:last-child {
+          display: flex;
+        }
+      }
+    }
+    .hoverable_item {
+      &:first-child {
+        display: flex;
+      }
+    }
+  }
+
+  &:not(.flex){
+    &:hover {
+      .hoverable_item {
+        &:last-child {
+          display: block;
+        }
+      }
+    }
+    .hoverable_item {
+      &:first-child {
+        display: block;
+      }
+    }
+  }
+
+  &:hover {
+    .hoverable_item {
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+  .hoverable_item {
+    &:last-child {
+      display: none;
+    }
+  }
+}

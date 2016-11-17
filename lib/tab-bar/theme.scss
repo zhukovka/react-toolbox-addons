@@ -1,0 +1,37 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/_globals";
+
+.tabBar {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+.tabItem {
+  padding: $unit*1.8;
+  list-style-position: outside;
+  color: inherit;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  color: rgba($color-white, .5);
+  & > span {
+    color: inherit;
+  }
+  &.active {
+    color: $color-background;
+    border-bottom: 4px solid $color-accent;
+  }
+  &.primary{
+    color: $color-primary;
+  }
+  &.neutral{
+    color: $color-text;
+  }
+  &.accent{
+    color: $color-accent;
+    &.active {
+      border-bottom-color: $color-primary;
+    }
+  }
+}

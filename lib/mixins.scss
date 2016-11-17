@@ -1,0 +1,42 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "~react-toolbox/lib/button/mixins";
+@import "~react-toolbox/lib/button/config";
+@import "config";
+@mixin shadow-2dp-right() {
+  box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
+  0 -3px 1px 2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
+  0 -1px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
+}
+
+@mixin primary-bg(){
+  background: $color-primary;
+  color: $color-white;
+}
+@mixin accent-bg(){
+  background: $color-accent;
+}
+
+@mixin panel-bar(){
+  position: relative;
+  min-height: $button-floating-mini-height;
+  background: $color-primary;
+  height: $panel_bar-height;
+  h5 {
+    font-size: $title-size;
+  }
+}
+
+@mixin transformAnimation(){
+  transition-delay: 0s;
+  transition-timing-function: $animation-curve-default;
+  transition-duration: $animation-duration;
+  transition-property: transform;
+  transform-style: preserve-3d;
+}
+
+@mixin flex_end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}

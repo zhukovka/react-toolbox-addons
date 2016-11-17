@@ -1,0 +1,68 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "~react-toolbox/lib/button/mixins";
+@import "config";
+@import "~react-toolbox/lib/button/theme.scss";
+@import "~react-toolbox/lib/card/theme.scss";
+
+$default-REM: 1.8rem;
+.cardTitle.cardTitleStyled {
+  position: relative;
+  &.primary {
+    background: $color-primary;
+    color: $color-white;
+  }
+  &.accent {
+    background: $color-accent;
+  }
+}
+
+.cardTitlePrimary.cardTitle {
+  background: $color-primary;
+  color: $color-white;
+  position: relative;
+}
+
+.cardTitle--buttonsWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9;
+  margin: auto;
+  display: flex;
+  color: $card-title_btns_color;
+  background: inherit;
+  [data-react-toolbox="font-icon"]{
+    font-size: $card-title_btns_size;
+  }
+}
+
+.cardMedia {
+  background-color: $color-primary;
+  &.overflow {
+    .content {
+      overflow: visible;
+    }
+  }
+}
+
+.center {
+  align-items: center;
+}
+
+.neutral:not([disabled]) {
+  &.floating {
+    color: inherit;
+    background-color: inherit;
+    box-shadow: none;
+    margin-left: $default-REM;
+  }
+}
+
+.cardMediaPlus {
+  &--wrapper {
+    height: 100%;
+    color: $color-white;
+    background: transparentize($color-black, .65);
+  }
+}

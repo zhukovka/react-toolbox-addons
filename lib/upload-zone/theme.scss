@@ -1,0 +1,34 @@
+
+$default-rem : 3rem;
+$active-drag-color : #ddd;
+
+
+.upload {
+  width: 100%;
+  padding : $default-rem;
+  &--active {
+    background: $active-drag-color;
+  }
+}
+.uploadArea {
+
+  &--content {
+    border: 2px solid #000;
+    width: 10rem;
+    height: 10rem;
+    margin: 0 auto;
+    padding: $default-rem * 3;
+    position: relative;
+
+    & > span {
+      position: absolute;
+      top: 50%;
+      left : 45%;
+      width: 50px;
+      height: 50px;
+    }
+    &:hover {
+      background: #333;
+    }
+  }
+}

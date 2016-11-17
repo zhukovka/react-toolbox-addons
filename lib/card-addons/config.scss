@@ -1,0 +1,11 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+$card-color-white: $color-white !default;
+$card-text-overlay: rgba($color-black, 0.35) !default;
+$card-background-color: $card-color-white !default;
+$card-padding-sm: .8 * $unit !default;
+$card-padding: 1.6 * $unit !default;
+$card-padding-lg: 2 * $unit !default;
+$card-font-size: $font-size-small !default;
+$card-title_btns_color: inherit !default;
+$card-title_btns_size: 2 * $unit !default;

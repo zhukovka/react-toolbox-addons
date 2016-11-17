@@ -1,0 +1,62 @@
+@import '~react-toolbox/lib/mixins';
+@import "./config";
+@import "../bottomsheet/theme";
+
+.bottomsheet_plus {
+  @extend .bottomsheet;
+  background: lighten($bottomsheet-background-color, 10%);
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: static;
+  [data-react-toolbox="font-icon"] {
+    color: $color-white;
+  }
+  &.accept .button {
+    color: $bottomsheet-color-accept;
+  }
+  &.warning .button {
+    color: $bottomsheet-color-warning;
+  }
+  &.cancel .button {
+    color: $bottomsheet-color-cancel;
+  }
+  &:not(.active) {
+    transform: translateY(0%);
+  }
+
+  &__item {
+    display: flex;
+    flex: 1 auto;
+    font-size: $bottomsheet-font-size;
+    overflow: hidden;
+    transition: max-height $animation-duration $animation-curve-default $animation-duration;
+    width: 100%;
+    &:not(.active) {
+      max-height: 0;
+    }
+    &.active {
+      max-height: 500px;
+    }
+  }
+  &__children {
+    width: 100%;
+    & [data-react-toolbox="flexlist"] {
+      padding: 0;
+    }
+  }
+  &__header {
+    @include shadow-2dp;
+    width: 100%;
+    background: $bottomsheet-background-color;
+    [class *= 'cardTitle'] {
+      padding: 0;
+    }
+    & [data-react-toolbox="flexlist"] {
+      padding: 0;
+    }
+
+  }
+}
+

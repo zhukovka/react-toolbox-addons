@@ -1,0 +1,18 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+.avatar {
+  position: relative;
+  overflow: visible;
+  & > img {
+    z-index: 99;
+  }
+}
+
+.status {
+  z-index: 199;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  box-shadow: 0 0 ($unit*2) rgba($color-white, .6);
+}
