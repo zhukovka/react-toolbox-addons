@@ -49,3 +49,18 @@
   transform: none;
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
+
+
+.scroll {
+
+}
+
+.scrollContainer {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 1rem 2rem;
+}
+.scrollItem {
+  padding: 1rem;
+}

@@ -120,12 +120,14 @@ class FlexCarousel extends Component{
             const prevButtonProps = {
                 icon: BUTTON_ICON_PREV,
                 className: classnames(theme.customButton, theme.left),
-                onClick: (e)=>this.prev(active - 1)
+                onClick: (e)=>this.prev(active - 1),
+                disabled: active === 0
             };
             const nextButtonProps = {
                 icon: BUTTON_ICON_NEXT,
                 className: classnames(theme.customButton, theme.right),
-                onClick: (e)=>this.next(active + 1)
+                onClick: (e)=>this.next(active + 1),
+                disabled: active === 5
             };
             controlsArray.push(prevButtonProps, nextButtonProps);
             return controlsArray.map((btnProps, index)=>(<Button key={index} flat {...btnProps}/>));

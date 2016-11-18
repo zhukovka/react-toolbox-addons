@@ -5,6 +5,7 @@ import {CardTitle} from 'react-toolbox/lib/card';
 import {Row, Col} from '../../components/grid';
 import ButtonGroup from '../../components/buttongroup';
 import FlexCarousel from '../../components/flex-carousel';
+import {FlexScroll} from '../../components/flex-carousel';
 import {CardMediaPlus, CardTitleButtons} from '../../components/card-addons';
 import {ButtonView} from '../../components/button-addons/ButtonView';
 import {CardActionsSpaced} from '../../components/cardactionsspaced';
@@ -57,7 +58,7 @@ class BottomSheetTest extends React.Component {
                             </Col>
                         </Row>
                     </div>
-                    <FlexCarousel itemWidth={142}>
+                    <FlexScroll itemWidth={142}>
                         <CardMediaPlus image={TEST_IMG_URL} aspectRatio={'wide'}>
                             <CardActionsSpaced>
                                 <ButtonView label="1" onClick={(e)=>{}}/>
@@ -183,7 +184,7 @@ class BottomSheetTest extends React.Component {
                                 <ButtonOutline label={'view'} flat onClick={(e)=>{}}/>
                             </CardActionsHover>
                         </CardMediaPlus>
-                    </FlexCarousel>
+                    </FlexScroll>
 
                 </BottomSheetPlus>
             </section>
