@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import Button from 'react-toolbox/lib/button';
 import {
     WINDOW_RESIZE_EVENT,
-    FLEX_CONTAINER_REF,
     BUTTON_ICON_NEXT,
     BUTTON_ICON_PREV
 } from './constants.js';

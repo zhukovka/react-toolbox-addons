@@ -5,7 +5,6 @@ import {CardTitle} from 'react-toolbox/lib/card';
 import {Row, Col} from '../../components/grid';
 import ButtonGroup from '../../components/buttongroup';
 import FlexCarousel from '../../components/flex-carousel';
-import {FlexScroll} from '../../components/flex-carousel';
 import {CardMediaPlus, CardTitleButtons} from '../../components/card-addons';
 import {ButtonView} from '../../components/button-addons/ButtonView';
 import {CardActionsSpaced} from '../../components/cardactionsspaced';

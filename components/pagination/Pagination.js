@@ -4,8 +4,6 @@ import DropDown from 'react-toolbox/lib/dropdown';
 import classnames from 'classnames';
 
 import {
-    ARROW_LEFT,
-    ARROW_RIGHT,
     SPAN_TEXT
 } from './constants.js';
 
@@ -46,7 +44,7 @@ class TableWithPagination extends Component{
         return (
             <DropDown
                 source={source}
-                onChange={(val) => {this.setState({max: val})}}
+                onChange={(val) => {this.setState({max: val});}}
                 />
         );
     }
@@ -65,12 +63,12 @@ class TableWithPagination extends Component{
     }
 
     render (){
-        const {className, theme, source, ...props} = this.props;
+        const {className, theme, ...props} = this.props;
         const {items} = this.state;
         const cls = classnames(theme.tableWithPagination, className);
         return (
             <div className={cls}>
-                <Table source={items} {...props}/>
+                <Table {...props} source={items} />
                 <div className={theme.pagination}>
 
                 </div>
