@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import {
     WINDOW_RESIZE_EVENT,
-    FLEX_CONTAINER_REF,
     BUTTON_ICON_NEXT,
     BUTTON_ICON_PREV
 } from './constants.js';
