@@ -6,4 +6,3 @@ import {FLEXCAROUSEL} from '../identifiers.js';
 const ThemedFlexCarousel = themr(FLEXCAROUSEL, theme)(FlexCarousel);
 export default ThemedFlexCarousel;
 export {ThemedFlexCarousel as FlexCarousel};
-
