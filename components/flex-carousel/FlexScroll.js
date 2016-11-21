@@ -77,6 +77,7 @@ class FlexScroll extends Component {
                     className: classnames(theme.customButton, theme.left),
                     onClick: (e)=>this.setState({currentIndex: currentIndex - 1})
                 };
+                controlsArray.push(prevButtonProps);
             }
             if (amountOfItems + currentIndex < children.length) {
                 nextButtonProps = {
@@ -84,8 +85,8 @@ class FlexScroll extends Component {
                     className: classnames(theme.customButton, theme.right),
                     onClick: (e)=>this.setState({currentIndex: currentIndex + 1})
                 };
+                controlsArray.push(nextButtonProps);
             }
-            controlsArray.push(prevButtonProps, nextButtonProps);
             return controlsArray.map((btnProps, index)=>(<Button key={index} flat {...btnProps}/>));
     }
 
