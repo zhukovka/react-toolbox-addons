@@ -58,7 +58,7 @@ class BottomSheetTest extends React.Component {
                             </Col>
                         </Row>
                     </div>
-                    <FlexScroll itemWidth={142}>
+                    <FlexCarousel itemWidth={142}>
                         <CardMediaPlus image={TEST_IMG_URL} aspectRatio={'wide'}>
                             <CardActionsSpaced>
                                 <ButtonView label="1" onClick={(e)=>{}}/>
@@ -184,7 +184,7 @@ class BottomSheetTest extends React.Component {
                                 <ButtonOutline label={'view'} flat onClick={(e)=>{}}/>
                             </CardActionsHover>
                         </CardMediaPlus>
-                    </FlexScroll>
+                    </FlexCarousel>
 
                 </BottomSheetPlus>
             </section>

@@ -25,138 +25,89 @@ class FlexCarousel extends Component{
         })
     };
 
-    static getOrderArray (arrLen, activeIndex){
-        const arr = [];
-        for (let i = 0; i < arrLen; i++){
-            if (i < activeIndex){
-                arr[i] = arrLen - activeIndex + i + 1;
-            } else if (i === activeIndex) {
-                arr[i] = 1;
-            } else {
-                arr[i] = i + 1 - activeIndex;
-            }
-        }
-        return arr;
-    }
-
     constructor (props){
         super(props);
         this.state = {
-            active: 0,
-            showControls: false,
-            reverse: false
+            currentIndex: 0
         };
     }
+
     componentDidMount (){
         window.addEventListener(WINDOW_RESIZE_EVENT, this.handleResize.bind(this));
-        if (this.calculateWidth()){
+        const amountOfItems = this.calculateWidth();
+        if (!!amountOfItems && amountOfItems > 0){
             this.setState({
-                showControls: true
+                amountOfItems
             });
         }
     }
     componentWillUnmount (){
         window.removeEventListener(WINDOW_RESIZE_EVENT, this.handleResize.bind(this));
     }
+
+    handleResize (){
+        this.setState({
+            amountOfItems: this.calculateWidth()
+        });
+    }
+
     calculateWidth (){
         if (this.refs) {
-            const container = ReactDOM.findDOMNode(this.refs.flexContainer);
+            const container = ReactDOM.findDOMNode(this.refs.scroll);
             if (container) {
                 const containerWidth = container.offsetWidth;
-                const childrenWidth = Array.prototype.map.call(container.children, (el)=>el.offsetWidth).reduce((c, n)=>{
-                    return c + n;
-                }, 0);
-                return containerWidth < childrenWidth;
+                return Math.floor(containerWidth / this.props.itemWidth);
             }
         } else {
             return false;
         }
     }
-    handleResize (){
-        this.setState({
-            showControls: this.calculateWidth()
-        });
-    }
-    forTransitionWorks (){
-        const container = ReactDOM.findDOMNode(this.refs.flexContainer);
-        const {theme} = this.props;
-        container.classList.remove(theme.forTransitionWorks);
-        setTimeout(()=>{
-            container.classList.add(theme.forTransitionWorks);
-        }, 50);
-    }
-    next (newVal){
-        if (this.props.children[newVal]){
-            this.setState({
-                active: newVal,
-                reverse: false
-            }, this.forTransitionWorks);
-        } else {
-            this.setState({
-                active: 0,
-                reverse: false
-            }, this.forTransitionWorks);
-        }
-    }
-    prev (newVal){
-        if (this.props.children[newVal]){
-            this.setState({
-                active: newVal,
-                reverse: true
-            }, this.forTransitionWorks);
-        } else {
-            this.setState({
-                active: this.props.children.length - 1,
-                reverse: true
-            }, this.forTransitionWorks);
-        }
-    }
 
     renderControls (){
-        const {active, showControls} = this.state;
-        if (showControls) {
-            const {theme} = this.props;
-            const controlsArray = [];
-            const prevButtonProps = {
+        const {theme, children} = this.props;
+        const {currentIndex, amountOfItems} = this.state;
+        const controlsArray = [];
+        let nextButtonProps = null;
+        let prevButtonProps = null;
+        if (currentIndex !== 0) {
+            prevButtonProps = {
                 icon: BUTTON_ICON_PREV,
                 className: classnames(theme.customButton, theme.left),
-                onClick: (e)=>this.prev(active - 1),
-                disabled: active === 0
+                onClick: (e)=>this.setState({currentIndex: currentIndex - 1})
             };
-            const nextButtonProps = {
+            controlsArray.push(prevButtonProps);
+        }
+        if (amountOfItems + currentIndex < children.length) {
+            nextButtonProps = {
                 icon: BUTTON_ICON_NEXT,
                 className: classnames(theme.customButton, theme.right),
-                onClick: (e)=>this.next(active + 1),
-                disabled: active === 5
+                onClick: (e)=>this.setState({currentIndex: currentIndex + 1})
             };
-            controlsArray.push(prevButtonProps, nextButtonProps);
-            return controlsArray.map((btnProps, index)=>(<Button key={index} flat {...btnProps}/>));
-        } else {
-            return null;
+            controlsArray.push(nextButtonProps);
         }
+        return controlsArray.map((btnProps, index)=>(<Button key={index} flat {...btnProps}/>));
     }
+
+
     renderItems (items = []){
-        const {theme, children, itemWidth} = this.props;
-        const {active} = this.state;
+        const {theme, itemWidth} = this.props;
         const _itemWidth = itemWidth + 'px';
-        const orderList = FlexCarousel.getOrderArray(children.length, active);
-        return React.Children.map(items, (el, index)=>{
+        const ch = React.Children.map(items, (el, index)=>{
             return (<li key={index + '_index'}
-                        className={theme.item}
-                        style={{order: orderList[index], minWidth: _itemWidth, maxWidth: _itemWidth}}>
+                        className={theme.scrollItem}
+                        style={{minWidth: _itemWidth, maxWidth: _itemWidth}}>
                 {el}</li>);
         });
+        return ch.slice(this.state.currentIndex, this.state.amountOfItems + this.state.currentIndex);
+
     }
     render (){
         const {children, theme} = this.props;
-        const cls = classnames(theme.container, {
-            [theme.isReverse]: this.state.reverse
-        }, theme.forTransitionWorks);
         return (
-            <div className={theme.wrapper}>
-                <ul className={cls} ref={FLEX_CONTAINER_REF}>
+            <div className={theme.wrapper} ref="scroll">
+                <div className={theme.scrollContainer}>
                     {this.renderItems(children)}
-                </ul>
+                </div>
                 {this.renderControls()}
             </div>
         );

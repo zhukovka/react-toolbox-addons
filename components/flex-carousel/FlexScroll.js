@@ -105,7 +105,7 @@ class FlexScroll extends Component {
     render (){
         const {children, theme} = this.props;
         return (
-            <div className={theme.scroll} ref="scroll">
+            <div className={theme.wrapper} ref="scroll">
                 <div className={theme.scrollContainer}>
                     {this.renderItems(children)}
                 </div>
