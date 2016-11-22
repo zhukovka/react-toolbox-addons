@@ -43,3 +43,4 @@ export VideoPanel from './videopanel';
 export FlexCarousel from './flex-carousel';
 export NavDrawerPlusChildren from './navdraweplus-children';
 export ChatContent from './chat-content';
+export TableWithPagination from './pagination';

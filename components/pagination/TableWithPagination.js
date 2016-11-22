@@ -10,18 +10,20 @@ import {
     ARROW_RIGHT
 } from './constants.js';
 
-class TableWithPagination extends Table{
+class TableWithPagination extends Component{
     static propTypes = {
-      theme: PropTypes.object,
-      source: PropTypes.array,
-        className: PropTypes.string
+        className: PropTypes.string,
+        onSelect: PropTypes.func,
+        selected: PropTypes.array,
+        source: PropTypes.array,
+        theme: PropTypes.object
     };
     constructor (props){
         super(props);
         this.state = {
             items: props.source,
             startIndex: 0,
-            max: 10
+            max: 5
         };
     }
 
@@ -40,13 +42,22 @@ class TableWithPagination extends Table{
                 label: '15'
             },
             {
-                value: 20,
+                value: 25,
                 label: '20'
+            },
+            {
+                value: 50,
+                label: '50'
+            },
+            {
+                value: 100,
+                label: '100'
             }
-        ];
+        ].filter(el => el.value < this.props.source.length);
         return (
             <DropDown
                 source={source}
+                value={this.state.max}
                 onChange={(val) => {this.setState({max: val});}}
                 />
         );
@@ -54,17 +65,22 @@ class TableWithPagination extends Table{
 
     renderPagination (){
         const {max, startIndex} = this.state;
-        const pagination = `${startIndex === 0 ? 1 : startIndex} / ${max}`;
+        const {source, theme} = this.props;
+        const pagination = `${startIndex === 0 ? 1 : startIndex} / ${(startIndex + max) > source.length ? source.length : startIndex + max} of ${source.length}`;
         const span = SPAN_TEXT + pagination;
         return (
-            <div>
-                {span}
+            <div className={theme.pagination}>
+                <span>{span}</span>
                 {this.renderDropDown()}
+                <div className={theme.controls}>
+                    {this.renderControls()}
+                </div>
             </div>
         );
 
     }
     handleIndexChange (e, startIndex){
+        e.preventDefault();
         this.setState({
             startIndex
         });
@@ -75,12 +91,12 @@ class TableWithPagination extends Table{
         const actions = [
             {
                 icon: ARROW_LEFT,
-                onClick: (e) => this.handleIndexChange(startIndex - max),
+                onClick: (e) => this.handleIndexChange(e, startIndex - max),
                 disabled: startIndex === 0
             },
             {
                 icon: ARROW_RIGHT,
-                onClick: (e) => this.handleIndexChange(startIndex + max),
+                onClick: (e) => this.handleIndexChange(e, startIndex + max),
                 disabled: (startIndex + max) >= source.length
             }
         ];
@@ -89,20 +105,41 @@ class TableWithPagination extends Table{
         });
     }
 
-    /*render (){
+    renderSource (){
+        const {max, startIndex, items} = this.state;
+        return items.slice(startIndex, startIndex + max);
+    }
+
+    handleOnSelect (select) {
+        console.log(select);
+        this.props.onSelect(this.transformIndexes(true, select));
+    }
+
+    transformIndexes (type, source = []){
+        const {startIndex} = this.state;
+        let transformedSource = [];
+        if (type){
+            transformedSource = source.map(i => i + startIndex);
+        }
+        if (!type) {
+            transformedSource = source.map(i => i - startIndex);
+        }
+        return transformedSource;
+    }
+
+    render (){
         const {className, theme, ...props} = this.props;
-        const {items} = this.state;
         const cls = classnames(theme.tableWithPagination, className);
         return (
             <div className={cls}>
-                <Table {...props} source={items} />
-                <div className={theme.pagination}>
+                <Table {...props} onSelect={this.handleOnSelect.bind(this)} source={this.renderSource()}
+                    selected={this.transformIndexes(false, this.props.selected)}
+                    />
                     {this.renderPagination()}
-                    {this.renderControls()}
-                </div>
             </div>
         );
-    }*/
+    }
 }
 
 export default TableWithPagination;
+

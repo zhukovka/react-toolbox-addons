@@ -1,0 +1,22 @@
+.tableWithPagination {
+  & .pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+
+    & > * {
+      align-self: center;
+      margin: 0 1rem;
+      & > .controls {
+        margin: 0 1rem;
+      }
+    }
+    & > [data-react-toolbox = "dropdown"] {
+      width: 5rem;
+
+      & > [data-react-toolbox = "input"] {
+        padding: 0;
+      }
+    }
+  }
+}

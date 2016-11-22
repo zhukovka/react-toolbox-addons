@@ -25,6 +25,18 @@ class TestTableWidthPagination extends React.Component{
     };
     const source = [
         {name: 'Taras', age: 27},
+        {name: 'Inna', age: 27},
+        {name: 'Taras', age: 27},
+        {name: 'Inna', age: 27},
+        {name: 'Taras', age: 27},
+        {name: 'Inna', age: 27},
+        {name: 'Taras', age: 27},
+        {name: 'Inna', age: 27},
+        {name: 'Taras', age: 27},
+        {name: 'Inna', age: 27},
+        {name: 'Taras', age: 27},
+        {name: 'Inna', age: 27},
+        {name: 'Taras', age: 27},
         {name: 'Inna', age: 27}
     ];
 
@@ -37,7 +49,7 @@ class TestTableWidthPagination extends React.Component{
         selected: this.state.selected
     };
 
-        return (<Table {...props}/>);
+        return (<TableWithPagination {...props}/>);
     }
 };
 

@@ -30,7 +30,7 @@
     "react-addons-update": "^15.3.0",
     "react-css-themr": "^1.1.2",
     "react-dom": "^15.3.0",
-    "react-toolbox": "^1.1.2"
+    "react-toolbox": "^1.2.5"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
