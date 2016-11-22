@@ -1,9 +1,8 @@
 import React from 'react';
 import TableWithPagination from '../../components/pagination';
-import Table from 'react-toolbox/lib/table';
 
 class TestTableWidthPagination extends React.Component{
-    constructor(props){
+    constructor (props){
         super(props);
         this.state = {
             selected: []
