@@ -45,9 +45,11 @@ class FlexCarousel extends Component{
     }
 
     handleResize (){
-        this.setState({
-            amountOfItems: this.calculateWidth()
-        });
+        if (this.refs.scroll){
+            this.setState({
+                amountOfItems: this.calculateWidth()
+            });
+        }
     }
 
     calculateWidth (){
