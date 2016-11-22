@@ -2,15 +2,18 @@ import React, {PropTypes, Component} from 'react';
 import Table from 'react-toolbox/lib/table';
 import DropDown from 'react-toolbox/lib/dropdown';
 import classnames from 'classnames';
+import {IconButton} from 'react-toolbox/lib/button';
 
 import {
-    SPAN_TEXT
+    SPAN_TEXT,
+    ARROW_LEFT,
+    ARROW_RIGHT
 } from './constants.js';
 
 class TableWithPagination extends Component{
     static propTypes = {
-      theme: PropTypes.object,
-      source: PropTypes.array,
+        theme: PropTypes.object,
+        source: PropTypes.array,
         className: PropTypes.string
     };
     constructor (props){
@@ -61,6 +64,30 @@ class TableWithPagination extends Component{
         );
 
     }
+    handleIndexChange (e, startIndex){
+        this.setState({
+            startIndex
+        });
+    }
+    renderControls (){
+        const {max, startIndex} = this.state;
+        const {source} = this.props;
+        const actions = [
+            {
+                icon: ARROW_LEFT,
+                onClick: (e) => this.handleIndexChange(startIndex - max),
+                disabled: startIndex === 0
+            },
+            {
+                icon: ARROW_RIGHT,
+                onClick: (e) => this.handleIndexChange(startIndex + max),
+                disabled: (startIndex + max) >= source.length
+            }
+        ];
+        return actions.map((elProps, index) => {
+            return (<IconButton key={`paginationControl ${index}`} {...elProps}/>);
+        });
+    }
 
     render (){
         const {className, theme, ...props} = this.props;
@@ -70,7 +97,8 @@ class TableWithPagination extends Component{
             <div className={cls}>
                 <Table {...props} source={items} />
                 <div className={theme.pagination}>
-
+                    {this.renderPagination()}
+                    {this.renderControls()}
                 </div>
             </div>
         );

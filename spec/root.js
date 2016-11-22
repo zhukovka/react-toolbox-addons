@@ -40,10 +40,11 @@ import GroupListItem from './components/GroupListItem';
 import LayoutTest from './components/layout';
 import IconSwitcher from './components/IconSwitcher';
 import TestChatContent from './components/TestChatContent.js';
-
+import TestTableWithPagination from './components/TestPagination.js';
 const Root = () => (
 
     <div className={style.app}>
+     <TestTableWithPagination />
      <TestChatContent />
      <LayoutTest/>
      <IconSwitcher/>
