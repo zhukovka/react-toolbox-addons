@@ -106,9 +106,9 @@ class FlexCarousel extends Component{
         const {children, theme} = this.props;
         return (
             <div className={theme.wrapper} ref="scroll">
-                <div className={theme.scrollContainer}>
+                <ul className={theme.scrollContainer}>
                     {this.renderItems(children)}
-                </div>
+                </ul>
                 {this.renderControls()}
             </div>
         );
