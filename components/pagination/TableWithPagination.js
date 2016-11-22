@@ -66,17 +66,19 @@ class TableWithPagination extends Component{
     renderPagination (){
         const {max, startIndex} = this.state;
         const {source, theme} = this.props;
-        const pagination = `${startIndex === 0 ? 1 : startIndex} / ${(startIndex + max) > source.length ? source.length : startIndex + max} of ${source.length}`;
-        const span = SPAN_TEXT + pagination;
-        return (
-            <div className={theme.pagination}>
-                <span>{span}</span>
-                {this.renderDropDown()}
-                <div className={theme.controls}>
-                    {this.renderControls()}
+        if (source.length > 10){
+            const pagination = `${startIndex === 0 ? 1 : startIndex} / ${(startIndex + max) > source.length ? source.length : startIndex + max} of ${source.length}`;
+            const span = SPAN_TEXT + pagination;
+            return (
+                <div className={theme.pagination}>
+                    <span>{span}</span>
+                    {this.renderDropDown()}
+                    <div className={theme.controls}>
+                        {this.renderControls()}
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
 
     }
     handleIndexChange (e, startIndex){
