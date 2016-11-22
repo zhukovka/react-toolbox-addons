@@ -21,7 +21,6 @@ class TableWithPagination extends Component{
     constructor (props){
         super(props);
         this.state = {
-            items: props.source,
             startIndex: 0,
             max: 5
         };
@@ -108,8 +107,9 @@ class TableWithPagination extends Component{
     }
 
     renderSource (){
-        const {max, startIndex, items} = this.state;
-        return items.slice(startIndex, startIndex + max);
+        const {max, startIndex} = this.state;
+        const {source} = this.props;
+        return source.slice(startIndex, startIndex + max);
     }
 
     handleOnSelect (select) {
