@@ -34,7 +34,7 @@ class FlexCarousel extends Component{
     componentDidMount (){
         window.addEventListener(WINDOW_RESIZE_EVENT, this.handleResize.bind(this));
         const amountOfItems = this.calculateWidth();
-        if (!!amountOfItems && amountOfItems > 0){
+        if (amountOfItems){
             this.setState({
                 amountOfItems
             });
