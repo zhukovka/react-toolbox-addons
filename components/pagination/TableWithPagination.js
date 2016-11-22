@@ -136,6 +136,7 @@ class TableWithPagination extends Component{
             <div className={cls}>
                 <Table {...props} onSelect={this.handleOnSelect.bind(this)} source={this.renderSource()}
                     selected={this.transformIndexes(false, this.props.selected)}
+                    className={cls}
                     />
                     {this.renderPagination()}
             </div>
