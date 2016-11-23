@@ -23,7 +23,7 @@ class TableWithPagination extends Component{
         super(props);
         this.state = {
             startIndex: 0,
-            max: 10
+            max: props.limit || 10
         };
     }
 
@@ -139,11 +139,11 @@ class TableWithPagination extends Component{
         const cls = classnames(theme.tableWithPagination, className);
         return (
             <div className={cls}>
-                <Table {...props} onSelect={this.handleOnSelect.bind(this)} source={this.renderSource(limit)}
+                <Table {...props} onSelect={this.handleOnSelect.bind(this)} source={this.renderSource(limit || 10)}
                                   selected={this.transformIndexes(false, this.props.selected)}
                                   className={cls}
                     />
-                {this.renderPagination(limit)}
+                {this.renderPagination(limit || 10)}
             </div>
         );
     }
