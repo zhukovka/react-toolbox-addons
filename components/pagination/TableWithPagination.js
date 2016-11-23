@@ -29,6 +29,10 @@ class TableWithPagination extends Component{
     renderDropDown (){
         const source = [
             {
+                value: 5,
+                label: '5'
+            },
+            {
                 value: 10,
                 label: '10'
             },
