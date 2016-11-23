@@ -33,7 +33,7 @@ class TestTableWidthPagination extends React.Component{
         {name: 'pola', age: 99},
         {name: 'qwe', age: 99},
         {name: 'asd', age: 99},
-        {name: 'zxc', age: 99},
+        {name: 'zxc', age: 99}
     ];
 
     const props = {
