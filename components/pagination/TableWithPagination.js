@@ -19,46 +19,39 @@ class TableWithPagination extends Component{
         source: PropTypes.array,
         theme: PropTypes.object
     };
+    static defaultProps = {
+        limit: 10
+    };
+    static getValuesForDropDown (start, len){
+        const res = [];
+        const firstEl = Math.ceil(start / 2);
+        res.push({value: firstEl, label: firstEl + ''});
+        for (let i = start; i < len; i = Math.pow(i, 2)){
+            res.push({value: i, label: i + ''});
+        }
+        return res;
+    }
     constructor (props){
         super(props);
         this.state = {
             startIndex: 0,
-            max: props.limit || 10
+            max: props.limit
         };
     }
 
     renderDropDown (){
-        const source = [
-            {
-                value: 5,
-                label: '5'
-            },
-            {
-                value: 10,
-                label: '10'
-            },
-            {
-                value: 15,
-                label: '15'
-            },
-            {
-                value: 25,
-                label: '20'
-            },
-            {
-                value: 50,
-                label: '50'
-            },
-            {
-                value: 100,
-                label: '100'
-            }
-        ].filter(el => el.value < this.props.source.length);
+        const {source, limit} = this.props;
+        const ddSource = TableWithPagination.getValuesForDropDown(limit, source.length);
+        const getIdx = (val) => {
+            const {startIndex} = this.state;
+            const idx = (startIndex - val);
+            return idx > 0 ? idx : 0;
+        };
         return (
             <DropDown
-                source={source}
+                source={ddSource}
                 value={this.state.max}
-                onChange={(val) => {this.setState({max: val, startIndex: val});}}
+                onChange={(val) => {this.setState({max: val, startIndex: getIdx(val)});}}
                 />
         );
     }
@@ -66,8 +59,9 @@ class TableWithPagination extends Component{
     renderPagination (limit){
         const {max, startIndex} = this.state;
         const {source, theme} = this.props;
-        if (source.length > limit){
-            const pagination = `${startIndex === 0 ? 1 : startIndex}-${(startIndex + max) > source.length ? source.length : startIndex + max} of ${source.length}`;
+        const sourceLen = source.length;
+        if (sourceLen > limit){
+            const pagination = `${startIndex === 0 ? 1 : startIndex}-${(startIndex + max) > sourceLen ? sourceLen : startIndex + max} of ${sourceLen}`;
             const span = SPAN_TEXT + pagination;
             return (
                 <div className={theme.pagination}>
@@ -104,7 +98,7 @@ class TableWithPagination extends Component{
             }
         ];
         return actions.map((elProps, index) => {
-            return (<IconButton key={`paginationControl ${index}`} {...elProps}/>);
+            return (<IconButton key={`paginationControl_${index}`} {...elProps}/>);
         });
     }
 
@@ -139,11 +133,11 @@ class TableWithPagination extends Component{
         const cls = classnames(theme.tableWithPagination, className);
         return (
             <div className={cls}>
-                <Table {...props} onSelect={this.handleOnSelect.bind(this)} source={this.renderSource(limit || 10)}
+                <Table {...props} onSelect={this.handleOnSelect.bind(this)} source={this.renderSource(limit)}
                                   selected={this.transformIndexes(false, this.props.selected)}
                                   className={cls}
                     />
-                {this.renderPagination(limit || 10)}
+                {this.renderPagination(limit)}
             </div>
         );
     }

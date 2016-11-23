@@ -43,7 +43,7 @@ class TestTableWidthPagination extends React.Component{
         selectable: true,
         multiSelectable: true,
         selected: this.state.selected,
-        limit: 5
+        limit: 10
     };
 
         return (<TableWithPagination {...props}/>);
