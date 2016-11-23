@@ -22,16 +22,12 @@ class TableWithPagination extends Component{
         super(props);
         this.state = {
             startIndex: 0,
-            max: 5
+            max: 10
         };
     }
 
     renderDropDown (){
         const source = [
-            {
-                value: 5,
-                label: '5'
-            },
             {
                 value: 10,
                 label: '10'
@@ -66,12 +62,13 @@ class TableWithPagination extends Component{
         const {max, startIndex} = this.state;
         const {source, theme} = this.props;
         if (source.length > 10){
-            const pagination = `${startIndex === 0 ? 1 : startIndex} / ${(startIndex + max) > source.length ? source.length : startIndex + max} of ${source.length}`;
+            const pagination = `${startIndex === 0 ? 1 : startIndex}-${(startIndex + max) > source.length ? source.length : startIndex + max} of ${source.length}`;
             const span = SPAN_TEXT + pagination;
             return (
                 <div className={theme.pagination}>
-                    <span>{span}</span>
+                    <span>{SPAN_TEXT}</span>
                     {this.renderDropDown()}
+                    <span>{pagination}</span>
                     <div className={theme.controls}>
                         {this.renderControls()}
                     </div>
