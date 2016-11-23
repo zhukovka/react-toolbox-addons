@@ -109,7 +109,11 @@ class TableWithPagination extends Component{
     renderSource (){
         const {max, startIndex} = this.state;
         const {source} = this.props;
-        return source.slice(startIndex, startIndex + max);
+        if (source.length > 10){
+            return source.slice(startIndex, startIndex + max);
+        } else {
+            return source;
+        }
     }
 
     handleOnSelect (select) {
