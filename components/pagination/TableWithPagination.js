@@ -58,7 +58,7 @@ class TableWithPagination extends Component{
             <DropDown
                 source={source}
                 value={this.state.max}
-                onChange={(val) => {this.setState({max: val});}}
+                onChange={(val) => {this.setState({max: val, startIndex: val});}}
                 />
         );
     }
