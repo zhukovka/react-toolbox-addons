@@ -13,6 +13,7 @@ import {
 class TableWithPagination extends Component{
     static propTypes = {
         className: PropTypes.string,
+        limit: PropTypes.number,
         onSelect: PropTypes.func,
         selected: PropTypes.array,
         source: PropTypes.array,
@@ -62,10 +63,10 @@ class TableWithPagination extends Component{
         );
     }
 
-    renderPagination (){
+    renderPagination (limit){
         const {max, startIndex} = this.state;
         const {source, theme} = this.props;
-        if (source.length > 10){
+        if (source.length > limit){
             const pagination = `${startIndex === 0 ? 1 : startIndex}-${(startIndex + max) > source.length ? source.length : startIndex + max} of ${source.length}`;
             const span = SPAN_TEXT + pagination;
             return (
@@ -103,14 +104,14 @@ class TableWithPagination extends Component{
             }
         ];
         return actions.map((elProps, index) => {
-           return (<IconButton key={`paginationControl ${index}`} {...elProps}/>);
+            return (<IconButton key={`paginationControl ${index}`} {...elProps}/>);
         });
     }
 
-    renderSource (){
+    renderSource (limit){
         const {max, startIndex} = this.state;
         const {source} = this.props;
-        if (source.length > 10){
+        if (source.length > limit){
             return source.slice(startIndex, startIndex + max);
         } else {
             return source;
@@ -118,7 +119,6 @@ class TableWithPagination extends Component{
     }
 
     handleOnSelect (select) {
-        console.log(select);
         this.props.onSelect(this.transformIndexes(true, select));
     }
 
@@ -135,15 +135,15 @@ class TableWithPagination extends Component{
     }
 
     render (){
-        const {className, theme, ...props} = this.props;
+        const {className, theme, limit, ...props} = this.props;
         const cls = classnames(theme.tableWithPagination, className);
         return (
             <div className={cls}>
-                <Table {...props} onSelect={this.handleOnSelect.bind(this)} source={this.renderSource()}
-                    selected={this.transformIndexes(false, this.props.selected)}
-                    className={cls}
+                <Table {...props} onSelect={this.handleOnSelect.bind(this)} source={this.renderSource(limit)}
+                                  selected={this.transformIndexes(false, this.props.selected)}
+                                  className={cls}
                     />
-                    {this.renderPagination()}
+                {this.renderPagination(limit)}
             </div>
         );
     }
