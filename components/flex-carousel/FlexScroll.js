@@ -1,14 +1,16 @@
 import React, {Component, PropTypes} from 'react';
 import ReactDOM from 'react-dom';
-import classnames from 'classnames';
-import Button from 'react-toolbox/lib/button';
+
 import {
     WINDOW_RESIZE_EVENT,
     BUTTON_ICON_NEXT,
     BUTTON_ICON_PREV
 } from './constants.js';
+import classnames from 'classnames';
+import Button from 'react-toolbox/lib/button';
 
-class FlexCarousel extends Component{
+
+class FlexScroll extends Component {
     static propTypes = {
         children: PropTypes.array,
         itemWidth: PropTypes.number,
@@ -27,14 +29,14 @@ class FlexCarousel extends Component{
     constructor (props){
         super(props);
         this.state = {
-            currentIndex: 0
+          currentIndex: 0
         };
     }
 
     componentDidMount (){
         window.addEventListener(WINDOW_RESIZE_EVENT, this.handleResize.bind(this));
         const amountOfItems = this.calculateWidth();
-        if (amountOfItems){
+        if (!!amountOfItems && amountOfItems > 0){
             this.setState({
                 amountOfItems
             });
@@ -45,11 +47,9 @@ class FlexCarousel extends Component{
     }
 
     handleResize (){
-        if (this.refs.scroll){
-            this.setState({
-                amountOfItems: this.calculateWidth()
-            });
-        }
+        this.setState({
+            amountOfItems: this.calculateWidth()
+        });
     }
 
     calculateWidth (){
@@ -65,28 +65,28 @@ class FlexCarousel extends Component{
     }
 
     renderControls (){
-        const {theme, children} = this.props;
-        const {currentIndex, amountOfItems} = this.state;
-        const controlsArray = [];
-        let nextButtonProps = null;
-        let prevButtonProps = null;
-        if (currentIndex !== 0) {
-            prevButtonProps = {
-                icon: BUTTON_ICON_PREV,
-                className: classnames(theme.customButton, theme.left),
-                onClick: (e)=>this.setState({currentIndex: currentIndex - 1})
-            };
-            controlsArray.push(prevButtonProps);
-        }
-        if (amountOfItems + currentIndex < children.length) {
-            nextButtonProps = {
-                icon: BUTTON_ICON_NEXT,
-                className: classnames(theme.customButton, theme.right),
-                onClick: (e)=>this.setState({currentIndex: currentIndex + 1})
-            };
-            controlsArray.push(nextButtonProps);
-        }
-        return controlsArray.map((btnProps, index)=>(<Button key={index} flat {...btnProps}/>));
+            const {theme, children} = this.props;
+            const {currentIndex, amountOfItems} = this.state;
+            const controlsArray = [];
+            let nextButtonProps = null;
+            let prevButtonProps = null;
+            if (currentIndex !== 0) {
+                prevButtonProps = {
+                    icon: BUTTON_ICON_PREV,
+                    className: classnames(theme.customButton, theme.left),
+                    onClick: (e)=>this.setState({currentIndex: currentIndex - 1})
+                };
+                controlsArray.push(prevButtonProps);
+            }
+            if (amountOfItems + currentIndex < children.length) {
+                nextButtonProps = {
+                    icon: BUTTON_ICON_NEXT,
+                    className: classnames(theme.customButton, theme.right),
+                    onClick: (e)=>this.setState({currentIndex: currentIndex + 1})
+                };
+                controlsArray.push(nextButtonProps);
+            }
+            return controlsArray.map((btnProps, index)=>(<Button key={index} flat {...btnProps}/>));
     }
 
 
@@ -94,10 +94,10 @@ class FlexCarousel extends Component{
         const {theme, itemWidth} = this.props;
         const _itemWidth = itemWidth + 'px';
         const ch = React.Children.map(items, (el, index)=>{
-            return (<li key={index + '_index'}
-                        className={theme.scrollItem}
-                        style={{minWidth: _itemWidth, maxWidth: _itemWidth}}>
-                {el}</li>);
+                return (<li key={index + '_index'}
+                            className={theme.scrollItem}
+                            style={{minWidth: _itemWidth, maxWidth: _itemWidth}}>
+                    {el}</li>);
         });
         return ch.slice(this.state.currentIndex, this.state.amountOfItems + this.state.currentIndex);
 
@@ -106,14 +106,13 @@ class FlexCarousel extends Component{
         const {children, theme} = this.props;
         return (
             <div className={theme.wrapper} ref="scroll">
-                <ul className={theme.scrollContainer}>
+                <div className={theme.scrollContainer}>
                     {this.renderItems(children)}
-                </ul>
+                </div>
                 {this.renderControls()}
             </div>
         );
     }
 }
 
-export default FlexCarousel;
-
+export default FlexScroll;

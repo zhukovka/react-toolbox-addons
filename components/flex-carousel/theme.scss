@@ -5,14 +5,6 @@
   position: relative;
   flex: 1; // insure that it will get all available width
 }
-.container {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
 
 .customButton {
   position: absolute;
@@ -34,19 +26,14 @@
   }
 }
 
-.item {
-  flex : 1 0 100%;
+.scrollContainer {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 2rem 0;
+  margin: 0;
+}
+.scrollItem {
+  padding: 0 1rem;
   align-self: center;
-  padding: 1rem;
-}
-.container {
-  transform: translateX(140px);
-}
-.container.isReverse {
-  transform: translateX(-140px);
-}
-.container.forTransitionWorks{
-  transform: none;
-  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  overflow: visible;
 }
