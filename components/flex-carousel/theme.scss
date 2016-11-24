@@ -1,6 +1,6 @@
 
 .wrapper {
-  overflow: hidden;
+  overflow: visible;
   padding: 0 2rem 0 1rem;
   position: relative;
   flex: 1; // insure that it will get all available width
@@ -48,4 +48,5 @@
 .container.forTransitionWorks{
   transform: none;
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: visible;
 }
