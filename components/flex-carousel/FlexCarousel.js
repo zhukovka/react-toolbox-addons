@@ -57,7 +57,7 @@ class FlexCarousel extends Component{
             const container = ReactDOM.findDOMNode(this.refs.scroll);
             if (container) {
                 const containerWidth = container.offsetWidth;
-                return Math.floor(containerWidth / this.props.itemWidth);
+                return Math.floor(containerWidth / (this.props.itemWidth + 20));
             }
         } else {
             return false;
@@ -104,9 +104,12 @@ class FlexCarousel extends Component{
     }
     render (){
         const {children, theme} = this.props;
+        const sForScrollContainer = children.length > this.state.amountOfItems ? 'space-around' : 'flex-start';
         return (
-            <div className={theme.wrapper} ref="scroll">
-                <ul className={theme.scrollContainer}>
+            <div className={theme.wrapper}>
+                <ul className={theme.scrollContainer} ref="scroll" style={{
+                    justifyContent: sForScrollContainer
+                }}>
                     {this.renderItems(children)}
                 </ul>
                 {this.renderControls()}
