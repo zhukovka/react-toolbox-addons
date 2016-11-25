@@ -1,7 +1,6 @@
 
 .wrapper {
-  overflow: hidden;
-  padding: 0 2rem 0 1rem;
+  padding: 0 2rem 0;
   position: relative;
   flex: 1; // insure that it will get all available width
 }
@@ -22,18 +21,16 @@
   }
   &.right {
     right: 0;
-    padding-right: 1rem;
   }
 }
 
 .scrollContainer {
   display: flex;
-  justify-content: space-between;
   list-style: none;
   padding: 2rem 0;
   margin: 0;
 }
 .scrollItem {
-  padding: 0 1rem;
+  padding: 0 10px;
   align-self: center;
 }
