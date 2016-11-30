@@ -13,6 +13,7 @@ import {ButtonOutline} from '../../components/button-addons/ButtonOutline';
 import CardActionsHover from '../../components/card-addons/CardActionsHover';
 import CustomTooltip from '../../components/custom-tooltip';
 
+
 class BottomSheetTest extends React.Component {
 
     state = {
@@ -33,21 +34,6 @@ class BottomSheetTest extends React.Component {
         const ERROR_STATUS = 'error';
         const ICON_MORE = 'more_horiz';
 
-        const cardWithToolTip = (
-            <CardMediaPlus image={TEST_IMG_URL} aspectRatio={'wide'}>
-                <CardActionsSpaced>
-                    <ButtonView label="1" onClick={(e)=>{}}/>
-                    <StatusComponent status={IDLE_STATUS}/>
-                </CardActionsSpaced>
-                <CardActionsHover >
-                    <CardTitleButtons buttons={[{
-                    icon: ICON_MORE, onClick: ()=> {
-                    }
-                }]}/>
-                    <ButtonOutline label={'view'} flat onClick={(e)=>{}}/>
-                </CardActionsHover>
-            </CardMediaPlus>
-        );
         return (
             <section>
                 <h5>BottomSheets</h5>
@@ -75,21 +61,38 @@ class BottomSheetTest extends React.Component {
                         </Row>
                     </div>
                     <FlexCarousel itemWidth={142}>
-                       <CustomTooltip element={cardWithToolTip} position={'top'} title={'Stream name: sldkfjsdlkfjdskfjdlsfjldsfsdkfj'}/>
+                        <CustomTooltip tooltip="my tooltip" tooltipPosition={'top'}>
 
-                        <CardMediaPlus image={TEST_IMG_URL} aspectRatio={'wide'}>
-                            <CardActionsSpaced>
-                                <ButtonView label="2" onClick={(e)=>{}}/>
-                                <StatusComponent status={ERROR_STATUS}/>
-                            </CardActionsSpaced>
-                            <CardActionsHover >
-                                <CardTitleButtons buttons={[{
+                            <CardMediaPlus image={TEST_IMG_URL} aspectRatio={'wide'}>
+                                <CardActionsSpaced>
+                                    <ButtonView label="1" onClick={(e)=>{}}/>
+                                    <StatusComponent status={IDLE_STATUS}/>
+                                </CardActionsSpaced>
+                                <CardActionsHover >
+                                    <CardTitleButtons buttons={[{
                     icon: ICON_MORE, onClick: ()=> {
                     }
                 }]}/>
-                                <ButtonOutline label={'view'} flat onClick={(e)=>{}}/>
-                            </CardActionsHover>
-                        </CardMediaPlus>
+                                    <ButtonOutline label={'view'} flat onClick={(e)=>{}}/>
+                                </CardActionsHover>
+                            </CardMediaPlus>
+                        </CustomTooltip>
+                        <CustomTooltip tooltip="my tooltip" tooltipPosition={'top'}>
+
+                            <CardMediaPlus image={TEST_IMG_URL} aspectRatio={'wide'}>
+                                <CardActionsSpaced>
+                                    <ButtonView label="1" onClick={(e)=>{}}/>
+                                    <StatusComponent status={IDLE_STATUS}/>
+                                </CardActionsSpaced>
+                                <CardActionsHover >
+                                    <CardTitleButtons buttons={[{
+                    icon: ICON_MORE, onClick: ()=> {
+                    }
+                }]}/>
+                                    <ButtonOutline label={'view'} flat onClick={(e)=>{}}/>
+                                </CardActionsHover>
+                            </CardMediaPlus>
+                        </CustomTooltip>
 
                         <CardMediaPlus image={TEST_IMG_URL} aspectRatio={'wide'}>
                             <CardActionsSpaced>
