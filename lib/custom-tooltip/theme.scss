@@ -1,0 +1,51 @@
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
+@import "~react-toolbox/lib/layout/config";
+@import "../config";
+@import "../mixins";
+
+.wrapCustomTooltip {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.customToolTip {
+  position: absolute;
+  font-size: $font-size-tiny;
+  line-height: $font-size-normal;
+
+  text-align: center;
+  background-color: $color-primary;
+  color: $color-white;
+  padding: $font-size-tiny;
+
+  &.top, &.bottom {
+    left: 0;
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -$font-size-tiny / 2;
+      width: $font-size-tiny;
+      height: $font-size-tiny;
+      background: inherit;
+      left: 45%;
+      transform: rotate(45deg);
+    }
+  }
+
+  &.top {
+    top: -($font-size-normal + ($font-size-tiny * 4));
+    &:after {
+      bottom: -$font-size-tiny / 2;
+    }
+  }
+
+  &.bottom {
+    bottom: -($font-size-normal + ($font-size-tiny * 4));
+    &:after {
+      top: -$font-size-tiny / 2;
+    }
+  }
+}

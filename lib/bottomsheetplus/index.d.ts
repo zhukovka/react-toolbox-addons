@@ -49,6 +49,11 @@ interface BottomSheetProps extends __ReactToolboxAddons.Props {
    * Classnames object defining the component style.
    */
   theme?: BottomSheetTheme;
+  /**
+   * If true, bottomsheet-item tag, will have overflow visible
+   */
+  visibleBody?: boolean
+
 }
 
 export class BottomSheet extends __React.Component<BottomSheetProps, {}> { }
