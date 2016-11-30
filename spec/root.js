@@ -41,11 +41,12 @@ import LayoutTest from './components/layout';
 import IconSwitcher from './components/IconSwitcher';
 import TestChatContent from './components/TestChatContent.js';
 import TestTableWithPagination from './components/TestPagination.js';
-import TestTooltipTitle from './components/TestTooltipTitle.js';
+import TooltipWrapper from './components/TestTooltipTitle.js';
+
 const Root = () => (
 
     <div className={style.app}>
-     <TestTooltipTitle />
+     <TooltipWrapper tooltip="my tooltip" label='test' style={{display: 'inline-block'}} tooltipPosition={'top'}>Hover me</TooltipWrapper>
      <TestTableWithPagination />
      <TestChatContent />
      <LayoutTest/>
