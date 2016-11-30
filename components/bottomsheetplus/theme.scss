@@ -39,6 +39,9 @@
     &.active {
       max-height: 500px;
     }
+    &.visibleBody {
+      overflow: visible;
+    }
   }
   &__children {
     width: 100%;

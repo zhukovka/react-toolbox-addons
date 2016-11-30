@@ -41,3 +41,4 @@ export const VIDEOPANEL = 'VideoPanel';
 export const NAVDRAWER_PLUS_CHILDREN = 'NavDrawerPlusChildren';
 export const CHAT_CONTENT = 'ChatContent';
 export const TABLE_WITH_PAGINATION = 'TableWithPagination';
+export const CUSTOM_TOOLTIP = 'ToolTipTitle';

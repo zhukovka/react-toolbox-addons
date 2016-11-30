@@ -11,7 +11,7 @@ import {CardActionsSpaced} from '../../components/cardactionsspaced';
 import {StatusComponent} from '../../components/status-component';
 import {ButtonOutline} from '../../components/button-addons/ButtonOutline';
 import CardActionsHover from '../../components/card-addons/CardActionsHover';
-
+import CustomTooltip from '../../components/custom-tooltip';
 
 class BottomSheetTest extends React.Component {
 
@@ -26,11 +26,28 @@ class BottomSheetTest extends React.Component {
     };
 
     render () {
+
         const TEST_IMG_URL = 'http://cdn.playbuzz.com/cdn/402d3240-a1df-4b70-ab11-0204c82b2b06/7917e75a-5724-4cb6-8e2d-1e42014c3eb9.jpg';
         const READY_STATUS = 'ready';
         const IDLE_STATUS = 'idle';
         const ERROR_STATUS = 'error';
         const ICON_MORE = 'more_horiz';
+
+        const cardWithToolTip = (
+            <CardMediaPlus image={TEST_IMG_URL} aspectRatio={'wide'}>
+                <CardActionsSpaced>
+                    <ButtonView label="1" onClick={(e)=>{}}/>
+                    <StatusComponent status={IDLE_STATUS}/>
+                </CardActionsSpaced>
+                <CardActionsHover >
+                    <CardTitleButtons buttons={[{
+                    icon: ICON_MORE, onClick: ()=> {
+                    }
+                }]}/>
+                    <ButtonOutline label={'view'} flat onClick={(e)=>{}}/>
+                </CardActionsHover>
+            </CardMediaPlus>
+        );
         return (
             <section>
                 <h5>BottomSheets</h5>
@@ -41,7 +58,7 @@ class BottomSheetTest extends React.Component {
                 <Button label='Show bottomsheet with list' primary raised
                         onClick={()=>this.setState({list: true, cards: false})}/>
 
-                <BottomSheetPlus active>
+                <BottomSheetPlus active sytle={{overflow: 'visible'}} visibleBody>
                     <div>
                         <Row expanded>
                             <Col small={2}>
@@ -58,19 +75,7 @@ class BottomSheetTest extends React.Component {
                         </Row>
                     </div>
                     <FlexCarousel itemWidth={142}>
-                        <CardMediaPlus image={TEST_IMG_URL} aspectRatio={'wide'}>
-                            <CardActionsSpaced>
-                                <ButtonView label="1" onClick={(e)=>{}}/>
-                                <StatusComponent status={IDLE_STATUS}/>
-                            </CardActionsSpaced>
-                            <CardActionsHover >
-                                <CardTitleButtons buttons={[{
-                    icon: ICON_MORE, onClick: ()=> {
-                    }
-                }]}/>
-                                <ButtonOutline label={'view'} flat onClick={(e)=>{}}/>
-                            </CardActionsHover>
-                        </CardMediaPlus>
+                       <CustomTooltip element={cardWithToolTip} position={'top'} title={'Stream name: sldkfjsdlkfjdskfjdlsfjldsfsdkfj'}/>
 
                         <CardMediaPlus image={TEST_IMG_URL} aspectRatio={'wide'}>
                             <CardActionsSpaced>
