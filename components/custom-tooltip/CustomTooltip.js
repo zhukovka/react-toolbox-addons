@@ -5,7 +5,7 @@ class CustomTooltip extends Component {
     constructor (props){
         super(props);
         this.state = {
-            showTooltip: true
+            showTooltip: false
         };
     }
 
@@ -14,13 +14,7 @@ class CustomTooltip extends Component {
         const cls = classnames(theme.customToolTip, {
            [theme[position]]: true
         });
-        if (bool) {
-            return (
-                <p className={cls}>{title}</p>
-            );
-        } else {
-            return null;
-        }
+        return bool === true ? (<p className={cls}>{title}</p>) : null;
     }
     render (){
         const {element, theme} = this.props;
