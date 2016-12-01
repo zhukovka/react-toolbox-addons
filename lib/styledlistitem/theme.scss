@@ -1,5 +1,18 @@
 .styledlistitem {
   background: inherit;
+
+  & .item {
+    flex-wrap: wrap;
+
+    & .itemContentRoot {
+      & .itemText {
+        max-width: 28rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
   & .left, & .right {
     display: flex;
     flex: 0 1 auto;
