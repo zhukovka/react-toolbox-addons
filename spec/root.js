@@ -42,10 +42,22 @@ import IconSwitcher from './components/IconSwitcher';
 import TestChatContent from './components/TestChatContent.js';
 import TestTableWithPagination from './components/TestPagination.js';
 import TooltipWrapper from './components/TestTooltipTitle.js';
+import TestHoverElement from './components/TestHoverElement.js';
+import AppBar from 'react-toolbox/lib/app_bar';
+import Navigation from 'react-toolbox/lib/navigation';
+import Link from 'react-toolbox/lib/link';
+
 
 const Root = () => (
 
     <div className={style.app}>
+     <AppBar title="React Toolbox" leftIcon="menu">
+      <Navigation type="horizontal">
+       <Link href="http://" label="Inbox" icon="inbox" />
+       <TestHoverElement />
+      </Navigation>
+     </AppBar>
+
      <TooltipWrapper tooltip="my tooltip" label='test' style={{display: 'inline-block'}} tooltipPosition={'top'}>Hover me</TooltipWrapper>
      <TestTableWithPagination />
      <TestChatContent />
