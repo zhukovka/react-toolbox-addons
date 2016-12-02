@@ -1,8 +1,8 @@
-import ElementClick from './HoverElement.js';
+import ElementClick from './ElementClick.js';
 import {themr} from 'react-css-themr';
 import theme from './theme.scss';
-import {HOVER_ELEMENT} from '../identifiers.js';
+import {ELEMENT_CLICK} from '../identifiers.js';
 
-const ThemedHoverElement = themr(HOVER_ELEMENT, theme)(ElementClick);
-export {ThemedHoverElement as HoverElement};
-export default ThemedHoverElement;
+const ThemedElementClick = themr(ELEMENT_CLICK, theme)(ElementClick);
+export {ThemedElementClick as ElementClick};
+export default ThemedElementClick;

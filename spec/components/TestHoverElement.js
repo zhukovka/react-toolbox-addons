@@ -1,5 +1,5 @@
 import React from 'react';
-import ElementClick from '../../components/hover-element';
+import ElementClick from '../../components/click-element';
 import {Button} from 'react-toolbox/lib/button';
 import {Card, CardTitle, CardText, CardActions} from 'react-toolbox/lib/card';
 import {IconButton} from 'react-toolbox/lib/button';
