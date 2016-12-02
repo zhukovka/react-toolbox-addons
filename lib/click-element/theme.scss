@@ -1,0 +1,76 @@
+@import '~react-toolbox/lib/colors';
+@import '~react-toolbox/lib/globals';
+@import '~react-toolbox/lib/input/config';
+
+  .wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .iconClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .element {
+    position: absolute;
+    z-index: 999;
+    border: 1px solid $color-primary;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      border-width: 10px;
+      border-style: solid;
+      border-top-color: $color-primary;
+      border-left-color: $color-primary;
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+    }
+
+    &.top {
+      transform: translate(0, -100%);
+      &:after {
+        bottom: -1rem;
+        left: 50%;
+        margin-left: -1rem;
+        transform: rotate(-135deg);
+      }
+    }
+
+    &.bottom {
+      transform: translate(0%, 2%);
+      right: 0;
+
+      &:after {
+        top: -1rem;
+        right: 1rem;
+        transform: rotate(45deg);
+      }
+    }
+
+    &.left {
+      transform: translate(-100%, 50%);
+      &:after {
+        right: -1rem;
+        bottom: 50%;
+        margin-bottom: -1rem;
+        transform: rotate(-225deg);
+
+      }
+    }
+
+    &.right {
+      transform: translate(100%, -50%);
+      &:after {
+        left: -1rem;
+        bottom: 50%;
+        margin-bottom: -1rem;
+        transform: rotate(-45deg);
+      }
+    }
+
+
+  }

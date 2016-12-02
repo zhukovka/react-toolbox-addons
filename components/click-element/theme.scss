@@ -7,6 +7,12 @@
     display: inline-block;
   }
 
+  .iconClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
   .element {
     position: absolute;
     z-index: 999;
