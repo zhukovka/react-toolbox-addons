@@ -18,8 +18,8 @@
       display: inline-block;
       border-width: 10px;
       border-style: solid;
-      border-top-color: green;
-      border-left-color: green;
+      border-top-color: $color-primary;
+      border-left-color: $color-primary;
       border-bottom-color: transparent;
       border-right-color: transparent;
     }
@@ -41,7 +41,6 @@
       &:after {
         top: -1rem;
         right: 5%;
-        //margin-left: -1rem;
         transform: rotate(45deg);
       }
     }

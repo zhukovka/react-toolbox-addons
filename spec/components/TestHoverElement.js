@@ -8,7 +8,7 @@ const TestHoverElement = () => {
 
     const btn = (<Link href="http://" active label="Profile" icon="person" />);
     const el = (
-        <Card>
+        <Card type="wide">
             <CardTitle
                 title="Title goes here"
                 subtitle="Subtitle here"
