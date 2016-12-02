@@ -33,13 +33,13 @@ class HoverElement extends Component {
     }
 
     render (){
-        const {children, theme} = this.props;
+        const {children, theme, ...props} = this.props;
         const {onHover} = this.state;
         return (
             <div className={theme.wrapper}
                 onMouseEnter={(e) => this.handleHover(e, true)}
                 onMouseLeave={(e) => this.handleHover(e, false)}
-                >
+                {...props}>
                 {children}
                 {this.renderHoverElement(onHover)}
             </div>

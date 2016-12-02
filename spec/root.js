@@ -46,11 +46,12 @@ import TestHoverElement from './components/TestHoverElement.js';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
 import Link from 'react-toolbox/lib/link';
-
+import AvatarOverlay from '../components/avatar-overlay';
 
 const Root = () => (
 
     <div className={style.app}>
+     <AvatarOverlay title='some'/>
      <AppBar title="React Toolbox" leftIcon="menu">
       <Navigation type="horizontal">
        <Link href="http://" label="Inbox" icon="inbox" />

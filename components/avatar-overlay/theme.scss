@@ -4,6 +4,9 @@
 .avatar {
   position: relative;
   cursor: pointer;
+  & .letter {
+    line-height: inherit;
+  }
   &--icon {
     position: absolute;
     z-index: 99;
