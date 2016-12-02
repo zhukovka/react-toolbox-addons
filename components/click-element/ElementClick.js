@@ -1,22 +1,27 @@
 import React, {PropTypes, Component} from 'react';
 import classnames from 'classnames';
+import {IconButton} from 'react-toolbox/lib/button';
 
-class HoverElement extends Component {
+class ElementClick extends Component {
     constructor (props){
         super(props);
         this.state = {
-          onHover: false
+          show: false
         };
     }
 
-    renderHoverElement (bool){
+    renderElement (bool){
         const {theme, element, position} = this.props;
         const cls = classnames(theme.element, {
             [theme[position]]: position
         });
         if (bool) {
             return (
-                <div className={cls}>
+                <div className={cls} ref='hoverElement'>
+                    <IconButton icon='close'
+                                className={theme.iconClose}
+                                onClick={(e) => {this.setState({show: false});}}
+                        />
                     {element}
                 </div>
             );
@@ -25,37 +30,39 @@ class HoverElement extends Component {
         }
     }
 
-    handleHover (e, bool){
+    handleOnWrapperClick (e) {
         e.preventDefault();
-        this.setState({
-            onHover: bool
-        });
+        if (!this.state.show){
+            this.setState({
+                show: true
+            });
+        }
     }
 
     render (){
         const {children, theme, ...props} = this.props;
-        const {onHover} = this.state;
+        const {show} = this.state;
         return (
             <div className={theme.wrapper}
-                onMouseEnter={(e) => this.handleHover(e, true)}
-                onMouseLeave={(e) => this.handleHover(e, false)}
+                onClick={this.handleOnWrapperClick.bind(this)}
                 {...props}>
+
                 {children}
-                {this.renderHoverElement(onHover)}
+                {this.renderElement(show)}
             </div>
         );
     }
 }
 
-HoverElement.propTypes = {
+ElementClick.propTypes = {
     children: PropTypes.array,
     element: PropTypes.element,
     position: PropTypes.string,
     theme: PropTypes.object
 };
 
-HoverElement.defaultProps = {
+ElementClick.defaultProps = {
     position: 'bottom'
 };
 
-export default HoverElement;
+export default ElementClick;

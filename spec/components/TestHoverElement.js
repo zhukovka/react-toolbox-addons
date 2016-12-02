@@ -1,12 +1,11 @@
 import React from 'react';
-import HoverElement from '../../components/hover-element';
+import ElementClick from '../../components/hover-element';
 import {Button} from 'react-toolbox/lib/button';
 import {Card, CardTitle, CardText, CardActions} from 'react-toolbox/lib/card';
-import Link from 'react-toolbox/lib/link';
-
+import {IconButton} from 'react-toolbox/lib/button';
 const TestHoverElement = () => {
 
-    const btn = (<Link href="http://" active label="Profile" icon="person" />);
+    const btn = (<IconButton icon="add" />);
     const el = (
         <Card type="wide">
             <CardTitle
@@ -21,9 +20,9 @@ const TestHoverElement = () => {
         </Card>
     );
     return (
-        <HoverElement element={el} position={'bottom'}>
+        <ElementClick element={el} position={'bottom'}>
             {btn}
-        </HoverElement>
+        </ElementClick>
     );
 };
 

@@ -45,4 +45,4 @@ export NavDrawerPlusChildren from './navdraweplus-children';
 export ChatContent from './chat-content';
 export TableWithPagination from './pagination';
 export CustomTooltip from './custom-tooltip';
-export HoverElement from './hover-element';
+export ElementClick from './click-element';
