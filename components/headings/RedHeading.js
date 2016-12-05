@@ -4,10 +4,10 @@ import classnames from 'classnames';
 import {SIDEBAR_PLUS} from '../identifiers';
 
 const factory = () => {
-    const RedHeading = ({children, className, theme, style})=> {
+    const RedHeading = ({children, className, theme})=> {
         const classes = classnames(theme.redHeading, className);
         return (
-            <h5 className={classes} style={style}>
+            <h5 className={classes}>
                 {children}
             </h5>
         );
@@ -16,7 +16,6 @@ const factory = () => {
     RedHeading.propTypes = {
         children: PropTypes.any,
         className: PropTypes.string,
-        style: PropTypes.object,
         theme: PropTypes.shape({
             redHeading: PropTypes.string
         })
