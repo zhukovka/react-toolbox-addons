@@ -1,6 +1,5 @@
 import React, {PropTypes, Component} from 'react';
 import classnames from 'classnames';
-import {IconButton} from 'react-toolbox/lib/button';
 
 class ElementClick extends Component {
     constructor (props){
@@ -10,6 +9,28 @@ class ElementClick extends Component {
         };
     }
 
+    componentWillMount (){
+        window.document.addEventListener('click', this.handleClick.bind(this), true);
+    }
+
+    componentWillUnmount (){
+        window.document.removeEventListener('click', this.handleClick.bind(this), true);
+    }
+
+    handleClick (e) {
+        e.preventDefault();
+        const {appearElement} = this.refs;
+        const {show} = this.state;
+        if (appearElement){
+            const hasElem = appearElement.contains(e.target);
+            if (show && !hasElem) {
+                this.setState({
+                    show: false
+                });
+            }
+        }
+    }
+
     renderElement (bool){
         const {theme, element, position} = this.props;
         const cls = classnames(theme.element, {
@@ -17,11 +38,7 @@ class ElementClick extends Component {
         });
         if (bool) {
             return (
-                <div className={cls} ref='hoverElement'>
-                    <IconButton icon='close'
-                                className={theme.iconClose}
-                                onClick={(e) => {this.setState({show: false});}}
-                        />
+                <div className={cls} ref='appearElement'>
                     {element}
                 </div>
             );
@@ -31,8 +48,8 @@ class ElementClick extends Component {
     }
 
     handleOnWrapperClick (e) {
-        e.preventDefault();
-        if (!this.state.show){
+        const {show} = this.state;
+        if (!show){
             this.setState({
                 show: true
             });
@@ -44,7 +61,10 @@ class ElementClick extends Component {
         const {show} = this.state;
         return (
             <div className={theme.wrapper}
-                onClick={this.handleOnWrapperClick.bind(this)}
+                onClick={(e) => {
+                    e.preventDefault();
+                    this.handleOnWrapperClick(e);
+                }}
                 {...props}>
 
                 {children}
