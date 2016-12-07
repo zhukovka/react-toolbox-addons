@@ -85,11 +85,10 @@ class ElementClick extends Component {
     }
 
     render (){
-        const {theme, ...props} = this.props;
+        const {theme} = this.props;
         const {show} = this.state;
         return (
-            <div className={theme.wrapper}
-                {...props}>
+            <div className={theme.wrapper}>
                 {this.renderChildren()}
                 {this.renderElement(show)}
             </div>
