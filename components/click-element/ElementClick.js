@@ -1,5 +1,17 @@
 import React, {PropTypes, Component} from 'react';
+import ReactDOM from 'react-dom';
 import classnames from 'classnames';
+import {IconButton} from 'react-toolbox/lib/button';
+import {
+    DEFAULT_POSITION,
+    REF_APPEAR_ELEMENT,
+    REF_CHILD,
+    ICON_ARROW_DROP_DOWN,
+    ICON_ARROW_DROP_UP,
+    EVENT_CLICK_WINDOW,
+    DIV,
+    DIV_KEY
+} from './constants.js';
 
 class ElementClick extends Component {
     constructor (props){
@@ -10,20 +22,22 @@ class ElementClick extends Component {
     }
 
     componentWillMount (){
-        window.document.addEventListener('click', this.handleClick.bind(this), true);
+        window.document.addEventListener(EVENT_CLICK_WINDOW, this.handleClick.bind(this), false);
     }
 
     componentWillUnmount (){
-        window.document.removeEventListener('click', this.handleClick.bind(this), true);
+        window.document.removeEventListener(EVENT_CLICK_WINDOW, this.handleClick.bind(this), false);
     }
 
     handleClick (e) {
         e.preventDefault();
-        const {appearElement} = this.refs;
+        const {appearElement, child} = this.refs;
         const {show} = this.state;
-        if (appearElement){
+        if (appearElement && child){
             const hasElem = appearElement.contains(e.target);
-            if (show && !hasElem) {
+            const _child = ReactDOM.findDOMNode(child);
+            const notChild = !_child.contains(e.target);
+            if (show && notChild && !hasElem) {
                 this.setState({
                     show: false
                 });
@@ -38,7 +52,7 @@ class ElementClick extends Component {
         });
         if (bool) {
             return (
-                <div className={cls} ref='appearElement'>
+                <div className={cls} ref={REF_APPEAR_ELEMENT}>
                     {element}
                 </div>
             );
@@ -49,25 +63,32 @@ class ElementClick extends Component {
 
     handleOnWrapperClick (e) {
         const {show} = this.state;
-        if (!show){
             this.setState({
-                show: true
+                show: !show
             });
-        }
+        e.stopPropagation();
+    }
+
+    renderChildren () {
+        const {show} = this.state;
+        return React.Children.map(this.props.children, (child, i) => {
+            const icon = (<IconButton icon={!show ? ICON_ARROW_DROP_DOWN : ICON_ARROW_DROP_UP}/>);
+            const el = React.cloneElement(child);
+            return React.createElement(DIV, {
+                key: DIV_KEY + '_' + i,
+                ref: REF_CHILD,
+                onClick: this.handleOnWrapperClick.bind(this)
+            }, el, icon);
+        });
     }
 
     render (){
-        const {children, theme, ...props} = this.props;
+        const {theme, ...props} = this.props;
         const {show} = this.state;
         return (
             <div className={theme.wrapper}
-                onClick={(e) => {
-                    e.preventDefault();
-                    this.handleOnWrapperClick(e);
-                }}
                 {...props}>
-
-                {children}
+                {this.renderChildren()}
                 {this.renderElement(show)}
             </div>
         );
@@ -82,7 +103,7 @@ ElementClick.propTypes = {
 };
 
 ElementClick.defaultProps = {
-    position: 'bottom'
+    position: DEFAULT_POSITION
 };
 
 export default ElementClick;
