@@ -7,6 +7,11 @@
     display: inline-block;
   }
 
+  .child {
+    display: flex;
+    align-items: center;
+  }
+
   .iconClose {
     position: absolute;
     top: 0;
