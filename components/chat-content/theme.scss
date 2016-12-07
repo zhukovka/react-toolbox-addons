@@ -6,7 +6,8 @@
 
 .chatContent {
   height: 100%;
-  @include flex_end;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   & .content {
     height: 100%;
