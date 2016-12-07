@@ -30,7 +30,6 @@ class ElementClick extends Component {
     }
 
     handleClick (e) {
-        e.preventDefault();
         const {appearElement, child} = this.refs;
         const {show} = this.state;
         if (appearElement && child){
