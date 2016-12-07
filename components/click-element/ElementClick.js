@@ -71,12 +71,14 @@ class ElementClick extends Component {
 
     renderChildren () {
         const {show} = this.state;
+        const {theme} = this.props;
         return React.Children.map(this.props.children, (child, i) => {
             const icon = (<IconButton icon={!show ? ICON_ARROW_DROP_DOWN : ICON_ARROW_DROP_UP}/>);
             const el = React.cloneElement(child);
             return React.createElement(DIV, {
                 key: DIV_KEY + '_' + i,
                 ref: REF_CHILD,
+                className: theme.child,
                 onClick: this.handleOnWrapperClick.bind(this)
             }, el, icon);
         });
