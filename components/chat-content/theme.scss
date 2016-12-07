@@ -7,7 +7,9 @@
 .chatContent {
   height: 100%;
   @include flex_end;
+  justify-content: space-between;
   & .content {
+    height: 100%;
     overflow: auto;
   }
   & [data-react-toolbox="inputgroup"] {
