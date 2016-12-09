@@ -75,6 +75,14 @@
   justify-content: space-between;
 }
 
+.preview {
+  & .top_element {
+    &.close {
+      flex-basis: inherit;
+    }
+  }
+}
+
 // close, open, middle
 
 .close {
