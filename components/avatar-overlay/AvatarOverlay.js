@@ -9,16 +9,14 @@ const AvatarOverlay = ({theme, image, icon, className, ...other}) => {
     const {children} = other;
     return (
         <Avatar image={image} theme={theme} className={classnames({[theme.overlay]: icon}, className)} {...other} >
-            <FontIcon value={icon}
-                      className={theme[AVATAR_OVERLAY_ICON]}
-            />
+            {typeof icon === 'string' ? <FontIcon className={theme[AVATAR_OVERLAY_ICON]} value={icon} /> : icon}
             {children}
         </Avatar>
     );
 };
 AvatarOverlay.propTypes = {
     className: PropTypes.string,
-    icon: PropTypes.string,
+    icon: PropTypes.any,
     image: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.object
