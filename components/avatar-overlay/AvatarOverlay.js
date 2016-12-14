@@ -9,7 +9,7 @@ const AvatarOverlay = ({theme, image, icon, className, ...other}) => {
     const {children} = other;
     return (
         <Avatar image={image} theme={theme} className={classnames({[theme.overlay]: icon}, className)} {...other} >
-            {typeof icon === 'string' ? <FontIcon className={theme[AVATAR_OVERLAY_ICON]} value={icon} /> : icon}
+            <FontIcon className={theme[AVATAR_OVERLAY_ICON]} value={icon} />
             {children}
         </Avatar>
     );
