@@ -6,9 +6,28 @@
 @import "~react-toolbox/lib/button/mixins";
 @import "~react-toolbox/lib/button/config";
 
+
+@mixin custom {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
 .sidebar.sidebarPlus {
   .appBar {
     @include panel-bar();
+    & .appBarHeader {
+      @include custom();
+      justify-content: space-between;
+      color: inherit;
+      width: 100%;
+      & .title {
+        @include custom();
+        color: inherit;
+      }
+      & > button {
+        color: inherit;
+      }
+    }
   }
   height: auto;
   @include shadow-2dp();
