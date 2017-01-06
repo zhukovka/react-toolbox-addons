@@ -9,7 +9,7 @@ const IconWithContent = ({icon, text, iconColor, size, theme, active}) => {
             {active ? (
                 <FontIcon value={icon} className={theme.activeIcon} style={{
                 fontSize: size + 4 + PX,
-                color: 'rgba(255,0,0,.5)',
+                color: 'rgba(255,0,0,.3)',
                 marginLeft: -2 + PX,
                 marginTop: -2 + PX
                 }}/>
