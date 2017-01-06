@@ -46,10 +46,12 @@ import TestHoverElement from './components/TestHoverElement.js';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
 import AvatarOverlay from '../components/avatar-overlay';
+import TestIconWithContent from './components/TestIconWithContent.js';
 
 const Root = () => (
 
     <div className={style.app}>
+     <TestIconWithContent />
      <AvatarOverlay title='some'/>
      <AppBar title="React Toolbox" leftIcon="menu">
       <Navigation type="horizontal">
