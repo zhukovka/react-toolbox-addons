@@ -27,7 +27,7 @@ export GroupListItem from './grouplistitem';
 export HoverableContent from './hoverablecontent';
 export IconSwitcher from './iconswitcher';
 export InputGroup from './inputgroup';
-export IconWithContent from './icon-addons';g
+export IconWithContent from './icon-addons';
 export MessageItem from './messageitem';
 export NavDrawerPlus from './nawdrawerplus';
 export NavigationChips from './navigation-chips';

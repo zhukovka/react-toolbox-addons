@@ -19,7 +19,7 @@ const TestIconWithContent = () => {
                 display: 'inline-block',
                 background: '#333'
             }}>
-                <IconWithContent text={'Source bla bla'} icon={'videocam'} iconColor={'gray'} size={142}  />
+                <IconWithContent text={'Source bla bla'} icon={'videocam'} iconColor={'gray'} size={142} />
             </div>
             <div style={{
                 width: '142px',
@@ -27,7 +27,7 @@ const TestIconWithContent = () => {
                 display: 'inline-block',
                 background: '#333'
             }}>
-                <IconWithContent text={'Source bla bla'} icon={'videocam'} iconColor={'gray'} size={142}  />
+                <IconWithContent text={'Source bla bla'} icon={'videocam'} iconColor={'gray'} size={142} />
             </div>
         </div>
     );
