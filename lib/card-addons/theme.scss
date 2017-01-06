@@ -32,6 +32,7 @@ $default-REM: 1.8rem;
   display: flex;
   color: $card-title_btns_color;
   background: inherit;
+  height: 100%;
   [data-react-toolbox="font-icon"]{
     font-size: $card-title_btns_size;
   }
