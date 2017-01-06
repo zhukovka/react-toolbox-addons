@@ -43,4 +43,5 @@ export const CHAT_CONTENT = 'ChatContent';
 export const TABLE_WITH_PAGINATION = 'TableWithPagination';
 export const CUSTOM_TOOLTIP = 'ToolTipTitle';
 export const ELEMENT_CLICK = 'ElementClick';
+export const ICON_WITH_CONTENT = 'IconWithContent';
 export const BUTTON_SWITCHER = 'ButtonSwitcher';

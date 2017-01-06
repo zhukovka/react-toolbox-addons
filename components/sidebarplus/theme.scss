@@ -15,17 +15,18 @@
 .sidebar.sidebarPlus {
   .appBar {
     @include panel-bar();
+    height: 4rem;
     & .appBarHeader {
       @include custom();
       justify-content: space-between;
       color: inherit;
       width: 100%;
-      & .title {
-        @include custom();
-        color: inherit;
-      }
-      & > button {
-        color: inherit;
+    }
+    & .title {
+      @include custom();
+      & > [data-react-toolbox="font-icon"] {
+        font-size: 20px;
+        margin-left: .8rem;
       }
     }
   }
