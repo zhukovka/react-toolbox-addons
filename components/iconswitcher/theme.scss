@@ -39,6 +39,14 @@
   .button {
     background: $default-color;
     border-radius: $border-radius;
+    height: 3rem;
+    line-height: 3rem;
+
+    & > [data-react-toolbox="font-icon"] {
+      font-size: 20px;
+      line-height: 3rem;
+      margin-left: .4rem;
+    }
     &.active {
       background: $active;
       color: #fff;
