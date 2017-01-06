@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
 import GroupListItem from '../../components/grouplistitem';
-import GroupListDivider from '../../components/grouplistdivider';
+import {GroupListDivider, GroupListDividerWithClick} from '../../components/grouplistdivider';
+
 import {List, ListItem, ListSubHeader, ListDivider} from 'react-toolbox/lib/list';
 class GroupListItemTest extends Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+          active: false
+        };
+    }
     render () {
         return (
             <section>
@@ -16,7 +23,11 @@ class GroupListItemTest extends Component {
                         rightIcon='star'
                         group="owner"
                     />
-                    <GroupListDivider/>
+                    <GroupListDividerWithClick onClick={() => {
+                        this.setState({
+                            active: !this.state.active
+                        });
+                    }} collapsed={this.state.active} />
                     <GroupListItem
                         avatar='https://dl.dropboxusercontent.com/u/2247264/assets/o.jpg'
                         caption='Ozymandias'
