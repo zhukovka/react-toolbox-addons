@@ -21,11 +21,13 @@ export EditableAvatar from './editable-avatar';
 export EditableTitle from './editable-title';
 export FlexList from './flexlist';
 export Footer from './footer';
-export GroupListDivider from './grouplistdivider';
+export {GroupListDivider} from './grouplistdivider';
+export {GroupListDividerWithClick} from './grouplistdivider';
 export GroupListItem from './grouplistitem';
 export HoverableContent from './hoverablecontent';
 export IconSwitcher from './iconswitcher';
 export InputGroup from './inputgroup';
+export IconWithContent from './icon-addons';g
 export MessageItem from './messageitem';
 export NavDrawerPlus from './nawdrawerplus';
 export NavigationChips from './navigation-chips';
