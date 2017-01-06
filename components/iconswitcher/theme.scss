@@ -20,3 +20,29 @@
     flex: 2 auto;
   }
 }
+.buttonSwitcher {
+  display: inline-flex;
+  & > .button:first-child {
+    margin-right: .4rem;
+  }
+
+  .flat {
+    min-width: 14rem;
+    max-width: 14rem;
+    color: $color-white;
+  }
+  .neutral:not([disabled]) {
+    &.flat {
+      color: $color-white;
+    }
+  }
+  .button {
+    background: $default-color;
+    border-radius: $border-radius;
+    &.active {
+      background: $active;
+      color: #fff;
+    }
+  }
+}
+

@@ -1,7 +1,11 @@
 import {themr} from 'react-css-themr';
-import {ICONSWITCHER} from '../identifiers';
+import {ICONSWITCHER, BUTTON_SWITCHER} from '../identifiers';
 import theme from './theme.scss';
 import {IconSwitcherFactory} from './IconSwitcher';
+import {ButtonSwitcherFactory} from './ButtonSwitcher';
 const IconSwitcher = IconSwitcherFactory();
+const ButtonSwitcher = ButtonSwitcherFactory();
 const ThemedIconSwitcher = themr(ICONSWITCHER, theme)(IconSwitcher);
-export default ThemedIconSwitcher;
+const ThemedButtonSwitcher = themr(BUTTON_SWITCHER, theme)(ButtonSwitcher);
+export {ThemedIconSwitcher as IconSwitcher};
+export {ThemedButtonSwitcher as ButtonSwitcher};
