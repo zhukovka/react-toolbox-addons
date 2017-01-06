@@ -17,6 +17,7 @@ export const DROPDOWNPLUS = 'DropdownPlus';
 export const FLEXLIST = 'FlexList';
 export const FOOTER = 'Footer';
 export const GROUPLISTDIVIDER = 'GroupListDivider';
+export const GROUPLISTDIVIDERWITHCLICK = 'GroupListDividerWithClick';
 export const GROUPLISTITEM = 'GroupListItem';
 export const HOVERABLECONTENT = 'HoverableContent';
 export const ICONSWITCHER = 'IconSwitcher';
