@@ -4,11 +4,28 @@ import IconWithContent from '../../components/icon-addons';
 const TestIconWithContent = () => {
 
     return (
-        <div style={{
-            width: '142px',
-            height: '142px'
-        }}>
-            <IconWithContent text={'Source bla bla'} icon={'videocam'} iconColor={'gray'} width={84}/>
+        <div>
+            <div style={{
+                width: '142px',
+                height: '142px',
+                display: 'inline-block'
+            }}>
+                <IconWithContent text={'Source bla bla'} icon={'videocam'} iconColor={'gray'} size={142} active={true} />
+            </div>
+            <div style={{
+                width: '142px',
+                height: '142px',
+                display: 'inline-block'
+            }}>
+                <IconWithContent text={'Source bla bla'} icon={'videocam'} iconColor={'gray'} size={142}  />
+            </div>
+            <div style={{
+                width: '142px',
+                height: '142px',
+                display: 'inline-block'
+            }}>
+                <IconWithContent text={'Source bla bla'} icon={'videocam'} iconColor={'gray'} size={142}  />
+            </div>
         </div>
     );
 };
