@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react';
 import {FontIcon} from 'react-toolbox/lib/font_icon';
 
-const IconWithContent = ({icon, text, iconColor, size, theme, active}) => {
+const IconWithContent = ({icon, text, iconColor, size, theme, active, onClick, style}) => {
     const fontSize = parseInt(size / 10);
     const PX = 'px';
     return (
-        <div className={theme.wrapper}>
+        <div className={theme.wrapper} style={style}>
             {active ? (
                 <FontIcon value={icon} className={theme.activeIcon} style={{
                 fontSize: size + 4 + PX,
@@ -14,7 +14,7 @@ const IconWithContent = ({icon, text, iconColor, size, theme, active}) => {
                 marginTop: -2 + PX
                 }}/>
             ) : null}
-            <FontIcon value={icon} className={theme.icon} style={{fontSize: size + PX, color: iconColor}}/>
+            <FontIcon value={icon} className={theme.icon} style={{fontSize: size + PX, color: iconColor}} onClick={onClick}/>
             <span className={theme.content} style={{
                 top: size / 2 + PX,
                 left: size / 4 + PX,
@@ -33,7 +33,9 @@ IconWithContent.propTypes = {
     iconColor: PropTypes.string,
     size: PropTypes.number,
     text: PropTypes.string,
-    theme: PropTypes.object
+    theme: PropTypes.object,
+    onClick: PropTypes.func,
+    style: PropTypes.object
 };
 
 export default IconWithContent;
