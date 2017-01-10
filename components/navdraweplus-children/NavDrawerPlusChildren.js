@@ -131,7 +131,7 @@ class NavDrawerPlusChildren extends Component {
         return React.Children.map(children, (c, i)=>{
             const topOrBottom = NavDrawerPlusChildren.eq(i, 0) ? TOP_ELEMENT : BOTTOM_ELEMENT;
             const clsForTop = classnames(theme.top_element, [theme[this.state.next]], {
-                [theme.open]: !children[1]
+                [theme.open]: openState === 0
             });
             const clsForBottom = classnames(theme.bottom_element, theme[this.state.prev]);
             if (!((openState === 2 || openState === 0) && i === 1)) {
