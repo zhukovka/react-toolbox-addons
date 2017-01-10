@@ -33,6 +33,11 @@ $default-REM: 1.8rem;
   color: $card-title_btns_color;
   background: inherit;
   height: 100%;
+
+
+  & > .floating> span:not([data-react-toolbox="tooltip"]) {
+    vertical-align: middle;
+  }
   [data-react-toolbox="font-icon"]{
     font-size: $card-title_btns_size;
   }
