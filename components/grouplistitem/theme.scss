@@ -9,3 +9,9 @@
     border-left-color: $value;
   }
 }
+.itemText {
+  &:not(.primary) {
+    padding-top: 0;
+    font-size: $font-size-tiny;
+  }
+}

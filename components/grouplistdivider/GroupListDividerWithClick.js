@@ -29,5 +29,4 @@ GroupListDividerWithClick.propTypes = {
 const factory = () => GroupListDividerWithClick;
 export default themr(GROUPLISTDIVIDERWITHCLICK)(GroupListDividerWithClick);
 export {factory as GroupListDividerWithClickFactory};
-//export {GroupListDividerWithClick};
 
