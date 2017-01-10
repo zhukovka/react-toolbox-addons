@@ -21,11 +21,11 @@
     left: 50%;
     margin-left: -5px;
     cursor: pointer;
-    font-size: 20px;
-    top: 50%;
-    margin-top: -8px;
+    font-size: 34px;
+    bottom: -14px;
+    color: inherit;
     &.collapsed {
-      margin-top: -12px;
+      top: -14px;
     }
   }
 }
