@@ -6,7 +6,6 @@
 .navDrawer.navDrawerPlus {
   $navigation-drawer-width: $unit * 7;
   .appBar {
-    height: 4rem;
     @include panel-bar();
   }
   .drawerContent {
@@ -19,7 +18,6 @@
       max-width: $navigation-drawer-width;
     }
     .appBar {
-      height: 4rem;
       display: none;
     }
     // Larger than mobile width drawer

@@ -7,7 +7,6 @@
   $navigation-drawer-width: $unit * 7;
   .appBar {
     @include panel-bar();
-    height: 4rem;
     .cardTitle--buttonsWrapper {
       top: 50%;
       transform: translateY(-50%);
@@ -23,7 +22,6 @@
       max-width: $navigation-drawer-width;
     }
     .appBar {
-      height: 4rem;
       display: none;
     }
     // Larger than mobile width drawer
