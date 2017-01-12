@@ -6,16 +6,21 @@ import {themr} from 'react-css-themr';
 
 
 const GroupListDividerWithClick = ({
-        onClick, theme, collapsed
+        onClick, theme, collapsed, title
     }) => {
     const ARROW_DROP_DOWN = 'arrow_drop_down';
     const ARROW_DROP_UP = 'arrow_drop_up';
-    const cls = classnames(theme.clickIcon, {
+    const cls = classnames(theme.title, {
         [theme.collapsed]: collapsed
+    });
+    const clsIcon = classnames(theme.clickIcon, {
+       [theme.iconCollapsed]: collapsed
     });
     return (
         <div className={theme.clickDivider}>
-            <FontIcon value={!collapsed ? ARROW_DROP_UP : ARROW_DROP_DOWN} onClick={onClick} className={cls}/>
+            <p className={cls} onClick={onClick}>{title}
+                <FontIcon value={!collapsed ? ARROW_DROP_DOWN : ARROW_DROP_UP} className={clsIcon}/>
+            </p>
         </div>
     );
 };
@@ -23,7 +28,8 @@ const GroupListDividerWithClick = ({
 GroupListDividerWithClick.propTypes = {
     collapsed: PropTypes.bool,
     onClick: PropTypes.func,
-    theme: PropTypes.object
+    theme: PropTypes.object,
+    title: PropTypes.string
 };
 
 const factory = () => GroupListDividerWithClick;
