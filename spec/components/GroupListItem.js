@@ -27,7 +27,7 @@ class GroupListItemTest extends Component {
                         this.setState({
                             active: !this.state.active
                         });
-                    }} collapsed={this.state.active} />
+                    }} collapsed={this.state.active} title={"Pilots"}/>
                     <GroupListItem
                         avatar='https://dl.dropboxusercontent.com/u/2247264/assets/o.jpg'
                         caption='Ozymandias'
