@@ -14,18 +14,29 @@
 
 .clickDivider {
   @include _divider();
+  height: auto;
   position: relative;
+  display: flex;
+  justify-content: center;
 
-  .clickIcon {
-    position: absolute;
-    left: 50%;
-    margin-left: -5px;
+  .title {
+    font-size: $font-size-tiny;
+    color: rgba(0,0,0,.5);
+    line-height: $font-size-tiny;
     cursor: pointer;
-    font-size: 34px;
-    bottom: -14px;
-    color: $color-white;
+    position: relative;
     &.collapsed {
-      top: -14px;
+      color: $color-white;
+    }
+
+    .clickIcon {
+      position: absolute;
+      color: inherit;
+      top: -50%;
+
+      &.iconCollapsed {
+        transform: rotate(-90deg);
+      }
     }
   }
 }
