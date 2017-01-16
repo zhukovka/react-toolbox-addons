@@ -2,6 +2,11 @@
 
 .grouplistitem {
   border-left: 4px solid;
+  & .item {
+    & .itemContentRoot {
+      height: $list-item-min-height;
+    }
+  }
 }
 
 @each $property, $value in $groups {
