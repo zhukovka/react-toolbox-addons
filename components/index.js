@@ -48,4 +48,4 @@ export ChatContent from './chat-content';
 export TableWithPagination from './pagination';
 export CustomTooltip from './custom-tooltip';
 export ElementClick from './click-element';
-export Alert from 'react-s-alert';
+export Toastr from './custom-toastr/Toastr.js';
