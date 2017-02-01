@@ -12,4 +12,12 @@ import '../../node_modules/react-s-alert/dist/s-alert-css-effects/stackslide.css
 const Toastr = (props) => {
   return (<Alert {...props}/>);
 };
+Toastr.info = Alert.info;
+Toastr.warnign = Alert.warning;
+Toastr.error = Alert.error;
+Toastr.success = Alert.success;
+Toastr.close = Alert.close;
+Toastr.closeAll = Alert.closeAll;
+
+
 export default Toastr;
