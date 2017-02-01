@@ -47,10 +47,12 @@ import AppBar from 'react-toolbox/lib/app_bar';
 import Navigation from 'react-toolbox/lib/navigation';
 import AvatarOverlay from '../components/avatar-overlay';
 import TestButtonSwitcher from './components/TestButtonSwithcer.js';
+import Home from '../components/custom-toastr/Toastr.js';
 
 const Root = () => (
-
     <div className={style.app}>
+
+     <Home />
      <TestButtonSwitcher />
      <AvatarOverlay title='some'/>
      <AppBar title="React Toolbox" leftIcon="menu">
@@ -212,7 +214,6 @@ const Root = () => (
      <section>
         <Footer contentUrl="https://www.sonymcs.com/privacy/" contentMessage="Privacy | Terms"></Footer>
      </section>
-
     </div>
 );
 

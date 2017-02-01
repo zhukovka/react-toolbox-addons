@@ -32,8 +32,12 @@ module.exports = {
                 loader: 'babel',
                 exclude: [/(node_modules)/, /react-css-themr/]
             }, {
-                test: /\.(scss|css)$/,
+                test: /\.(scss)$/,
                 loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap')
+            },
+            {
+                test: /\.(css)$/,
+                loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[local]!postcss')
             }
         ],
         preLoaders: [
