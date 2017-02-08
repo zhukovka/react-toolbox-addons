@@ -2,7 +2,7 @@ import {themr} from 'react-css-themr';
 import {GROUPLISTITEM, LIST_ITEM_DROP_DOWN_CONTENT} from '../identifiers';
 import theme from './theme.scss';
 import {GroupListItemFactory} from './GroupListItem';
-import {ListItemDropDownContentFactory} from './ListItemWithDropDown.js';
+import {ListItemDropDownContentFactory} from './ListItemDropDownContent';
 const GroupListItem = GroupListItemFactory();
 const ListItemDropDownContent = ListItemDropDownContentFactory();
 const ThemdeListItemWithDropDown = themr(LIST_ITEM_DROP_DOWN_CONTENT, theme)(ListItemDropDownContent);
