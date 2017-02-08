@@ -49,4 +49,4 @@ export TableWithPagination from './pagination';
 export CustomTooltip from './custom-tooltip';
 export ElementClick from './click-element';
 export Toastr from './custom-toastr/Toastr.js';
-export ListItemWithDropDown from './grouplistitem/ListItemWithDropDown.js';
+export ListItemDropDownContent from './grouplistitem/ListItemDropDownContent.js';
