@@ -29,7 +29,7 @@ class GroupListItemTest extends Component {
                         ripple={false} selectable={false}
                         itemContent={<ListItemDropDownContent title={'Dr. Manhattan'} source={countries} onChange={(e) => {
                          console.log(e.currentTarget.value);
-                         }} />}
+                       }} selected={countries[0].value}/>}
                         rightIcon='star'
                         group="owner"
                     />
