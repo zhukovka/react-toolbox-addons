@@ -23,12 +23,8 @@
 /*  ListItemWithDropDown  */
 .listItemContent {
   width: 100%;
-  &_title {
-
-  }
-
   & [data-react-toolbox="dropdown"] {
-    width: 25%;
+    width: 12rem;
 
     & [data-react-toolbox="input"] {
       padding: 0;
