@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import GroupListItem from '../../components/grouplistitem';
+import {GroupListItem, ListItemDropDownContent} from '../../components/grouplistitem';
 import {GroupListDivider, GroupListDividerWithClick} from '../../components/grouplistdivider';
 
 import {List, ListItem, ListSubHeader, ListDivider} from 'react-toolbox/lib/list';
@@ -11,15 +11,25 @@ class GroupListItemTest extends Component {
         };
     }
     render () {
+        const countries = [
+            {value: 'EN-gb', label: 'England', img: 'http://'},
+            {value: 'ES-es', label: 'Spain', img: 'http://'},
+            {value: 'TH-th', label: 'Thailand', img: 'http://'},
+            {value: 'EN-en', label: 'USA', img: 'http://'},
+            {value: 'FR-fr', label: 'France', img: 'http://'}
+        ];
         return (
             <section>
                 <h5>Group ListItem test</h5>
-                <List selectable ripple>
+                <List>
                     <ListSubHeader caption='GroupListItem'/>
                     <GroupListItem
                         avatar='https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg'
                         caption='Dr. Manhattan'
-                        legend="Jonathan 'Jon' Osterman"
+                        ripple={false} selectable={false}
+                        itemContent={<ListItemDropDownContent title={'Dr. Manhattan'} source={countries} onChange={(e) => {
+                         console.log(e.currentTarget.value);
+                         }} />}
                         rightIcon='star'
                         group="owner"
                     />

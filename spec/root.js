@@ -49,6 +49,7 @@ import AvatarOverlay from '../components/avatar-overlay';
 import TestButtonSwitcher from './components/TestButtonSwithcer.js';
 import Toastr from '../components/custom-toastr/Toastr.js';
 
+
 const Root = () => (
     <div className={style.app}>
      <span onClick={(e) => {
@@ -75,7 +76,7 @@ const Root = () => (
      <IconSwitcher/>
      <LayoutTest/>
      <DialogLayout />
-     <GroupListItem/>
+     <GroupListItem />
      <HoverableContent/>
      <BottomSheetTest/>
      <CardExpandable/>
