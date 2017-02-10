@@ -1,5 +1,5 @@
-import {draggablelistItemFactory} from "./DraggableListItem";
-import theme from "./theme.scss";
+import {draggablelistItemFactory} from './DraggableListItem';
+import theme from './theme.scss';
 import { themr } from 'react-css-themr';
 import rippleFactory from 'react-toolbox/lib/ripple';
 import { ListItemText } from 'react-toolbox/lib/list/ListItemText.js';
@@ -13,7 +13,7 @@ import {DRAGGABLE_LIST} from '../identifiers';
 import DraggableList from './DraggableList';
 
 const ripple = rippleFactory({ centered: false, listItemIgnore: true });
-const applyTheme = (Component) => themr("list", theme)(Component);
+const applyTheme = (Component) => themr('list', theme)(Component);
 const ThemedListItemAction = applyTheme(ListItemAction);
 
 

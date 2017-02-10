@@ -1,9 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 
-import DraggableListItem from './DraggableListItem';
-
-
 const mergeProp = (propName, child, parent) => (
   child[propName] !== undefined
   ? child[propName]
@@ -24,9 +21,9 @@ const mergeProp = (propName, child, parent) => (
 
     static getLi (target) {
       let t = target;
-      if (t.tagName == 'DIV') return t;
-      if (t.parentNode.tagName == 'DIV') return t.parentNode;
-      while(t.parentNode.tagName != 'DIV') {
+      if (t.tagName === 'DIV') return t;
+      if (t.parentNode.tagName === 'DIV') return t.parentNode;
+      while (t.parentNode.tagName !== 'DIV') {
         t = t.parentNode;
       }
       return t;
@@ -41,11 +38,11 @@ const mergeProp = (propName, child, parent) => (
       const l = document.createElement('li');
       l.classList.add('placeholder');
       l.textContent = 'drop here';
-      l.style.textAlign='center';
+      l.style.textAlign = 'center';
       l.style.padding = '1rem';
       return l;
     }
-    constructor(props) {
+    constructor (props) {
       super(props);
       this.state = {
         data: props.children
@@ -57,31 +54,33 @@ const mergeProp = (propName, child, parent) => (
     }
     onDragStart (e) {
       const target = e.currentTarget;
-      if (target.children[0].tagName == 'LI') {
+      if (target.children[0].tagName === 'LI') {
         this.dragged = e.currentTarget;
         e.dataTransfer.effectAllowed = 'move';
         e.dataTransfer.setData('text/html', e.currentTarget);
+      } else {
+        e.preventDefault();
+        return;
       }
     }
     onDragOver (e) {
       e.preventDefault();
       let target = e.target;
       target = DraggableList.getLi(target);
-      if (target.parentNode.children[0].tagName == 'LI') {
+      if (target.parentNode.children[0].tagName === 'LI') {
         this.dragged.style.display = 'none';
-        if(e.target.className == 'placeholder') return;
+        if (e.target.className === 'placeholder') return;
           const li = DraggableList.getLi(e.target);
           this.over = li.parentNode;
-          var relY = e.clientY - this.over.offsetTop;
-          var height = this.over.offsetHeight / 2;
-          var parent = li.parentNode.parentNode;
+          const relY = e.clientY - this.over.offsetTop;
+          const height = this.over.offsetHeight / 2;
+          const parent = li.parentNode.parentNode;
 
-          if(relY > height) {
+          if (relY > height) {
             this.nodePlacement = 'after';
             parent.insertBefore(this.placeholder, li.parentNode.nextElementSibling);
-          }
-          else if(relY < height) {
-            this.nodePlacement = 'before'
+          } else if (relY < height) {
+            this.nodePlacement = 'before';
             parent.insertBefore(this.placeholder, li.parentNode);
           }
       }
@@ -90,17 +89,22 @@ const mergeProp = (propName, child, parent) => (
       this.dragged.style.display = 'block';
       this.dragged.parentNode.removeChild(this.placeholder);
       const data = this.state.data;
-      let from = parseInt(this.dragged.dataset.id);
+      const from = parseInt(this.dragged.dataset.id);
       let to = parseInt(this.over.dataset.id);
-      if(from < to) {
+      if (from < to) {
         to--;
       };
-      if(this.nodePlacement == 'after') {
+      if (this.nodePlacement === 'after') {
         to++;
       }
-      let target = [...data];
+      const target = [...data];
       target.splice(to, 0, target.splice(from, 1)[0]);
-      this.setState({data: target});
+      this.setState({data: target}, () => {
+        const arr = this.state.data;
+        if (this.props.onDragEnd !== null && typeof this.props.onDragEnd === 'function') {
+          this.props.onDragEnd(arr[this.dragged.dataset.id].props, arr[this.over.dataset.id].props);
+        }
+      });
     }
 
     renderItems () {
@@ -113,8 +117,8 @@ const mergeProp = (propName, child, parent) => (
             draggable: true,
             'data-id': idx
           }, React.cloneElement(item, {
-            selectable: selectable,
-            ripple: ripple
+            selectable,
+            ripple
           }));
           return wrapper;
       });

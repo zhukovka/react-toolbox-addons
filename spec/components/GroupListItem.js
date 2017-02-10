@@ -3,7 +3,7 @@ import {GroupListItem, ListItemDropDownContent} from '../../components/grouplist
 import {GroupListDivider, GroupListDividerWithClick} from '../../components/grouplistdivider';
 import {DraggableList} from '../../components/draggable';
 
-import {List, ListItem, ListSubHeader, ListDivider} from 'react-toolbox/lib/list';
+import {ListItem, ListSubHeader, ListDivider} from 'react-toolbox/lib/list';
 class GroupListItemTest extends Component {
     constructor (props) {
         super(props);

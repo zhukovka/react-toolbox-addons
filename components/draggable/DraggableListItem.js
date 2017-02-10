@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { themr } from 'react-css-themr';
 import rippleFactory from 'react-toolbox/lib/ripple';
-import {ListItem} from "react-toolbox/lib/list";
+import {ListItem} from 'react-toolbox/lib/list';
 import InjectListItemContent from 'react-toolbox/lib/list/ListItemContent.js';
 import InjectListItemLayout from 'react-toolbox/lib/list/ListItemLayout.js';
 
-const ripple = rippleFactory({ centered: false, listItemIgnore: true });
+const _ripple = rippleFactory({ centered: false, listItemIgnore: true });
 
 const factory = (ripple, ListItemLayout, ListItemContent) => {
   class DraggableListItem extends ListItem {
@@ -19,6 +19,7 @@ const factory = (ripple, ListItemLayout, ListItemContent) => {
       theme: PropTypes.shape({
         listItem: PropTypes.string
       }),
+      group: PropTypes.string,
       to: PropTypes.string,
       onDragStart: PropTypes.func,
       onDragEnd: PropTypes.func
@@ -75,11 +76,11 @@ const factory = (ripple, ListItemLayout, ListItemContent) => {
     }
   }
   return ripple(DraggableListItem);
-}
+};
 
 
-const DraggableListItem = factory(ripple, InjectListItemLayout, InjectListItemContent);
+const DraggableListItem = factory(_ripple, InjectListItemLayout, InjectListItemContent);
 
-export default themr("dragList")(DraggableListItem);
+export default themr('dragList')(DraggableListItem);
 export { factory as draggablelistItemFactory };
 export { DraggableListItem };
