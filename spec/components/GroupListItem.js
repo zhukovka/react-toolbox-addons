@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {GroupListItem, ListItemDropDownContent} from '../../components/grouplistitem';
 import {GroupListDivider, GroupListDividerWithClick} from '../../components/grouplistdivider';
+import {DraggableList} from '../../components/draggable';
 
 import {List, ListItem, ListSubHeader, ListDivider} from 'react-toolbox/lib/list';
 class GroupListItemTest extends Component {
@@ -21,7 +22,7 @@ class GroupListItemTest extends Component {
         return (
             <section>
                 <h5>Group ListItem test</h5>
-                <List>
+                <DraggableList>
                     <ListSubHeader caption='GroupListItem'/>
                     <GroupListItem
                         avatar='https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg'
@@ -86,7 +87,7 @@ class GroupListItemTest extends Component {
                         legend='Adrian Veidt'
                         rightIcon='star'
                     />
-                </List>
+                </DraggableList>
             </section>
         );
     }

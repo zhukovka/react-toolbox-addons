@@ -48,10 +48,11 @@ import Navigation from 'react-toolbox/lib/navigation';
 import AvatarOverlay from '../components/avatar-overlay';
 import TestButtonSwitcher from './components/TestButtonSwithcer.js';
 import Toastr from '../components/custom-toastr/Toastr.js';
-
+import TestDrag from './components/TestDrag';
 
 const Root = () => (
     <div className={style.app}>
+    <TestDrag />
      <span onClick={(e) => {
       e.preventDefault();
       Toastr.info('Some info', {
