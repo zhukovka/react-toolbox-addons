@@ -1,24 +1,38 @@
 import React, {PropTypes} from 'react';
+import {findDOMNode} from 'react-dom';
 import Input from 'react-toolbox/lib/input';
 import {themr} from 'react-css-themr';
 import classnames from 'classnames';
 import {STYLED_INPUT} from '../identifiers.js';
 
-/**
- * StyledInput props extend Input props
- */
-const StyledInput = ({theme, className, large, white, rightIcon, ...other})=> {
+
+class StyledInput extends React.Component {
+  constructor (props) {
+    super(props);
+  }
+
+
+  render () {
+    const {theme, className, large, white, rightIcon, ...other} = this.props;
     const classes = classnames({
         [theme.large]: large,
         [theme.white]: white,
         [theme.rightIcon]: rightIcon
     }, theme.styled_input, className);
     return (
-        <Input theme={theme} className={classes} {...other} />
+        <Input theme={theme} ref={(themed) => {
+            if (this.props.autofocus) {
+              const inputRef = themed.getWrappedInstance();
+              findDOMNode(inputRef).querySelector('input').focus();
+            }
+
+          }} className={classes} {...other} />
     );
-};
+  }
+}
 
 StyledInput.propTypes = {
+    autofocus: PropTypes.boolean,
     children: PropTypes.any,
     className: PropTypes.string,
     /**
