@@ -11,6 +11,18 @@ class StyledInput extends React.Component {
     super(props);
   }
 
+  componentDidMount () {
+    if (this.props.autofocus) {
+      const ref = this.refs[this.props.label + '_ref'];
+      if (ref) {
+        const input = ref.getWrappedInstance();
+        if (input) {
+          findDOMNode(input).querySelector('input').focus();
+        }
+      }
+    }
+  }
+
 
   render () {
     const {theme, className, large, white, rightIcon, ...other} = this.props;
@@ -20,13 +32,7 @@ class StyledInput extends React.Component {
         [theme.rightIcon]: rightIcon
     }, theme.styled_input, className);
     return (
-        <Input theme={theme} ref={(themed) => {
-            if (this.props.autofocus) {
-              const inputRef = themed.getWrappedInstance();
-              findDOMNode(inputRef).querySelector('input').focus();
-            }
-
-          }} className={classes} {...other} />
+        <Input theme={theme} ref={this.props.label + '_ref'} className={classes} {...other} />
     );
   }
 }
