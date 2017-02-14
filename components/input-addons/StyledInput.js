@@ -45,6 +45,7 @@ StyledInput.propTypes = {
      * sets text size to large
      * Boolean large
      */
+    label: PropTypes.string,
     large: PropTypes.bool,
     /**
      * sets input icon position to the right
