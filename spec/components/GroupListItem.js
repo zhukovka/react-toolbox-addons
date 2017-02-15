@@ -28,7 +28,7 @@ class GroupListItemTest extends Component {
                         avatar='https://dl.dropboxusercontent.com/u/2247264/assets/m.jpg'
                         caption='Dr. Manhattan'
                         ripple={false} selectable={false}
-                        itemContent={<ListItemDropDownContent title={'Dr. Manhattan'} source={countries} onChange={(e) => {
+                        itemContent={<ListItemDropDownContent title={'Dr. Manhattan'} selected={countries[0].value} source={countries} onChange={(e) => {
                          console.log(e.currentTarget.value);
                        }} selected={countries[0].value}/>}
                         rightIcon='star'

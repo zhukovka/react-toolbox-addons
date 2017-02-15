@@ -16,7 +16,7 @@ ListItemDropDownContent.propTypes = {
     source: PropTypes.array,
     theme: PropTypes.object,
     title: PropTypes.string,
-    selected: PropTypes.string
+    selected: PropTypes.any
 };
 const factory = () => ListItemDropDownContent;
 export default themr(LIST_ITEM_DROP_DOWN_CONTENT)(ListItemDropDownContent);
