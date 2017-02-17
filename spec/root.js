@@ -49,10 +49,11 @@ import AvatarOverlay from '../components/avatar-overlay';
 import TestButtonSwitcher from './components/TestButtonSwithcer.js';
 import Toastr from '../components/custom-toastr/Toastr.js';
 import TestStyledInput from './components/TestStyledInput';
-
+import MessageItem from '../components/messageitem';
 
 const Root = () => (
     <div className={style.app}>
+      <MessageItem me={true} time="olollo" children={(<h3>Hello</h3>)}/>
     <TestStyledInput />
      <span onClick={(e) => {
       e.preventDefault();
