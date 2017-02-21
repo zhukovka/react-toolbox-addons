@@ -28,7 +28,9 @@
   }
   &:not(.wrap){
     li{
-      overflow: auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
   &.small {
