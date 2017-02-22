@@ -80,17 +80,18 @@
   }
   &.black {
     $dropdown-color-white: $color-black;
-    $dropdown-color-primary: $bluegrey;
+    $dropdown-color-primary: $color-white;
     $dropdown-color-primary-contrast: $color-primary-contrast;
     $dropdown-value-hover-background: rgba($color-white, .2);
     .values {
       background-color: $dropdown-color-white;
+      color: darken($dropdown-color-primary, 50%);
       > * {
         &:hover {
           background-color: $dropdown-value-hover-background;
         }
         &.selected {
-          color: $color-white;
+          color: $dropdown-color-primary;
         }
       }
     }
