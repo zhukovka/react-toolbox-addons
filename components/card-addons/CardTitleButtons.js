@@ -14,7 +14,7 @@ const factory = () => {
         return (
             <div className={classes} {...other}>
                 {buttons.map((btn, index)=>{
-                    return <Button floating mini     key={index} theme={theme} {...btn}/>;
+                    return <Button floating mini key={index} theme={theme} {...btn}/>;
                 })}
             </div>
         );

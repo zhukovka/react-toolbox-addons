@@ -32,7 +32,6 @@ $default-REM: 1.8rem;
   display: flex;
   color: $card-title_btns_color;
   background: inherit;
-  height: 100%;
 
 
   & > .floating> span:not([data-react-toolbox="tooltip"]) {
