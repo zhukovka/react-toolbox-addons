@@ -9,12 +9,12 @@ import {
 } from './constants';
 
 const factory = () => {
-    const CardTitleButtons = ({buttons = [], center, theme, className}) => {
+    const CardTitleButtons = ({buttons = [], center, theme, className, ...other}) => {
         const classes = classnames({[theme.center]: center}, theme[CSS_CARD_TITLE_BUTTONS_WRAPPER], className);
         return (
-            <div className={classes}>
+            <div className={classes} {...other}>
                 {buttons.map((btn, index)=>{
-                    return <Button floating mini key={index} theme={theme} {...btn}/>;
+                    return <Button floating mini     key={index} theme={theme} {...btn}/>;
                 })}
             </div>
         );
