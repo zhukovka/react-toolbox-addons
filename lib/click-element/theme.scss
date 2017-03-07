@@ -22,6 +22,7 @@
     position: absolute;
     z-index: 999;
     border: 1px solid $color-primary;
+    color: $color-text;
 
     &:after {
       content: '';
