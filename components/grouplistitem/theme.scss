@@ -23,6 +23,18 @@
 /*  ListItemWithDropDown  */
 .listItemContent {
   width: 100%;
+
+  flex: 1 0 auto;
+  max-width: 55%;
+  
+
+  &_title {
+    display: inline-block;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   & [data-react-toolbox="dropdown"] {
     width: 8rem;
     & ul li {

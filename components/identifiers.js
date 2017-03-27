@@ -48,3 +48,4 @@ export const BUTTON_SWITCHER = 'ButtonSwitcher';
 export const LIST_ITEM_DROP_DOWN_CONTENT = 'listItemWithDropDown';
 export const DRAGGABLE_LIST = 'DraggableList';
 export const DRAGGABLE_LIST_ITEM = 'DraggableListItem';
+export const GRID_ITEM = 'GridItem';
