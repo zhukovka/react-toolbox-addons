@@ -52,3 +52,4 @@ export Toastr from './custom-toastr/Toastr.js';
 export {ListItemDropDownContent} from './grouplistitem';
 export {DraggableList} from './draggable';
 export {DraggableListItem} from './draggable';
+export GridItem from './grid-item';
