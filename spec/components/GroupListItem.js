@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import {GroupListItem, ListItemDropDownContent} from '../../components/grouplistitem';
 import {GroupListDivider, GroupListDividerWithClick} from '../../components/grouplistdivider';
 import {DraggableList} from '../../components/draggable';
-
 import {ListItem, ListSubHeader, ListDivider} from 'react-toolbox/lib/list';
+import FontIcon from 'react-toolbox/lib/font_icon';
+
 class GroupListItemTest extends Component {
     constructor (props) {
         super(props);
@@ -20,7 +21,7 @@ class GroupListItemTest extends Component {
             {value: 'FR-fr', label: 'France', img: 'http://'}
         ];
         return (
-            <section>
+            <section style={{width: "30rem"}}>
                 <h5>Group ListItem test</h5>
                 <DraggableList>
                     <ListSubHeader caption='GroupListItem'/>
@@ -30,8 +31,9 @@ class GroupListItemTest extends Component {
                         ripple={false} selectable={false}
                         itemContent={<ListItemDropDownContent title={'Dr. Manhattan'} selected={countries[0].value} source={countries} onChange={(e) => {
                          console.log(e.currentTarget.value);
-                       }} selected={countries[0].value}/>}
-                        rightIcon='star'
+                       }} />}
+                        rightIcon={[(<FontIcon value="add"/>),
+                        (<FontIcon value="close"/>)]}
                         group="owner"
                     />
                     <GroupListDividerWithClick onClick={() => {
