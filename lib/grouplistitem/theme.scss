@@ -23,14 +23,11 @@
 /*  ListItemWithDropDown  */
 .listItemContent {
   width: 100%;
-
   flex: 1 0 auto;
-  max-width: 55%;
-  
-
+  max-width: 45%;
   &_title {
     display: inline-block;
-    width: 80%;
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

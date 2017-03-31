@@ -21,7 +21,7 @@ class GroupListItemTest extends Component {
             {value: 'FR-fr', label: 'France', img: 'http://'}
         ];
         return (
-            <section style={{width: "30rem"}}>
+            <section>
                 <h5>Group ListItem test</h5>
                 <DraggableList>
                     <ListSubHeader caption='GroupListItem'/>
