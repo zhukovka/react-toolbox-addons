@@ -165,7 +165,7 @@ class Upload extends Component {
 
     renderContent () {
         const {progress, imageUrl, error} = this.state;
-        const {requirements, theme} = this.props;
+        const {theme} = this.props;
         return (
             <div className={theme.uploadWrapper}>
                 <UploadButton icon='photo_camera'
@@ -176,7 +176,7 @@ class Upload extends Component {
                     <div style={{padding: '10.8rem'}}>
                         <ProgressBar value={this.state.progress} mode='determinate'/>
                     </div>
-                ) : !progress && requirements && error ? (
+                ) : !progress && error ? (
                     <span className={theme.errorMessage}>
                         {this.getUploadErrorMessage(error)}
                     </span>
