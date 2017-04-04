@@ -44,6 +44,12 @@ class Upload extends Component {
     }
 
     onUpload (e) {
+        const types = ["jpg", "jpeg", "png"];
+        const checkType = (file) => {
+            var split = file.name.split(".");
+            const type = split[split.length - 1].toLowerCase();
+            return types.indexOf(type) != -1;
+        };
         let file;
         e.preventDefault();
         const errorHandler = (evt)=>{
