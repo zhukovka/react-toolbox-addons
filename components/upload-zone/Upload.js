@@ -165,7 +165,7 @@ class Upload extends Component {
 
     renderContent () {
         const {progress, imageUrl, error} = this.state;
-        const {requirements, theme} = this.props;
+        const {theme} = this.props;
         return (
             <div className={theme.uploadWrapper}>
                 <UploadButton icon='photo_camera'
