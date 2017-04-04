@@ -1,4 +1,5 @@
-
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
 $default-rem : 3rem;
 $active-drag-color : #ddd;
 
@@ -31,4 +32,13 @@ $active-drag-color : #ddd;
       background: #333;
     }
   }
+}
+.uploadWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.errorMessage {
+  color: $palette-red-500;
 }
