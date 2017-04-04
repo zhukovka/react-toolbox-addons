@@ -30,7 +30,7 @@ class Upload extends Component {
         defaultClass: UPLOAD
     };
 
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             isDragActive: false,
@@ -40,13 +40,13 @@ class Upload extends Component {
         };
     }
 
-    onDragLeave() {
+    onDragLeave () {
         this.setState({
             isDragActive: false
         });
     }
 
-    onDragOver(e) {
+    onDragOver (e) {
         e.preventDefault();
         e.dataTransfer.dropEffect = 'copy';
         this.setState({
@@ -54,10 +54,10 @@ class Upload extends Component {
         });
     }
 
-    onUpload(e) {
+    onUpload (e) {
         const checkType = (file) => {
-            if (file != null) {
-                return [FILE_TYPE_JPG, FILE_TYPE_JPEG, FILE_TYPE_PNG].indexOf(file.type) != -1;
+            if (file) {
+                return [FILE_TYPE_JPG, FILE_TYPE_JPEG, FILE_TYPE_PNG].indexOf(file.type) >= 0;
             }
             return false;
         };
@@ -119,7 +119,7 @@ class Upload extends Component {
                     const w = img.naturalWidth;
                     const h = img.naturalHeight;
                     const {requirements} = self.props;
-                    if (requirements != null && (w > requirements.width && h >requirements.height)) {
+                    if (!!requirements && (w > requirements.width && h > requirements.height)) {
                         reader.abort();
                         self.setState({
                             error: ERROR_REQUIREMENTS,
@@ -145,26 +145,30 @@ class Upload extends Component {
         }
     }
 
-    getUploadErrorMessage(msgType) {
+    getUploadErrorMessage (msgType) {
         const {requirements} = this.props;
         let message;
         switch (msgType) {
             case ERROR_REQUIREMENTS :
-                message = "Image should have width " + requirements.width + " and height " + requirements.height;
+                message = 'Image should have width ' + requirements.width + 'and height ' + requirements.height + '.';
                 break;
             case ERROR_BAD_TYPE :
-                message = "Image should have extension one of " + [FILE_TYPE_JPEG, FILE_TYPE_JPG, FILE_TYPE_PNG].map(str => str.split("/")[1]).join(", ") + ".";
+                message = 'Image should have extension one of ' + [FILE_TYPE_JPEG, FILE_TYPE_JPG, FILE_TYPE_PNG]
+                        .map(str => str.split('/')[1])
+                        .join(', ') + '.';
+                break;
+            default :
                 break;
         }
         return message;
     }
 
-    renderContent() {
+    renderContent () {
         const {progress, imageUrl, error} = this.state;
         const {requirements, theme} = this.props;
         return (
             <div className={theme.uploadWrapper}>
-                <UploadButton icon="photo_camera"
+                <UploadButton icon='photo_camera'
                               imageUrl={imageUrl}
                               onUpload={this.onUpload.bind(this)}
                 />
@@ -172,7 +176,7 @@ class Upload extends Component {
                     <div style={{padding: '10.8rem'}}>
                         <ProgressBar value={this.state.progress} mode='determinate'/>
                     </div>
-                ) : !progress && requirements != null && error ? (
+                ) : !progress && requirements && error ? (
                     <span className={theme.errorMessage}>
                         {this.getUploadErrorMessage(error)}
                     </span>
@@ -181,7 +185,7 @@ class Upload extends Component {
         );
     }
 
-    render() {
+    render () {
         const {theme, className, activeClass, defaultClass} = this.props;
         const {isDragActive} = this.state;
         let classes = classnames(theme[defaultClass], {
