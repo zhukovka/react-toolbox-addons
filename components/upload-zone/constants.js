@@ -10,9 +10,9 @@ export const ERROR_BAD_TYPE = 'badType';
 export const ERROR_MIN_REQUIREMENTS = 'minRequirements';
 export const ERROR_MAX_REQUIREMENTS = 'maxRequirements';
 
-export const UPLOAD_TYPE_AVATAR = "avatar";
-export const UPLOAD_TYPE_OVERLAY = "overlay";
-export const UPLOAD_TYPE_DEFAULT = "default";
+export const UPLOAD_TYPE_AVATAR = 'avatar';
+export const UPLOAD_TYPE_OVERLAY = 'overlay';
+export const UPLOAD_TYPE_DEFAULT = 'default';
 
 export const TYPES_BY_UPLOAD = {
   [UPLOAD_TYPE_AVATAR]: [FILE_TYPE_JPEG, FILE_TYPE_JPG, FILE_TYPE_PNG],

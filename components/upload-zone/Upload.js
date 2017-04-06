@@ -72,8 +72,7 @@ class Upload extends Component {
             if (file) {
                 const {uploadType} = this.props;
                 if (uploadType) {
-                    var typesbyupload = TYPES_BY_UPLOAD[uploadType];
-                    return typesbyupload.indexOf(file.type) >= 0;
+                    return TYPES_BY_UPLOAD[uploadType].indexOf(file.type) >= 0;
                 } else {
                     return TYPES_BY_UPLOAD[UPLOAD_TYPE_DEFAULT].indexOf(file.type) >= 0;
                 }
@@ -181,16 +180,16 @@ class Upload extends Component {
     getUploadErrorMessage (msgType) {
         const {requirements, uploadType} = this.props;
         const {min, max} = requirements;
+        let types = TYPES_BY_UPLOAD[UPLOAD_TYPE_DEFAULT];
         let message;
         switch (msgType) {
             case ERROR_MIN_REQUIREMENTS :
-                message = 'Player logo should be not less than ' + min.width +"x" + min.height + ' pixels.';
+                message = 'Player logo should be not less than ' + min.width + 'x' + min.height + ' pixels.';
                 break;
             case ERROR_MAX_REQUIREMENTS :
                 message = 'Image should be not bigger ' + max.width + 'x' + max.height + ' pixels.';
                 break;
             case ERROR_BAD_TYPE :
-                let types = TYPES_BY_UPLOAD[UPLOAD_TYPE_DEFAULT];
                 if (uploadType) {
                     types = TYPES_BY_UPLOAD[uploadType];
                 }
