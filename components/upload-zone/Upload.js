@@ -5,11 +5,13 @@ import {UploadButton} from '../upload-button';
 import ProgressBar from 'react-toolbox/lib/progress_bar';
 import {
     CSS_UPLOAD_ACTIVE,
-    FILE_TYPE_JPEG,
-    FILE_TYPE_JPG,
-    FILE_TYPE_PNG,
+    TYPES_BY_UPLOAD,
+    UPLOAD_TYPE_AVATAR,
+    UPLOAD_TYPE_OVERLAY,
+    UPLOAD_TYPE_DEFAULT,
     ERROR_BAD_TYPE,
-    ERROR_REQUIREMENTS
+    ERROR_MIN_REQUIREMENTS,
+    ERROR_MAX_REQUIREMENTS
 } from './constants';
 
 class Upload extends Component {
@@ -22,12 +24,23 @@ class Upload extends Component {
         theme: PropTypes.object,
         imageUrl: PropTypes.string,
         requirements: PropTypes.objectOf({
-            width: PropTypes.number,
-            height: PropTypes.number
+            min: PropTypes.objectOf({
+                width: PropTypes.number.isRequired,
+                height: PropTypes.number.isRequired
+            }),
+            max: PropTypes.objectOf({
+                width: PropTypes.number.isRequired,
+                height: PropTypes.number.isRequired
+            })
+        }),
+        uploadType: PropTypes.oneOf({
+            [UPLOAD_TYPE_AVATAR]: PropTypes.string,
+            [UPLOAD_TYPE_OVERLAY]: PropTypes.string
         })
     };
     static defaultProps = {
-        defaultClass: UPLOAD
+        defaultClass: UPLOAD,
+        requirements: {}
     };
 
     constructor (props) {
@@ -57,7 +70,13 @@ class Upload extends Component {
     onUpload (e) {
         const checkType = (file) => {
             if (file) {
-                return [FILE_TYPE_JPG, FILE_TYPE_JPEG, FILE_TYPE_PNG].indexOf(file.type) >= 0;
+                const {uploadType} = this.props;
+                if (uploadType) {
+                    var typesbyupload = TYPES_BY_UPLOAD[uploadType];
+                    return typesbyupload.indexOf(file.type) >= 0;
+                } else {
+                    return TYPES_BY_UPLOAD[UPLOAD_TYPE_DEFAULT].indexOf(file.type) >= 0;
+                }
             }
             return false;
         };
@@ -119,13 +138,27 @@ class Upload extends Component {
                     const w = img.naturalWidth;
                     const h = img.naturalHeight;
                     const {requirements} = self.props;
-                    if (!!requirements && (w > requirements.width && h > requirements.height)) {
-                        reader.abort();
-                        self.setState({
-                            error: ERROR_REQUIREMENTS,
-                            progress: 0
-                        });
-                    } else {
+                    let check = true;
+                    if (requirements) {
+                        const {min, max} = requirements;
+                        let errorMessage;
+                        if (min) {
+                            check = (w > min.width && h > min.height);
+                            errorMessage = ERROR_MIN_REQUIREMENTS;
+                        }
+                        if (max) {
+                            check = (w < max.width && h < max.width);
+                            errorMessage = ERROR_MAX_REQUIREMENTS;
+                        }
+                        if (!check) {
+                            reader.abort();
+                            self.setState({
+                                error: errorMessage,
+                                progress: 0
+                            });
+                        }
+                    }
+                    if (check) {
                         self.setState({
                             progress: 0,
                             imageUrl: reader.result,
@@ -146,14 +179,22 @@ class Upload extends Component {
     }
 
     getUploadErrorMessage (msgType) {
-        const {requirements} = this.props;
+        const {requirements, uploadType} = this.props;
+        const {min, max} = requirements;
         let message;
         switch (msgType) {
-            case ERROR_REQUIREMENTS :
-                message = 'Image should have width ' + requirements.width + 'and height ' + requirements.height + '.';
+            case ERROR_MIN_REQUIREMENTS :
+                message = 'Player logo should be not less than ' + min.width +"x" + min.height + ' pixels.';
+                break;
+            case ERROR_MAX_REQUIREMENTS :
+                message = 'Image should be not bigger ' + max.width + 'x' + max.height + ' pixels.';
                 break;
             case ERROR_BAD_TYPE :
-                message = 'Image should have extension one of ' + [FILE_TYPE_JPEG, FILE_TYPE_JPG, FILE_TYPE_PNG]
+                let types = TYPES_BY_UPLOAD[UPLOAD_TYPE_DEFAULT];
+                if (uploadType) {
+                    types = TYPES_BY_UPLOAD[uploadType];
+                }
+                message = 'Eligible formats: ' + types
                         .map(str => str.split('/')[1])
                         .join(', ') + '.';
                 break;
