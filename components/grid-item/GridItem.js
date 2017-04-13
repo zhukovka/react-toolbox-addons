@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import classnames from 'classnames';
 import Avatar from 'react-toolbox/lib/avatar';
-import CustomTooltip from "../custom-tooltip";
+import CustomTooltip from '../custom-tooltip';
 
 const GridItem = ({icon, title, theme, selected, master, ...other}) => {
     const styleWrapper = classnames(theme.gridItem, {
