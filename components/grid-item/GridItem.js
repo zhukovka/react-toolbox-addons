@@ -1,18 +1,21 @@
 import React, {PropTypes} from 'react';
 import classnames from 'classnames';
 import Avatar from 'react-toolbox/lib/avatar';
+import CustomTooltip from "../custom-tooltip";
 
 const GridItem = ({icon, title, theme, selected, master, ...other}) => {
     const styleWrapper = classnames(theme.gridItem, {
         [theme.selected]: selected
     });
     return (
-        <div {...other} className={styleWrapper}>
-            <Avatar className={classnames(theme.avatar, {
-                [theme.master]: master
-            })} icon={icon}/>
-            <span className={theme.title}>{title}</span>
-        </div>
+        <CustomTooltip tooltip={title} label={title} tooltipPosition={'top'}>
+            <div {...other} className={styleWrapper}>
+                <Avatar className={classnames(theme.avatar, {
+                    [theme.master]: master
+                })} icon={icon}/>
+                <span className={theme.title}>{title}</span>
+            </div>
+        </CustomTooltip>
     );
 };
 

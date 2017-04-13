@@ -11,7 +11,7 @@ const mockData = [
     },
     {
         icon: 'folder',
-        title: 'two',
+        title: 'ooololo ooololo ooololo ooololo ooololo_.png',
         selected: false,
         master: true
     }
