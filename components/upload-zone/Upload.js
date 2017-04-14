@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import {UPLOAD} from '../identifiers';
 import {UploadButton} from '../upload-button';
 import ProgressBar from 'react-toolbox/lib/progress_bar';
+import UploaderUtil from './UploaderUtil';
 import {
     CSS_UPLOAD_ACTIVE,
     FILE_TYPE_JPEG,
@@ -38,6 +39,39 @@ class Upload extends Component {
             progress: 0,
             error: null
         };
+
+        this._callbacks = {
+          onSuccess: (file, result, e) => {
+              this.setState({
+                  progress: 0,
+                  imageUrl: result,
+                  isDragActive: false,
+                  error: null
+              }, ()=> {
+                  this.props.onUpload(file, result, e);
+              });
+          },
+          onProgress: (progress) => {
+              this.setState({
+                  progress: progress
+              });
+          },
+          onBadTypeError: (errString) => {
+              this.setState({
+                  error: errString
+              });
+          },
+          onRequirementsError: (errString) => {
+              this.setState({
+                  error: errString,
+                  progress: 0
+              });
+          },
+          showProgress: true,
+          requirements: props.requirments
+        };
+
+        this._uploader = new UploaderUtil({...this._callbacks});
     }
 
     onDragLeave () {
@@ -55,112 +89,7 @@ class Upload extends Component {
     }
 
     onUpload (e) {
-        const checkType = (file) => {
-            if (file) {
-                return [FILE_TYPE_JPG, FILE_TYPE_JPEG, FILE_TYPE_PNG].indexOf(file.type) >= 0;
-            }
-            return false;
-        };
-
-        let file;
-        e.preventDefault();
-        const errorHandler = (evt)=> {
-            switch (evt.target.error.code) {
-                case evt.target.error.NOT_FOUND_ERR:
-                    console.log('File Not Found!');
-                    break;
-                case evt.target.error.NOT_READABLE_ERR:
-                    console.log('File is not readable');
-                    break;
-                case evt.target.error.ABORT_ERR:
-                    break; //
-                default:
-                    console.log('An error occurred reading this file.');
-            }
-        };
-
-        const updateProgress = (evt) => {
-            if (evt.lengthComputable) {
-                const percentLoaded = Math.round((evt.loaded / evt.total) * 100);
-                if (percentLoaded < 100) {
-                    this.setState({
-                        progress: percentLoaded
-                    });
-                }
-            }
-        };
-
-        if (e.dataTransfer) {
-            file = e.dataTransfer.files[0];
-        } else {
-            file = e.target.files[0];
-        }
-
-        if (checkType(file)) {
-            const self = this;
-            const reader = new FileReader();
-            reader.onerror = errorHandler;
-            reader.onloadstart = ()=> {
-                this.setState({
-                    progress: 1
-                });
-            };
-            reader.onload = () => {
-                this.setState({
-                    progress: 100
-                });
-            };
-            reader.onprogress = updateProgress;
-            reader.onloadend = () => {
-                const img = new Image();
-                img.src = window.URL.createObjectURL(file);
-                img.onload = () => {
-                    window.URL.revokeObjectURL(img.src);
-                    const w = img.naturalWidth;
-                    const h = img.naturalHeight;
-                    const {requirements} = self.props;
-                    if (!!requirements && (w > requirements.width && h > requirements.height)) {
-                        reader.abort();
-                        self.setState({
-                            error: ERROR_REQUIREMENTS,
-                            progress: 0
-                        });
-                    } else {
-                        self.setState({
-                            progress: 0,
-                            imageUrl: reader.result,
-                            isDragActive: false,
-                            error: null
-                        }, ()=> {
-                            self.props.onUpload(file, reader.result, e);
-                        });
-                    }
-                };
-            };
-            reader.readAsDataURL(file);
-        } else {
-            this.setState({
-                error: ERROR_BAD_TYPE
-            });
-        }
-    }
-
-    getUploadErrorMessage (msgType) {
-        const {requirements} = this.props;
-        let message;
-        switch (msgType) {
-            case ERROR_REQUIREMENTS :
-                message = 'Image should have width ' + requirements.width + 'and height ' + requirements.height + '.';
-                break;
-            case ERROR_BAD_TYPE :
-                message = 'Image should have extension one of ' + [FILE_TYPE_JPEG, FILE_TYPE_JPG, FILE_TYPE_PNG]
-                        .map(str => str.split('/')[1])
-                        .join(', ') + '.';
-                break;
-            default :
-                break;
-        }
-        return message;
+        this._uploader.upload(e);
     }
 
     renderContent () {
@@ -178,7 +107,7 @@ class Upload extends Component {
                     </div>
                 ) : !progress && error ? (
                     <span className={theme.errorMessage}>
-                        {this.getUploadErrorMessage(error)}
+                        {this._uploader.getUploadErrorMessage(error)}
                     </span>
                 ) : null}
             </div>
