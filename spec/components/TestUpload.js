@@ -12,9 +12,9 @@ const TestUpload = () => {
             <Upload onUpload={(file)=>{console.log(file);}}
                     uploadType={"overlay"}
                     requirements={{
-                        min: {
-                            width: 100,
-                            height: 100
+                        max: {
+                            width: 600,
+                            height: 600
                         }
                     }}
             />
