@@ -1,26 +1,32 @@
 import {
-    FILE_TYPE_JPEG,
-    FILE_TYPE_JPG,
-    FILE_TYPE_PNG,
     ERROR_BAD_TYPE,
-    ERROR_REQUIREMENTS
+    TYPES_BY_UPLOAD,
+    UPLOAD_TYPE_DEFAULT,
+    ERROR_MAX_REQUIREMENTS,
+    ERROR_MIN_REQUIREMENTS
 } from './constants';
 
 
 export default class UploaderUtil {
-    constructor({onSuccess, onBadTypeError, onProgress, onRequirementsError, showProgress, requirements}) {
+    constructor ({onSuccess, onBadTypeError, onProgress, onRequirementsError, showProgress, requirements, uploadType}) {
         this.successCallback = onSuccess;
         this.badTypeCallback = onBadTypeError;
         this.progressCallback = onProgress;
         this.reqTypeCallback = onRequirementsError;
         this.showProgress = showProgress || false;
-        this.requirments = requirements;
+        this.requirements = requirements;
+        this.uploadType = uploadType;
 
     }
 
-    checkType(file) {
+    checkType (file) {
         if (file) {
-            return [FILE_TYPE_JPG, FILE_TYPE_JPEG, FILE_TYPE_PNG].indexOf(file.type) >= 0;
+            const {uploadType} = this;
+            if (uploadType) {
+                return TYPES_BY_UPLOAD[uploadType].indexOf(file.type) >= 0;
+            } else {
+                return TYPES_BY_UPLOAD[UPLOAD_TYPE_DEFAULT].indexOf(file.type) >= 0;
+            }
         }
         return false;
     }
@@ -37,20 +43,31 @@ export default class UploaderUtil {
     }
 
     getUploadErrorMessage (msgType) {
-        const {requirements} = this;
+        const {requirements, uploadType} = this;
+        const {min, max} = requirements;
+        let types = TYPES_BY_UPLOAD[UPLOAD_TYPE_DEFAULT];
         let message;
-        switch (msgType) {
-            case ERROR_REQUIREMENTS :
-                message = 'Image should have width ' + requirements.width + 'and height ' + requirements.height + '.';
-                break;
-            case ERROR_BAD_TYPE :
-                message = 'Image should have extension one of ' + [FILE_TYPE_JPEG, FILE_TYPE_JPG, FILE_TYPE_PNG]
-                        .map(str => str.split('/')[1])
-                        .join(', ') + '.';
-                break;
-            default :
-                break;
+        if (uploadType) {
+            switch (msgType) {
+                case ERROR_MIN_REQUIREMENTS :
+                    message = 'Player logo should be not less than ' + min.width + 'x' + min.height + ' pixels.';
+                    break;
+                case ERROR_MAX_REQUIREMENTS :
+                    message = 'Image should be not bigger ' + max.width + 'x' + max.height + ' pixels.';
+                    break;
+                case ERROR_BAD_TYPE :
+                    if (uploadType) {
+                        types = TYPES_BY_UPLOAD[uploadType];
+                    }
+                    message = 'Eligible formats: ' + types
+                            .map(str => str.split('/')[1])
+                            .join(', ') + '.';
+                    break;
+                default :
+                    break;
+            }
         }
+
         return message;
     }
 
@@ -69,7 +86,7 @@ export default class UploaderUtil {
         }
     }
 
-    upload(e) {
+    upload (e) {
         let file;
         e.preventDefault();
         if (e.dataTransfer) {
@@ -99,10 +116,24 @@ export default class UploaderUtil {
                     const w = img.naturalWidth;
                     const h = img.naturalHeight;
                     const {requirements} = self;
-                    if (!!requirements && (w > requirements.width && h > requirements.height)) {
-                        reader.abort();
-                        this.reqTypeCallback(ERROR_REQUIREMENTS);
-                    } else {
+                    let check = true;
+                    if (requirements) {
+                        const {min, max} = requirements;
+                        let errorMessage;
+                        if (min) {
+                            check = (w > min.width && h > min.height);
+                            errorMessage = ERROR_MIN_REQUIREMENTS;
+                        }
+                        if (max) {
+                            check = (w < max.width && h < max.width);
+                            errorMessage = ERROR_MAX_REQUIREMENTS;
+                        }
+                        if (!check) {
+                            reader.abort();
+                            this.reqTypeCallback(errorMessage);
+                        }
+                    }
+                    if (check) {
                         this.successCallback(file, reader.result, e);
                     }
                 };

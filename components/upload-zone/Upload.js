@@ -6,11 +6,8 @@ import ProgressBar from 'react-toolbox/lib/progress_bar';
 import UploaderUtil from './UploaderUtil';
 import {
     CSS_UPLOAD_ACTIVE,
-    FILE_TYPE_JPEG,
-    FILE_TYPE_JPG,
-    FILE_TYPE_PNG,
-    ERROR_BAD_TYPE,
-    ERROR_REQUIREMENTS
+    UPLOAD_TYPE_AVATAR,
+    UPLOAD_TYPE_OVERLAY
 } from './constants';
 
 class Upload extends Component {
@@ -23,12 +20,23 @@ class Upload extends Component {
         theme: PropTypes.object,
         imageUrl: PropTypes.string,
         requirements: PropTypes.objectOf({
-            width: PropTypes.number,
-            height: PropTypes.number
+            min: PropTypes.objectOf({
+                width: PropTypes.number.isRequired,
+                height: PropTypes.number.isRequired
+            }),
+            max: PropTypes.objectOf({
+                width: PropTypes.number.isRequired,
+                height: PropTypes.number.isRequired
+            })
+        }),
+        uploadType: PropTypes.oneOf({
+            [UPLOAD_TYPE_AVATAR]: PropTypes.string,
+            [UPLOAD_TYPE_OVERLAY]: PropTypes.string
         })
     };
     static defaultProps = {
-        defaultClass: UPLOAD
+        defaultClass: UPLOAD,
+        requirements: {}
     };
 
     constructor (props) {
@@ -52,9 +60,7 @@ class Upload extends Component {
               });
           },
           onProgress: (progress) => {
-              this.setState({
-                  progress: progress
-              });
+              this.setState({progress});
           },
           onBadTypeError: (errString) => {
               this.setState({
@@ -68,7 +74,8 @@ class Upload extends Component {
               });
           },
           showProgress: true,
-          requirements: props.requirments
+          requirements: props.requirements,
+          uploadType: props.uploadType
         };
 
         this._uploader = new UploaderUtil({...this._callbacks});

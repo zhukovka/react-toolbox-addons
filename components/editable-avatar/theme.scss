@@ -1,7 +1,11 @@
-
+@import "~react-toolbox/lib/colors";
+@import "~react-toolbox/lib/globals";
 .avatar {
     & > img {
     height: 100%;
   }
+}
+.errorMessage {
+  color: $palette-red-500;
 }
 

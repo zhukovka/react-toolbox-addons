@@ -1,14 +1,18 @@
 import React, {PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 import Avatar from 'react-toolbox/lib/avatar';
-import UploaderUtil from "../upload-zone/UploaderUtil";
+import UploaderUtil from '../upload-zone/UploaderUtil';
+import {
+    UPLOAD_TYPE_AVATAR,
+    UPLOAD_TYPE_OVERLAY
+} from '../upload-zone/constants';
 import {
     ICON_PHOTO_CAMERA
 } from './constants';
 import AvatarOverlay from '../avatar-overlay';
 
 class EditableAvatar extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             progress: 0,
@@ -17,7 +21,11 @@ class EditableAvatar extends Component {
 
         this._callbacks = {
             onSuccess: (file, result, e) => {
-                props.onUpload(file, result, e);
+                this.setState({
+                    error: null
+                }, () => {
+                    props.onUpload(file, result, e);
+                });
             },
             onProgress: (progress) => {
 
@@ -29,18 +37,21 @@ class EditableAvatar extends Component {
             },
             onRequirementsError: (errString) => {
                 this.setState({
-                    error: errString,
+                    error: errString
                 });
             },
             showProgress: false,
-            requirements: props.requirments
+            requirements: props.requirements,
+            uploadType: props.uploadType
         };
 
         this._uploader = new UploaderUtil({...this._callbacks});
     }
 
     static defaultProps = {
-        requirements: {}
+        requirements: {
+        },
+        uploadType: UPLOAD_TYPE_AVATAR
     };
 
     handleOnChange (e) {
@@ -50,34 +61,6 @@ class EditableAvatar extends Component {
 
     onUpload (e) {
         this._uploader.upload(e);
-        // let file;
-        // e.preventDefault();
-        // const errorHandler = (evt)=> {
-        //     switch (evt.target.error.code) {
-        //         case evt.target.error.NOT_FOUND_ERR:
-        //             console.log('File Not Found!');
-        //             break;
-        //         case evt.target.error.NOT_READABLE_ERR:
-        //             console.log('File is not readable');
-        //             break;
-        //         case evt.target.error.ABORT_ERR:
-        //             break; //
-        //         default:
-        //             console.log('An error occurred reading this file.');
-        //     }
-        // };
-        // const reader = new FileReader();
-        // reader.onerror = errorHandler;
-        // reader.onloadend = () => {
-        //     this.props.onUpload(file, reader.result, e);
-        // };
-        //
-        // if (e.dataTransfer) {
-        //     file = e.dataTransfer.files[0];
-        // } else {
-        //     file = e.target.files[0];
-        // }
-        // reader.readAsDataURL(file);
     }
 
     renderAvatar () {
@@ -93,9 +76,9 @@ class EditableAvatar extends Component {
                            onChange={this.handleOnChange.bind(this)}
                            style={{display: 'none'}}/>
                 </AvatarOverlay>
-                    {this.state.error != null ? this._uploader.getUploadErrorMessage(this.state.error) : (
-                        <span>{this._uploader.getUploadErrorMessage(this.state.error)}</span>
-                    )}
+                    {this.state.error ? (
+                        <span className={theme.errorMessage}>{this._uploader.getUploadErrorMessage(this.state.error)}</span>
+                    ) : null}
                     </span>
             );
         } else {
@@ -120,8 +103,18 @@ EditableAvatar.propTypes = {
     onUpload: PropTypes.func,
     theme: PropTypes.object,
     requirements: PropTypes.objectOf({
-        width: PropTypes.number,
-        height: PropTypes.number
+        min: PropTypes.objectOf({
+            width: PropTypes.number.isRequired,
+            height: PropTypes.number.isRequired
+        }),
+        max: PropTypes.objectOf({
+            width: PropTypes.number.isRequired,
+            height: PropTypes.number.isRequired
+        })
+    }),
+    uploadType: PropTypes.oneOf({
+        [UPLOAD_TYPE_AVATAR]: PropTypes.string,
+        [UPLOAD_TYPE_OVERLAY]: PropTypes.string
     })
 };
 

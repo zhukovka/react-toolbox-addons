@@ -4,8 +4,22 @@ import {Upload} from '../../components/upload-zone';
 
 const TestUpload = () => {
     return (
-        <Upload onUpload={(file)=>{console.log(file);}}
-        />
+        <div>
+            <p>avatar</p>
+            <Upload onUpload={(file)=>{console.log(file);}}
+            />
+            <p>overlay</p>
+            <Upload onUpload={(file)=>{console.log(file);}}
+                    uploadType={"overlay"}
+                    requirements={{
+                        min: {
+                            width: 100,
+                            height: 100
+                        }
+                    }}
+            />
+        </div>
+
     );
 };
 
