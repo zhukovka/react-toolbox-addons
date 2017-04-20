@@ -1,0 +1,48 @@
+@import "~react-toolbox/lib/colors";
+@import '~react-toolbox/lib/globals';
+
+.avatar {
+  background: none;
+  color: $color-primary;
+  &.master {
+    color: $color-accent;
+  }
+
+}
+.title {
+  display: block;
+  color: inherit;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  background: none;
+  font-size: $font-size-tiny;
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 8rem;
+  height: 8rem;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: .4rem;
+  cursor: pointer;
+  justify-content: space-around;
+  background: $color-white;
+  &.selected {
+    background: $color-primary-dark;
+
+    & .avatar:not(.master) {
+      color: $color-white;
+    }
+
+    & .title {
+      color: $color-white;
+    }
+  }
+
+}

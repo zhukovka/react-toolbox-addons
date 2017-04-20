@@ -7,10 +7,11 @@ import {STYLED_DROPDOWN} from '../identifiers.js';
 /**
  * StyledDropdown props extend Dropdown props
  */
-const StyledDropdown = ({theme, className, primary, collapse, align, ...other})=> {
+const StyledDropdown = ({theme, className, primary, collapse, black, align, ...other})=> {
     const classes = classnames(theme.dropdown_styled, {
         [theme.primary]: primary,
         [theme.collapse]: collapse,
+        [theme.black]: black,
         [theme[align]]: align
     }, className);
     return (
@@ -25,6 +26,7 @@ StyledDropdown.propTypes = {
      * String align
      */
     align: PropTypes.oneOf(['right', 'center']),
+    black: PropTypes.bool,
     className: PropTypes.string,
     /**
      * set to remove top and bottom padding

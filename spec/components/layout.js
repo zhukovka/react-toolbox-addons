@@ -1,7 +1,9 @@
 import React from 'react';
 import { AppBar, Checkbox, Dropdown, IconButton, RadioGroup, RadioButton } from 'react-toolbox';
-import { Layout, Panel, Sidebar } from 'react-toolbox';
+import { Layout, Panel } from 'react-toolbox';
 import NavDrawerPlus from '../../components/nawdrawerplus';
+import SideBarPlus from '../../components/sidebarplus';
+
 
 const dummyText = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.';
 const drawerItems = dummyText.split(/\s/).map(function (word, index) {
@@ -132,10 +134,12 @@ class LayoutTest extends React.Component {
                                 </section>
                             </div>
                         </Panel>
-                        <Sidebar pinned={this.state.sidebarPinned} width={Number(this.state.sidebarWidth)}>
-                            <div><IconButton icon='close' onClick={this.toggleSidebar}/></div>
+                        <SideBarPlus pinned={this.state.sidebarPinned} width={Number(this.state.sidebarWidth)}
+                            title={"Sidebar"} titleIcon={"add"} headerAction={() => this.setState({
+                            sidebarPinned: false
+                            })} headerActionIcon={"close"}>
                             <div style={{ flex: 1, margin: '1.8rem' }}>
-                                <h5>Sidebar</h5>
+
                                 <p>
                                     Sidebar content should be secondary to the main content on a page.
                                 </p>
@@ -148,7 +152,8 @@ class LayoutTest extends React.Component {
                                     screen at small screen sizes.
                                 </p>
                             </div>
-                        </Sidebar>
+                        </SideBarPlus>
+
                     </Layout>
                 </div>
             </section>

@@ -2,8 +2,40 @@
 @import "~react-toolbox/lib/globals";
 @import "../config";
 
-.divider {
+
+@mixin _divider {
   height: $unit * 0.8;
   background-color: $grouplistdivider-bg;
   margin: 0;
+}
+.divider {
+  @include _divider();
+}
+
+.clickDivider {
+  @include _divider();
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .title {
+    font-size: $font-size-tiny;
+    color: $color-white;
+    line-height: $font-size-tiny;
+    cursor: pointer;
+    position: relative;
+    &.collapsed {
+    }
+
+    .clickIcon {
+      position: absolute;
+      color: inherit;
+      top: -50%;
+
+      &.iconCollapsed {
+        transform: rotate(-90deg);
+      }
+    }
+  }
 }

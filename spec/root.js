@@ -41,16 +41,47 @@ import LayoutTest from './components/layout';
 import IconSwitcher from './components/IconSwitcher';
 import TestChatContent from './components/TestChatContent.js';
 import TestTableWithPagination from './components/TestPagination.js';
-const Root = () => (
+import TooltipWrapper from './components/TestTooltipTitle.js';
+import TestHoverElement from './components/TestHoverElement.js';
+import AppBar from 'react-toolbox/lib/app_bar';
+import Navigation from 'react-toolbox/lib/navigation';
+import AvatarOverlay from '../components/avatar-overlay';
+import TestButtonSwitcher from './components/TestButtonSwithcer.js';
+import Toastr from '../components/custom-toastr/Toastr.js';
+import TestStyledInput from './components/TestStyledInput';
+import MessageItem from '../components/messageitem';
+import TestGridList from './components/TestGridList';
 
+const Root = () => (
     <div className={style.app}>
+     <TestGridList />
+      <MessageItem me={true} time="olollo" children={(<h3>Hello</h3>)}/>
+    <TestStyledInput />
+     <span onClick={(e) => {
+      e.preventDefault();
+      Toastr.info('Some info', {
+           position: 'top-right',
+            effect: 'bouncyflip',
+            timeout: 'none'
+      });
+     }}>click me</span>
+     <Toastr stack={{limit: 3}}/>
+     <TestButtonSwitcher />
+     <AvatarOverlay title='some'/>
+     <AppBar title="React Toolbox" leftIcon="menu">
+      <Navigation type="horizontal">
+       <TestHoverElement />
+      </Navigation>
+     </AppBar>
+
+     <TooltipWrapper tooltip="my tooltip" label='test' style={{display: 'inline-block'}} tooltipPosition={'top'}>Hover me</TooltipWrapper>
      <TestTableWithPagination />
      <TestChatContent />
      <LayoutTest/>
      <IconSwitcher/>
      <LayoutTest/>
      <DialogLayout />
-     <GroupListItem/>
+     <GroupListItem />
      <HoverableContent/>
      <BottomSheetTest/>
      <CardExpandable/>
@@ -196,7 +227,6 @@ const Root = () => (
      <section>
         <Footer contentUrl="https://www.sonymcs.com/privacy/" contentMessage="Privacy | Terms"></Footer>
      </section>
-
     </div>
 );
 

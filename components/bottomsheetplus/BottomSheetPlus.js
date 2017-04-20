@@ -20,13 +20,14 @@ const factory = (Overlay) => {
         }
 
         render () {
-            const {theme, children, className, active, style} = this.props;
+            const {theme, children, className, active, style, visibleBody} = this.props;
 
             const header = Array.isArray(children) ? children[0] : null;
             const content = Array.isArray(children) ? children.slice(1) : children;
 
             const _className = classnames({
-                [theme.active]: active
+                [theme.active]: active,
+                [theme.visibleBody]: visibleBody
             }, theme.bottomsheet_plus__item);
             const classes = classnames(theme.bottomsheet_plus, className);
 

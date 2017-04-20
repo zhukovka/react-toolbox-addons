@@ -88,7 +88,7 @@ class TableWithPagination extends Component{
         const actions = [
             {
                 icon: ARROW_LEFT,
-                onClick: (e) => this.handleIndexChange(e, startIndex - max),
+                onClick: (e) => this.handleIndexChange(e, (startIndex - max) < 0 ? 0 : (startIndex - max)),
                 disabled: startIndex === 0
             },
             {

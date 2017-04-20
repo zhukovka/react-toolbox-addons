@@ -40,6 +40,7 @@ const InputAddonsTest = (props) => {
             <h5>Styled Dropdown</h5>
 
             <StyledDropdown auto
+                            black
                             label="test"
                             onChange={(val)=>console.log(val)}
                             source={countries}

@@ -3,10 +3,12 @@ import classnames from 'classnames';
 import {UPLOAD} from '../identifiers';
 import {UploadButton} from '../upload-button';
 import ProgressBar from 'react-toolbox/lib/progress_bar';
+import UploaderUtil from './UploaderUtil';
 import {
-    CSS_UPLOAD_ACTIVE
+    CSS_UPLOAD_ACTIVE,
+    UPLOAD_TYPE_AVATAR,
+    UPLOAD_TYPE_OVERLAY
 } from './constants';
-
 
 class Upload extends Component {
     static propTypes = {
@@ -16,19 +18,69 @@ class Upload extends Component {
         defaultClass: PropTypes.string,
         onUpload: PropTypes.func,
         theme: PropTypes.object,
-        imageUrl: PropTypes.string
+        imageUrl: PropTypes.string,
+        requirements: PropTypes.objectOf({
+            min: PropTypes.objectOf({
+                width: PropTypes.number.isRequired,
+                height: PropTypes.number.isRequired
+            }),
+            max: PropTypes.objectOf({
+                width: PropTypes.number.isRequired,
+                height: PropTypes.number.isRequired
+            })
+        }),
+        uploadType: PropTypes.oneOf({
+            [UPLOAD_TYPE_AVATAR]: PropTypes.string,
+            [UPLOAD_TYPE_OVERLAY]: PropTypes.string
+        })
     };
     static defaultProps = {
-        defaultClass: UPLOAD
+        defaultClass: UPLOAD,
+        requirements: {}
     };
+
     constructor (props) {
         super(props);
         this.state = {
             isDragActive: false,
             imageUrl: props.imageUrl,
-            progress: 0
+            progress: 0,
+            error: null
         };
+
+        this._callbacks = {
+          onSuccess: (file, result, e) => {
+              this.setState({
+                  progress: 0,
+                  imageUrl: result,
+                  isDragActive: false,
+                  error: null
+              }, ()=> {
+                  this.props.onUpload(file, result, e);
+              });
+          },
+          onProgress: (progress) => {
+              this.setState({progress});
+          },
+          onBadTypeError: (errString) => {
+              this.setState({
+                  error: errString
+              });
+          },
+          onRequirementsError: (errString) => {
+              this.setState({
+                  error: errString,
+                  progress: 0
+              });
+          },
+          showProgress: true,
+          requirements: props.requirements,
+          uploadType: props.uploadType
+        };
+
+        this._uploader = new UploaderUtil({...this._callbacks});
     }
+
     onDragLeave () {
         this.setState({
             isDragActive: false
@@ -44,82 +96,29 @@ class Upload extends Component {
     }
 
     onUpload (e) {
-        let file;
-        e.preventDefault();
-        const errorHandler = (evt)=>{
-            switch (evt.target.error.code){
-                case evt.target.error.NOT_FOUND_ERR:
-                    console.log('File Not Found!');
-                    break;
-                case evt.target.error.NOT_READABLE_ERR:
-                    console.log('File is not readable');
-                    break;
-                case evt.target.error.ABORT_ERR:
-                    break; //
-                default:
-                    console.log('An error occurred reading this file.');
-            }
-        };
-
-        const updateProgress = (evt) => {
-            if (evt.lengthComputable) {
-                const percentLoaded = Math.round((evt.loaded / evt.total) * 100);
-                if (percentLoaded < 100) {
-                    this.setState({
-                        progress: percentLoaded
-                    });
-                }
-            }
-        };
-
-        const reader = new FileReader();
-        reader.onerror = errorHandler;
-        reader.onloadstart = ()=>{
-            this.setState({
-                progress: 1
-            });
-        };
-        reader.onload = () => {
-            this.setState({
-                progress: 100
-            });
-        };
-        reader.onprogress = updateProgress;
-        reader.onloadend = () => {
-            this.setState({
-                progress: 0,
-                imageUrl: reader.result,
-                isDragActive: false
-            }, ()=>{
-                this.props.onUpload(file, reader.result, e);
-            });
-        };
-
-        if (e.dataTransfer) {
-            file = e.dataTransfer.files[0];
-        } else {
-            file = e.target.files[0];
-        }
-
-        reader.readAsDataURL(file);
+        this._uploader.upload(e);
     }
 
     renderContent () {
-        const {progress, imageUrl} = this.state;
-        if (!progress) {
-            return (
-               <UploadButton icon="photo_camera"
-                           imageUrl={imageUrl}
-                           onUpload={this.onUpload.bind(this)}
-               />
-            );
-        } else {
-            return (
-                <div style={{padding: '10.8rem'}}>
-                    <ProgressBar value={this.state.progress} mode='determinate'/>
-                </div>
-            );
-        }
+        const {progress, imageUrl, error} = this.state;
+        const {theme} = this.props;
+        return (
+            <div className={theme.uploadWrapper}>
+                <UploadButton icon='photo_camera'
+                              imageUrl={imageUrl}
+                              onUpload={this.onUpload.bind(this)}
+                />
+                {progress && !error ? (
+                    <div style={{padding: '10.8rem'}}>
+                        <ProgressBar value={this.state.progress} mode='determinate'/>
+                    </div>
+                ) : !progress && error ? (
+                    <span className={theme.errorMessage}>
+                        {this._uploader.getUploadErrorMessage(error)}
+                    </span>
+                ) : null}
+            </div>
+        );
     }
 
     render () {

@@ -78,6 +78,32 @@
       }
     }
   }
+  &.black {
+    $dropdown-color-white: $color-black;
+    $dropdown-color-primary: $color-white;
+    $dropdown-color-primary-contrast: $color-primary-contrast;
+    $dropdown-value-hover-background: rgba($color-white, .2);
+    .values {
+      background-color: $dropdown-color-white;
+      color: darken($dropdown-color-primary, 50%);
+      > * {
+        &:hover {
+          background-color: $dropdown-value-hover-background;
+        }
+        &.selected {
+          color: $dropdown-color-primary;
+        }
+      }
+    }
+    .value {
+      &:after {
+        border-top-color: $color-primary;
+      }
+      input {
+        color: $color-white;
+      }
+    }
+  }
   &.right {
     .value {
       input {

@@ -2,10 +2,49 @@
 
 .grouplistitem {
   border-left: 4px solid;
+  & .item {
+    & .itemContentRoot {
+      height: $list-item-min-height;
+    }
+  }
 }
 
 @each $property, $value in $groups {
   .#{$property} {
     border-left-color: $value;
+  }
+}
+.itemText {
+  &:not(.primary) {
+    padding-top: 0;
+    font-size: $font-size-tiny;
+  }
+}
+/*  ListItemWithDropDown  */
+.listItemContent {
+  width: 100%;
+  flex: 1 0 auto;
+  max-width: 45%;
+  &_title {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  & [data-react-toolbox="dropdown"] {
+    width: 8rem;
+    & ul li {
+      padding: .5rem;
+      font-size: $font-size-tiny;
+    }
+    & [data-react-toolbox="input"] {
+      padding: 0;
+      & input {
+        padding: 0;
+        font-size: $font-size-tiny;
+        color: $color-text-secondary;
+      }
+    }
   }
 }
