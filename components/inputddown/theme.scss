@@ -14,14 +14,20 @@
     }
   }
   [data-react-toolbox="list"] {
+    position: absolute;
+    max-height: 190px;
+    overflow-y: scroll;
+    background: $darkgrey;
     padding: 0;
     z-index: 1;
-    background: $darkgrey;
     -webkit-box-shadow: -1px 0 15px -4px black;
     -moz-box-shadow: -1px 0 15px -4px black;
     box-shadow: -1px 0 15px -4px black;
     li {
       border-bottom: 1px solid $grey;
+    }
+    :last-of-type {
+      border-bottom: none;
     }
   }
 }
