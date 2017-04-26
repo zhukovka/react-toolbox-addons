@@ -4,7 +4,7 @@
   &[data-react-toolbox="input"] {
     padding-bottom: 0;
     .inputElement {
-      color: $white;
+      color: $grey;
       border-radius: 4px;
       padding-left: 10px;
     }
@@ -16,8 +16,12 @@
   [data-react-toolbox="list"] {
     padding: 0;
     z-index: 1;
+    background: $darkgrey;
     -webkit-box-shadow: -1px 0 15px -4px black;
     -moz-box-shadow: -1px 0 15px -4px black;
     box-shadow: -1px 0 15px -4px black;
+    li {
+      border-bottom: 1px solid $grey;
+    }
   }
 }
