@@ -31,6 +31,7 @@
     "react-css-themr": "^1.1.2",
     "react-dom": "^15.3.0",
     "react-s-alert": "^1.2.2",
+    "prop-types": "15.5.8",
     "react-toolbox": "^1.1.2"
   },
   "devDependencies": {
