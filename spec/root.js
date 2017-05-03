@@ -11,6 +11,7 @@ import Checkmark from '../components/checkmark/Checkmark';
 import ChipTransparent from '../components/chips';
 import DialogLayout from './components/DialogLayoutTest';
 import DisabledInput from '../components/disabledinput';
+import InputDdown from '../components/inputddown';
 import Footer from '../components/footer';
 import InputAddonsTest from './components/inputaddons';
 import MenuListTest from './components/menulist';
@@ -156,6 +157,10 @@ const Root = () => (
      <section>
       <h5>DisabledInput</h5>
       <DisabledInput label="test" value="123"/>
+     </section>
+     <section>
+      <h5>Input with Dropdown</h5>
+      <InputDdown array={['Black', 'Fade to Black', 'Gagaga', 'Commercial Black / Insert Ads']} hint="+ Add Tag" />
      </section>
      <section>
       <h5>CardActions</h5>

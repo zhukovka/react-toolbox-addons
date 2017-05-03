@@ -22,6 +22,7 @@ export const GROUPLISTITEM = 'GroupListItem';
 export const HOVERABLECONTENT = 'HoverableContent';
 export const ICONSWITCHER = 'IconSwitcher';
 export const INPUTGROUP = 'InputGroup';
+export const INPUTDDOWN = 'InputDdown';
 export const MESSAGEITEM = 'MessageItem';
 export const NAVDRAWER_PLUS = 'NavDrawerPlus';
 export const NAVIGATIONS_CHIPS = 'NavigationChips';

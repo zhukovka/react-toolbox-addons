@@ -28,6 +28,7 @@ export HoverableContent from './hoverablecontent';
 export {IconSwitcher} from './iconswitcher';
 export {ButtonSwitcher} from './iconswitcher';
 export InputGroup from './inputgroup';
+export InputDdown from './inputddown';
 export MessageItem from './messageitem';
 export NavDrawerPlus from './nawdrawerplus';
 export NavigationChips from './navigation-chips';
