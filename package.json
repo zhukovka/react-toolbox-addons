@@ -2,7 +2,7 @@
   "name": "react-toolbox-addons",
   "description": "",
   "homepage": "https://github.com/zhukovka/react-toolbox-addons#readme",
-  "version": "1.1.233",
+  "version": "1.1.234",
   "main": "./lib",
   "author": "",
   "repository": {
@@ -25,13 +25,13 @@
     "core-js": "^2.4.0",
     "immutability-helper": "^2.0.0",
     "normalize.css": "^4.2.0",
+    "prop-types": "15.5.8",
     "react": "^15.3.0",
     "react-addons-css-transition-group": "^15.3.0",
     "react-addons-update": "^15.3.0",
     "react-css-themr": "^1.1.2",
     "react-dom": "^15.3.0",
     "react-s-alert": "^1.2.2",
-    "prop-types": "15.5.8",
     "react-toolbox": "^1.1.2"
   },
   "devDependencies": {
