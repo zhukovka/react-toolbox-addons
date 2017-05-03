@@ -47,27 +47,24 @@ export default class UploaderUtil {
         const {min, max} = requirements;
         let types = TYPES_BY_UPLOAD[UPLOAD_TYPE_DEFAULT];
         let message;
-        if (uploadType) {
-            switch (msgType) {
-                case ERROR_MIN_REQUIREMENTS :
-                    message = 'Player logo should be not less than ' + min.width + 'x' + min.height + ' pixels.';
-                    break;
-                case ERROR_MAX_REQUIREMENTS :
-                    message = 'Image should be not bigger ' + max.width + 'x' + max.height + ' pixels.';
-                    break;
-                case ERROR_BAD_TYPE :
-                    if (uploadType) {
-                        types = TYPES_BY_UPLOAD[uploadType];
-                    }
-                    message = 'Eligible formats: ' + types
-                            .map(str => str.split('/')[1])
-                            .join(', ') + '.';
-                    break;
-                default :
-                    break;
-            }
+        switch (msgType) {
+            case ERROR_MIN_REQUIREMENTS :
+                message = 'Player logo should be not less than ' + min.width + 'x' + min.height + ' pixels.';
+                break;
+            case ERROR_MAX_REQUIREMENTS :
+                message = 'Image should be not bigger ' + max.width + 'x' + max.height + ' pixels.';
+                break;
+            case ERROR_BAD_TYPE :
+                if (uploadType) {
+                    types = TYPES_BY_UPLOAD[uploadType];
+                }
+                message = 'Eligible formats: ' + types
+                        .map(str => str.split('/')[1])
+                        .join(', ') + '.';
+                break;
+            default :
+                break;
         }
-
         return message;
     }
 

@@ -1,0 +1,32 @@
+@import 'config';
+
+.inputddown {
+  &[data-react-toolbox="input"] {
+    padding-bottom: 0;
+    .inputElement {
+      border-radius: 4px;
+      padding-left: 10px;
+    }
+    .hint {
+      left: 10px;
+      color: $grey;
+    }
+  }
+  [data-react-toolbox="list"] {
+    position: absolute;
+    max-height: 190px;
+    overflow-y: scroll;
+    background: $darkgrey;
+    padding: 0;
+    z-index: 1;
+    -webkit-box-shadow: -1px 0 15px -4px black;
+    -moz-box-shadow: -1px 0 15px -4px black;
+    box-shadow: -1px 0 15px -4px black;
+    li {
+      border-bottom: 1px solid $grey;
+    }
+    :last-of-type {
+      border-bottom: none;
+    }
+  }
+}
