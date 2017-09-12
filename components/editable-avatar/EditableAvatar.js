@@ -50,6 +50,14 @@ class EditableAvatar extends Component {
 
     static defaultProps = {
         requirements: {
+            min: {
+                width: 0,
+                height: 0
+            },
+            max: {
+                width: 0,
+                height: 0
+            }
         },
         uploadType: UPLOAD_TYPE_AVATAR
     };
@@ -68,7 +76,7 @@ class EditableAvatar extends Component {
         if (editable) {
             return (
                 <span>
-                <AvatarOverlay image={image} icon={ICON_PHOTO_CAMERA} onClick={()=> {
+                <AvatarOverlay image={image} icon={ICON_PHOTO_CAMERA} onClick={() => {
                     ReactDOM.findDOMNode(this.refs.fileInput).click();
                 }}>
                     <input ref='fileInput'
@@ -102,12 +110,12 @@ EditableAvatar.propTypes = {
     ]),
     onUpload: PropTypes.func,
     theme: PropTypes.object,
-    requirements: PropTypes.objectOf({
-        min: PropTypes.objectOf({
+    requirements: PropTypes.shape({
+        min: PropTypes.shape({
             width: PropTypes.number.isRequired,
             height: PropTypes.number.isRequired
         }),
-        max: PropTypes.objectOf({
+        max: PropTypes.shape({
             width: PropTypes.number.isRequired,
             height: PropTypes.number.isRequired
         })
