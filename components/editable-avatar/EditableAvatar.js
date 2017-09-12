@@ -120,10 +120,10 @@ EditableAvatar.propTypes = {
             height: PropTypes.number.isRequired
         })
     }),
-    uploadType: PropTypes.oneOf({
-        [UPLOAD_TYPE_AVATAR]: PropTypes.string,
-        [UPLOAD_TYPE_OVERLAY]: PropTypes.string
-    })
+    uploadType: PropTypes.oneOf([
+        UPLOAD_TYPE_AVATAR,
+        UPLOAD_TYPE_OVERLAY
+    ])
 };
 
 export {EditableAvatar};

@@ -19,20 +19,20 @@ class Upload extends Component {
         onUpload: PropTypes.func,
         theme: PropTypes.object,
         imageUrl: PropTypes.string,
-        requirements: PropTypes.objectOf({
-            min: PropTypes.objectOf({
+        requirements: PropTypes.shape({
+            min: PropTypes.shape({
                 width: PropTypes.number.isRequired,
                 height: PropTypes.number.isRequired
             }),
-            max: PropTypes.objectOf({
+            max: PropTypes.shape({
                 width: PropTypes.number.isRequired,
                 height: PropTypes.number.isRequired
             })
         }),
-        uploadType: PropTypes.oneOf({
-            [UPLOAD_TYPE_AVATAR]: PropTypes.string,
-            [UPLOAD_TYPE_OVERLAY]: PropTypes.string
-        })
+        uploadType: PropTypes.oneOf([
+            UPLOAD_TYPE_AVATAR,
+            UPLOAD_TYPE_OVERLAY
+        ])
     };
     static defaultProps = {
         defaultClass: UPLOAD,
