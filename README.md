@@ -20,6 +20,6 @@ git push
 
 ```bash
 npm login
-npm patch
+npm run patch
 npm publish
 ```
