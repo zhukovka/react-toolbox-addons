@@ -38,7 +38,7 @@ class StyledInput extends React.Component {
 }
 
 StyledInput.propTypes = {
-    autofocus: PropTypes.boolean,
+    autofocus: PropTypes.bool,
     children: PropTypes.any,
     className: PropTypes.string,
     /**
