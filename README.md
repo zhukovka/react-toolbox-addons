@@ -16,10 +16,12 @@ git add .
 git commit -m 'new addons'
 git push
 ```
-4. Publish
+4. Create Pull Request and merge into master branch
+5. Publish
 
 ```bash
+git checkout origin/master
+git pull 
 npm login
 npm run patch
-npm publish
 ```
