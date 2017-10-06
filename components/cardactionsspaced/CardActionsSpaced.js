@@ -8,7 +8,7 @@ const CardActionsSpaced = ({align, verticalAlign, fullheight, className, ...othe
     return (<CardActions {...other} theme={theme} className={classes}/>);
 };
 CardActionsSpaced.propTypes = {
-    align: PropTypes.oneOf(['center', 'start', 'end', 'space-around']),
+    align: PropTypes.oneOf(['center', 'start', 'end', 'space-around', 'space-between']),
     children: PropTypes.node,
     className: PropTypes.string,
     fullheight: PropTypes.bool,
